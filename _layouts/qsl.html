@@ -1,0 +1,22 @@
+---
+layout: post
+---
+
+<figure><img class="front_image" src="{{ page.front }}"/></figure>
+
+<figure><img class="back_image" src="{{ page.back }}"/></figure>
+
+<p>Подтверждение типа {{ page.kind }}</p>
+<p>Частота: {{ page.frequency }}</p>
+<p>День передачи: {{ page.reception_date | date_to_string }}</p>
+<p>Время передачи в UTC: {{ page.reception_time }}</p>
+<p>Место приема: {{ page.location }}</p>
+<p>Приемник: {{ page.receiver }}</p>
+<p>Антенна: {{ page.antenna }}</p>
+<p>Место передатчика: {{ page.transmitter }}</p>
+<p>Адрес радиостанции: {{ page.mail_to }}</p>
+<p>Ответ отправлен {{ page.responce_sent | date_to_string }}</p>
+<p>Ответ получен {{ page.responce_received | date_to_string }}</p>
+<p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ page.youtube_id }}" title="Record of the reception" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>

@@ -2,12 +2,15 @@
 layout: post
 ---
 
-<figure><img class="front_image" src="{{ page.front }}"/></figure>
+<div class="left_column">
 
-<figure><img class="back_image" src="{{ page.back }}"/></figure>
+<figure class="front_image"><a href="{{ page.front_full }}"><img src="{{ page.front_small }}"/></a></figure>
+
+<figure class="back_image"><a href="{{ page.back_full }}"><img src="{{ page.back_small }}"/></a></figure>
 
 <p>Подтверждение типа {{ page.kind }}</p>
 <p>Частота: {{ page.frequency }}</p>
+<p>Язык передачи: {{ page.language }}</p>
 <p>День передачи: {{ page.reception_date | date_to_string }}</p>
 <p>Время передачи в UTC: {{ page.reception_time }}</p>
 <p>Место приема: {{ page.location }}</p>
@@ -17,6 +20,36 @@ layout: post
 <p>Адрес радиостанции: {{ page.mail_to }}</p>
 <p>Ответ отправлен {{ page.responce_sent | date_to_string }}</p>
 <p>Ответ получен {{ page.responce_received | date_to_string }}</p>
+
+{% if page.organization %}
+{% assign org = site.organizations | where: 'code', page.organization | first %}
+{% if org %}
+<p>Организация: <a href="{{ org.url }}">{{ org.title }}</a></p>
+{% endif %}
+{% endif %}
+
 <p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ page.youtube_id }}" title="Record of the reception" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
+
+</div>
+
+<div class="right_column">
+{% if page.organization %}
+{% assign qsls = site.qsls
+                | where: 'organization', page.organization
+                | sort: 'reception_date'
+                | reverse %}
+
+{% for qsl in qsls %}
+<div class="item">
+  <img src="{{ qsl.front_small }}" width="150px" style="float:left; margin-right: 10px; "/>
+  <h4><a href="{{ qsl.url }}">{{ qsl.title }}</a></h4>
+  <!-- <p>
+  Дата: {{ qsl.reception_date | date_to_string }}
+  </p> -->
+  <!-- <p>{{ qsl.content | markdownify }}</p> -->
+</div>
+{% endfor %}
+{% endif %}
+</div>

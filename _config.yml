@@ -35,6 +35,8 @@ plugins:
 collections:
   qsls:
     output: true
+  organizations:
+    output: true
 
 defaults:
   - scope:
@@ -42,6 +44,11 @@ defaults:
       type: "qsls"
     values:
       layout: "qsl"
+  - scope:
+      path: ""
+      type: "organizations"
+    values:
+      layout: "org"
   - scope:
       path: ""
     values:

@@ -1,0 +1,20 @@
+---
+layout: page
+---
+
+{% assign qsls = site.qsls
+                | where: 'organization', page.code
+                | sort: 'reception_date'
+                | reverse %}
+
+{% for qsl in qsls %}
+<div class="item">
+  <img src="{{ qsl.front_small }}" width="100px" style="float:left; margin-right: 10px; margin-bottom: 10px; "/>
+  <h4><a href="{{ qsl.url }}">{{ qsl.title }}</a></h4>
+  <p>
+  Дата: {{ qsl.reception_date | date_to_string }}
+  </p>
+  <!-- <p>{{ qsl.content | markdownify }}</p> -->
+</div>
+{% endfor %}
+

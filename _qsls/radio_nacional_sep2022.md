@@ -1,9 +1,12 @@
 ---
 title: Rádio Nacional da Amazônia — September 2022
 kind: e-QSL
-front: /assets/qsl/2022/brasil/radio_nacional_front.jpg
-back: /assets/qsl/2022/brasil/radio_nacional_back.jpg
+front_full: /assets/qsl/2022/brasil/full/radio_nacional_front.jpg
+back_full: /assets/qsl/2022/brasil/full/radio_nacional_back.jpg
+front_small: /assets/qsl/2022/brasil/small/radio_nacional_front.jpg
+back_small: /assets/qsl/2022/brasil/small/radio_nacional_back.jpg
 frequency: 11780 kHz
+language: portuguese
 reception_date: 2022-08-13
 reception_time: 23.07-24.00
 location: Moscow (inside city)

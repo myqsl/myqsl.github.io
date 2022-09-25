@@ -4,14 +4,39 @@
 
 @import "minima";
 
-.front_image {
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 10px;
-    border: solid 1px gray;
+figure.front_image {
+    //margin: 10px 10px 10px 10px;
+    //padding: 10px 10px 10px 10px;
+    padding-right: 10px;
+    //border: solid 1px gray;
 }
 
-.back_image {
-    margin: 10px 10px 10px 10px;
+figure.back_image {
+    //margin: 10px 10px 10px 10px;
+    //padding: 10px 10px 10px 10px;
+    padding-right: 10px;
+    //border: solid 1px gray;
+}
+
+div.item {
+    overflow: auto;
+    border: solid 1px dodgerblue;
+    margin-bottom: 10px;
     padding: 10px 10px 10px 10px;
-    border: solid 1px gray;
+}
+
+div.item:hover {
+    border-width: 3px;
+}
+
+@media screen and (min-width: 800px) {
+    .left_column {
+        width: 50%;
+        float: left;
+    }
+
+    .right_column {
+        width: 50%;
+        float: right;
+    }
 }

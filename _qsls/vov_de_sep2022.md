@@ -17,4 +17,5 @@ transmitter: Hanoy
 youtube_id: -pQ4IyHS88U 
 responce_sent: 2022-09-18
 responce_received: 2022-09-18
+organization: vov
 ---

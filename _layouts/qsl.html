@@ -8,29 +8,30 @@ layout: post
 
 <figure class="back_image"><a href="{{ page.back_full }}"><img src="{{ page.back_small }}"/></a></figure>
 
-<p>Подтверждение типа {{ page.kind }}</p>
-<p>Частота: {{ page.frequency }}</p>
-<p>Язык передачи: {{ page.language }}</p>
-<p>День передачи: {{ page.reception_date | date_to_string }}</p>
-<p>Время передачи в UTC: {{ page.reception_time }}</p>
-<p>Место приема: {{ page.location }}</p>
-<p>Приемник: {{ page.receiver }}</p>
-<p>Антенна: {{ page.antenna }}</p>
-<p>Место передатчика: {{ page.transmitter }}</p>
-<p>Адрес радиостанции: {{ page.mail_to }}</p>
-<p>Ответ отправлен {{ page.responce_sent | date_to_string }}</p>
-<p>Ответ получен {{ page.responce_received | date_to_string }}</p>
+<p>Confirmed: {{ page.kind }}/{{ page.mail_to }}</p>
+<p>Frequency: {{ page.frequency }}</p>
+<p>Language: {{ page.language }}</p>
+<p>Date: {{ page.reception_date | date_to_string }}</p>
+<p>Time UTC: {{ page.reception_time }}</p>
+<p>Location: {{ page.location }}</p>
+<p>Radio: {{ page.receiver }}</p>
+<p>Antenna: {{ page.antenna }}</p>
+<p>Tx: {{ page.transmitter }}</p>
+<p>Responce sent: {{ page.responce_sent | date_to_string }}</p>
+<p>Responce received: {{ page.responce_received | date_to_string }}</p>
 
 {% if page.organization %}
 {% assign org = site.organizations | where: 'code', page.organization | first %}
 {% if org %}
-<p>Организация: <a href="{{ org.url }}">{{ org.title }}</a></p>
+<p>Organisation: <a href="{{ org.url }}">{{ org.title }}</a></p>
 {% endif %}
 {% endif %}
 
+{% if page.youtube_id %}
 <p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ page.youtube_id }}" title="Record of the reception" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
+{% endif %}
 
 </div>
 

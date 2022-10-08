@@ -4,9 +4,13 @@ layout: post
 
 <div class="left_column">
 
+{% if page.front_full %}
 <figure class="front_image"><a href="{{ page.front_full }}"><img src="{{ page.front_small }}"/></a></figure>
+{% endif %}
 
+{% if page.back_full %}
 <figure class="back_image"><a href="{{ page.back_full }}"><img src="{{ page.back_small }}"/></a></figure>
+{% endif %}
 
 {% assign station = site.stations | where: 'code', page.station | first %}
 {% if station %}

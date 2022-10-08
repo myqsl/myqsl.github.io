@@ -77,6 +77,27 @@ div.item:hover {
     border-width: 3px;
 }
 
+.qitem {
+    //overflow: auto;
+    //border: solid 1px dodgerblue;
+    margin: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    width: 200px;
+    float: left;
+}
+
+.qitem img {
+    width: 100%;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    box-shadow: 6px 3px 3px lightgray;
+}
+
+.qitem p {
+    font-size: small;
+    text-align: center;
+}
+
 @media screen and (min-width: 800px) {
     .left_column {
         //width: 50%;

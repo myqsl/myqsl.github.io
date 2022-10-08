@@ -37,6 +37,8 @@ collections:
     output: true
   organizations:
     output: true
+  stations:
+    output: true
 
 defaults:
   - scope:
@@ -51,10 +53,19 @@ defaults:
       layout: "org"
   - scope:
       path: ""
+      type: "stations"
+    values:
+      layout: "station"
+  - scope:
+      path: ""
     values:
       layout: "default"
 
 show_excerpts: true
+
+header_pages:
+  - stations.markdown
+  - about.markdown
 
 # Exclude from processing.
 # The following items will not be processed, by default.

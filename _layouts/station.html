@@ -1,0 +1,17 @@
+---
+layout: page
+---
+
+{% assign qsls = site.qsls
+                | where: 'station', page.code
+                %}
+
+{% for qsl in qsls %}
+<div class="qitem">
+  <a href="{{ qsl.url }}">
+  <img src="{{ qsl.front_small }}"/>
+  <p>{{ qsl.title }}</p>
+  </a>
+</div>
+{% endfor %}
+

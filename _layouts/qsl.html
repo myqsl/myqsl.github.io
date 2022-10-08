@@ -8,6 +8,11 @@ layout: post
 
 <figure class="back_image"><a href="{{ page.back_full }}"><img src="{{ page.back_small }}"/></a></figure>
 
+{% assign station = site.stations | where: 'code', page.station | first %}
+{% if station %}
+<p>Station: <a href="{{ station.url }}">{{ station.title }}</a></p>
+{% endif %}
+
 <p>Confirmed: {{ page.kind }}/{{ page.mail_to }}</p>
 <p>Frequency: {{ page.frequency }}</p>
 <p>Language: {{ page.language }}</p>

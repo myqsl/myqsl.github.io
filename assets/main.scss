@@ -2,7 +2,43 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
+$content-width:    1200px !default;
+
 @import "minima";
+
+@media screen and (min-width: 1200px) {
+    .excerpt {
+        float: left;
+        //max-width: -webkit-calc(#{$content-width} - (300px));
+        //max-width:         calc(#{$content-width} - (300px));
+        width: 980px;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+    .excerpt {
+        float: left;
+        //max-width: -webkit-calc(#{$content-width} - (300px));
+        //max-width:         calc(#{$content-width} - (300px));
+        width: 700px; 
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+    .excerpt {
+        float: left;
+        //max-width: -webkit-calc(#{$content-width} - (600px));
+        //max-width:         calc(#{$content-width} - (600px));
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .excerpt {
+        float: left;
+
+    }
+}
 
 figure.front_image {
     //margin: 10px 10px 10px 10px;
@@ -11,11 +47,23 @@ figure.front_image {
     //border: solid 1px gray;
 }
 
+.front_image img {
+    width: 100%;
+    box-shadow: 6px 3px 3px gray;
+    border: solid 1px lightgrey;
+}
+
 figure.back_image {
     //margin: 10px 10px 10px 10px;
     //padding: 10px 10px 10px 10px;
     padding-right: 10px;
     //border: solid 1px gray;
+}
+
+.back_image img {
+    width: 100%;
+    box-shadow: 6px 3px 3px gray;
+    border: solid 1px lightgrey;
 }
 
 div.item {
@@ -31,12 +79,18 @@ div.item:hover {
 
 @media screen and (min-width: 800px) {
     .left_column {
-        width: 50%;
+        //width: 50%;
+        //width: -webkit-calc(#{$content-width} - (700px));
+        //width:         calc(#{$content-width} - (700px));
+        width: -webkit-calc(100% - (400px));
+        width:         calc(100% - (400px));
         float: left;
     }
 
-    .right_column {
-        width: 50%;
-        float: right;
-    }
 }
+
+    .right_column {
+        width: 400px;
+        float: left;
+    }
+

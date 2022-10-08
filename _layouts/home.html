@@ -17,7 +17,7 @@ layout: default
         <div style="float:left; margin-right: 10px; margin-top: 10px; width: 150px; ">
         <img src="{{ post.image }}"/>
         </div>
-        
+        <div class="excerpt"> 
         
 
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
@@ -30,6 +30,8 @@ layout: default
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
         {%- endif -%}
+        </div>
+        <div style="clear:both" />
       </li>
       {%- endfor -%}
     </ul>

@@ -3,5 +3,5 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
-list_title: Latest posts
+list_title: Latest posts (in Russian)
 ---

@@ -4,7 +4,21 @@ title: Stations
 permalink: /stations/
 ---
 
-{% assign stations = site.stations | sort: 'title' %}
-{% for s in stations %}
-<p><a href="{{ s.url }}">{{ s.title }}</a></p>
+{% assign countries = site.stations | map: 'country' | sort %}
+<table>
+<tr>
+    <th>Country</th>
+    <th>Station</th>
+</tr>
+{% for c in countries %}
+    <tr>
+    <td><p>{{ c }}</p></td>
+    <td>
+    {% assign its_stations = site.stations | where: 'country', c | sort: 'title' %}
+    {% for s in its_stations %}
+    <p><a href="{{ s.url }}">{{ s.title }}</a></p>
+    {% endfor %}
+    </td>
+    </tr>
 {% endfor %}
+</table>

@@ -9,8 +9,22 @@ layout: default
 
   {{ content }}
 
+  <h2 class="post-list-heading">Latest QSL</h2>
+    {% assign qsls = site.qsls %}
+
+    {% for qsl in qsls %}
+    <div class="qitem">
+      <a href="{{ qsl.url }}">
+      <img src="{{ qsl.front_small }}"/>
+      <!-- <p>{{ qsl.title }}</p> -->
+      </a>
+    </div>
+    {% endfor %}
+
+  <div style="clear:both"/>
+
   {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <h2 class="post-list-heading">Latest posts (in Russian)</h2>
     <ul class="post-list">
       {%- for post in site.posts -%}
       <li>

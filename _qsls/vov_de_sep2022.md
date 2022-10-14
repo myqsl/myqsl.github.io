@@ -15,6 +15,7 @@ receiver: Sony ICF-2010
 antenna: telescopic
 transmitter: Hanoy, Vietnam
 youtube_id: -pQ4IyHS88U 
+report_sent: 2022-09-15
 responce_sent: 2022-09-18
 responce_received: 2022-09-18
 organization: vov

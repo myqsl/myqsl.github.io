@@ -15,6 +15,7 @@ receiver: Airspy HF+ Discovery
 antenna: YouLoop magnetic loop
 transmitter: Emirler, Turkey
 youtube_id: suk_nJEDDdc
+report_sent: 2022-02-02
 responce_sent: 2022-09-14
 responce_received: 2022-09-21
 organization: trt

@@ -15,6 +15,7 @@ receiver: Degen DE1103 PLL
 antenna: 30 meters wire
 transmitter: Toscana, Italy
 youtube_id: qt7F61VfOWw
+report_sent: 2022-08-15
 responce_sent: 2022-08-17
 responce_received: 2022-09-23
 organization: italcable

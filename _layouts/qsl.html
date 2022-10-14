@@ -14,25 +14,26 @@ layout: post
 
 {% assign station = site.stations | where: 'code', page.station | first %}
 {% if station %}
-<p>Station: <a href="{{ station.url }}">{{ station.title }}</a></p>
+<p><code>Station</code> <a href="{{ station.url }}">{{ station.title }}</a></p>
 {% endif %}
 
-<p>Confirmed: {{ page.kind }}/{{ page.mail_to }}</p>
-<p>Frequency: {{ page.frequency }}</p>
-<p>Language: {{ page.language }}</p>
-<p>Date: {{ page.reception_date | date_to_string }}</p>
-<p>Time UTC: {{ page.reception_time }}</p>
-<p>Location: {{ page.location }}</p>
-<p>Radio: {{ page.receiver }}</p>
-<p>Antenna: {{ page.antenna }}</p>
-<p>Tx: {{ page.transmitter }}</p>
-<p>Responce sent: {{ page.responce_sent | date_to_string }}</p>
-<p>Responce received: {{ page.responce_received | date_to_string }}</p>
+<p><code>Confirmed</code> {{ page.kind }}/<a href="mailto:{{ page.mail_to }}">{{ page.mail_to }}</a></p>
+<p><code>Frequency</code> {{ page.frequency }}</p>
+<p><code>Language</code> {{ page.language }}</p>
+<p><code>Date</code> {{ page.reception_date | date_to_string }}</p>
+<p><code>Time UTC</code> {{ page.reception_time }}</p>
+<p><code>Location</code> {{ page.location }}</p>
+<p><code>Radio</code> {{ page.receiver }}</p>
+<p><code>Antenna</code> {{ page.antenna }}</p>
+<p><code>Tx</code> {{ page.transmitter }}</p>
+<p><code>Report sent</code> {{ page.report_sent | date_to_string }}</p>
+<p><code>Responce sent</code> {{ page.responce_sent | date_to_string }}</p>
+<p><code>Responce received</code> {{ page.responce_received | date_to_string }}</p>
 
 {% if page.organization %}
 {% assign org = site.organizations | where: 'code', page.organization | first %}
 {% if org %}
-<p>Organisation: <a href="{{ org.url }}">{{ org.title }}</a></p>
+<p><code>Organisation</code> <a href="{{ org.url }}">{{ org.title }}</a></p>
 {% endif %}
 {% endif %}
 
@@ -42,7 +43,10 @@ layout: post
 </p>
 {% endif %}
 
+{{ content }}
+
 </div>
+
 
 <div class="right_column">
 {% if page.organization %}

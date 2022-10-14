@@ -14,6 +14,7 @@ mail_to: tsr@trt.net.tr
 receiver: none
 antenna: none
 transmitter: Emirler, Turkey
+report_sent: 2022-09-02
 responce_sent: 2022-09-21
 responce_received: 2022-09-29
 organization: trt

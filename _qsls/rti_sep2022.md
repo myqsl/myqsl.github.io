@@ -15,6 +15,7 @@ receiver: Sony ICF-2010
 antenna: its telescopic
 transmitter: Kostinbrod, Bulgaria
 youtube_id: vvghHJAq_2w
+report_sent: 2022-09-15
 responce_sent: 2022-09-22
 responce_received: 2022-10-05
 organization: rti

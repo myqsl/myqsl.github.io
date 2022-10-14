@@ -15,6 +15,7 @@ receiver: Degen DE1103 PLL
 antenna: 30 meters wire on ground beamed to tx
 transmitter: Brasilia DF, Brazil 
 youtube_id: eWwW1KxG6nU 
+report_sent: 2022-08-23
 responce_sent: 2022-09-20
 responce_received: 2022-09-20
 organization: brasil

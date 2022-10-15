@@ -10,18 +10,24 @@ layout: default
   {{ content }}
 
   <h2 class="post-list-heading">Latest QSL</h2>
-    {% assign qsls = site.qsls %}
+    {% assign qsls = site.qsls | sort: 'responce_received' | reverse %}
 
     {% for qsl in qsls %}
-    <div class="qitem">
-      <a href="{{ qsl.url }}">
-      <img src="{{ qsl.front_small }}"/>
-      <!-- <p>{{ qsl.title }}</p> -->
-      </a>
-    </div>
+      <div class="latest-qsl">
+        {% assign station = site.stations | where: 'code', qsl.station | first %}
+        <code>{{ qsl.responce_received }}</code> {{ qsl.kind }}
+            from {{ station.title }}
+            | {{ qsl.reception_date }} | {{ qsl.reception_time }}
+            | {{ qsl.frequency }} | {{ qsl.transmitter }}
+            | <a href="{{ qsl.mail_to }}">{{ qsl.mail_to }}</a>
+        <a href="{{ qsl.url }}">
+        <img src="{{ qsl.front_small }}"/></a>
+        <a href="{{ qsl.url }}">
+        <img src="{{ qsl.back_small }}"/></a>
+      </div>
+      <div style="clear:both">&nbsp;</div>
     {% endfor %}
 
-  <div style="clear:both"/>
 
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">Latest posts (in Russian)</h2>

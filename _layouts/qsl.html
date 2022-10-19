@@ -17,7 +17,7 @@ layout: post
 <p><code>Station</code> <a href="{{ station.url }}">{{ station.title }}</a></p>
 {% endif %}
 
-<p><code>Confirmed</code> {{ page.kind }}/<a href="mailto:{{ page.mail_to }}">{{ page.mail_to }}</a></p>
+<p><code>Confirmed</code> {{ page.kind }}/<a href="{{ page.mail_to }}">{{ page.mail_to }}</a></p>
 <p><code>Frequency</code> {{ page.frequency }}</p>
 <p><code>Language</code> {{ page.language }}</p>
 <p><code>Date</code> {{ page.reception_date | date_to_string }}</p>

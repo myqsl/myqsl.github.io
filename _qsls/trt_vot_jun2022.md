@@ -10,7 +10,7 @@ language: Azeri
 reception_date: 2022-06-17
 reception_time: 15.28-16.24
 location: Moscow, Russia (inside city)
-mail_to: tsr@trt.net.tr
+mail_to: mailto:tsr@trt.net.tr
 receiver: Airspy HF+ Discovery
 antenna: YouLoop magnetic loop
 transmitter: Emirler, Turkey

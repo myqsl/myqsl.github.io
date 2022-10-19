@@ -10,7 +10,7 @@ language: Russian
 reception_date: 2022-09-14
 reception_time: 20.00-20.30
 location: Moscow, Russia (inside city)
-mail_to: russ@rti.org.tw
+mail_to: mailto:russ@rti.org.tw
 receiver: Sony ICF-2010
 antenna: its telescopic
 transmitter: Kostinbrod, Bulgaria

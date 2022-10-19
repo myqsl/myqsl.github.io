@@ -10,7 +10,7 @@ language: Russian
 reception_date: 2022-09-02
 reception_time: 13.00-14.00
 location: Moscow, Russia (inside city)
-mail_to: tsr@trt.net.tr
+mail_to: mailto:tsr@trt.net.tr
 receiver: none
 antenna: none
 transmitter: Emirler, Turkey

@@ -10,7 +10,7 @@ language: German
 reception_date: 2022-09-14
 reception_time: 18.30-18.57
 location: Moscow, Russia (inside city)
-mail_to: deutsch_vov@yahoo.com
+mail_to: mailto:deutsch_vov@yahoo.com
 receiver: Sony ICF-2010
 antenna: telescopic
 transmitter: Hanoy, Vietnam

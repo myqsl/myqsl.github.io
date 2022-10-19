@@ -10,7 +10,7 @@ language: Turkmen
 reception_date: 2022-08-21
 reception_time: 11.58-12.24
 location: Moscow, Russia (inside city)
-mail_to: tsr@trt.net.tr
+mail_to: mailto:tsr@trt.net.tr
 receiver: Degen DE1103 PLL
 antenna: telescopic
 transmitter: Emirler, Turkey

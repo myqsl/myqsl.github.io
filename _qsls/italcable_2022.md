@@ -10,7 +10,7 @@ language: Italian
 reception_date: 2022-08-13
 reception_time: 20.16-20.27
 location: Moscow, Russia (inside city)
-mail_to: info@associazioneitalcable.it
+mail_to: mailto:info@associazioneitalcable.it
 receiver: Degen DE1103 PLL
 antenna: 30 meters wire
 transmitter: Toscana, Italy

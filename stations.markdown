@@ -4,7 +4,7 @@ title: Stations
 permalink: /stations/
 ---
 
-{% assign countries = site.stations | map: 'country' | sort %}
+{% assign countries = site.stations | map: 'country' | uniq | sort %}
 <table>
 <tr>
     <th>Country</th>

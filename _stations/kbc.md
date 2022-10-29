@@ -1,5 +1,5 @@
 ---
 code: kbc
 title: KBC Radio
-country: Netherlands
+country: Netherlands, The
 ---

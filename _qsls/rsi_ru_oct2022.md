@@ -13,7 +13,7 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:rsi_russian@slovakradio.sk
 receiver: Degen DE1103 PLL
 antenna: its telescopic
-transmitter: WRMI, Okeechobee FL, USA
+transmitter: wrmi
 youtube_id: FOG7tPPBuPw
 report_sent: 2022-10-18
 responce_sent: 2022-11-04

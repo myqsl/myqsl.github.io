@@ -18,7 +18,9 @@ layout: default
         <code>{{ qsl.responce_received }}</code> {{ qsl.kind }}
             from {{ station.title }}
             | {{ qsl.reception_date }} | {{ qsl.reception_time }}
-            | {{ qsl.frequency }} | {{ qsl.transmitter }}
+            | {{ qsl.frequency }}
+            {% assign tx = site.transmitters | where: 'code', qsl.transmitter | first %}
+            | {{ tx.title }}, {{ tx.country }}
             | <a href="{{ qsl.mail_to }}">{{ qsl.mail_to }}</a>
         <a href="{{ qsl.url }}">
         <img src="{{ qsl.front_small }}"/></a>

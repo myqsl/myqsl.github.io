@@ -25,7 +25,14 @@ layout: post
 <p><code>Location</code> {{ page.location }}</p>
 <p><code>Radio</code> {{ page.receiver }}</p>
 <p><code>Antenna</code> {{ page.antenna }}</p>
-<p><code>Tx</code> {{ page.transmitter }}</p>
+
+{% assign tx = site.transmitters | where: 'code', page.transmitter | first %}
+<p><code>Tx</code> {{ tx.title }}
+{% if tx.address %}
+, {{ tx.address }}
+{% endif %}
+, {{ tx.country }}</p>
+
 <p><code>Report sent</code> {{ page.report_sent | date_to_string }}</p>
 <p><code>Responce sent</code> {{ page.responce_sent | date_to_string }}</p>
 <p><code>Responce received</code> {{ page.responce_received | date_to_string }}</p>

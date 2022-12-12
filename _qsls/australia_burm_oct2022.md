@@ -13,7 +13,7 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:radio@reachbeyond.org.au
 receiver: Degen DE1103 PLL
 antenna: its telescopic
-transmitter: Kununurra, Australia
+transmitter: kununurra
 youtube_id: I3UkMQCzvUw
 report_sent: 2022-10-19
 responce_sent: 2022-10-25

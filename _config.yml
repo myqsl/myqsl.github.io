@@ -39,6 +39,8 @@ collections:
     output: true
   stations:
     output: true
+  transmitters:
+    output: true
 
 defaults:
   - scope:
@@ -65,6 +67,7 @@ show_excerpts: true
 
 header_pages:
   - qsls.markdown  
+  - transmitters.markdown
   - stations.markdown
   - about.markdown
 

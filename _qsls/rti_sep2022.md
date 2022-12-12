@@ -13,7 +13,7 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:russ@rti.org.tw
 receiver: Sony ICF-2010
 antenna: its telescopic
-transmitter: Kostinbrod, Bulgaria
+transmitter: kostinbrod
 youtube_id: vvghHJAq_2w
 report_sent: 2022-09-15
 responce_sent: 2022-09-22

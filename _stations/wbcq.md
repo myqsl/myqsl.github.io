@@ -1,5 +1,5 @@
 ---
-code: wbcq
-title: WBCQ
+code: wbcq_angela
+title: WBCQ Radio Angela
 country: USA
 ---

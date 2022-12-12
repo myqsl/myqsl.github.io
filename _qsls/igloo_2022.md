@@ -11,7 +11,7 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:radioigloo@gmail.com
 receiver: Degen DE1103 PLL
 antenna: its telescopic
-transmitter: WRMI, Okeechobee FL, USA
+transmitter: wrmi
 youtube_id: MTia5moaew0 
 report_sent: 2022-11-21
 responce_sent: 2022-11-26

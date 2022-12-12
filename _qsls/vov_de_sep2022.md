@@ -13,7 +13,7 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:deutsch_vov@yahoo.com
 receiver: Sony ICF-2010
 antenna: telescopic
-transmitter: Hanoy, Vietnam
+transmitter: hanoy
 youtube_id: -pQ4IyHS88U 
 report_sent: 2022-09-15
 responce_sent: 2022-09-18

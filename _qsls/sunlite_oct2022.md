@@ -13,7 +13,7 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:qsl@sunlite.nl
 receiver: XHDATA D-808
 antenna: its telescopic
-transmitter: Westdorpe, The Netherlands
+transmitter: westdorpe
 youtube_id: iRuSk57ewJc
 report_sent: 2022-10-24
 responce_sent: 2022-10-24

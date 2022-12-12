@@ -13,7 +13,7 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:tsr@trt.net.tr
 receiver: Degen DE1103 PLL
 antenna: telescopic
-transmitter: Emirler, Turkey
+transmitter: emirler
 youtube_id: hyfa8EPr0dE
 report_sent: 2022-08-21
 responce_sent: 2022-09-02

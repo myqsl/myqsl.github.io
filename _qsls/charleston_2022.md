@@ -13,7 +13,7 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:charlestonradiointernational@yahoo.com
 receiver: XHDATA D-808
 antenna: its telescopic
-transmitter: South Germany
+transmitter: charleston
 youtube_id: kBaRcBvFz5Q
 report_sent: 2022-10-24
 responce_sent: 2022-10-30

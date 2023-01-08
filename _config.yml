@@ -76,6 +76,7 @@ header_pages:
   - transmitters.markdown
   - stations.markdown
   - about.markdown
+  - search.markdown
 
 # Exclude from processing.
 # The following items will not be processed, by default.

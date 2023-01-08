@@ -22,7 +22,7 @@ Confirmed stations map:
     {% for t in transmitters %}
     <tr>
     <td><p>{{ c }}</p></td>
-    <td><p>{{ t.title }}</p></td>
+    <td><p><a href="{{ t.url }}">{{ t.title }}</a></p></td>
     <td>
         {% assign stations_codes = site.qsls | where: 'transmitter', t.code | map: 'station' | uniq %}
         {% for sc in stations_codes %}

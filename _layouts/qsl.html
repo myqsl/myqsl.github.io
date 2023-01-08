@@ -27,11 +27,11 @@ layout: post
 <p><code>Antenna</code> {{ page.antenna }}</p>
 
 {% assign tx = site.transmitters | where: 'code', page.transmitter | first %}
-<p><code>Tx</code> {{ tx.title }}
+<p><code>Tx</code> <a href="{{ tx.url }}">{{ tx.title }}
 {% if tx.address %}
 , {{ tx.address }}
 {% endif %}
-, {{ tx.country }}</p>
+, {{ tx.country }}</a></p>
 
 <p><code>Report sent</code> {{ page.report_sent | date_to_string }}</p>
 <p><code>Responce sent</code> {{ page.responce_sent | date_to_string }}</p>

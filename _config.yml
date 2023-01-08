@@ -60,6 +60,11 @@ defaults:
       layout: "station"
   - scope:
       path: ""
+      type: "transmitters"
+    values:
+      layout: "transmitter"
+  - scope:
+      path: ""
     values:
       layout: "default"
 

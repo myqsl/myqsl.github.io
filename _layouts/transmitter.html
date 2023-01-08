@@ -1,0 +1,43 @@
+---
+layout: page
+---
+
+{% assign qsls = site.qsls
+                | where: 'transmitter', page.code
+                | sort: 'reception_date'
+                %}
+
+{% for qsl in qsls %}
+<div class="qitem">
+  <a href="{{ qsl.url }}">
+  <img src="{{ qsl.front_small }}"/>
+  <!-- <p>{{ qsl.title }}</p> -->
+  </a>
+</div>
+{% endfor %}
+
+<div style="clear:both">&nbsp;</div>
+
+<p><code>Country</code> {{ page.country }}</p>
+{% if page.address %}
+<p><code>Address</code> {{ page.address }}</p>
+{% endif %}
+{% if page.coordinates %}
+<p><code>Coordinates</code> <a href="http://yandex.ru/maps/?text={{ page.coordinates | replace: ',', '%2C' }}">{{ page.coordinates }}</a></p>
+{% endif %}
+
+<br/>
+
+{% for qsl in qsls %}
+  <div class="latest-qsl">
+    {% assign station = site.stations | where: 'code', qsl.station | first %}
+    <code>{{ qsl.reception_date }} {{ qsl.reception_time }}</code>
+    <a href="{{ qsl.url }}">
+    {{ qsl.kind }}
+        | {{ qsl.frequency }}
+        | {{ qsl.language }}
+        {% assign tx = site.transmitters | where: 'code', qsl.transmitter | first %}
+        | {{ tx.title }}, {{ tx.country }}
+    </a>
+  </div>
+{% endfor %}

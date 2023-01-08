@@ -19,5 +19,5 @@ report_sent: 2022-09-15
 responce_sent: 2022-09-22
 responce_received: 2022-10-05
 organization: rti
-station: rti
+station: rti_ru
 ---

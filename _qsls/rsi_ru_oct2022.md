@@ -19,7 +19,7 @@ report_sent: 2022-10-18
 responce_sent: 2022-11-04
 responce_received: 2022-11-25
 organization: rsi
-station: rsi
+station: rsi_ru
 ---
 
 The QSL card has wrong reception kind. It is not SATelite.

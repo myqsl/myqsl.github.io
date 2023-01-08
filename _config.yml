@@ -66,6 +66,7 @@ defaults:
 show_excerpts: true
 
 header_pages:
+  - gallery.markdown
   - qsls.markdown  
   - transmitters.markdown
   - stations.markdown

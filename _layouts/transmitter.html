@@ -35,6 +35,7 @@ layout: page
     <a href="{{ qsl.url }}">
     {{ qsl.kind }}
         | {{ qsl.frequency }}
+        | {{ station.title }}
         | {{ qsl.language }}
         {% assign tx = site.transmitters | where: 'code', qsl.transmitter | first %}
         | {{ tx.title }}, {{ tx.country }}

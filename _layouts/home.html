@@ -19,8 +19,10 @@ layout: default
             from {{ station.title }}
             | {{ qsl.reception_date }} | {{ qsl.reception_time }}
             | {{ qsl.frequency }}
+            {% if qsl.transmitter %}
             {% assign tx = site.transmitters | where: 'code', qsl.transmitter | first %}
             | {{ tx.title }}, {{ tx.country }}
+            {% endif %}
             | <a href="{{ qsl.mail_to }}">{{ qsl.mail_to }}</a>
         <a href="{{ qsl.url }}">
         <img src="{{ qsl.front_small }}"/></a>

@@ -11,6 +11,7 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:cupidradio@hotmail.com
 receiver: BELKA
 antenna: its telescopic
+transmitter: cupid
 youtube_id: 4-8SICfMpVA
 report_sent: 2023-01-30
 responce_sent: 2023-02-05

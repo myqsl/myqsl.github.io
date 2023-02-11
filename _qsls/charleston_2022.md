@@ -18,7 +18,7 @@ youtube_id: kBaRcBvFz5Q
 report_sent: 2022-10-24
 responce_sent: 2022-10-30
 responce_received: 2022-10-30
-organization: charleston
+organization: pirates
 station: charleston
 ---
 

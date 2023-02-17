@@ -1,5 +1,5 @@
 ---
-title: Star Radio — January 2023
+title: Star Radio (websdr) — January 2023
 kind: e-QSL
 front_full: /assets/qsl/2023/star/starradio_22jan2023_front.jpg
 back_full: /assets/qsl/2023/star/starradio_22jan2023_back.jpg

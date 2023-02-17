@@ -1,6 +1,6 @@
 ---
-code: cupid
-title: Cupid Radio
+code: piepzender
+title: Radio Piepzender
 country: Netherlands, The
 organization: pirates
 ---

@@ -34,11 +34,8 @@ layout: post
 <p><code>Antenna</code> {{ page.antenna }}</p>
 {% if page.transmitter %}
 {% assign tx = site.transmitters | where: 'code', page.transmitter | first %}
-<p><code>Tx</code> <a href="{{ tx.url }}">{{ tx.title }}
-{% if tx.address %}
-, {{ tx.address }}
-{% endif %}
-, {{ tx.country }}</a></p>
+{% assign country = site.countries | where: 'code', tx.country | first %}
+<p><code>Tx</code> <a href="{{ tx.url }}">{{ tx.title }}{% if tx.address %}, {{ tx.address }}{% endif %}, {{ country.title }}</a></p>
 {% endif %}
 <p><code>Report sent</code> {{ page.report_sent | date_to_string }}</p>
 <p><code>Responce sent</code> {{ page.responce_sent | date_to_string }}</p>

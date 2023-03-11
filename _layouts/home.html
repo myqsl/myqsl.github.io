@@ -21,7 +21,8 @@ layout: default
             | {{ qsl.frequency }}
             {% if qsl.transmitter %}
             {% assign tx = site.transmitters | where: 'code', qsl.transmitter | first %}
-            | {{ tx.title }}, {{ tx.country }}
+            {% assign country = site.countries | where: 'code', tx.country | first %}
+            | {{ tx.title }}, {{ country.title }}
             {% endif %}
             | <a href="{{ qsl.mail_to }}">{{ qsl.mail_to }}</a>
         <a href="{{ qsl.url }}">

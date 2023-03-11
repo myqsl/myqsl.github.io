@@ -11,34 +11,22 @@ Confirmed stations map:
 <br/>
 -->
 
-{% assign continents = site.transmitters | map: 'continent' | uniq | sort %}
+{% assign continents = site.countries | map: 'continent' | uniq | sort %}
 
 {% for continent in continents %}
 
 <br/>
 <h3>{{ continent }}</h3>
 
-{% assign countries = site.transmitters | where: 'continent', continent | map: 'country' | uniq | sort %}
+{% assign countries = site.countries | where: 'continent', continent | sort  %}
 
-{% for c in countries %}
-    {% assign transmitters = site.transmitters | where: 'country', c | sort: 'title' %}
+{% for country in countries %}
+
+
+    {% assign transmitters = site.transmitters | where: 'country', country.code | sort: 'title' %}
     {% for t in transmitters %}
 
-<h4><a href="{{ t.url }}">{{ c }} &mdash; {{ t.title }}</a></h4>
-
-{% assign transmitter_qsls = site.qsls | where: 'transmitter', t.code | sort: 'reception_date' %}
-{% for q in transmitter_qsls %}
-<div class="latest-qsl">
-{% assign station = site.stations | where: 'code', q.station | first %}
-<code>{{ q.reception_date }} {{ q.reception_time }}</code>
-<a href="{{ q.url }}">
-{{ q.kind }}
-    | {{ q.frequency }}
-    | {{ station.title }}
-    | {{ q.language }}
-</a>
-</div>
-{% endfor %}
-{% endfor %}
+<p><img src="{{ country.flag }}" class="flag"/> <a href="{{ t.url }}">{{ t.title }}</a></p>
+    {% endfor %}
 {% endfor %}
 {% endfor %}

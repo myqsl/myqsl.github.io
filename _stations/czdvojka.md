@@ -1,5 +1,6 @@
 ---
 code: czdvojka
 title: Český rozhlas Dvojka
-country: Czech Republic
+country: czech
+kind: national
 ---

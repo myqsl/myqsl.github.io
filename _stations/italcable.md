@@ -1,5 +1,6 @@
 ---
 code: italcable
 title: Italcable
-country: Italy
+country: italy
+kind: time
 ---

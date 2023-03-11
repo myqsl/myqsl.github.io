@@ -1,7 +1,6 @@
 ---
 code: kimjae
 title: Kimjae
-country: Sourth Korea
+country: south_korea
 coordinates: 35.82139,126.86778
-continent: Asia
 ---

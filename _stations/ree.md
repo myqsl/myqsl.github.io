@@ -1,5 +1,6 @@
 ---
 code: ree
 title: Radio Exterior de España
-country: Spain
+country: spain
+kind: national
 ---

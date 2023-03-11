@@ -2,7 +2,6 @@
 code: grigoriopol
 title: Mayak
 address: Grigoriopol
-country: Pridnestrovie
+country: pridnestr
 coordinates: 47.28306,29.40667
-continent: Europe
 ---

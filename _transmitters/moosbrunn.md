@@ -1,7 +1,6 @@
 ---
 code: moosbrunn
 title: Moosbrunn
-country: Austria
+country: austria
 coordinates: 48.00667,16.46167
-continent: Europe
 ---

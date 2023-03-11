@@ -1,7 +1,6 @@
 ---
 code: agana
 title: Agana
-country: Guam
+country: guam
 coordinates: 13.474559,144.753365
-continent: Australia/Oceania
 ---

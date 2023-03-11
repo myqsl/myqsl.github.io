@@ -1,7 +1,6 @@
 ---
 code: rangitaiki
 title: Rangitaiki
-country: New Zealand
+country: newzealand
 coordinates: -38.83389,176.41694
-continent: Australia/Oceania
 ---

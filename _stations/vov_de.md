@@ -1,6 +1,7 @@
 ---
 code: vov_de
 title: Die Stimme Vietnams
-country: Vietnam
+country: vietnam
 organization: vov
+kind: national
 ---

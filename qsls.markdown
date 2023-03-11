@@ -19,7 +19,8 @@ permalink: /qsls/
         from {{ station.title }}
         | {{ qsl.frequency }}
         {% assign tx = site.transmitters | where: 'code', qsl.transmitter | first %}
-        | {{ tx.title }}, {{ tx.country }}
+        {% assign country = site.countries | where: 'code', tx.country | first %}
+        | {{ tx.title }}, {{ country.title }}
     </a>
 <!--  </div>
   <div style="clear:both">&nbsp;</div> -->

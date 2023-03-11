@@ -1,7 +1,6 @@
 ---
 code: bauta
 title: Bauta
-country: Cuba
+country: cuba
 coordinates: 22.94806,-82.54861
-continent: America
 ---

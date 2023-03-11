@@ -1,6 +1,7 @@
 ---
 code: rsi_fr
 title: Radio Slovakia International
-country: Slovakia
+country: slovakia
 organization: rsi
+kind: national
 ---

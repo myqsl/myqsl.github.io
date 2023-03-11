@@ -1,5 +1,6 @@
 ---
 code: charleston
 title: Radio Charleston International
-country: Germany
+country: germany
+kind: pirate
 ---

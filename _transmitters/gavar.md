@@ -1,7 +1,6 @@
 ---
 code: gavar
 title: Gavar
-country: Armenia
+country: armenia
 coordinates: 40.415,45.19111
-continent: Asia
 ---

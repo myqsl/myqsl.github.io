@@ -18,7 +18,10 @@ layout: page
 
 <div style="clear:both">&nbsp;</div>
 
-<p><code>Country</code> {{ page.country }}</p>
+{% assign country = site.countries | where: 'code', page.country | first %}
+
+<p><code>Country</code> <img src="{{ country.flag }}" class="flag"> {{ country.title }} ({{ country.continent }})</p>
+
 {% if page.address %}
 <p><code>Address</code> {{ page.address }}</p>
 {% endif %}

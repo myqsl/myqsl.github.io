@@ -1,7 +1,6 @@
 ---
 code: issoudun
 title: Issoudun
-country: France
+country: france
 coordinates: 46.96528,1.86278
-continent: Europe
 ---

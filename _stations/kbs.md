@@ -1,5 +1,6 @@
 ---
 code: kbs
 title: KBS World Radio
-country: Korea, the Republic of
+country: south_korea
+kind: national
 ---

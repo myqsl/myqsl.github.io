@@ -1,5 +1,6 @@
 ---
 code: rhc
 title: Radio Habana Cuba
-country: Cuba
+country: cuba
+kind: national
 ---

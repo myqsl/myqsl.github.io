@@ -1,5 +1,6 @@
 ---
 code: wrmi
 title: WRMI Radio Miami International
-country: USA
+country: usa
+kind: transmitters
 ---

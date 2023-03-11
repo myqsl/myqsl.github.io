@@ -1,5 +1,5 @@
 ---
-title: WBCQ Radio Angela — October 2022
+title: From the Isle of Music — October 2022
 kind: e-QSL
 front_full: /assets/qsl/2022/wbcq/full/angela_oct2022_front.jpg
 back_full: /assets/qsl/2022/wbcq/full/angela_oct2022_back.jpg
@@ -19,5 +19,5 @@ report_sent: 2022-10-22
 responce_sent: 2022-10-24
 responce_received: 2022-10-24
 organization: wbcq
-station: wbcq_angela
+station: ftiom
 ---

@@ -1,5 +1,6 @@
 ---
 code: orf
 title: Radio Österreich International
-country: Austria
+country: austria
+kind: national
 ---

@@ -41,6 +41,8 @@ collections:
     output: true
   transmitters:
     output: true
+  countries:
+    output: false
 
 defaults:
   - scope:

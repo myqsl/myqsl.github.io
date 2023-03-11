@@ -1,5 +1,6 @@
 ---
 code: rnz
 title: Radio New Zealand Pacific
-country: New Zealand
+country: newzealand
+kind: national
 ---

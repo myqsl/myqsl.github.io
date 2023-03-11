@@ -1,7 +1,6 @@
 ---
 code: noblejas
 title: Noblejas
-country: Spain
+country: spain
 coordinates: 39.95806,-3.43056
-continent: Europe
 ---

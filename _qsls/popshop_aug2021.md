@@ -17,5 +17,6 @@ transmitter: wrmi
 report_sent: 2021-08-02
 responce_sent: 2021-08-04
 responce_received: 2021-08-18
+organization: popshop
 station: popshop
 ---

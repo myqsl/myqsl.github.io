@@ -1,7 +1,7 @@
 ---
 code: hcjb_quito
-title: HCJB Quito
-country: Ecuador
+title: HCJB Quito (Indianerradio 6050kHz)
+country: ecuador
 organization: hcjb
 kind: religious
 ---

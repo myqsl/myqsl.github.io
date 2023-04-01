@@ -1,6 +1,6 @@
 ---
 code: rti_ru
-title: Международное радио Тайваня
+title: Radio Taiwan International (Russian)
 country: taiwan
 organization: rti
 kind: national

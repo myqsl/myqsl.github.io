@@ -1,7 +1,7 @@
 ---
 code: cupid
 title: Cupid Radio
-country: Netherlands, The
+country: netherlands
 organization: pirates
 kind: pirate
 ---

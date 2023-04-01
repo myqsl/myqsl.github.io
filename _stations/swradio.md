@@ -1,6 +1,6 @@
 ---
 code: swradio
 title: Scandinavian Weekend Radio
-country: Finland
+country: finland
 kind: show
 ---

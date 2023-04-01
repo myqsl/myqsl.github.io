@@ -1,6 +1,6 @@
 ---
 code: delta
 title: Radio Delta International
-country: Netherlands, The
+country: netherlands
 kind: pirate
 ---

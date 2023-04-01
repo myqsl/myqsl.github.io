@@ -1,6 +1,6 @@
 ---
 code: stromso
-title: Radio Strömsö
-country: Finland
+title: Radio Strömsö (produced by Suomen DX-Liitto)
+country: finland
 kind: dxcommunity
 ---

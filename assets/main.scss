@@ -6,6 +6,10 @@ $content-width:    1200px !default;
 
 @import "minima";
 
+body {
+    background-color: #F0F2F5;
+}
+
 @media screen and (min-width: 1200px) {
     .excerpt {
         float: left;
@@ -122,8 +126,39 @@ div.item:hover {
   line-height: $base-line-height * $base-font-size * 2.25;
 }
 
-.latest-qsl {
-    margin-bottom: 20px;
+div.latest-qsl {
+    margin: auto auto 40px auto;
+    border-radius: 20px; //min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+@media screen and (min-width: 800px) {
+    div.latest-qsl {
+        width: 800px;
+    }
+}
+
+div.latest-qsl .header {
+    padding: 20px 20px 10px 20px;
+    border-bottom-color: #F0F2F5;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+
+div.latest-qsl .qsl-gallery {
+    padding: 10px 20px 20px 20px;
+}
+
+.latest-qsl h2 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.latest-qsl .subtitle {
+    font-size: small;
+    color: lightgray;
+    margin-bottom: 5px;
 }
 
 @media screen and (min-width: 800px) {

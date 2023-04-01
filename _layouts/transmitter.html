@@ -32,7 +32,7 @@ layout: page
 <br/>
 
 {% for qsl in qsls %}
-  <div class="latest-qsl">
+  <p>
     {% assign station = site.stations | where: 'code', qsl.station | first %}
     <code>{{ qsl.reception_date }} {{ qsl.reception_time }}</code>
     <a href="{{ qsl.url }}">
@@ -43,5 +43,5 @@ layout: page
         {% assign tx = site.transmitters | where: 'code', qsl.transmitter | first %}
         | {{ tx.title }}, {{ tx.country }}
     </a>
-  </div>
+  </p>
 {% endfor %}

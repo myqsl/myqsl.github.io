@@ -1,6 +1,6 @@
 ---
 code: sunlite
 title: Radio Sunlite
-country: Netherlands, The
+country: netherlands
 kind: show
 ---

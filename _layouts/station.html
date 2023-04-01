@@ -19,7 +19,7 @@ layout: page
 <div style="clear:both">&nbsp;</div>
 
 {% for qsl in qsls %}
-  <div class="latest-qsl">
+  <p>
     {% assign station = site.stations | where: 'code', qsl.station | first %}
     {% assign tx = site.transmitters | where: 'code', qsl.transmitter | first %}
     {% assign tx_country = site.countries | where: 'code', tx.country | first %}
@@ -30,5 +30,5 @@ layout: page
         | {{ qsl.language }}
         | {{ tx.title }}, {{ tx_country.title }}
     </a>
-  </div>
+  </p>
 {% endfor %}

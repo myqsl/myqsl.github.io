@@ -1,6 +1,6 @@
 ---
 code: rsi_ru
-title: Международное радио Словакии
+title: Radio Slovakia International (Russian)
 country: slovakia
 organization: rsi
 kind: national

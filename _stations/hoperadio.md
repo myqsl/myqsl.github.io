@@ -1,6 +1,6 @@
 ---
 code: hoperadio
 title: Hope Radio
-country: USA
+country: usa
 kind: religious
 ---

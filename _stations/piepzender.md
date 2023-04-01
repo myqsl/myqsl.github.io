@@ -1,7 +1,7 @@
 ---
 code: piepzender
 title: Radio Piepzender
-country: Netherlands, The
+country: netherlands
 organization: pirates
 kind: pirate
 ---

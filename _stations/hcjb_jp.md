@@ -1,7 +1,6 @@
 ---
 code: hcjb_jp
-title: HCJB Japan
-country: Japan
+title: Reach Beyond in Japanese
 organization: hcjb
 kind: religious
 ---

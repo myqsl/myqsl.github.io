@@ -1,7 +1,7 @@
 ---
 code: hcjb_ru
-title: Голос Анд 
-country: Russia
+title: Голос Анд (радиостудия "Откровение") 
+country: russia
 organization: hcjb
 kind: religious
 ---

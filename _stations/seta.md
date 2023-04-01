@@ -1,6 +1,6 @@
 ---
 code: seta
 title: SE-TA 2
-country: Germany
+country: germany
 kind: show
 ---

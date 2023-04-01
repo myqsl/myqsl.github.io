@@ -1,6 +1,6 @@
 ---
 code: dxers_diary
 title: DXERS DIARY
-country: India
+country: india
 kind: dxcommunity
 ---

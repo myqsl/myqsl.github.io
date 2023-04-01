@@ -1,6 +1,6 @@
 ---
 code: spbortdx
 title: Православное радио Санкт-Петербурга
-country: Russia
+country: russia
 kind: religious
 ---

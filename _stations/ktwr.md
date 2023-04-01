@@ -1,6 +1,6 @@
 ---
 code: ktwr
-title: KTWR Trans World Radio
-country: Guam
+title: KTWR Agana Guam
+country: guam
 kind: religious
 ---

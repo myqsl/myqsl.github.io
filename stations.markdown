@@ -3,11 +3,17 @@ layout: page
 title: Stations
 permalink: /stations/
 ---
-<!-- 
-National services map:
 
-<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ae1de8c605bbbe43e34663f48ed386aacdca0139a4a7612a958a115550d4258f0&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
--->
+<a href="/assets/coverage/full/world_01apr2023.png">
+<img src="/assets/coverage/small/world_01apr2023.png"/>
+</a>
+
+
+<a href="/assets/coverage/full/europe_01apr2023.png">
+<img src="/assets/coverage/small/europe_01apr2023.png"/>
+</a>
+
+<br/>
 
 {% assign kinds = "national:National services,show:Regular shows,pirate:Pirates,religious:Religious,dxcommunity:DX Programmes,transmitters:Transmitters,time:Time services,volmet:Meteo services" | split: ',' %}
 

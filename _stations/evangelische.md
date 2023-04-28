@@ -1,6 +1,7 @@
 ---
 code: evangelische
-title: Evangelische Missions-Gemeinden In Deutschland
+title: Evangelische Missions-Gemeinden
+full_title: Evangelische Missions-Gemeinden In Deutschland
 country: germany
 kind: religious
 ---

@@ -5,7 +5,7 @@ front_full: /assets/qsl/2021/wrmi/full/wrmi_aug2021_front.jpg
 back_full: /assets/qsl/2021/wrmi/full/wrmi_aug2021_back.jpg
 front_small: /assets/qsl/2021/wrmi/small/wrmi_aug2021_front.jpg
 back_small: /assets/qsl/2021/wrmi/small/wrmi_aug2021_back.jpg
-frequency: 4980/5010/5800/5850/5950/7570/7730/7780/9395/9455/9955/15770 kHz
+frequency: 4980/5010/.../15770 kHz
 language: English/Italian
 reception_date: 2021-08-25
 reception_time: 01.35-01.40

@@ -3,7 +3,7 @@ layout: page
 title: Stations
 permalink: /stations/
 ---
-
+<!--
 <a href="/assets/coverage/full/world_01apr2023.png">
 <img src="/assets/coverage/small/world_01apr2023.png"/>
 </a>
@@ -14,7 +14,7 @@ permalink: /stations/
 </a>
 
 <br/>
-
+-->
 {% assign kinds = "national:National services,show:Regular shows,pirate:Pirates,religious:Religious,dxcommunity:DX Programmes,transmitters:Transmitters,time:Time services,volmet:Meteo services" | split: ',' %}
 
 {% assign continents = site.countries | map: 'continent' | uniq | sort %}

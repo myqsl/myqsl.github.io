@@ -34,10 +34,13 @@ layout: default
             | <a href="{{ qsl.mail_to }}">{{ qsl.mail_to }}</a>
 -->
 
-        {% assign country = site.countries | where: 'code', station.country | first %}
-
         <div class="header">
-          <h2><img src="{{ country.flag }}" style="width: 50px; margin-right: 20px;" /> {{ station.title }}</h2>
+          <h2>
+        {% assign country = site.countries | where: 'code', station.country %}
+
+        {% if country %} {% assign c = country | first %}
+          <img src="{{ c.flag }}" style="width: 50px; margin-right: 20px;" />
+        {% endif %} {{ station.title }}</h2>
 
         <p class="subtitle">Submitted on {{ qsl.report_sent | date_to_long_string}} &bullet; Received on {{ qsl.responce_received | date_to_long_string }}</p>
 

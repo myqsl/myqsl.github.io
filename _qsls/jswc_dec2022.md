@@ -1,5 +1,5 @@
 ---
-title: Japan ShortWave Club — December 2022
+title: 70th Anniversary Japan ShortWave Club — December 2022
 kind: e-QSL
 front_full: /assets/qsl/2022/jswc/full/jswc_dec2022_front.jpg
 back_full: /assets/qsl/2022/jswc/full/jswc_dec2022_back.jpg

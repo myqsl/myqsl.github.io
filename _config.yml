@@ -75,7 +75,7 @@ show_excerpts: true
 header_pages:
 #  - gallery.markdown
   - qsls.markdown  
-  - transmitters.markdown
+#  - transmitters.markdown
   - stations.markdown
   - about.markdown
   - search.markdown

@@ -146,21 +146,17 @@ div.latest-qsl .header {
     border-bottom-style: solid;
 }
 
-div.latest-qsl .qsl-gallery {
-    padding: 10px 20px 20px 20px;
-}
-
-.latest-qsl h2 {
+.header h2 {
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.latest-qsl .subtitle {
+.header .subtitle {
     font-size: small;
     color: lightgray;
     margin-bottom: 5px;
 }
-
+/*
 @media screen and (min-width: 800px) {
     .latest-qsl img {
         width: -webkit-calc(50% - (150px));
@@ -170,7 +166,23 @@ div.latest-qsl .qsl-gallery {
     }
 
 }
-
+*/
 .flag {
     width: 20px;
+}
+
+.qsl-info-box {
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.qsl-image {
+    width: 100%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.qsl-image img {
+    width: 100%;
 }

@@ -1,38 +1,18 @@
 ---
 layout: default
 ---
-<!--
-<link rel="stylesheet" href="/assets/node_modules/jquery-colorbox/example1/colorbox.css" />
 
-<link rel="stylesheet" href="/assets/node_modules/swipebox/src/css/swipebox.min.css" />
-
-<link rel="stylesheet" href="/assets/justifiedGallery.css" />
--->
 <div class="home">
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
   {{ content }}
-
-  <!-- <h2 class="post-list-heading">Latest QSL</h2> -->
     {% assign qsls = site.qsls | sort: 'responce_received' | reverse %}
 
     {% for qsl in qsls %}
       <div class="latest-qsl">
         {% assign station = site.stations | where: 'code', qsl.station | first %}
-<!--
-        <code>{{ qsl.responce_received }}</code> {{ qsl.kind }}
-            from {{ station.title }}
-            | {{ qsl.reception_date }} | {{ qsl.reception_time }}
-            | {{ qsl.frequency }}
-            {% if qsl.transmitter %}
-            {% assign tx = site.transmitters | where: 'code', qsl.transmitter | first %}
-            {% assign country = site.countries | where: 'code', tx.country | first %}
-            | {{ tx.title }}, {{ country.title }}
-            {% endif %}
-            | <a href="{{ qsl.mail_to }}">{{ qsl.mail_to }}</a>
--->
 
         <div class="header">
           <h2>
@@ -46,19 +26,28 @@ layout: default
 
         </div>
 
-        <div class="qsl-gallery">
+        <div class="qsl-info-box">
+        <p>Frequency: {{ qsl.frequency }}</p>
+        <p>Time: {{ qsl.reception_time }} UTC</p>
+        <p>Date: {{ qsl.reception_date | date_to_string }}</p>
+        <p>Contact: {{ qsl.mail_to }}</p>
+        </div>
 
+        {% if qsl.front_small %}
+        <div class="qsl-image">
         <a href="{{ qsl.url }}">
         <img src="{{ qsl.front_small }}"/>
         </a>
+        </div>
+        {% endif %}
         
+        {% if qsl.back_small %}
+        <div class="qsl-image">
         <a href="{{ qsl.url }}">
         <img src="{{ qsl.back_small }}"/>
         </a>
-
         </div>
-
-      <div style="clear:both">&nbsp;</div>
+        {% endif %}
       </div>
     {% endfor %}
 
@@ -92,19 +81,4 @@ layout: default
 
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
   {%- endif -%}
-<!--
-    <script src="/js/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/js/node_modules/jquery-colorbox/jquery.colorbox.js"></script>
-
-<script src="/js/node_modules/swipebox/src/js/jquery.swipebox.min.js"></script>
-
-    <script src="/js/jquery.justifiedGallery.js"></script>
-
-    <script>
-  $(".qsl-gallery").justifiedGallery({
-        rowHeight: 300,
-        margins: 1
-  });
-  </script>
--->
 </div>

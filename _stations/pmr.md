@@ -2,5 +2,6 @@
 code: pmr
 title: Радио 1 плюс / Приднестровская Молдавская Республика
 country: pridnestr
+itu: MDA
 kind: national
 ---

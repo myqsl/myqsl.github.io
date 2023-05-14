@@ -3,5 +3,6 @@ code: rti_ru
 title: Radio Taiwan International (Russian)
 country: taiwan
 organization: rti
+itu: CHN
 kind: national
 ---

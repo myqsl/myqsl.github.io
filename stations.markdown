@@ -3,61 +3,90 @@ layout: page
 title: Stations
 permalink: /stations/
 ---
-<!--
-<a href="/assets/coverage/full/world_01apr2023.png">
-<img src="/assets/coverage/small/world_01apr2023.png"/>
-</a>
-
-
-<a href="/assets/coverage/full/europe_01apr2023.png">
-<img src="/assets/coverage/small/europe_01apr2023.png"/>
-</a>
-
-<br/>
--->
-{% assign kinds = "national:National services,show:Regular shows,pirate:Pirates,religious:Religious,dxcommunity:DX Programmes,transmitters:Transmitters,time:Time services,volmet:Meteo services" | split: ',' %}
 
 {% assign continents = site.countries | map: 'continent' | uniq | sort %}
+
 {% for continent in continents %}
-    {% assign first_station = 1 %}
 
-    {% assign countries = site.countries | where: 'continent', continent %}
+<h4>{{ continent }}</h4>
 
-    {% for country in countries %}
-        {% assign its_stations = site.stations | where: 'country', country.code | sort: 'title' %}
-        {% for station in its_stations %}
+{% assign countries = site.countries | where: 'continent', continent %}
 
-            {% if first_station == 1 %}
-<br/>
-<h3>{{ continent }}</h3>
-                {% assign first_station = 0 %}
-            {% endif %}
-<p><img src="{{ country.flag }}" class="flag"/> <a href="{{ station.url }}">{{ station.title }}</a></p>
-        {% endfor %}
-    {% endfor %}
+<table>
+<tr>
+    <th>ITU</th>
+    <th>Country</th>
+    <th>Station</th>
+    <th>Frequency</th>
+    <th>Date</th>
+</tr>
+
+{% for country in countries %} 
+
+{% assign itulist = site.stations | where: 'country', country.code | map: 'itu' | uniq | sort %}
+
+{% for itu in itulist %}
+    {% assign stations = site.stations | where: 'itu', itu %}
+    {% assign country_code = stations | map: 'country' | first %}
+    {% assign country = site.countries | where: 'code', country_code | first %}
+<tr>
+    <td>{{ itu }}</td>
+    <td>{{ country.title }}</td>
+
+    <td>
+{% for station in stations %}
+    {% assign qsls = site.qsls | where: 'station', station.code %}
+{% for qsl in qsls %}
+    <a href="{{ station.url }}">{{ station.title }}</a><br/>
+{% endfor %}
+{% endfor %}
+    </td>
+
+    <td>
+{% for station in stations %}
+    {% assign qsls = site.qsls | where: 'station', station.code %}
+{% for qsl in qsls %}
+    <a href="{{ qsl.url }}">{{ qsl.frequency }}</a><br/>
+{% endfor %}
+{% endfor %}
+    </td>
+
+    <td>
+{% for station in stations %}
+    {% assign qsls = site.qsls | where: 'station', station.code %}
+{% for qsl in qsls %}
+    {{ qsl.reception_date }}<br/>
+{% endfor %}
+{% endfor %}
+    </td>
+
+</tr>
+{% endfor %}
 {% endfor %}
 
-
-
-{% for kind in kinds %}
-
-    {% assign kind_obj = kind | split: ':' %}
-    {% assign kind_id = kind_obj[0] %}
-    {% assign kind_title = kind_obj[1] %}
-
-    {% assign stations = site.stations | where: 'kind', kind_id | where: 'country', nil | sort: 'title' %}
-
-    {% assign first_station = 1 %}
-
-    {% for station in stations %}
-
-        {% if first_station == 1 %}
-            {% assign first_station = 0 %}
-<br/>
-<h3>{{ kind_title }} (unid country)</h3>
-        {% endif %}
-
-<p>&nbsp;&mdash;&nbsp;<a href="{{ station.url }}">{{ station.title }}</a></p>
-    {% endfor %}
+</table>
 
 {% endfor %}
+
+{% assign no_itu_stations = site.stations | where: 'itu', none %}
+{% if no_itu_stations %}
+<h4>Unidentified</h4>
+<table>
+<tr>
+    <th>Station</th>
+    <th>Frequency</th>
+    <th>Date</th>
+</tr>
+
+{% for station in no_itu_stations %}
+{% assign qsls = site.qsls | where: 'station', station.code %}
+{% for qsl in qsls %}
+<tr>
+    <td><a href="{{ station.url }}">{{ station.title }}</a></td>
+    <td>{{ qsl.frequency }}</td>
+    <td>{{ qsl.reception_date }}</td>
+</tr>
+{% endfor %}
+{% endfor %}
+</table>
+{% endif %}

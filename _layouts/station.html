@@ -28,7 +28,9 @@ layout: page
     {{ qsl.kind }}
         | {{ qsl.frequency }}
         | {{ qsl.language }}
+        {% if qsl.transmitter %}
         | {{ tx.title }}, {{ tx_country.title }}
+        {% endif %}
     </a>
   </p>
 {% endfor %}

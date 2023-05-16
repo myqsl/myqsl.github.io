@@ -1,8 +1,8 @@
 ---
 code: piepzender
 title: Radio Piepzender
-country: netherlands
-organization: pirates
+address: somewhere in The Netherlands
 itu: HOL
-kind: pirate
+country: netherlands
+kind: private
 ---

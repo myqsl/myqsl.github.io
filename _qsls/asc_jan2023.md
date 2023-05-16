@@ -13,13 +13,12 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:ops.asc@encompass.co.ac
 receiver: BELKA
 antenna: its telescopic
-transmitter: ascension
+station: ascension
 youtube_id: 6fPjcR6s7Hc
 report_sent: 2023-01-26
 responce_sent: 2023-01-26
 responce_received: 2023-01-26
 organization: bbcatlantic
-station: bbc_atlantic
 ---
 
 <a href="/assets/qsl/2023/ascension/asc_jan2023_booklet.pdf">The booklet:</a>

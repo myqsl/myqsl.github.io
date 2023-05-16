@@ -13,7 +13,6 @@ location: Moscow region, Russia
 mail_to: https://wrmi.net/index.php/reception-report-qsl/
 receiver: Airspy HF+ Discovery
 antenna: YouLoop magnetic loop
-transmitter: wrmi
 youtube_id: bJEZgf1fEX0
 report_sent: 2021-08-25
 responce_sent: 2021-09-09

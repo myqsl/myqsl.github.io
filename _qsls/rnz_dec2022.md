@@ -11,11 +11,11 @@ location: Moscow, Russia (inside city)
 mail_to: https://www.rnz.co.nz/international/qsl/new
 receiver: BELKA
 antenna: its telescopic
-transmitter: rangitaiki
+station: rangitaiki
 youtube_id: KA9sp8rLz9k
 report_sent: 2023-01-04
 responce_sent: 2023-01-11
 responce_received: 2023-01-11
 organization: rnz
-station: rnz
+broadcaster: rnz
 ---

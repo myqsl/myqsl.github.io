@@ -11,12 +11,12 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:abc-germany@gmx.de
 receiver: BELKA
 antenna: its telescopic
-transmitter: rohrbach
+station: rohrbach
 youtube_id: DIZ_ICNqFUM
 report_sent: 2023-04-02
 responce_sent: 2023-04-03
 responce_received: 2023-04-03
-station: abcgermany
+broadcaster: abcgermany
 ---
 
 <img src="/assets/qsl/2023/abcgermany/abcgermany_02apr2023_mail.jpg"/>

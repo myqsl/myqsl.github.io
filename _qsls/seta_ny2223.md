@@ -13,11 +13,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:se-ta@web.de
 receiver: BELKA
 antenna: its telescopic
-transmitter: nauen
+station: nauen
 youtube_id: Yf6Rjco5sqc
 report_sent: 2022-12-27
 responce_sent: 2022-12-30
 responce_received: 2022-12-30
 organization: seta
-station: seta
+broadcaster: seta
 ---

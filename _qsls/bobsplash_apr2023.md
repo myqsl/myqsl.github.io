@@ -11,12 +11,12 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:studio@redsandsradio.co.uk
 receiver: BELKA
 antenna: its telescopic
-transmitter: rohrbach
+station: rohrbach
 youtube_id: sq4hbwBh1EU
 report_sent: 2023-04-23
 responce_sent: 2023-04-23
 responce_received: 2023-04-23
-station: bobsplash
+broadcaster: bobsplash
 ---
 
 <a href="/assets/qsl/2023/bobsplash/bobsplash_qsl.pdf">

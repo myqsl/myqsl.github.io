@@ -13,7 +13,7 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:info@swradio.net
 receiver: BELKA
 antenna: its telescopic
-transmitter: virrat
+station: virrat
 youtube_id: hcbv8F-Rl9Y
 report_sent: 2023-02-06
 responce_sent: 2023-02-09

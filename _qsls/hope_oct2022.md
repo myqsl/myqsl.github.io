@@ -13,11 +13,11 @@ location: Moscow, Russia (inside city)
 mail_to: https://www.hoperadio.net/reception
 receiver: Degen DE1103 PLL
 antenna: telescopic
-transmitter: palau
+station: palau
 youtube_id: de1t8mI6SyQ 
 report_sent: 2022-10-19
 responce_sent: 2022-10-19
 responce_received: 2022-10-19
 organization: hoperadio
-station: hoperadio
+broadcaster: hoperadio
 ---

@@ -13,11 +13,11 @@ location: Moscow region, Russia
 mail_to: web-form
 receiver: Airspy HF+ Discovery
 antenna: YouLoop magnetic loop
-transmitter: dobrochov
+station: dobrochov
 youtube_id: 0a9itsRXrxM
 report_sent: 2021-07-31
 responce_sent: 2021-09-01
 responce_received: 2021-09-18
 organization: czro
-station: czdvojka
+broadcaster: czdvojka
 ---

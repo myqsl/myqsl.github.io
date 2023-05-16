@@ -11,13 +11,13 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:info@missionsbote.de
 receiver: Degen DE1103 PLL
 antenna: its telescopic
-transmitter: nauen
+station: nauen
 youtube_id: VOJrjmAvLso
 report_sent: 2022-10-19
 responce_sent: 2022-10-24
 responce_received: 2022-11-15
 organization: evangelische
-station: evangelische
+broadcaster: evangelische
 ---
 
 Postal envelope ships with two booklets about Jesus Christ.

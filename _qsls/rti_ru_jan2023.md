@@ -13,11 +13,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:russ@rti.org.tw
 receiver: XHDATA D-808
 antenna: its telescopic
-transmitter: kostinbrod
+station: kostinbrod
 youtube_id: vWD-RtRdZP8
 report_sent: 2023-01-22
 responce_sent: 2023-02-16
 responce_received: 2023-03-01
 organization: rti
-station: rti_ru
+broadcaster: rti_ru
 ---

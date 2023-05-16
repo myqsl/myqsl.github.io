@@ -13,11 +13,11 @@ location: Moscow region, Russia
 mail_to: web-form
 receiver: Airspy HF+ Discovery
 antenna: YouLoop magnetic loop
-transmitter: wrmi
+station: wrmi
 youtube_id: Ta_QhxDLuLA
 report_sent: 2021-07-21
 responce_sent: 2021-08-02
 responce_received: 2021-08-25
 organization: czro
-station: prague
+broadcaster: prague
 ---

@@ -13,11 +13,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:qsl@sdxf.se
 receiver: BELKA
 antenna: its telescopic
-transmitter: rohrbach
+station: rohrbach
 youtube_id: QORrA1iaGoc
 report_sent: 2023-02-15
 responce_sent: 2023-04-20
 responce_received: 2023-05-10
 organization: sdxf
-station: sdxf
+broadcaster: sdxf
 ---

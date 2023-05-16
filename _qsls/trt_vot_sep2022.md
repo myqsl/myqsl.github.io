@@ -13,10 +13,10 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:tsr@trt.net.tr
 receiver: none
 antenna: none
-transmitter: emirler
+station: emirler
 report_sent: 2022-09-02
 responce_sent: 2022-09-21
 responce_received: 2022-09-29
 organization: trt
-station: vot
+broadcaster: vot
 ---

@@ -11,12 +11,12 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:citymorecars@yahoo.ca
 receiver: BELKA
 antenna: its telescopic
-transmitter: saftica
+station: saftica
 youtube_id: 6vo2Gb_ouPk
 report_sent: 2023-01-22
 responce_sent: 2023-01-24
 responce_received: 2023-01-24
-station: radio_city
+broadcaster: radio_city
 ---
 
 <figure>

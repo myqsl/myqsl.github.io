@@ -13,11 +13,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:tilfordproductions@gmail.com
 receiver: XHDATA D-808
 antenna: its telescopic
-transmitter: wbcq
+station: wbcq
 youtube_id: Tz30uNrvVY4
 report_sent: 2022-10-22
 responce_sent: 2022-10-24
 responce_received: 2022-10-24
 organization: wbcq
-station: ftiom
+broadcaster: ftiom
 ---

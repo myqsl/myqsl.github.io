@@ -13,11 +13,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:russ@rti.org.tw
 receiver: Sony ICF-2010
 antenna: its telescopic
-transmitter: kostinbrod
+station: kostinbrod
 youtube_id: vvghHJAq_2w
 report_sent: 2022-09-15
 responce_sent: 2022-09-22
 responce_received: 2022-10-05
 organization: rti
-station: rti_ru
+broadcaster: rti_ru
 ---

@@ -11,12 +11,12 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:dxspb@nrec.spb.ru
 receiver: XHDATA D-808
 antenna: its ferrite rod
-transmitter: spbolgino
+station: spbolgino
 youtube_id: Hl4ErWT2Y6w
 report_sent: 2022-01-01
 responce_sent: 2022-01-11
 responce_received: 2022-01-16
-station: spbortdx
+broadcaster: spbortdx
 ---
 
 Православное радио Санкт-Петербурга вещало дважды

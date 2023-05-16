@@ -13,12 +13,13 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:radiopamela@mail.com
 receiver: websdrs
 antenna: websdrs
+station: pamela
 youtube_id: QdWcKgh9QaU
 report_sent: 2023-02-06
 responce_sent: 2023-02-07
 responce_received: 2023-02-07
 organization: pirates
-station: pamela
+broadcaster: pamela
 ---
 
 10 watts from UK, so it was not audible in Moscow.

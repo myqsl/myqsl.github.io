@@ -13,13 +13,13 @@ location: Moscow region, Russia
 mail_to: mailto:radiopopshop@gmail.com
 receiver: XHDATA D-808
 antenna: its telescopic
-transmitter: rohrbach
+station: rohrbach
 youtube_id: TIMka4Ujg5Y 
 report_sent: 2023-03-26
 responce_sent: 2023-03-26
 responce_received: 2023-03-26
 organization: popshop
-station: popshop
+broadcaster: popshop
 ---
 
 Also the schedule was attached.

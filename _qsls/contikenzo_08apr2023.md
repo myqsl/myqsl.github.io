@@ -11,13 +11,13 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:ffberry@live.nl
 receiver: BELKA
 antenna: its telescopic
-transmitter: contikenzo
+station: contikenzo
 youtube_id: LQ2RgY0XKIA
 report_sent: 2023-04-08
 responce_sent: 2023-04-27
 responce_received: 2023-04-27
 organization: pirates
-station: contikenzo
+broadcaster: contikenzo
 ---
 
 150 watts from The Netherlands!

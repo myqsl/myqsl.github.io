@@ -13,13 +13,13 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:charlestonradiointernational@yahoo.com
 receiver: XHDATA D-808
 antenna: its telescopic
-transmitter: charleston
+station: charleston
 youtube_id: kBaRcBvFz5Q
 report_sent: 2022-10-24
 responce_sent: 2022-10-30
 responce_received: 2022-10-30
 organization: pirates
-station: charleston
+broadcaster: charleston
 ---
 
 Full e-QSL:

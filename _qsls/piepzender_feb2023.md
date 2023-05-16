@@ -11,13 +11,13 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:radioqsl@hotmail.com
 receiver: BELKA
 antenna: its telescopic
-transmitter: transmitter
+station: piepzender
 youtube_id: dUZWI4k9jGs
 report_sent: 2023-02-12
 responce_sent: 2023-02-12
 responce_received: 2023-02-12
 organization: pirates
-station: piepzender
+broadcaster: piepzender
 ---
 
 150 or 50 watts from The Netherlands!

@@ -1,7 +1,8 @@
 ---
 code: charleston
-title: Radio Charleston International
-country: germany
+title: Charleston Site
+address: somewhere in South Germany
 itu: D
+country: germany
 kind: pirate
 ---

@@ -1,0 +1,23 @@
+---
+title: KNLS/MWV (Russian) — January 2022
+kind: QSL
+front_full: /assets/qsl/2022/mwv/full/mwv_ru_jan2022_front.jpg
+back_full: /assets/qsl/2022/mwv/full/mwv_ru_jan2022_back.jpg
+front_small: /assets/qsl/2022/mwv/small/mwv_ru_jan2022_front.jpg
+back_small: /assets/qsl/2022/mwv/small/mwv_ru_jan2022_back.jpg
+frequency: 9885 kHz
+language: Russian
+reception_date: 2022-01-30
+reception_time: 18.00-18.57
+location: Moscow, Russia (inside city)
+mail_to: mailto:mwvradio@gmail.com
+receiver: Airspy HF+ Discovery
+antenna: Youloop magnetic loop
+station: mahajanga
+youtube_id: AxyKW1c_mNw
+report_sent: 2022-01-30
+responce_sent: 2022-02-02
+responce_received: 2022-02-25
+organization: wcb
+broadcaster: knls
+---

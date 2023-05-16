@@ -11,11 +11,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:radioigloo@gmail.com
 receiver: BELKA
 antenna: its telescopic
-# transmitter: ????
+station: igloo
 # youtube_id:  
 report_sent: 2023-04-25
 responce_sent: 2023-04-28
 responce_received: 2023-04-28
 organization: igloo
-station: igloo
+broadcaster: igloo
 ---

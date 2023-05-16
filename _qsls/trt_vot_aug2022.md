@@ -13,11 +13,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:tsr@trt.net.tr
 receiver: Degen DE1103 PLL
 antenna: telescopic
-transmitter: emirler
+station: emirler
 youtube_id: hyfa8EPr0dE
 report_sent: 2022-08-21
 responce_sent: 2022-09-02
 responce_received: 2022-09-11
 organization: trt
-station: vot
+broadcaster: vot
 ---

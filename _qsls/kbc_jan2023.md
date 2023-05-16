@@ -13,11 +13,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:themightykbc@gmail.com
 receiver: BELKA
 antenna: telescopic
-transmitter: wrmi
+station: wrmi
 youtube_id: va04q6jc7uI
 report_sent: 2023-01-27
 responce_sent: 2023-01-27
 responce_received: 2023-01-27
 organization: kbc
-station: kbc
+broadcaster: kbc
 ---

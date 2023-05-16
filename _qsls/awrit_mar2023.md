@@ -11,11 +11,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:awr@hopemedia.it
 receiver: BELKA
 antenna: its telescopic
-transmitter: nauen
+station: nauen
 youtube_id: ILa7UbuDM2U
 report_sent: 2023-03-26
 responce_sent: 2023-03-31
 responce_received: 2023-03-31
 organization: awr
-station: awrit
+broadcaster: awrit
 ---

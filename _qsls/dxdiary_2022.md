@@ -13,10 +13,10 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:dxersdiary@gmail.com
 receiver: BELKA
 antenna: its telescopic
-transmitter: agana
+station: agana
 youtube_id: ihVxDxAZR0c
 report_sent: 2022-12-29
 responce_sent: 2023-02-07
 responce_received: 2023-03-01
-station: dxers_diary
+broadcaster: dxers_diary
 ---

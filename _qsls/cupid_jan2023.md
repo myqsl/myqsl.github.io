@@ -11,13 +11,13 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:cupidradio@hotmail.com
 receiver: BELKA
 antenna: its telescopic
-transmitter: cupid
+station: cupid
 youtube_id: 4-8SICfMpVA
 report_sent: 2023-01-30
 responce_sent: 2023-02-05
 responce_received: 2023-02-05
 organization: pirates
-station: cupid
+broadcaster: cupid
 ---
 
 500 watts from The Netherlands!

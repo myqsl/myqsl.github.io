@@ -13,13 +13,12 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:prtc@idknet.com
 receiver: Degen DE1103 PLL
 antenna: its telescopic
-transmitter: grigoriopol
+station: grigoriopol
 youtube_id: X2pxD1D5IQE
 report_sent: 2022-10-24
 responce_sent: 2022-10-25
 responce_received: 2022-10-25
 organization: pmr
-station: pmr
 ---
 
 Full e-QSL:

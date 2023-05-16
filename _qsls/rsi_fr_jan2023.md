@@ -13,11 +13,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:rsi_french@slovakradio.sk
 receiver: BELKA
 antenna: its telescopic
-transmitter: kall
+station: kall
 youtube_id: 4eR4tqdYIfw
 report_sent: 2023-01-20
 responce_sent: 2023-01-26
 responce_received: 2023-02-15
 organization: rsi
-station: rsi_fr
+broadcaster: rsi_fr
 ---

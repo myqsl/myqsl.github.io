@@ -18,18 +18,31 @@ layout: page
 
 <div style="clear:both">&nbsp;</div>
 
+{% assign country = site.countries | where: 'code', page.country | first %}
+
+<p><code>Country</code> <img src="{{ country.flag }}" class="flag"> {{ country.title }} ({{ country.continent }})</p>
+
+{% if page.address %}
+<p><code>Address</code> {{ page.address }}</p>
+{% endif %}
+{% if page.coordinates %}
+<p><code>Coordinates</code> <a href="http://yandex.ru/maps/?text={{ page.coordinates | replace: ',', '%2C' }}">{{ page.coordinates }}</a></p>
+{% endif %}
+
+<br/>
+
 {% for qsl in qsls %}
   <p>
-    {% assign station = site.stations | where: 'code', qsl.station | first %}
-    {% assign tx = site.transmitters | where: 'code', qsl.transmitter | first %}
-    {% assign tx_country = site.countries | where: 'code', tx.country | first %}
+    {% assign broadcaster = site.broadcasters | where: 'code', qsl.broadcaster | first %}
     <code>{{ qsl.reception_date }} {{ qsl.reception_time }}</code>
     <a href="{{ qsl.url }}">
     {{ qsl.kind }}
         | {{ qsl.frequency }}
+        {% if qsl.broadcaster %}
+        | {{ broadcaster.title }}
+        {% endif %}
+        {% if qsl.language %}
         | {{ qsl.language }}
-        {% if qsl.transmitter %}
-        | {{ tx.title }}, {{ tx_country.title }}
         {% endif %}
     </a>
   </p>

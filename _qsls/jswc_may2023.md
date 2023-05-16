@@ -13,11 +13,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:jswcqsl@live.jp
 receiver: BELKA
 antenna: its telescopic
-transmitter: wrmi
+station: wrmi
 youtube_id: tdJoZ6WAyKI
 report_sent: 2023-05-08
 responce_sent: 2023-05-12
 responce_received: 2023-05-12
 organization: jswc
-station: jswc
+broadcaster: jswc
 ---

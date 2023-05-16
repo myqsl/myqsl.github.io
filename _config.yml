@@ -37,9 +37,9 @@ collections:
     output: true
   organizations:
     output: true
-  stations:
+  broadcasters:
     output: true
-  transmitters:
+  stations:
     output: true
   countries:
     output: false
@@ -57,14 +57,14 @@ defaults:
       layout: "org"
   - scope:
       path: ""
+      type: "broadcasters"
+    values:
+      layout: "broadcaster"
+  - scope:
+      path: ""
       type: "stations"
     values:
       layout: "station"
-  - scope:
-      path: ""
-      type: "transmitters"
-    values:
-      layout: "transmitter"
   - scope:
       path: ""
     values:
@@ -76,7 +76,7 @@ header_pages:
 #  - gallery.markdown
   - qsls.markdown  
 #  - transmitters.markdown
-  - stations.markdown
+  - broadcasters.markdown
   - about.markdown
   - search.markdown
 

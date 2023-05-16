@@ -13,11 +13,11 @@ location: Moscow region, Russia
 mail_to: web-form
 receiver: Airspy HF+ Discovery
 antenna: YouLoop magnetic loop
-transmitter: topolna
+station: topolna
 youtube_id: vhfn2UkRBkc
 report_sent: 2021-08-03
 responce_sent: 2021-09-01
 responce_received: 2021-09-18
 organization: czro
-station: czradiozurnal
+broadcaster: czradiozurnal
 ---

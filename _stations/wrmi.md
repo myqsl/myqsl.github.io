@@ -1,7 +1,9 @@
 ---
 code: wrmi
-title: WRMI Radio Miami International
+title: WRMI
+short: WRMI
+address: Okeechobee, FL
 country: usa
 itu: USA
-kind: transmitters
+coordinates: 27.45722,-80.93306
 ---

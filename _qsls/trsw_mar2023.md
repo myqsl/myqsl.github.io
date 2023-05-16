@@ -11,12 +11,12 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:texasradiosw@gmail.com
 receiver: BELKA
 antenna: its telescopic
-transmitter: wrmi
+station: wrmi
 youtube_id: lqKaYO3iN0o
 report_sent: 2023-03-26
 responce_sent: 2023-03-26
 responce_received: 2023-03-26
-station: trsw
+broadcaster: trsw
 ---
 
 Also the schedule and the qsl plan were attached.

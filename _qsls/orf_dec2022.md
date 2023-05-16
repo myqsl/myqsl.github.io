@@ -13,12 +13,12 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:oe1.service@orf.at
 receiver: BELKA
 antenna: its telescopic
-transmitter: moosbrunn
+station: moosbrunn
 youtube_id: P88-UhIbPPE
 report_sent: 2022-12-28
 responce_sent: 2022-12-28
 responce_received: 2022-12-28
 organization: orf
-station: orf
+broadcaster: orf
 ---
 

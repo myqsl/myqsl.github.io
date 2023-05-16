@@ -11,11 +11,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:sdxlqsl@gmail.com
 receiver: BELKA
 antenna: its telescopic
-transmitter: wrmi
+station: wrmi
 youtube_id: BPvrF1NbglQ
 report_sent: 2022-12-11
 responce_sent: 2022-12-11
 responce_received: 2022-12-11
 organization: sdxl
-station: stromso
+broadcaster: stromso
 ---

@@ -1,8 +1,9 @@
 ---
 code: spaceshuttle
-title: Radio Spaceshuttle International
+title: Radio Spaceshuttle Int.
+short: Spaceshuttle
 country: finland
-organization: pirates
 itu: FIN
+# coordinates: 62.37833,23.65806
 kind: pirate
 ---

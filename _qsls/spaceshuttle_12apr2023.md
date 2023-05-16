@@ -11,13 +11,13 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:spaceshuttleradio@yahoo.com
 receiver: BELKA
 antenna: its telescopic
-transmitter: spaceshuttle
+station: spaceshuttle
 youtube_id: FpVc-GQU5HI
 report_sent: 2023-04-12
 responce_sent: 2023-04-17
 responce_received: 2023-04-17
 organization: pirates
-station: spaceshuttle
+broadcaster: spaceshuttle
 ---
 
 40 watts from Northern Finland!

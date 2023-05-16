@@ -13,13 +13,13 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:qsl@sunlite.nl
 receiver: XHDATA D-808
 antenna: its telescopic
-transmitter: westdorpe
+station: sunlite
 youtube_id: iRuSk57ewJc
 report_sent: 2022-10-24
 responce_sent: 2022-10-24
 responce_received: 2022-10-24
 organization: sunlite
-station: sunlite
+broadcaster: sunlite
 ---
 
 Full e-QSL:

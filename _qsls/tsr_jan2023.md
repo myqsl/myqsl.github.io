@@ -13,13 +13,13 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:tsr@trt.net.tr
 receiver: BELKA
 antenna: its telescopic
-transmitter: emirler
+station: emirler
 youtube_id: JUrKDDE8zuw
 report_sent: 2023-01-21
 responce_sent: 2023-02-24
 responce_received: 2023-03-20
 organization: trt
-station: vot
+broadcaster: vot
 ---
 
 Also the schedule was attached.

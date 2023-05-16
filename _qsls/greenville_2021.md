@@ -11,7 +11,6 @@ location: Moscow region, Russia
 mail_to: mailto:mdail@bbg.gov
 receiver: Airspy HF+ Discovery
 antenna: YouLoop magnetic loop
-transmitter: greenville
 youtube_id: 1aW_nb1TaVk
 report_sent: 2021-08-30
 responce_sent: 2021-10-25

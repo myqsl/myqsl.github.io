@@ -13,10 +13,10 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:radio_belarus@tvr.by
 receiver: XHDATA D-808
 antenna: its telescopic
-transmitter: kall
+station: kall
 youtube_id: fN4bVNsEmhc
 report_sent: 2022-03-15
 responce_sent: 2022-04-12
 responce_received: 2022-04-19
-station: belarus
+broadcaster: belarus
 ---

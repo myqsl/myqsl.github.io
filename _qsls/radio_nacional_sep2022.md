@@ -13,11 +13,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:ouvidoria@ebc.com.br
 receiver: Degen DE1103 PLL
 antenna: 30 meters wire on ground beamed to tx
-transmitter: brasilia 
+station: brasilia 
 youtube_id: eWwW1KxG6nU 
 report_sent: 2022-08-23
 responce_sent: 2022-09-20
 responce_received: 2022-09-20
 organization: brasil
-station: zye365
+broadcaster: zye365
 ---

@@ -13,13 +13,13 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:mks@intercon.ru
 receiver: BELKA
 antenna: its telescopic
-transmitter: nauen
+station: nauen
 youtube_id: Ki1YRoEowPg
 report_sent: 2023-02-01
 responce_sent: 2023-02-08
 responce_received: 2023-02-16
 organization: hcjb
-station: hcjb_ru
+broadcaster: hcjb_ru
 ---
 
 В конверте находились QSL-карточка, личное письмо от Нелли Яковлевны

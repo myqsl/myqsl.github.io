@@ -13,11 +13,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:tsr@trt.net.tr
 receiver: Airspy HF+ Discovery
 antenna: YouLoop magnetic loop
-transmitter: emirler
+station: emirler
 youtube_id: sfogk7J3bnA
 report_sent: 2022-06-21
 responce_sent: 2022-07-19
 responce_received: 2022-07-28
 organization: trt
-station: vot
+broadcaster: vot
 ---

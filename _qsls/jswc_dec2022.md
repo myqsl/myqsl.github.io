@@ -13,12 +13,12 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:jswc70qsl@gmail.com
 receiver: BELKA
 antenna: its telescopic
-transmitter: kununurra
+station: kununurra
 youtube_id: YmlksVrwy3Q
 report_sent: 2022-12-18
 responce_sent: 2023-02-09
 responce_received: 2023-02-09
 organization: jswc
-station: jswc
+broadcaster: jswc
 ---
 The program was devoted to the 70-th anniversary of JSWC.

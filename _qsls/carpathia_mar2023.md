@@ -13,13 +13,13 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:radiocarpathia@gmail.com
 receiver: BELKA
 antenna: its telescopic
-transmitter: rohrbach
+station: rohrbach
 youtube_id: V3hrKaxYS9U
 report_sent: 2023-03-26
 responce_sent: 2023-03-30
 responce_received: 2023-03-30
 organization: carpathia
-station: carpathia
+broadcaster: carpathia
 ---
 
 <a href="/assets/qsl/2023/carpahia/full/carpathia_mar2023_email.jpg">

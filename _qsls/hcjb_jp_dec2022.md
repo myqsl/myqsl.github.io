@@ -11,11 +11,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:hcjbjapan.office@gmail.com
 receiver: BELKA
 antenna: its telescopic
-transmitter: kununurra
+station: kununurra
 youtube_id: YmlksVrwy3Q
 report_sent: 2022-12-18
 responce_sent: 2022-12-27
 responce_received: 2022-12-27
 organization: hcjb
-station: hcjb_jp
+broadcaster: hcjb_jp
 ---

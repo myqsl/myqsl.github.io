@@ -1,8 +1,8 @@
 ---
 code: contikenzo
 title: ContiKenzo
-country: netherlands
-organization: pirates
+address: somewhere in The Netherlands
 itu: HOL
+country: netherlands
 kind: pirate
 ---

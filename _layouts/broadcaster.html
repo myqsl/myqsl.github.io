@@ -1,0 +1,35 @@
+---
+layout: page
+---
+
+{% assign qsls = site.qsls
+                | where: 'broadcaster', page.code
+                | sort: 'reception_date'
+                %}
+
+{% for qsl in qsls %}
+<div class="qitem">
+  <a href="{{ qsl.url }}">
+  <img src="{{ qsl.front_small }}"/>
+  <!-- <p>{{ qsl.title }}</p> -->
+  </a>
+</div>
+{% endfor %}
+
+<div style="clear:both">&nbsp;</div>
+
+{% for qsl in qsls %}
+  <p>
+    {% assign tx = site.stations | where: 'code', qsl.station | first %}
+    {% assign tx_country = site.countries | where: 'code', tx.country | first %}
+    <code>{{ qsl.reception_date }} {{ qsl.reception_time }}</code>
+    <a href="{{ qsl.url }}">
+    {{ qsl.kind }}
+        | {{ qsl.frequency }}
+        | {{ qsl.language }}
+        {% if qsl.station %}
+        | {{ tx.title }} {% if tx.country %}, {{ tx_country.title }}{% endif %}
+        {% endif %}
+    </a>
+  </p>
+{% endfor %}

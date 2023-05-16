@@ -11,11 +11,11 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:mnb_vom@yahoo.com
 receiver: BELKA
 antenna: telescopic
-transmitter: ulaanbaatar
+station: ulaanbaatar
 youtube_id: o098Tcqt32c 
 report_sent: 2023-05-06
 responce_sent: 2023-05-08
 responce_received: 2023-05-08
 organization: vom
-station: vom
+broadcaster: vom
 ---

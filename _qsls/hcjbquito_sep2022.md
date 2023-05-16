@@ -13,13 +13,13 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:deutsch@andenstimme.org
 receiver: Degen DE1103 PLL
 antenna: its telescopic
-transmitter: pichincha
+station: pichincha
 youtube_id: -_JPLN90M6M
 report_sent: 2023-01-15
 responce_sent: 2023-01-17
 responce_received: 2023-01-17
 organization: hcjb
-station: hcjb_quito
+broadcaster: hcjb_quito
 ---
 
 <figure>

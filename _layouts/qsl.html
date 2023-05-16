@@ -19,9 +19,9 @@ layout: post
 <figure class="back_image"><a href="{{ page.back_full }}"><img src="{{ page.back_small }}"/></a></figure>
 {% endif %}
 
-{% assign station = site.stations | where: 'code', page.station | first %}
-{% if station %}
-<p><code>Station</code> <a href="{{ station.url }}">{{ station.title }}</a></p>
+{% assign broadcaster = site.broadcasters | where: 'code', page.broadcaster | first %}
+{% if page.broadcaster %}
+<p><code>Broadcaster</code> <a href="{{ broadcaster.url }}">{{ broadcaster.title }}</a></p>
 {% endif %}
 
 <p><code>Confirmed</code> {{ page.kind }}/<a href="{{ page.mail_to }}">{{ page.mail_to }}</a></p>
@@ -32,10 +32,10 @@ layout: post
 <p><code>Location</code> {{ page.location }}</p>
 <p><code>Radio</code> {{ page.receiver }}</p>
 <p><code>Antenna</code> {{ page.antenna }}</p>
-{% if page.transmitter %}
-{% assign tx = site.transmitters | where: 'code', page.transmitter | first %}
-{% assign country = site.countries | where: 'code', tx.country | first %}
-<p><code>Tx</code> <a href="{{ tx.url }}">{{ tx.title }}{% if tx.address %}, {{ tx.address }}{% endif %}, {{ country.title }}</a></p>
+{% if page.station %}
+{% assign s = site.stations | where: 'code', page.station | first %}
+{% assign country = site.countries | where: 'code', s.country | first %}
+<p><code>Station</code> <a href="{{ s.url }}">{{ s.title }}{% if s.address %}, {{ s.address }}{% endif %}{% if s.country %}, {{ country.title }}{% endif %}</a></p>
 {% endif %}
 <p><code>Report sent</code> {{ page.report_sent | date_to_string }}</p>
 <p><code>Responce sent</code> {{ page.responce_sent | date_to_string }}</p>

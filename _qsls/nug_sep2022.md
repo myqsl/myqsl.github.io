@@ -1,0 +1,20 @@
+---
+title: Radio NUG — September 2022
+kind: e-QSL
+front_full: /assets/qsl/2022/nug/nug_sep2022_full.jpg
+front_small: /assets/qsl/2022/nug/nug_sep2022_small.jpg
+frequency: 11940 kHz
+language: Burmese
+reception_date: 2022-09-17
+reception_time: 14.00-14.30
+location: Moscow, Russia (inside city)
+mail_to: web-form
+receiver: Degen DE1103/Sony ICF-2010
+antenna: its telescopic
+station: paochung 
+youtube_id: y_oz5t-C70U
+report_sent: 2022-09-17
+responce_sent: 2022-09-17
+responce_received: 2022-09-17
+broadcaster: nug
+---

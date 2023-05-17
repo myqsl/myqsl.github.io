@@ -38,7 +38,7 @@ permalink: /broadcasters/
     {% assign qsls = site.qsls | where: 'broadcaster', broadcaster.code %}
 {% for qsl in qsls %}
     {% assign station = site.stations | where: 'code', qsl.station | first %}
-    <a href="{{ broadcaster.url }}">{{ broadcaster.title }}</a>{% if qsl.station %}, {{ station.title }}{% endif %}
+    <a href="{{ broadcaster.url }}">{{ broadcaster.title }}</a>{% if qsl.station!= broadcaster.code %} via {{ station.title }}{% endif %}
     <br/>
 {% endfor %}
 {% endfor %}

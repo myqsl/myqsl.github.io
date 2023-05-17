@@ -1,6 +1,7 @@
 ---
 code: mahajanga
-title: Madagascar World Voice (Mahajanga)
+title: Madagascar World Voice
+address: Mahajanga
 short: MWV
 country: madagascar
 itu: MDG

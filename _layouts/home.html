@@ -19,15 +19,17 @@ layout: default
         {% endif %}
 
         <div class="header">
-          <h2>
-        {% assign country = site.countries | where: 'code', correspondent.country %}
+        {% assign country = site.countries | where: 'code', correspondent.country | first %}
 
-        {% if country %} {% assign c = country | first %}
-          <img src="{{ c.flag }}" style="width: 50px; margin-right: 20px;" />
-        {% endif %} {{ correspondent.title }}</h2>
-
-        <p class="subtitle">Submitted on {{ qsl.report_sent | date_to_long_string}} &bullet; Received on {{ qsl.responce_received | date_to_long_string }}</p>
-
+        {% if correspondent.country %}
+          <div class="flag-box">
+            <img src="{{ country.flag }}" />
+          </div>
+        {% endif %}
+          <div>
+            <h2>{{ correspondent.title }}</h2>
+            <p class="subtitle">Submitted on {{ qsl.report_sent | date_to_long_string}} &bullet; Received on {{ qsl.responce_received | date_to_long_string }}</p>
+          </div>
         </div>
 
         <div class="qsl-info-box">

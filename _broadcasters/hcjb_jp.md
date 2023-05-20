@@ -2,6 +2,7 @@
 code: hcjb_jp
 title: Reach Beyond in Japanese
 organization: hcjb
-itu: USA
+country: australia
+itu: AUS
 kind: religious
 ---

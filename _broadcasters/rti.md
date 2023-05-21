@@ -1,6 +1,6 @@
 ---
-code: rti_de
-title: Radio Taiwan International (Deutsch)
+code: rti
+title: Radio Taiwan International
 country: taiwan
 organization: rti
 itu: CHN

@@ -15,7 +15,7 @@ report_sent: 2023-01-22
 responce_sent: 2023-02-16
 responce_received: 2023-03-01
 organization: rti
-broadcaster: rti_ru
+broadcaster: rti
 gallery:
   - /assets/qsl/2023/rti/full/rti_ru_jan2023_front.jpg:/assets/qsl/2023/rti/small/rti_ru_jan2023_front.jpg
   - /assets/qsl/2023/rti/full/rti_ru_jan2023_back.jpg:/assets/qsl/2023/rti/small/rti_ru_jan2023_back.jpg

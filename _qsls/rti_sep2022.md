@@ -15,7 +15,7 @@ report_sent: 2022-09-15
 responce_sent: 2022-09-22
 responce_received: 2022-10-05
 organization: rti
-broadcaster: rti_ru
+broadcaster: rti
 gallery:
   - /assets/qsl/2022/taiwan/full/rti_ru_sep2022_front.jpg:/assets/qsl/2022/taiwan/small/rti_ru_sep2022_front.jpg
   - /assets/qsl/2022/taiwan/full/rti_ru_sep2022_back.jpg:/assets/qsl/2022/taiwan/small/rti_ru_sep2022_back.jpg

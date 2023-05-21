@@ -15,7 +15,7 @@ report_sent: 2021-06-12
 responce_sent: 2021-08-23
 responce_received: 2021-09-17
 organization: rti
-broadcaster: rti_de
+broadcaster: rti
 gallery:
   - /assets/qsl/2021/rti/full/rti_de_jun2021_front.jpg:/assets/qsl/2021/rti/small/rti_de_jun2021_front.jpg
   - /assets/qsl/2021/rti/full/rti_de_jun2021_back.jpg:/assets/qsl/2021/rti/small/rti_de_jun2021_back.jpg

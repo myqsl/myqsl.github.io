@@ -50,7 +50,7 @@ permalink: /broadcasters/
     {% endif %}</a>
     {% if qsl.station %}
     {% if qsl.station!= broadcaster.code %}&bullet; via <a href="{{ station.url }}">{{ station.title }}</a>{% endif %}{% endif %}
-    {% if qsl.frequenncy %}
+    {% if qsl.frequency %}
     &bullet; <a href="{{ qsl.url }}">{{ qsl.frequency }}</a>{% endif %}
     {% if qsl.reception_date %}
     &bullet; {{ qsl.reception_date }}{% endif %}<br/>

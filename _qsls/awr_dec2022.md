@@ -18,8 +18,7 @@ youtube_id: 0V0MW9PRd4g
 report_sent: 2022-12-27
 responce_sent: 2023-01-31
 responce_received: 2023-01-31
-organization: awr
-broadcaster: awr
+broadcaster: awr_africa
 ---
 
 The last days of the 300 kW transmitter in Moosbrunn...

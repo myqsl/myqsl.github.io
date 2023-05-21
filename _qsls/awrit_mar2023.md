@@ -1,5 +1,5 @@
 ---
-title: AWR Italy — March 2023
+title: Obiettivo DX — March 2023
 kind: email
 back_full: /assets/qsl/2023/awrit/full/awrit_mar2023_email.jpg
 back_small: /assets/qsl/2023/awrit/small/awrit_mar2023_email.jpg
@@ -16,6 +16,5 @@ youtube_id: ILa7UbuDM2U
 report_sent: 2023-03-26
 responce_sent: 2023-03-31
 responce_received: 2023-03-31
-organization: awr
-broadcaster: awrit
+broadcaster: awr_global_it
 ---

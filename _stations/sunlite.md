@@ -1,7 +1,7 @@
 ---
 code: sunlite
 title: Sunlite, ICON BV
-short: Westdorpe
+short: Sunlite
 address: Westdorpe
 country: netherlands
 itu: HOL

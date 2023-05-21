@@ -45,8 +45,17 @@ permalink: /qsls/
 
     <td>
 {% for qsl in qsls %}
+    <a href="{{ qsl.url }}">{% if qsl.kind == 'QSL' %}
+    &#128231;
+    {% elsif qsl.kind == 'e-QSL' %}
+    &#128206;
+    {% elsif qsl.kind == 'e-letter' %}
+    &#128292;
+    {% elsif qsl.kind == 'letter' %}
+    &#128240;
+    {% endif %}</a>
     {% assign broadcaster = site.broadcasters | where: 'code', qsl.broadcaster | first %}
-    {% if qsl.broadcaster %}&bullet; <a href="{{ broadcaster.url }}">{{ broadcaster.title}}</a>{% endif %}
+    {% if qsl.broadcaster %}{% if broadcaster.code != station.code %}&bullet; <a href="{{ broadcaster.url }}">{{ broadcaster.title}}</a>{% endif %}{% endif %}
     &bullet; <a href="{{ qsl.url }}">{{ qsl.frequency }}</a>
     &bullet; {{ qsl.reception_date }}<br/>
 {% endfor %}

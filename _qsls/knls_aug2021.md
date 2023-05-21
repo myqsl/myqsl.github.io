@@ -1,10 +1,6 @@
 ---
 title: KNLS (Russian) — August 2021
 kind: QSL
-front_full: /assets/qsl/2021/knls/full/knls_aug2021_front.jpg
-back_full: /assets/qsl/2021/knls/full/knls_aug2021_back.jpg
-front_small: /assets/qsl/2021/knls/small/knls_aug2021_front.jpg
-back_small: /assets/qsl/2021/knls/small/knls_aug2021_back.jpg
 frequency: 9800 kHz
 language: Russian
 reception_date: 2021-08-23
@@ -20,4 +16,7 @@ responce_sent: 2021-09-17
 responce_received: 2021-10-05
 organization: wcb
 broadcaster: knls
+gallery:
+  - /assets/qsl/2021/knls/full/knls_aug2021_front.jpg:/assets/qsl/2021/knls/small/knls_aug2021_front.jpg
+  - /assets/qsl/2021/knls/full/knls_aug2021_back.jpg:/assets/qsl/2021/knls/small/knls_aug2021_back.jpg
 ---

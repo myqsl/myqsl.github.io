@@ -1,10 +1,6 @@
 ---
 title: AWR French — December 2022
 kind: e-QSL
-front_full: /assets/qsl/2022/awr/full/awr_dec2022_front.jpg
-back_full: /assets/qsl/2022/awr/full/awr_dec2022_back.jpg
-front_small: /assets/qsl/2022/awr/small/awr_dec2022_front.jpg
-back_small: /assets/qsl/2022/awr/small/awr_dec2022_back.jpg
 frequency: 15610 kHz
 language: French
 reception_date: 2022-12-27
@@ -19,6 +15,9 @@ report_sent: 2022-12-27
 responce_sent: 2023-01-31
 responce_received: 2023-01-31
 broadcaster: awr_africa
+gallery:
+  - /assets/qsl/2022/awr/full/awr_dec2022_front.jpg:/assets/qsl/2022/awr/small/awr_dec2022_front.jpg
+  - /assets/qsl/2022/awr/full/awr_dec2022_back.jpg:/assets/qsl/2022/awr/small/awr_dec2022_back.jpg
 ---
 
 The last days of the 300 kW transmitter in Moosbrunn...

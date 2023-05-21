@@ -1,8 +1,6 @@
 ---
 title: Obiettivo DX — March 2023
 kind: e-letter
-back_full: /assets/qsl/2023/awrit/full/awrit_mar2023_email.jpg
-back_small: /assets/qsl/2023/awrit/small/awrit_mar2023_email.jpg
 frequency: 9610 kHz
 language: Italian
 reception_date: 2023-03-26
@@ -17,4 +15,6 @@ report_sent: 2023-03-26
 responce_sent: 2023-03-31
 responce_received: 2023-03-31
 broadcaster: awr_global_it
+gallery:
+  - /assets/qsl/2023/awrit/full/awrit_mar2023_email.jpg:/assets/qsl/2023/awrit/small/awrit_mar2023_email.jpg
 ---

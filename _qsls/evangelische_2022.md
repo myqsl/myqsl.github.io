@@ -1,8 +1,6 @@
 ---
 title: Evangelische Missions-Gemeinden In Deutschland — 2022
 kind: QSL
-front_full: /assets/qsl/2022/evangelische/full/evang_2022_front.jpg
-front_small: /assets/qsl/2022/evangelische/small/evang_2022_front.jpg
 frequency: 6055 kHz
 language: German
 reception_date: 2022-10-16
@@ -18,12 +16,7 @@ responce_sent: 2022-10-24
 responce_received: 2022-11-15
 organization: evangelische
 broadcaster: evangelische
+gallery:
+  - /assets/qsl/2022/evangelische/full/evang_2022_front.jpg:/assets/qsl/2022/evangelische/small/evang_2022_front.jpg
+  - /assets/qsl/2022/evangelische/full/evang_2022_package.jpg:/assets/qsl/2022/evangelische/small/evang_2022_package.jpg
 ---
-
-Postal envelope ships with two booklets about Jesus Christ.
-
-<figure>
-<a href="/assets/qsl/2022/evangelische/full/evang_2022_package.jpg">
-<img src="/assets/qsl/2022/evangelische/small/evang_2022_package.jpg"/>
-</a>
-</figure>

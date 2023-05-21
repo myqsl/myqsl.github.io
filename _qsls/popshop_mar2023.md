@@ -1,10 +1,6 @@
 ---
 title: Pop Shop Radio — March 2023
 kind: e-QSL
-front_full: /assets/qsl/2023/popshop/full/popshop_mar2023.jpg
-back_full: /assets/qsl/2023/popshop/full/popshop_mar2023_qsl.jpg
-front_small: /assets/qsl/2023/popshop/small/popshop_mar2023.jpg
-back_small: /assets/qsl/2023/popshop/small/popshop_mar2023_qsl.jpg
 frequency: 9670 kHz
 language: English
 reception_date: 2023-03-18
@@ -20,11 +16,8 @@ responce_sent: 2023-03-26
 responce_received: 2023-03-26
 organization: popshop
 broadcaster: popshop
+gallery:
+  - /assets/qsl/2023/popshop/full/popshop_mar2023.jpg:/assets/qsl/2023/popshop/small/popshop_mar2023.jpg
+  - /assets/qsl/2023/popshop/full/popshop_mar2023_qsl.jpg:/assets/qsl/2023/popshop/small/popshop_mar2023_qsl.jpg
+  - /assets/qsl/2023/popshop/full/popshop_schedule.jpg:/assets/qsl/2023/popshop/small/popshop_schedule.jpg
 ---
-
-Also the schedule was attached.
-
-<a href="/assets/qsl/2023/popshop/full/popshop_schedule.jpg">
-<img src="/assets/qsl/2023/popshop/small/popshop_schedule.jpg"/>
-</a>
-

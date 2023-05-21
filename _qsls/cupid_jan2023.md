@@ -1,8 +1,6 @@
 ---
 title: Cupid Radio — January 2023
 kind: e-QSL
-front_full: /assets/qsl/2023/cupid/full/cupid_jan2023.jpg
-front_small: /assets/qsl/2023/cupid/small/cupid_jan2023.jpg
 frequency: 21460 kHz
 language: English
 reception_date: 2023-01-29
@@ -18,20 +16,11 @@ responce_sent: 2023-02-05
 responce_received: 2023-02-05
 organization: pirates
 broadcaster: cupid
+gallery:
+  - /assets/qsl/2023/cupid/full/cupid_jan2023.jpg:/assets/qsl/2023/cupid/small/cupid_jan2023.jpg
+  - /assets/qsl/2023/cupid/cupid_sstv1_jan2023.jpg:/assets/qsl/2023/cupid/cupid_sstv1_jan2023.jpg
+  - /assets/qsl/2023/cupid/cupid_sstv2_jan2023.jpg:/assets/qsl/2023/cupid/cupid_sstv2_jan2023.jpg
+  - /assets/qsl/2023/cupid/cupid_sstv3_jan2023.jpg:/assets/qsl/2023/cupid/cupid_sstv3_jan2023.jpg
 ---
 
 500 watts from The Netherlands!
-
-3 SSTVs were included into the program!
-
-<figure>
-<img src="/assets/qsl/2023/cupid/cupid_sstv1_jan2023.jpg"/>
-</figure>
-
-<figure>
-<img src="/assets/qsl/2023/cupid/cupid_sstv2_jan2023.jpg"/>
-</figure>
-
-<figure>
-<img src="/assets/qsl/2023/cupid/cupid_sstv3_jan2023.jpg"/>
-</figure>

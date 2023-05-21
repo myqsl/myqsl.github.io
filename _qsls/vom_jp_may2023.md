@@ -1,8 +1,6 @@
 ---
 title: Voice of Mongolia — May 2023
 kind: e-QSL
-front_full: /assets/qsl/2023/vom/vom_jp_may2023_full.jpg
-front_small: /assets/qsl/2023/vom/vom_jp_may2023_small.jpg
 frequency: 12085 kHz
 language: Japanese
 reception_date: 2023-05-06
@@ -18,4 +16,6 @@ responce_sent: 2023-05-08
 responce_received: 2023-05-08
 organization: vom
 broadcaster: vom
+gallery:
+  - /assets/qsl/2023/vom/vom_jp_may2023_full.jpg:/assets/qsl/2023/vom/vom_jp_may2023_small.jpg
 ---

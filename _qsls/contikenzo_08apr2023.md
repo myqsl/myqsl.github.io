@@ -1,8 +1,6 @@
 ---
 title: ContiKenzo — April 08 2023
 kind: e-letter
-front_full: /assets/qsl/2023/contikenzo/08apr/contikenzo_08apr2023_mail.jpg
-front_small: /assets/qsl/2023/contikenzo/08apr/contikenzo_08apr2023_mail.jpg
 frequency: 5800 kHz
 language: Dutch
 reception_date: 2023-04-07
@@ -18,18 +16,11 @@ responce_sent: 2023-04-27
 responce_received: 2023-04-27
 organization: pirates
 broadcaster: contikenzo
+gallery:
+  - /assets/qsl/2023/contikenzo/08apr/conlogo.jpg:/assets/qsl/2023/contikenzo/08apr/conlogo.jpg
+  - /assets/qsl/2023/contikenzo/08apr/contikenzo_08apr2023_mail.jpg:/assets/qsl/2023/contikenzo/08apr/contikenzo_08apr2023_mail.jpg
+  - /assets/qsl/2023/contikenzo/08apr/con1.jpg:/assets/qsl/2023/contikenzo/08apr/con1.jpg
+  - /assets/qsl/2023/contikenzo/08apr/con2.jpg:/assets/qsl/2023/contikenzo/08apr/con2.jpg
 ---
 
 150 watts from The Netherlands!
-
-<figure>
-<img src="/assets/qsl/2023/contikenzo/08apr/con1.jpg"/>
-</figure>
-
-<figure>
-<img src="/assets/qsl/2023/contikenzo/08apr/con2.jpg"/>
-</figure>
-
-<figure>
-<img src="/assets/qsl/2023/contikenzo/08apr/conlogo.jpg"/>
-</figure>

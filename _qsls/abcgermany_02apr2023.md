@@ -1,8 +1,6 @@
 ---
 title: ABC Germany — April 2d 2023
 kind: e-QSL
-front_full: /assets/qsl/2023/abcgermany/abcgermany_02apr2023_qsl_full.jpg
-front_small: /assets/qsl/2023/abcgermany/abcgermany_02apr2023_qsl_small.jpg
 frequency: 9670 kHz
 language: English
 reception_date: 2023-04-02
@@ -17,6 +15,7 @@ report_sent: 2023-04-02
 responce_sent: 2023-04-03
 responce_received: 2023-04-03
 broadcaster: abcgermany
+gallery:
+  - /assets/qsl/2023/abcgermany/abcgermany_02apr2023_qsl_full.jpg:/assets/qsl/2023/abcgermany/abcgermany_02apr2023_qsl_small.jpg
+  - /assets/qsl/2023/abcgermany/abcgermany_02apr2023_mail.jpg:/assets/qsl/2023/abcgermany/abcgermany_02apr2023_mail.jpg
 ---
-
-<img src="/assets/qsl/2023/abcgermany/abcgermany_02apr2023_mail.jpg"/>

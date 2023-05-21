@@ -1,10 +1,6 @@
 ---
 title: Star Radio (websdr) — January 2023
 kind: e-QSL
-front_full: /assets/qsl/2023/star/starradio_22jan2023_front.jpg
-back_full: /assets/qsl/2023/star/starradio_22jan2023_back.jpg
-front_small: /assets/qsl/2023/star/starradio_22jan2023_front.jpg
-back_small: /assets/qsl/2023/star/starradio_22jan2023_back.jpg
 frequency: 9315 kHz
 language: English
 reception_date: 2023-01-22
@@ -20,6 +16,9 @@ responce_sent: 2023-01-25
 responce_received: 2023-01-25
 organization: pirates
 broadcaster: star_radio
+gallery:
+  - /assets/qsl/2023/star/starradio_22jan2023_front.jpg:/assets/qsl/2023/star/starradio_22jan2023_front.jpg
+  - /assets/qsl/2023/star/starradio_22jan2023_back.jpg:/assets/qsl/2023/star/starradio_22jan2023_back.jpg
 ---
 
 10 watts from UK, so it was not audible in Moscow.

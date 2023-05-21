@@ -1,10 +1,6 @@
 ---
 title: Radio Slovakia International (en) — July 2021
 kind: QSL
-front_full: /assets/qsl/2021/rsi/full/rsi_en_jul2021_front.jpg
-back_full: /assets/qsl/2021/rsi/full/rsi_en_jul2021_back.jpg
-front_small: /assets/qsl/2021/rsi/small/rsi_en_jul2021_front.jpg
-back_small: /assets/qsl/2021/rsi/small/rsi_en_jul2021_back.jpg
 frequency: 7780 kHz
 language: English
 reception_date: 2021-07-31
@@ -20,4 +16,7 @@ responce_sent: 2021-09-06
 responce_received: 2021-09-16
 organization: rsi
 broadcaster: rsi_en
+gallery:
+  - /assets/qsl/2021/rsi/full/rsi_en_jul2021_front.jpg:/assets/qsl/2021/rsi/small/rsi_en_jul2021_front.jpg
+  - /assets/qsl/2021/rsi/full/rsi_en_jul2021_back.jpg:/assets/qsl/2021/rsi/small/rsi_en_jul2021_back.jpg
 ---

@@ -1,8 +1,6 @@
 ---
 title: HCJB Japan — December 2022
 kind: e-QSL
-front_full: /assets/qsl/2022/australia/full/hcjb_jp_dec2022.jpg
-front_small: /assets/qsl/2022/australia/small/hcjb_jp_dec2022.jpg
 frequency: 11905 kHz
 language: Japanese
 reception_date: 2022-12-18
@@ -18,4 +16,6 @@ responce_sent: 2022-12-27
 responce_received: 2022-12-27
 organization: hcjb
 broadcaster: hcjb_jp
+gallery:
+  - /assets/qsl/2022/australia/full/hcjb_jp_dec2022.jpg:/assets/qsl/2022/australia/small/hcjb_jp_dec2022.jpg
 ---

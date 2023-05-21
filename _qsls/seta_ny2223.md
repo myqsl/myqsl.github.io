@@ -1,10 +1,6 @@
 ---
 title: SE-TA 2 — December 2022
 kind: e-QSL
-front_full: /assets/qsl/2022/se-ta/full/seta_ny2223_front.jpg
-back_full: /assets/qsl/2022/se-ta/full/seta_ny2223_back.jpg
-front_small: /assets/qsl/2022/se-ta/small/seta_ny2223_front.jpg
-back_small: /assets/qsl/2022/se-ta/small/seta_ny2223_back.jpg
 frequency: 6095 kHz
 language: German
 reception_date: 2022-12-25
@@ -20,4 +16,7 @@ responce_sent: 2022-12-30
 responce_received: 2022-12-30
 organization: seta
 broadcaster: seta
+gallery:
+  - /assets/qsl/2022/se-ta/full/seta_ny2223_front.jpg:/assets/qsl/2022/se-ta/small/seta_ny2223_front.jpg
+  - /assets/qsl/2022/se-ta/full/seta_ny2223_back.jpg:/assets/qsl/2022/se-ta/small/seta_ny2223_back.jpg
 ---

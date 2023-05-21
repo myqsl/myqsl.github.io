@@ -1,8 +1,6 @@
 ---
 title: Radio NUG — September 2022
 kind: e-QSL
-front_full: /assets/qsl/2022/nug/nug_sep2022_full.jpg
-front_small: /assets/qsl/2022/nug/nug_sep2022_small.jpg
 frequency: 11940 kHz
 language: Burmese
 reception_date: 2022-09-17
@@ -17,4 +15,6 @@ report_sent: 2022-09-17
 responce_sent: 2022-09-17
 responce_received: 2022-09-17
 broadcaster: nug
+gallery:
+  - /assets/qsl/2022/nug/nug_sep2022_full.jpg:/assets/qsl/2022/nug/nug_sep2022_small.jpg
 ---

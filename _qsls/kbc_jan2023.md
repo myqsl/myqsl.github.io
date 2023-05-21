@@ -1,10 +1,6 @@
 ---
 title: The Mighty KBC — January 2023
 kind: e-QSL
-front_full: /assets/qsl/2023/kbc/full/kbc_jan2023_front.jpg
-back_full: /assets/qsl/2023/kbc/full/kbc_jan2023_back.jpg
-front_small: /assets/qsl/2023/kbc/small/kbc_jan2023_front.jpg
-back_small: /assets/qsl/2023/kbc/small/kbc_jan2023_back.jpg
 frequency: 15770 kHz
 language: English
 reception_date: 2023-01-27
@@ -20,4 +16,7 @@ responce_sent: 2023-01-27
 responce_received: 2023-01-27
 organization: kbc
 broadcaster: kbc
+gallery:
+  - /assets/qsl/2023/kbc/full/kbc_jan2023_front.jpg:/assets/qsl/2023/kbc/small/kbc_jan2023_front.jpg
+  - /assets/qsl/2023/kbc/full/kbc_jan2023_back.jpg:/assets/qsl/2023/kbc/small/kbc_jan2023_back.jpg
 ---

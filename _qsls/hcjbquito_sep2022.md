@@ -1,10 +1,6 @@
 ---
 title: HCJB Quito — September 2022
 kind: e-QSL
-front_full: /assets/qsl/2022/quito/full/hcjbquito_sep2022_front.jpg
-back_full: /assets/qsl/2022/quito/full/hcjbquito_sep2022_back.jpg
-front_small: /assets/qsl/2022/quito/small/hcjbquito_sep2022_front.jpg
-back_small: /assets/qsl/2022/quito/small/hcjbquito_sep2022_back.jpg
 frequency: 6050 kHz
 language: Spanish
 reception_date: 2022-09-10
@@ -20,10 +16,6 @@ responce_sent: 2023-01-17
 responce_received: 2023-01-17
 organization: hcjb
 broadcaster: hcjb_quito
+gallery:
+  - /assets/qsl/2022/quito/full/2235EKornevgenQSL-Letter2022Horario6050.pdf:/assets/qsl/2022/quito/small/hcjbquito_sep2022_original.jpg
 ---
-
-<figure>
-<a href="/assets/qsl/2022/quito/full/2235EKornevgenQSL-Letter2022Horario6050.pdf">
-<img src="/assets/qsl/2022/quito/small/hcjbquito_sep2022_original.jpg"/>
-</a>
-</figure>

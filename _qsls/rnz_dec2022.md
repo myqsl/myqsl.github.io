@@ -1,8 +1,6 @@
 ---
 title: Radio New Zealand Pacific — December 2022
 kind: e-QSL
-front_full: /assets/qsl/2022/rnz/full/rnz_dec2022.jpg
-front_small: /assets/qsl/2022/rnz/small/rnz_dec2022.jpg
 frequency: 13755 kHz
 language: English
 reception_date: 2022-12-07
@@ -18,4 +16,6 @@ responce_sent: 2023-01-11
 responce_received: 2023-01-11
 organization: rnz
 broadcaster: rnz
+gallery:
+  - /assets/qsl/2022/rnz/full/rnz_dec2022.jpg:/assets/qsl/2022/rnz/small/rnz_dec2022.jpg
 ---

@@ -1,10 +1,6 @@
 ---
 title: KNLS/MWV (Russian) — March 2021
 kind: QSL
-front_full: /assets/qsl/2021/knls/full/knls_mar2021_front.jpg
-back_full: /assets/qsl/2021/knls/full/knls_mar2021_back.jpg
-front_small: /assets/qsl/2021/knls/small/knls_mar2021_front.jpg
-back_small: /assets/qsl/2021/knls/small/knls_mar2021_back.jpg
 frequency: 9845 kHz
 language: Russian
 reception_date: 2021-03-18
@@ -20,4 +16,7 @@ responce_sent: 2021-05-05
 responce_received: 2021-05-17
 organization: wcb
 broadcaster: knls
+gallery:
+  - /assets/qsl/2021/knls/full/knls_mar2021_front.jpg:/assets/qsl/2021/knls/small/knls_mar2021_front.jpg
+  - /assets/qsl/2021/knls/full/knls_mar2021_back.jpg:/assets/qsl/2021/knls/small/knls_mar2021_back.jpg
 ---

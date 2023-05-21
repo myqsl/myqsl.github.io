@@ -1,8 +1,6 @@
 ---
 title: Radio Igloo — 2022
 kind: e-QSL
-front_full: /assets/qsl/2022/igloo/full/igloo_2022_front.jpg
-front_small: /assets/qsl/2022/igloo/small/igloo_2022_front.jpg
 frequency: 15770 kHz
 language: English
 reception_date: 2022-11-20
@@ -18,4 +16,6 @@ responce_sent: 2022-11-26
 responce_received: 2022-11-26
 organization: igloo
 broadcaster: igloo
+gallery:
+  - /assets/qsl/2022/igloo/full/igloo_2022_front.jpg:/assets/qsl/2022/igloo/small/igloo_2022_front.jpg
 ---

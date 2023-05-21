@@ -1,10 +1,6 @@
 ---
 title: Radio Taiwan International (de) — July 2021
 kind: QSL
-front_full: /assets/qsl/2021/rti/full/rti_de_jul2021_front.jpg
-back_full: /assets/qsl/2021/rti/full/rti_de_jul2021_back.jpg
-front_small: /assets/qsl/2021/rti/small/rti_de_jul2021_front.jpg
-back_small: /assets/qsl/2021/rti/small/rti_de_jul2021_back.jpg
 frequency: 11705/9545 kHz
 language: Deutsch
 reception_date: 2021-07-17
@@ -20,6 +16,9 @@ responce_sent: 2021-08-23
 responce_received: 2021-09-17
 organization: rti
 broadcaster: rti_de
+gallery:
+  - /assets/qsl/2021/rti/full/rti_de_jul2021_front.jpg:/assets/qsl/2021/rti/small/rti_de_jul2021_front.jpg
+  - /assets/qsl/2021/rti/full/rti_de_jul2021_back.jpg:/assets/qsl/2021/rti/small/rti_de_jul2021_back.jpg
 ---
 
 Summer broadcasts of RTI from Tamsui:

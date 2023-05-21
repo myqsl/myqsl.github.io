@@ -1,10 +1,6 @@
 ---
 title: Radio Pamela (websdr) — February 2023
 kind: e-QSL
-front_full: /assets/qsl/2023/pamela/pamela2.jpeg
-back_full: /assets/qsl/2023/pamela/pamela_05feb2023.jpg
-front_small: /assets/qsl/2023/pamela/pamela2.jpeg
-back_small: /assets/qsl/2023/pamela/pamela_05feb2023.jpg
 frequency: 9294 kHz
 language: English
 reception_date: 2023-02-05
@@ -20,10 +16,10 @@ responce_sent: 2023-02-07
 responce_received: 2023-02-07
 organization: pirates
 broadcaster: pamela
+gallery:
+  - /assets/qsl/2023/pamela/pamela2.jpeg:/assets/qsl/2023/pamela/pamela2.jpeg
+  - /assets/qsl/2023/pamela/pamela_05feb2023.jpg:/assets/qsl/2023/pamela/pamela_05feb2023.jpg
+  - /assets/qsl/2023/pamela/pamela1.png:/assets/qsl/2023/pamela/pamela1.png
 ---
 
 10 watts from UK, so it was not audible in Moscow.
-
-<figure>
-<img src="/assets/qsl/2023/pamela/pamela1.png"/>
-</figure>

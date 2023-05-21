@@ -1,10 +1,6 @@
 ---
 title: Radio Slovakia International (ru) — October 2022
 kind: QSL
-front_full: /assets/qsl/2022/slovakia/full/rsi_ru_oct2022_front.jpg
-back_full: /assets/qsl/2022/slovakia/full/rsi_ru_oct2022_back.jpg
-front_small: /assets/qsl/2022/slovakia/small/rsi_ru_oct2022_front.jpg
-back_small: /assets/qsl/2022/slovakia/small/rsi_ru_oct2022_back.jpg
 frequency: 15770 kHz
 language: Russian
 reception_date: 2022-10-16
@@ -20,6 +16,9 @@ responce_sent: 2022-11-04
 responce_received: 2022-11-25
 organization: rsi
 broadcaster: rsi_ru
+gallery:
+  - /assets/qsl/2022/slovakia/full/rsi_ru_oct2022_front.jpg:/assets/qsl/2022/slovakia/small/rsi_ru_oct2022_front.jpg
+  - /assets/qsl/2022/slovakia/full/rsi_ru_oct2022_back.jpg:/assets/qsl/2022/slovakia/small/rsi_ru_oct2022_back.jpg
 ---
 
 The QSL card has wrong reception kind. It is not SATelite.

@@ -1,8 +1,6 @@
 ---
 title: Православное радио Санкт-Петербурга
 kind: letter
-front_full: /assets/qsl/2021/spbortdx/spbortdx_2021_full.jpg
-front_small: /assets/qsl/2021/spbortdx/spbortdx_2021_small.jpg
 frequency: 828 kHz
 language: Russian
 reception_date: 2021-12-31
@@ -17,6 +15,8 @@ report_sent: 2022-01-01
 responce_sent: 2022-01-11
 responce_received: 2022-01-16
 broadcaster: spbortdx
+gallery:
+  - /assets/qsl/2021/spbortdx/spbortdx_2021_full.jpg:/assets/qsl/2021/spbortdx/spbortdx_2021_small.jpg
 ---
 
 Православное радио Санкт-Петербурга вещало дважды

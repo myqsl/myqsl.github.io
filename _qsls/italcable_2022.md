@@ -1,10 +1,6 @@
 ---
 title: Italcable — 2022
 kind: QSL
-front_full: /assets/qsl/2022/italy/full/italcable_2022_front.jpg
-back_full: /assets/qsl/2022/italy/full/italcable_2022_back.jpg
-front_small: /assets/qsl/2022/italy/small/italcable_2022_front.jpg
-back_small: /assets/qsl/2022/italy/small/italcable_2022_back.jpg
 frequency: 10000 kHz
 language: Italian
 reception_date: 2022-08-13
@@ -19,4 +15,7 @@ responce_sent: 2022-08-17
 responce_received: 2022-09-23
 organization: italcable
 station: italcable
+gallery:
+  - /assets/qsl/2022/italy/full/italcable_2022_front.jpg:/assets/qsl/2022/italy/small/italcable_2022_front.jpg
+  - /assets/qsl/2022/italy/full/italcable_2022_back.jpg:/assets/qsl/2022/italy/small/italcable_2022_back.jpg
 ---

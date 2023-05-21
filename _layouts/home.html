@@ -39,21 +39,15 @@ layout: default
         {% if qsl.mail_to %}<p>Contact: {{ qsl.mail_to }}</p>{% endif %}
         </div>
 
-        {% if qsl.front_small %}
+        {% for image in qsl.gallery %}
+        {% assign full_small = image | split: ":" %}
         <div class="qsl-image">
         <a href="{{ qsl.url }}">
-        <img src="{{ qsl.front_small }}"/>
+        <img src="{{ full_small[1] }}"/>
         </a>
         </div>
-        {% endif %}
-        
-        {% if qsl.back_small %}
-        <div class="qsl-image">
-        <a href="{{ qsl.url }}">
-        <img src="{{ qsl.back_small }}"/>
-        </a>
-        </div>
-        {% endif %}
+        {% endfor %}
+        <p>&nbsp;</p> 
       </div>
     {% endfor %}
 

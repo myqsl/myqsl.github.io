@@ -1,10 +1,6 @@
 ---
 title: Radio Österreich International — December 2022
 kind: e-letter
-front_full: /assets/qsl/2022/orf/full/orf_dec2022_front.jpg
-back_full: /assets/qsl/2022/orf/full/orf_dec2022_back.jpg
-front_small: /assets/qsl/2022/orf/small/orf_dec2022_front.jpg
-back_small: /assets/qsl/2022/orf/small/orf_dec2022_back.jpg
 frequency: 6155 kHz
 language: German
 reception_date: 2022-12-27
@@ -20,5 +16,7 @@ responce_sent: 2022-12-28
 responce_received: 2022-12-28
 organization: orf
 broadcaster: orf
+gallery:
+  - /assets/qsl/2022/orf/full/orf_dec2022_front.jpg:/assets/qsl/2022/orf/small/orf_dec2022_front.jpg
+  - /assets/qsl/2022/orf/full/orf_dec2022_back.jpg:/assets/qsl/2022/orf/small/orf_dec2022_back.jpg
 ---
-

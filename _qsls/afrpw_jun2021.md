@@ -1,10 +1,6 @@
 ---
 title: African Pathways — June 2021
 kind: QSL
-front_full: /assets/qsl/2021/mwv/full/mwv_en_jun2021_front.jpg
-back_full: /assets/qsl/2021/mwv/full/mwv_en_jun2021_back.jpg
-front_small: /assets/qsl/2021/mwv/small/mwv_en_jun2021_front.jpg
-back_small: /assets/qsl/2021/mwv/small/mwv_en_jun2021_back.jpg
 frequency: 11965 kHz
 language: English
 reception_date: 2021-06-12
@@ -20,4 +16,7 @@ responce_sent: 2021-09-24
 responce_received: 2021-11-25
 organization: wcb
 broadcaster: afrpw
+gallery:
+  - /assets/qsl/2021/mwv/full/mwv_en_jun2021_front.jpg:/assets/qsl/2021/mwv/small/mwv_en_jun2021_front.jpg
+  - /assets/qsl/2021/mwv/full/mwv_en_jun2021_back.jpg:/assets/qsl/2021/mwv/small/mwv_en_jun2021_back.jpg
 ---

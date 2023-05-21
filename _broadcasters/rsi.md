@@ -1,6 +1,6 @@
 ---
-code: rsi_fr
-title: Radio Slovakia International (French)
+code: rsi
+title: Radio Slovakia International
 country: slovakia
 organization: rsi
 itu: SVK

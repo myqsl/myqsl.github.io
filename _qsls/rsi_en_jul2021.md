@@ -15,7 +15,7 @@ report_sent: 2021-08-09
 responce_sent: 2021-09-06
 responce_received: 2021-09-16
 organization: rsi
-broadcaster: rsi_en
+broadcaster: rsi
 gallery:
   - /assets/qsl/2021/rsi/full/rsi_en_jul2021_front.jpg:/assets/qsl/2021/rsi/small/rsi_en_jul2021_front.jpg
   - /assets/qsl/2021/rsi/full/rsi_en_jul2021_back.jpg:/assets/qsl/2021/rsi/small/rsi_en_jul2021_back.jpg

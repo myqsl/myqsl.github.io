@@ -15,7 +15,7 @@ report_sent: 2023-01-20
 responce_sent: 2023-01-26
 responce_received: 2023-02-15
 organization: rsi
-broadcaster: rsi_fr
+broadcaster: rsi
 gallery:
   - /assets/qsl/2023/rsi/full/rsi_fr_jan2023_front.jpg:/assets/qsl/2023/rsi/small/rsi_fr_jan2023_front.jpg
   - /assets/qsl/2023/rsi/full/rsi_fr_jan2023_back.jpg:/assets/qsl/2023/rsi/small/rsi_fr_jan2023_back.jpg

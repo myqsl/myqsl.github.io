@@ -15,7 +15,7 @@ report_sent: 2022-10-18
 responce_sent: 2022-11-04
 responce_received: 2022-11-25
 organization: rsi
-broadcaster: rsi_ru
+broadcaster: rsi
 gallery:
   - /assets/qsl/2022/slovakia/full/rsi_ru_oct2022_front.jpg:/assets/qsl/2022/slovakia/small/rsi_ru_oct2022_front.jpg
   - /assets/qsl/2022/slovakia/full/rsi_ru_oct2022_back.jpg:/assets/qsl/2022/slovakia/small/rsi_ru_oct2022_back.jpg

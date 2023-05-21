@@ -1,6 +1,6 @@
 ---
 title: Obiettivo DX — March 2023
-kind: email
+kind: e-letter
 back_full: /assets/qsl/2023/awrit/full/awrit_mar2023_email.jpg
 back_small: /assets/qsl/2023/awrit/small/awrit_mar2023_email.jpg
 frequency: 9610 kHz

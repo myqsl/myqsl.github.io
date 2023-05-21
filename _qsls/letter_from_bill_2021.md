@@ -1,6 +1,6 @@
 ---
 title: Envelope from Bill Tilford — March 2021
-kind: letter+stickers
+kind: letter
 front_full: /assets/qsl/2021/unclebill/full/ftiom_sticker_bill2021.jpg
 back_full: /assets/qsl/2021/unclebill/full/ubmp_sticker_bill2021.jpg
 front_small: /assets/qsl/2021/unclebill/small/ftiom_sticker_bill2021.jpg

@@ -14,11 +14,8 @@ permalink: /broadcasters/
 
 <table>
 <tr>
-    <th>ITU</th>
-    <th>Country</th>
-    <th>Name, Station</th>
-    <th>Frequency</th>
-    <th>Date</th>
+    <th>Country &bullet; Name</th>
+    <th>Station &bullet; Frequency &bullet; Date</th>
 </tr>
 
 {% for country in countries %} 
@@ -29,40 +26,40 @@ permalink: /broadcasters/
     {% assign broadcasters = site.broadcasters | where: 'itu', itu %}
     {% assign country_code = broadcasters | map: 'country' | first %}
     {% assign country = site.countries | where: 'code', country_code | first %}
-<tr>
-    <td>{{ itu }}</td>
-    <td>{{ country.title }}</td>
-
-    <td>
 {% for broadcaster in broadcasters %}
     {% assign qsls = site.qsls | where: 'broadcaster', broadcaster.code %}
+{% if qsls != empty %}
+<tr>
+    <td>
+    <img class="flag" src="{{ country.flag }}"/>
+    {{ itu }}
+    &bullet; <a href="{{ broadcaster.url }}">{{ broadcaster.title }}</a>
+    </td>
+
+    <td>
 {% for qsl in qsls %}
     {% assign station = site.stations | where: 'code', qsl.station | first %}
-    <a href="{{ broadcaster.url }}">{{ broadcaster.title }}</a>{% if qsl.station!= broadcaster.code %} via {{ station.title }}{% endif %}
-    <br/>
-{% endfor %}
-{% endfor %}
-    </td>
-
-    <td>
-{% for broadcaster in broadcasters %}
-    {% assign qsls = site.qsls | where: 'broadcaster', broadcaster.code %}
-{% for qsl in qsls %}
-    <a href="{{ qsl.url }}">{{ qsl.frequency }}</a><br/>
-{% endfor %}
-{% endfor %}
-    </td>
-
-    <td>
-{% for broadcaster in broadcasters %}
-    {% assign qsls = site.qsls | where: 'broadcaster', broadcaster.code %}
-{% for qsl in qsls %}
-    {{ qsl.reception_date }}<br/>
-{% endfor %}
+    <a href="{{ qsl.url }}">{% if qsl.kind == 'QSL' %}
+    &#128231;
+    {% elsif qsl.kind == 'e-QSL' %}
+    &#128206;
+    {% elsif qsl.kind == 'e-letter' %}
+    &#128292;
+    {% elsif qsl.kind == 'letter' %}
+    &#128240;
+    {% endif %}</a>
+    {% if qsl.station %}
+    {% if qsl.station!= broadcaster.code %}&bullet; via <a href="{{ station.url }}">{{ station.title }}</a>{% endif %}{% endif %}
+    {% if qsl.frequenncy %}
+    &bullet; <a href="{{ qsl.url }}">{{ qsl.frequency }}</a>{% endif %}
+    {% if qsl.reception_date %}
+    &bullet; {{ qsl.reception_date }}{% endif %}<br/>
 {% endfor %}
     </td>
 
 </tr>
+{% endif %}
+{% endfor %}
 {% endfor %}
 {% endfor %}
 

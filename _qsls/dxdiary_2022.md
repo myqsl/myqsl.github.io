@@ -13,7 +13,7 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:dxersdiary@gmail.com
 receiver: BELKA
 antenna: its telescopic
-station: agana
+station: ktwr
 youtube_id: ihVxDxAZR0c
 report_sent: 2022-12-29
 responce_sent: 2023-02-07

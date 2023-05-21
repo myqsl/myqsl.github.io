@@ -1,6 +1,6 @@
 ---
 title: ContiKenzo — April 08 2023
-kind: e-mail
+kind: e-letter
 front_full: /assets/qsl/2023/contikenzo/08apr/contikenzo_08apr2023_mail.jpg
 front_small: /assets/qsl/2023/contikenzo/08apr/contikenzo_08apr2023_mail.jpg
 frequency: 5800 kHz

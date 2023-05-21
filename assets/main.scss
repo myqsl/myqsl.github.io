@@ -109,17 +109,12 @@ div.item:hover {
         //width: 50%;
         //width: -webkit-calc(#{$content-width} - (700px));
         //width:         calc(#{$content-width} - (700px));
-        width: -webkit-calc(100% - (400px));
-        width:         calc(100% - (400px));
-        float: left;
+        width: 800px; // -webkit-calc(100% - (400px));
+        //width:         calc(100% - (400px));
+        //float: left;
     }
 
 }
-
-    .right_column {
-        width: 400px;
-        float: left;
-    }
 
 .trigger form {
   float: right;

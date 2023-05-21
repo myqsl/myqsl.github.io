@@ -46,13 +46,10 @@ layout: post
 {{ content }}
 
 
-{% if page.organization %}
 {% assign qsls = site.qsls
                 | where: 'broadcaster', page.broadcaster
                 | sort: 'reception_date'
                 | reverse %}
-{% endif %}
-
 {% for qsl in qsls %}
 {% if qsl != page %}
 <hr/>
@@ -70,18 +67,4 @@ layout: post
 {% endfor %}
 
 
-</div>
-
-
-<div class="right_column">
-{% for qsl in qsls %}
-<div class="item">
-  <img src="{{ qsl.front_small }}" width="150px" style="float:left; margin-right: 10px; "/>
-  <h4><a href="{{ qsl.url }}">{{ qsl.title }}</a></h4>
-  <!-- <p>
-  Дата: {{ qsl.reception_date | date_to_string }}
-  </p> -->
-  <!-- <p>{{ qsl.content | markdownify }}</p> -->
-</div>
-{% endfor %}
 </div>

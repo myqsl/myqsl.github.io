@@ -16,11 +16,8 @@ permalink: /qsls/
 
 <table>
 <tr>
-    <th>ITU</th>
-    <th>Country</th>
-    <th>Station, Broadcaster</th>
-    <th>Frequency</th>
-    <th>Date</th>
+    <th>Station</th>
+    <th>Broadcaster &bullet; Frequency &bullet; Date</th>
 </tr>
 
 {% for country in countries %} 
@@ -31,39 +28,32 @@ permalink: /qsls/
     {% assign stations = site.stations | where: 'itu', itu %}
     {% assign country_code = stations | map: 'country' | first %}
     {% assign country = site.countries | where: 'code', country_code | first %}
-<tr>
-    <td>{{ itu }}</td>
-    <td>{{ country.title }}</td> 
-
-    <td>
 {% for station in stations %}
     {% assign qsls = site.qsls | where: 'station', station.code %}
+    {% if station.short %}
+        {% assign station_title = station.short %}
+    {% else %}
+        {% assign station_title = station.title %}
+    {% endif %}
+
+<tr>
+    <td>
+        <img class="flag" src="{{ country.flag }}"/>
+        {{ itu }}
+        <a href="{{ station.url }}">{{ station_title }}</a>
+    </td>
+
+    <td>
 {% for qsl in qsls %}
     {% assign broadcaster = site.broadcasters | where: 'code', qsl.broadcaster | first %}
-    {% if station.short %}<a href="{{ station.url }}">{{ station.short }}</a>, {% endif %}{% if qsl.broadcaster %}<a href="{{ broadcaster.url }}">{{ broadcaster.title}}</a>{% endif %}<br/>
-{% endfor %}
-{% endfor %}
-    </td>
-
-    <td>
-{% for station in stations %}
-    {% assign qsls = site.qsls | where: 'station', station.code %}
-{% for qsl in qsls %}
-    <a href="{{ qsl.url }}">{{ qsl.frequency }}</a><br/>
-{% endfor %}
-{% endfor %}
-    </td>
-
-    <td>
-{% for station in stations %}
-    {% assign qsls = site.qsls | where: 'station', station.code %}
-{% for qsl in qsls %}
-    {{ qsl.reception_date }}<br/>
-{% endfor %}
+    {% if qsl.broadcaster %}&bullet; <a href="{{ broadcaster.url }}">{{ broadcaster.title}}</a>{% endif %}
+    &bullet; <a href="{{ qsl.url }}">{{ qsl.frequency }}</a>
+    &bullet; {{ qsl.reception_date }}<br/>
 {% endfor %}
     </td>
 
 </tr>
+{% endfor %}
 {% endfor %}
 {% endfor %}
 

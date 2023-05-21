@@ -13,13 +13,13 @@ location: Moscow, Russia (inside city)
 mail_to: mailto:info@swradio.net
 receiver: BELKA
 antenna: its telescopic
-station: virrat
+station: swradio
 youtube_id: hcbv8F-Rl9Y
 report_sent: 2023-02-06
 responce_sent: 2023-02-09
 responce_received: 2023-02-09
 organization: swradio
-station: swradio
+broadcaster: swradio
 ---
 
 The letter:

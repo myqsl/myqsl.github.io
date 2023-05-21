@@ -1,6 +1,6 @@
 ---
 code: charleston
-title: Charleston Site
+title: Radio Charleston Int.
 address: somewhere in South Germany
 itu: D
 country: germany

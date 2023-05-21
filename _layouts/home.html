@@ -17,6 +17,7 @@ layout: default
         {% else %}
             {% assign correspondent = site.stations | where: 'code', qsl.station | first %}
         {% endif %}
+        {% assign station = site.stations | where: 'code', qsl.station | first %}
 
         <div class="header">
         {% assign country = site.countries | where: 'code', correspondent.country | first %}
@@ -33,7 +34,7 @@ layout: default
         </div>
 
         <div class="qsl-info-box">
-        {% if qsl.frequency %}<p>Frequency: {{ qsl.frequency }}</p>{% endif %}
+        {% if qsl.frequency %}<p>Frequency: {{ qsl.frequency }} {% if qsl.station and station.code != broadcaster.code %}via <a href="{{ station.url }}">{{ station.title }}</a>{% endif %}</p>{% endif %}
         {% if qsl.reception_time %}<p>Time: {{ qsl.reception_time }} UTC</p>{% endif %}
         {% if qsl.reception_date %}<p>Date: {{ qsl.reception_date | date_to_string }}</p>{% endif %}
         {% if qsl.mail_to %}<p>Contact: {{ qsl.mail_to }}</p>{% endif %}

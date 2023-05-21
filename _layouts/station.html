@@ -7,20 +7,11 @@ layout: page
                 | sort: 'reception_date'
                 %}
 
-{% for qsl in qsls %}
-<div class="qitem">
-  <a href="{{ qsl.url }}">
-  <img src="{{ qsl.front_small }}"/>
-  <!-- <p>{{ qsl.title }}</p> -->
-  </a>
-</div>
-{% endfor %}
-
-<div style="clear:both">&nbsp;</div>
-
 {% assign country = site.countries | where: 'code', page.country | first %}
 
+{% if page.country %}
 <p><code>Country</code> <img src="{{ country.flag }}" class="flag"> {{ country.title }} ({{ country.continent }})</p>
+{% endif %}
 
 {% if page.address %}
 <p><code>Address</code> {{ page.address }}</p>

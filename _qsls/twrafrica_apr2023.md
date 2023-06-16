@@ -1,0 +1,22 @@
+---
+title: TWR Africa — April 2023
+kind: e-QSL
+frequency: 11880 kHz
+language: Somali
+reception_date: 2023-04-23
+reception_time: 15.32-15.45
+location: Moscow, Russia (inside city)
+mail_to: mailto:bpfeiffer@twr.org
+receiver: BELKA
+antenna: its telescopic
+station: eswatini
+youtube_id: 8kMSYRJH9YA
+report_sent: 2023-04-23
+responce_sent: 2023-05-20
+responce_received: 2023-05-20
+broadcaster: twr_africa
+gallery:
+  - /assets/qsl/2023/twrafrica/full/twrafrica_apr2023.jpg:/assets/qsl/2023/twrafrica/small/twrafrica_apr2023.jpg
+---
+
+Two schedules had been attached: <a href="/assets/qsl/2023/twrafrica/A23_TWRAFR_SCHEDULE1.xlsx">page1</a>, <a href="/assets/qsl/2023/twrafrica/A23_TWRAFR_SCHEDULE2.xlsx">page2</a>.  

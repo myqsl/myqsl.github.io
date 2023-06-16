@@ -1,0 +1,21 @@
+---
+title: TWR Africa — May 2023
+kind: e-QSL
+frequency: 9655 kHz
+language: Amharic
+reception_date: 2023-05-28
+reception_time: 03.30-03.45
+location: Moscow, Russia (inside city)
+mail_to: mailto:bpfeiffer@twr.org
+receiver: BELKA
+antenna: its telescopic
+station: dhabbaya
+youtube_id: q_ckYESnMpk
+report_sent: 2023-05-28
+responce_sent: 2023-05-28
+responce_received: 2023-05-31
+broadcaster: twr_africa
+gallery:
+  - /assets/qsl/2023/twrafrica/full/twrafrica_may2023_eqsl.jpg:/assets/qsl/2023/twrafrica/small/twrafrica_may2023_eqsl.jpg
+  - /assets/qsl/2023/twrafrica/full/twrafrica_may2023_email.jpg:/assets/qsl/2023/twrafrica/small/twrafrica_may2023_email.jpg
+---

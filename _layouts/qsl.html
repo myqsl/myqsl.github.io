@@ -1,47 +1,7 @@
 ---
-layout: post
+layout: default
 ---
-
-<div class="left_column">
-
-{% assign broadcaster = site.broadcasters | where: 'code', page.broadcaster | first %}
-{% if page.broadcaster %}
-<p><code>Broadcaster</code> <a href="{{ broadcaster.url }}">{{ broadcaster.title }}</a></p>
-{% endif %}
-
-<p><code>Confirmed</code> {{ page.kind }}/<a href="{{ page.mail_to }}">{{ page.mail_to }}</a></p>
-<p><code>Frequency</code> {{ page.frequency }}</p>
-<p><code>Language</code> {{ page.language }}</p>
-<p><code>Date</code> {{ page.reception_date | date_to_string }}</p>
-<p><code>Time UTC</code> {{ page.reception_time }}</p>
-<p><code>Location</code> {{ page.location }}</p>
-<p><code>Radio</code> {{ page.receiver }}</p>
-<p><code>Antenna</code> {{ page.antenna }}</p>
-{% if page.station %}
-{% assign s = site.stations | where: 'code', page.station | first %}
-{% assign country = site.countries | where: 'code', s.country | first %}
-<p><code>Station</code> <a href="{{ s.url }}">{{ s.title }}{% if s.address %}, {{ s.address }}{% endif %}{% if s.country %}, {{ country.title }}{% endif %}</a></p>
-{% endif %}
-<p><code>Report sent</code> {{ page.report_sent | date_to_string }}</p>
-<p><code>Responce sent</code> {{ page.responce_sent | date_to_string }}</p>
-<p><code>Responce received</code> {{ page.responce_received | date_to_string }}</p>
-
-{% if page.youtube_id %}
-<p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ page.youtube_id }}" title="Record of the reception" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
-{% endif %}
-
-{% for image in page.gallery %}
-{% assign full_small = image | split: ":" %}
-<figure class="front_image">
-<a href="{{ full_small[0] }}">
-<img src="{{ full_small[1] }}"/>
-</a>
-</figure>
-{% endfor %} 
-
-
+{% include qslbox.html qsl=page %}
 
 {{ content }}
 
@@ -52,19 +12,7 @@ layout: post
                 | reverse %}
 {% for qsl in qsls %}
 {% if qsl != page %}
-<hr/>
-<p>&nbsp;</p>
-<p><a href="{{ qsl.url }}">{{ qsl.title }}</a></p>
-{% for image in qsl.gallery %}
-{% assign full_small = image | split: ":" %}
-<figure class="front_image">
-<a href="{{ full_small[0] }}">
-<img src="{{ full_small[1] }}"/>
-</a>
-</figure>
-{% endfor %} 
+    {% include qslbox.html qsl=qsl %}
+
 {% endif %}
 {% endfor %}
-
-
-</div>

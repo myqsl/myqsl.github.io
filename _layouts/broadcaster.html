@@ -22,3 +22,8 @@ layout: page
     </a>
   </p>
 {% endfor %}
+
+{% assign revqsls = qsls | reverse %}
+{% for qsl in revqsls %}
+{% include qslbox.html qsl=qsl %}
+{% endfor %}

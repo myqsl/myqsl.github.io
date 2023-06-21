@@ -11,67 +11,7 @@ layout: default
     {% assign qsls = site.qsls | sort: 'responce_received' | reverse %}
 
     {% for qsl in qsls %}
-      <div class="latest-qsl">
-        {% if qsl.broadcaster %}
-            {% assign correspondent = site.broadcasters | where: 'code', qsl.broadcaster | first %}
-        {% else %}
-            {% assign correspondent = site.stations | where: 'code', qsl.station | first %}
-        {% endif %}
-        {% assign station = site.stations | where: 'code', qsl.station | first %}
-
-        <div class="header">
-        {% assign country = site.countries | where: 'code', correspondent.country | first %}
-
-        {% if correspondent.country %}
-          <div class="flag-box">
-            <img src="{{ country.flag }}" />
-          </div>
-        {% endif %}
-          <div>
-            <h2>{{ correspondent.title }}</h2>
-            <p class="subtitle">{% if qsl.report_sent %}Submitted on {{ qsl.report_sent | date_to_long_string}}{% endif %} {% if qsl.report_sent and qsl.responce_received %}&bullet;{% endif %} {% if qsl.responce_received %}Received on {{ qsl.responce_received | date_to_long_string }}{% endif %}</p>
-          </div>
-        </div>
-
-        <div class="qsl-info-box">
-        <details>
-        <summary>{{ qsl.frequency }} &bullet; {{ qsl.reception_date | date_to_string }} {{ qsl.reception_time }} UTC</summary>
-        <p></p>
-        <p><code>Confirmed</code> {{ qsl.kind }}/<a href="{{ qsl.mail_to }}">{{ qsl.mail_to }}</a></p>
-        {% if qsl.frequency %}<p><code>Frequency</code> {{ qsl.frequency }}</p>{% endif %}
-        {% if qsl.language %}<p><code>Language</code> {{ qsl.language }}</p>{% endif %}
-        {% if qsl.reception_date %}<p><code>Date</code> {{ qsl.reception_date | date_to_string }}</p>{% endif %}
-        {% if qsl.reception_time %}<p><code>Time UTC</code> {{ qsl.reception_time }}</p>{% endif %}
-        {% if qsl.location %}<p><code>Location</code> {{ qsl.location }}</p>{% endif %}
-        {% if qsl.receiver %}<p><code>Receiver</code> {{ qsl.receiver }}</p>{% endif %}
-        {% if qsl.antenna %}<p><code>Antenna</code> {{ qsl.antenna }}</p>{% endif %}
-        {% if qsl.station %}
-        {% assign scountry = site.countries | where: 'code', station.country | first %}
-        <p><code>Station</code> <a href="{{ station.url }}">{{ station.title }}{% if station.address %}, {{ station.address }}{% endif %}{% if station.country %}, {{ scountry.title }}{% endif %}</a></p>
-        {% endif %}
-        {% if qsl.report_sent %}<p><code>Report sent</code> {{ qsl.report_sent | date_to_string }}</p>{% endif %}
-        {% if qsl.responce_sent %}<p><code>Responce sent</code> {{ qsl.responce_sent | date_to_string }}</p>{% endif %}
-        {% if qsl.responce_received %}<p><code>Responce received</code> {{ qsl.responce_received | date_to_string }}</p>{% endif %}
-
-        {% if qsl.youtube_id %}
-        <p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ qsl.youtube_id }}" title="Record of the reception" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </p>
-        {% endif %}
-
-        </details>
-        </div>
-        
-        {% for image in qsl.gallery %}
-        {% assign full_small = image | split: ":" %}
-        <div class="qsl-image">
-        <a href="{{ qsl.url }}">
-        <img src="{{ full_small[1] }}"/>
-        </a>
-        </div>
-        {% endfor %}
-        <p>&nbsp;</p> 
-      </div>
+        {% include qslbox.html qsl=qsl %}
     {% endfor %}
 
 

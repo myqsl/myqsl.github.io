@@ -1,0 +1,23 @@
+---
+title: Radio Dechovka - 100 years of radio in Czechia (May 2023)
+kind: QSL
+frequency: 1233 kHz
+language: Czech
+reception_date: 2023-05-18
+reception_time: 21.04-21.32
+location: Moscow, Russia
+mail_to: dechovkashop@gmail.com
+receiver: BELKA
+antenna: its telescopic antenna
+station: zbraslav
+youtube_id: iuXii2qbo2k
+report_sent: 2023-05-22
+responce_sent: 2023-05-24
+responce_received: 2023-06-11
+broadcaster: dechovka
+gallery:
+  - /assets/qsl/2023/dechovka/full/dechovka_may2023_qsl.jpg:/assets/qsl/2023/dechovka/small/dechovka_may2023_qsl.jpg
+  - /assets/qsl/2023/dechovka/full/dechovka_may2023_s1.jpg:/assets/qsl/2023/dechovka/small/dechovka_may2023_s1.jpg
+  - /assets/qsl/2023/dechovka/full/dechovka_may2023_s2.jpg:/assets/qsl/2023/dechovka/small/dechovka_may2023_s2.jpg
+  - /assets/qsl/2023/dechovka/full/dechovka_may2023_adv.jpg:/assets/qsl/2023/dechovka/small/dechovka_may2023_adv.jpg
+---

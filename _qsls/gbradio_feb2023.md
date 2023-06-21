@@ -1,0 +1,20 @@
+---
+title: Jazz AM on GBRadio via 125 kW transmitter (February 2023)
+kind: e-QSL
+frequency: 3955 kHz
+language: English
+reception_date: 2023-02-23
+reception_time: 22.00-23.00
+location: Moscow, Russia (inside city)
+mail_to: mailto:admin@gbradio.uk
+receiver: BELKA
+antenna: its telescopic
+station: wooferton
+# youtube_id: JVrt6pSUkUo
+report_sent: 2023-02-23
+responce_sent: 2023-06-14
+responce_received: 2023-06-14
+broadcaster: gbradio
+gallery:
+  - /assets/qsl/2023/gbradio/full/gbradio_feb2023.jpg:/assets/qsl/2023/gbradio/small/gbradio_feb2023.jpg
+---

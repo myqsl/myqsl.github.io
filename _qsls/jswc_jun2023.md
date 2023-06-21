@@ -1,0 +1,21 @@
+---
+title: Japan DX Report — June 2023
+kind: e-QSL
+frequency: 15770 kHz
+language: English
+reception_date: 2023-06-04
+reception_time: 04.52-04.57
+location: Moscow, Russia (inside city)
+mail_to: mailto:jswcqsl@live.jp
+receiver: BELKA
+antenna: its telescopic
+station: wrmi
+youtube_id: Zn5vFiNzvzU
+report_sent: 2023-06-06
+responce_sent: 2023-06-11
+responce_received: 2023-06-11
+organization: jswc
+broadcaster: jswc
+gallery:
+  - /assets/qsl/2023/jswc/full/jswc_jun2023.jpg:/assets/qsl/2023/jswc/small/jswc_jun2023.jpg
+---

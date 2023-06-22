@@ -16,7 +16,7 @@ permalink: /private/
 {% for station in stations %}
 
 {% assign country = site.countries | where: 'code', station.country | first %}
-{% assign qsls = site.qsls | where: 'station', station.code %}
+{% assign qsls = site.posts | where: 'station', station.code %}
 {% for qsl in qsls %}
 {% assign broadcaster = site.broadcasters | where: 'code', qsl.broadcaster | first %}
 <tr>

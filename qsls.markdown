@@ -29,7 +29,7 @@ permalink: /qsls/
     {% assign country_code = stations | map: 'country' | first %}
     {% assign country = site.countries | where: 'code', country_code | first %}
 {% for station in stations %}
-    {% assign qsls = site.qsls | where: 'station', station.code %}
+    {% assign qsls = site.posts | where: 'station', station.code %}
     {% if station.short %}
         {% assign station_title = station.short %}
     {% else %}

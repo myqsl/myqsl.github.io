@@ -31,10 +31,9 @@ url: "http://myqsl.github.io" # the base hostname & protocol for your site, e.g.
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate
 
 collections:
-  qsls:
-    output: true
   organizations:
     output: true
   broadcasters:
@@ -43,18 +42,20 @@ collections:
     output: true
   countries:
     output: false
+  notes:
+    output: true
 
 defaults:
   - scope:
       path: ""
-      type: "qsls"
+      type: "posts"
     values:
       layout: "qsl"
-  - scope:
-      path: ""
-      type: "organizations"
-    values:
-      layout: "org"
+#  - scope:
+#      path: ""
+#      type: "organizations"
+#    values:
+#      layout: "org"
   - scope:
       path: ""
       type: "broadcasters"
@@ -65,6 +66,11 @@ defaults:
       type: "stations"
     values:
       layout: "station"
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      layout: "post"
   - scope:
       path: ""
     values:
@@ -79,6 +85,9 @@ header_pages:
   - broadcasters.markdown
   - about.markdown
   - search.markdown
+
+paginate: 5
+paginate_path: "/page:num/"
 
 # Exclude from processing.
 # The following items will not be processed, by default.

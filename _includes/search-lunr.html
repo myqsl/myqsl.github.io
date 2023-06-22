@@ -21,7 +21,7 @@ var documents = [
     },
     {% assign counter = counter | plus: 1 %}
 {% endfor %}
-{% for page in site.qsls %}
+{% for page in site.posts %}
     {
     "id": {{ counter }},
     "url": "{{ site.url }}{{ page.url }}",
@@ -30,7 +30,7 @@ var documents = [
     },
     {% assign counter = counter | plus: 1 %}
 {% endfor %}
-{% for page in site.posts %}
+{% for page in site.notes %}
     {
     "id": {{ counter }},
     "url": "{{ site.url }}{{ page.url }}",

@@ -2,7 +2,7 @@
 layout: page
 ---
 
-{% assign qsls = site.qsls
+{% assign qsls = site.posts
                 | where: 'organization', page.code
                 | sort: 'reception_date'
                 | reverse %}

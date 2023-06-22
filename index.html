@@ -1,0 +1,89 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+<!--  content -->
+
+   
+<!-- Pagination links -->
+<div class="pagination">
+<h2 class="post-list-heading">Latest QSL
+   {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">
+      &lt;&lt;
+    </a>
+  {% else %}
+    <span class="previous">&lt;&lt;</span>
+  {% endif %}
+  <span class="page_number ">
+    {{ paginator.page }} / {{ paginator.total_pages }}
+  </span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">&gt;&gt;</a>
+  {% else %}
+    <span class="next ">&gt;&gt;</span>
+  {% endif %}
+</h2>
+</div>
+
+    {% assign qsls = paginator.posts | sort: 'responce_received' | reverse %}
+
+    {% for qsl in qsls %}
+        {% include qslbox.html qsl=qsl %}
+    {% endfor %}
+
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">
+      Previous
+    </a>
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">
+    Page: {{ paginator.page }} of {{ paginator.total_pages }}
+  </span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}
+</div>
+
+
+  {%- if site.notes.size > 0 -%}
+    <h2 class="post-list-heading">Notes (in Russian)</h2>
+    <ul class="post-list">
+      {%- for note in site.notes -%}
+      <li>
+        <div style="float:left; margin-right: 10px; margin-top: 10px; width: 150px; ">
+        <img src="{{ note.image }}"/>
+        </div>
+        <div class="excerpt"> 
+        
+
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ note.date | date: date_format }}</span>
+        <h3>
+          <a class="post-link" href="{{ note.url | relative_url }}">
+            {{ note.title | escape }}
+          </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+          {{ note.excerpt }}
+        {%- endif -%}
+        </div>
+        <div style="clear:both" />
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+</div>

@@ -8,7 +8,7 @@ permalink: /gallery/
 <h2>{{ country.title }}</h2>
     {% assign stations = site.stations | where: 'country', country.code %}
     {% for station in stations %}
-        {% assign qsls = site.qsls | where: 'station', station.code %}
+        {% assign qsls = site.posts | where: 'station', station.code %}
         {% for qsl in qsls %}
 <div style="margin-bottom: 5px">
   <a href="{{ qsl.url }}">

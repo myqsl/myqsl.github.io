@@ -6,7 +6,7 @@ layout: default
 {{ content }}
 
 
-{% assign qsls = site.qsls
+{% assign qsls = site.posts
                 | where: 'broadcaster', page.broadcaster
                 | sort: 'reception_date'
                 | reverse %}

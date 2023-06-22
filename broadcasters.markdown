@@ -27,7 +27,7 @@ permalink: /broadcasters/
     {% assign country_code = broadcasters | map: 'country' | first %}
     {% assign country = site.countries | where: 'code', country_code | first %}
 {% for broadcaster in broadcasters %}
-    {% assign qsls = site.qsls | where: 'broadcaster', broadcaster.code %}
+    {% assign qsls = site.posts | where: 'broadcaster', broadcaster.code %}
 {% if qsls != empty %}
 <tr>
     <td>
@@ -78,7 +78,7 @@ permalink: /broadcasters/
 </tr>
 
 {% for broadcaster in no_itu_broadcasters %}
-{% assign qsls = site.qsls | where: 'broadcaster', broadcaster.code %}
+{% assign qsls = site.posts | where: 'broadcaster', broadcaster.code %}
 {% for qsl in qsls %}
 <tr>
     <td><a href="{{ broadcaster.url }}">{{ broadcaster.title }}</a></td>

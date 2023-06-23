@@ -196,3 +196,21 @@ div.latest-qsl .header {
 .updates-list p {
     margin-bottom: 5px;
 }
+
+@media screen and (min-width: 600px) {
+    .full-youtube {
+        display: block;
+    }
+    .small-youtube {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .full-youtube {
+        display: none;
+    }
+    .small-youtube {
+        display: block;
+    }
+}

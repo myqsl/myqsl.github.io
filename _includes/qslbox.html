@@ -42,8 +42,11 @@
 {% if include.qsl.responce_received %}<p><code>Responce received</code> {{ include.qsl.responce_received | date_to_string }}</p>{% endif %}
 
 {% if include.qsl.youtube_id %}
-<p>
+<p class="full-youtube">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ include.qsl.youtube_id }}" title="Record of the reception" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<p class="small-youtube">
+<code>Video</code> <a href="https://youtu.be/{{ include.qsl.youtube_id }}">Click to open the video (YouTube)</a>
 </p>
 {% endif %}
 

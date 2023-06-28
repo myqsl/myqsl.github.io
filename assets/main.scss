@@ -189,12 +189,18 @@ div.latest-qsl .header {
     width: 100%;
 }
 
-.updates-list {
-    margin-bottom: 20px;
+.updates-list .latest-qsl {
+    margin-bottom: 5px;
+}
+
+.pagination .latest-qsl {
+    margin-bottom: 5px;
 }
 
 .updates-list p {
-    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-bottom: 0px;
 }
 
 @media screen and (min-width: 600px) {

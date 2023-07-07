@@ -11,7 +11,7 @@ async def forwarder(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not msg: return
     
     text = escape(msg.text)
-    text = sub(r'(https://youtu.be/[0-9a-zA-Z/]*)', r'<a href="\1">\1</a>', text) 
+    text = sub(r'(https://youtu.be/[0-9a-zA-Z/_]*)', r'<a href="\1">\1</a>', text)
     line = f'<p><code>{msg.date.strftime("%B %d")}</code>&nbsp;{text}</p>'
 
     feed = Path('feed.txt')

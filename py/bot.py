@@ -14,13 +14,47 @@ def splitted(text, entities):
         ln = e.offset + e.length
     yield (text[ln:], None)
 
+def is_youtube(url):
+    youtube_domains = [
+        'https://www.youtube.com/',
+        'http://www.youtube.com/',
+        'https://m.youtube.com/',
+        'http://m.youtube.com/',
+        'https://youtu.be/',
+        'http://youtu.be/',
+        'https://m.youtu.be/',
+        'http://m.youtu.be/',
+    ]
+    return any(d for d in youtube_domains if url.startswith(d))
+
+def is_this_site(url):
+    this_domains = [
+        'https://myqsl.github.io/',
+        'http://myqsl.github.io/',
+    ]
+    return any(d for d in this_domains if url.startswith(d))
+
 def html_text(text, entity_type):
     if not entity_type:
         return escape(text)
     elif entity_type == MessageEntityType.URL:
-        return f'<a href="{text}">{escape(text)}</a>'
+
+        url = text
+        if text.startswith('https://myqsl.github.io/'):
+            url = text[len('https://myqsl.github.io'):]
+        elif text.startswith('http://myqsl.github.io/'):
+            url = text[len('http://myqsl.github.io'):]
+
+        link_text = escape(text)
+        if is_youtube(text):
+            link_text = f'<img src="/assets/images/yt.png"/>'
+        elif is_this_site(text):
+            link_text = f'<img src="/assets/images/share.png"/>'
+
+        return f'<a href="{url}">{link_text}</a>'
+
     elif entity_type == MessageEntityType.EMAIL:
-        return f'<a href="mailto:{text}">{escape(text)}</a>'
+        return f'<a href="mailto:{text}"><img src="/assets/images/mail.png"/></a>'
     elif entity_type == MessageEntityType.BOLD:
         return f'<strong>{escape(text)}</strong>'
     elif entity_type == MessageEntityType.ITALIC:

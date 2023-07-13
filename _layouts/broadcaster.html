@@ -6,7 +6,8 @@ layout: page
                 | where: 'broadcaster', page.code
                 | sort: 'reception_date'
                 %}
-
+<div class="rounded-box">
+<div style="padding: 15px 5px 5px 15px;">
 {% for qsl in qsls %}
   <p>
     {% assign tx = site.stations | where: 'code', qsl.station | first %}
@@ -22,6 +23,8 @@ layout: page
     </a>
   </p>
 {% endfor %}
+</div>
+</div>
 
 {% assign revqsls = qsls | reverse %}
 {% for qsl in revqsls %}

@@ -9,6 +9,9 @@ layout: page
 
 {% assign country = site.countries | where: 'code', page.country | first %}
 
+<div class="rounded-box">
+
+<div class="header">
 {% if page.country %}
 <p><code>Country</code> <img src="{{ country.flag }}" class="flag"> {{ country.title }} ({{ country.continent }})</p>
 {% endif %}
@@ -19,8 +22,9 @@ layout: page
 {% if page.coordinates %}
 <p><code>Coordinates</code> <a href="http://yandex.ru/maps/?text={{ page.coordinates | replace: ',', '%2C' }}">{{ page.coordinates }}</a></p>
 {% endif %}
+</div>
 
-<br/>
+<div style="padding: 15px 5px 5px 15px;">
 
 {% for qsl in qsls %}
   <p>
@@ -38,6 +42,8 @@ layout: page
     </a>
   </p>
 {% endfor %}
+</div>
+</div>
 
 {% for qsl in qsls %}
 {% include qslbox.html qsl=qsl %}

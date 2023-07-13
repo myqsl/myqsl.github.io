@@ -8,7 +8,9 @@ permalink: /broadcasters/
 
 {% for continent in continents %}
 
-<h4>{{ continent }}</h4>
+<div class="rounded-box">
+
+<div class="header"><h2>{{ continent }}</h2></div>
 
 {% assign countries = site.countries | where: 'continent', continent %}
 
@@ -39,15 +41,6 @@ permalink: /broadcasters/
     <td>
 {% for qsl in qsls %}
     {% assign station = site.stations | where: 'code', qsl.station | first %}
-    <a href="{{ qsl.url }}">{% if qsl.kind == 'QSL' %}
-    &#128231;
-    {% elsif qsl.kind == 'e-QSL' %}
-    &#128206;
-    {% elsif qsl.kind == 'e-letter' %}
-    &#128292;
-    {% elsif qsl.kind == 'letter' %}
-    &#128240;
-    {% endif %}</a>
     {% if qsl.station %}
     {% if qsl.station!= broadcaster.code %}&bullet; via <a href="{{ station.url }}">{{ station.title }}</a>{% endif %}{% endif %}
     {% if qsl.frequency %}
@@ -64,12 +57,14 @@ permalink: /broadcasters/
 {% endfor %}
 
 </table>
+</div>
 
 {% endfor %}
 
 {% assign no_itu_broadcasters = site.broadcasters | where: 'itu', none %}
 {% if no_itu_broadcasters %}
-<h4>Unidentified</h4>
+<div class="rounded-box">
+<div class="header"><h2>Unidentified</h2></div>
 <table>
 <tr>
     <th>Name</th>
@@ -88,4 +83,7 @@ permalink: /broadcasters/
 {% endfor %}
 {% endfor %}
 </table>
+
+</div>
+
 {% endif %}

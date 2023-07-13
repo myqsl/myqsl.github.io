@@ -44,6 +44,10 @@ body {
     }
 }
 
+.post-header {
+    text-align: center;
+}
+
 figure.front_image {
     //margin: 10px 10px 10px 10px;
     //padding: 10px 10px 10px 10px;
@@ -121,7 +125,7 @@ div.item:hover {
   line-height: $base-line-height * $base-font-size * 2.25;
 }
 
-div.latest-qsl {
+div.rounded-box {
     margin: auto auto 40px auto;
     border-radius: 20px; //min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -129,12 +133,12 @@ div.latest-qsl {
 }
 
 @media screen and (min-width: 800px) {
-    div.latest-qsl {
+    div.rounded-box {
         width: 800px;
     }
 }
 
-div.latest-qsl .header {
+div.rounded-box .header {
     padding: 20px 20px 10px 20px;
     border-bottom-color: #F0F2F5;
     border-bottom-width: 2px;
@@ -153,7 +157,7 @@ div.latest-qsl .header {
 }
 /*
 @media screen and (min-width: 800px) {
-    .latest-qsl img {
+    .rounded-box img {
         width: -webkit-calc(50% - (150px));
         width:         calc(50% - (150px));
         float: left;
@@ -189,11 +193,11 @@ div.latest-qsl .header {
     width: 100%;
 }
 
-.updates-list .latest-qsl {
+.updates-list .rounded-box {
     margin-bottom: 5px;
 }
 
-.pagination .latest-qsl {
+.pagination .rounded-box {
     margin-bottom: 5px;
 }
 

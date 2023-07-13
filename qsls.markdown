@@ -4,13 +4,15 @@ title: QSLs
 permalink: /qsls/
 ---
 
-<p><a href="/pirates/">Pirates stations</a> | <a href="/private/">Private stations</a> | <a href="/utility">Utility stations</a></p>
+<p style="text-align:center"><a href="/pirates/">Pirates stations</a> | <a href="/private/">Private stations</a> | <a href="/utility">Utility stations</a></p>
 
 {% assign continents = site.countries | map: 'continent' | uniq | sort %}
 
 {% for continent in continents %}
 
-<h4>{{ continent }}</h4>
+<div class="rounded-box">
+
+<div class="header"><h2>{{ continent }}</h2></div>
 
 {% assign countries = site.countries | where: 'continent', continent %}
 
@@ -45,15 +47,6 @@ permalink: /qsls/
 
     <td>
 {% for qsl in qsls %}
-    <a href="{{ qsl.url }}">{% if qsl.kind == 'QSL' %}
-    &#128231;
-    {% elsif qsl.kind == 'e-QSL' %}
-    &#128206;
-    {% elsif qsl.kind == 'e-letter' %}
-    &#128292;
-    {% elsif qsl.kind == 'letter' %}
-    &#128240;
-    {% endif %}</a>
     {% assign broadcaster = site.broadcasters | where: 'code', qsl.broadcaster | first %}
     {% if qsl.broadcaster %}{% if broadcaster.code != station.code %}&bullet; <a href="{{ broadcaster.url }}">{{ broadcaster.title}}</a>{% endif %}{% endif %}
     &bullet; <a href="{{ qsl.url }}">{{ qsl.frequency }}</a>
@@ -68,4 +61,5 @@ permalink: /qsls/
 
 </table>
 
+</div>
 {% endfor %}

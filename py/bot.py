@@ -2,19 +2,48 @@ from api_keys import bot_api_key as KEY
 from git import Repo
 from html import escape
 from pathlib import Path
-from re import sub
 from telegram import Update
+from telegram.constants import MessageEntityType
 from telegram.ext import ApplicationBuilder, filters, MessageHandler, ContextTypes
+
+def splitted(text, entities):
+    ln = 0
+    for e in entities:
+        yield (text[ln:e.offset], None)
+        yield (text[e.offset:e.offset + e.length], e.type)
+        ln = e.offset + e.length
+    yield (text[ln:], None)
+
+def html_text(text, entity_type):
+    if not entity_type:
+        return escape(text)
+    elif entity_type == MessageEntityType.URL:
+        return f'<a href="{text}">{escape(text)}</a>'
+    elif entity_type == MessageEntityType.EMAIL:
+        return f'<a href="mailto:{text}">{escape(text)}</a>'
+    elif entity_type == MessageEntityType.BOLD:
+        return f'<strong>{escape(text)}</strong>'
+    elif entity_type == MessageEntityType.ITALIC:
+        return f'<emph>{escape(text)}</emph>'
+    elif entity_type == MessageEntityType.UNDERLINE:
+        return f'<u>{escape(text)}</u>'
+    elif entity_type == MessageEntityType.STRIKETHROUGH:
+        return f'<s>{escape(text)}</s>'
+    elif entity_type == MessageEntityType.PRE:
+        return f'<pre>{escape(text)}</pre>'
+    elif entity_type == MessageEntityType.CODE:
+        return f'<code>{escape(text)}</code>'
+    else:
+        return escape(text)
 
 async def forwarder(update: Update, context: ContextTypes.DEFAULT_TYPE):
     msg = update.channel_post
     if not msg: return
-    
-    text = escape(msg.text)
-    text = sub(r'([a-z]*://[0-9a-zA-Z/_.]*)', r'<a href="\1">\1</a>', text)
-    text = sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', text)
-    text = sub(r'__(.*?)__', r'<em>\1</em>', text)
-    line = f'<p><code>{msg.date.strftime("%B %d")}</code>&nbsp;{text}</p>'
+
+    line = ''
+    for text, entity_type in splitted(msg.text, msg.entities):
+        line += html_text(text, entity_type)
+    line = f'<p><code>{msg.date.strftime("%B %d")}</code>&nbsp;{line}</p>'
 
     feed = Path('feed.txt')
     lines = feed.read_text().splitlines()

@@ -60,9 +60,13 @@
 {% for image in include.qsl.gallery %}
 {% assign full_small = image | split: ":" %}
 <div class="qsl-image">
+	{% if full_small[1] %}
 <a href="{{ full_small[0] }}">
 <img src="{{ full_small[1] }}"/>
 </a>
+{% else %}
+<img src="{{ full_small[0] }}"/>
+{% endif %}
 </div>
 {% endfor %}
 <p>&nbsp;</p> 

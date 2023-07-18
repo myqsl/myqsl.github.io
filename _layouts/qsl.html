@@ -7,12 +7,35 @@ layout: default
 
 
 {% assign qsls = site.posts
-                | where: 'broadcaster', page.broadcaster
                 | sort: 'reception_date'
                 | reverse %}
 {% for qsl in qsls %}
 {% if qsl != page %}
+    {% assign ok = false %}
+    {% if qsl.broadcaster %}
+       {% if page.broadcaster %}
+          {% if qsl.broadcaster == page.broadcaster %}
+	      {% assign ok = true %}
+	  {% endif %}
+       {% endif %}
+    {% else %}
+       {% if page.broadcaster %}
+       {% else %}
+           {% if qsl.station %}
+	       {% if page.station %}
+	          {% if qsl.station == page.station %}
+		     {% assign ok = true %}
+		  {% endif %}
+	       {% endif %}
+	   {% endif %}
+       {% endif %}
+    {% endif %}
+
+    {% if ok %}
+
     {% include qslbox.html qsl=qsl %}
+
+    {% endif %}
 
 {% endif %}
 {% endfor %}

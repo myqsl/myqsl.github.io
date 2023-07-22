@@ -72,9 +72,12 @@ layout: default
 
 
   {%- if site.notes.size > 0 -%}
+<div class="notes-list">
+  <div class="notes">
     <h2 class="post-list-heading">Notes (in Russian)</h2>
     <ul class="post-list">
-      {%- for note in site.notes -%}
+      {% assign notes = site.notes | reverse %}
+      {%- for note in notes -%}
       <li>
         <div style="float:left; margin-right: 10px; margin-top: 10px; width: 150px; ">
         <img src="{{ note.image }}"/>
@@ -99,5 +102,8 @@ layout: default
     </ul>
 
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+</div>
+</div>
   {%- endif -%}
+
 </div>

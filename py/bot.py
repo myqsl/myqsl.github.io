@@ -80,12 +80,12 @@ async def forwarder(update: Update, context: ContextTypes.DEFAULT_TYPE):
     line = f'<p><code>{msg.date.strftime("%B %d")}</code>&nbsp;{line}</p>'
 
     feed = Path('feed.txt')
-    lines = feed.read_text().splitlines()
+    lines = feed.read_text(encoding='utf-16-le').splitlines()
     lines.insert(0, line)
-    feed.write_text('\n'.join(lines))
+    feed.write_text('\n'.join(lines), encoding='utf-16-le')
 
     html = Path('../_includes/updates.html')
-    html.write_text('\n'.join(lines[:5]))
+    html.write_bytes('\n'.join(lines[:5]).encode('utf-8'))
 
     repo = Repo('..')
     repo.remotes.origin.pull()

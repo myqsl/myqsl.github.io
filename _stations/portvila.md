@@ -1,6 +1,6 @@
 ---
 code: portvila
-title: Vanuatu Broadcasting and Television Corporationu
+title: Vanuatu Broadcasting and Television Corporation
 short: Port Vila (Vanuatu)
 country: vanuatu
 itu: VUT

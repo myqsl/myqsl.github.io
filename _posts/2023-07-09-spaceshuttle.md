@@ -1,5 +1,5 @@
 ---
-title: Radio Spaceshuttle International — July 9 2023
+title: Radio Spaceshuttle International
 kind: e-QSL
 frequency: 9290 kHz
 language: English
@@ -14,7 +14,6 @@ youtube_id: mZkF5o1qxXQ
 report_sent: 2023-07-12
 responce_sent: 2023-07-16
 responce_received: 2023-07-16
-organization: pirates
 broadcaster: spaceshuttle
 gallery:
   - /assets/qsl/2023/spaceshuttle/spaceshuttle_9jul2023_full.jpg:/assets/qsl/2023/spaceshuttle/spaceshuttle_9jul2023_small.jpg

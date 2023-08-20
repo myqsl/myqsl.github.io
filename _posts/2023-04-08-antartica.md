@@ -1,5 +1,5 @@
 ---
-title: LRA 36 Radio Arcangel San Gabriel - Antártida — 2023
+title: LRA 36 Radio Arcangel San Gabriel - Antártida
 kind: e-QSL
 frequency: 15476 kHz USB
 language: Spanish

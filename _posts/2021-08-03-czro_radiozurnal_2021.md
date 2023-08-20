@@ -1,5 +1,5 @@
 ---
-title: Český rozhlas Radiožurnál — August 2021
+title: Český rozhlas Radiožurnál
 kind: QSL
 frequency: 270 kHz
 language: Czech
@@ -14,8 +14,7 @@ youtube_id: vhfn2UkRBkc
 report_sent: 2021-08-03
 responce_sent: 2021-09-01
 responce_received: 2021-09-18
-organization: czro
-broadcaster: czradiozurnal
+broadcaster: prague
 gallery:
   - /assets/qsl/2021/czro/full/czro_radiozurnal_2021_front.jpg:/assets/qsl/2021/czro/small/czro_radiozurnal_2021_front.jpg
   - /assets/qsl/2021/czro/full/czro_radiozurnal_2021_back.jpg:/assets/qsl/2021/czro/small/czro_radiozurnal_2021_back.jpg

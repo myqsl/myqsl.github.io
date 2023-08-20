@@ -1,5 +1,5 @@
 ---
-title: HCJB Reach Beyond Australia (English) — October 2022
+title: HCJB Reach Beyond Australia (English)
 kind: e-QSL
 frequency: 9610 kHz
 language: English

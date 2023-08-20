@@ -34,8 +34,6 @@ plugins:
   - jekyll-paginate
 
 collections:
-  organizations:
-    output: true
   broadcasters:
     output: true
   stations:
@@ -51,11 +49,6 @@ defaults:
       type: "posts"
     values:
       layout: "qsl"
-#  - scope:
-#      path: ""
-#      type: "organizations"
-#    values:
-#      layout: "org"
   - scope:
       path: ""
       type: "broadcasters"
@@ -79,10 +72,8 @@ defaults:
 show_excerpts: true
 
 header_pages:
-#  - gallery.markdown
   - qsls.markdown  
-#  - transmitters.markdown
-  - broadcasters.markdown
+  - correspondents.markdown
   - about.markdown
   - search.markdown
 

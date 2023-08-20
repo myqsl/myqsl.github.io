@@ -1,5 +1,5 @@
 ---
-title: Radio Free Asia (Tibetan) — January 2022
+title: Radio Free Asia (Tibetan)
 kind: QSL
 frequency: 9305 kHz
 language: Tibetan
@@ -14,7 +14,6 @@ youtube_id: NFrgfSld7Hs
 report_sent: 2022-01-31
 responce_sent: 2022-02-02
 responce_received: 2022-02-18
-organization: rfa
 broadcaster: rfa
 gallery:
   - /assets/qsl/2022/rfa/full/rfa_tibetan_jan2022_front.jpg:/assets/qsl/2022/rfa/small/rfa_tibetan_jan2022_front.jpg

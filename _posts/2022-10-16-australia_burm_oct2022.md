@@ -1,5 +1,5 @@
 ---
-title: HCJB Reach Beyond Australia (Burmese) — October 2022
+title: HCJB Reach Beyond Australia (Burmese)
 kind: e-QSL
 frequency: 11905 kHz
 language: Burmese
@@ -14,7 +14,6 @@ youtube_id: I3UkMQCzvUw
 report_sent: 2022-10-19
 responce_sent: 2022-10-25
 responce_received: 2022-10-25
-organization: hcjb
 broadcaster: reach_beyond_australia
 gallery:
   - /assets/qsl/2022/australia/full/australia_oct2022_front.jpg:/assets/qsl/2022/australia/small/australia_oct2022_front.jpg

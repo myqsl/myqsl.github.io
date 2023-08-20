@@ -1,5 +1,5 @@
 ---
-title: Envelope from Bill Tilford — March 2021
+title: Envelope from Bill Tilford
 kind: letter
 #frequency: 5130 kHz
 #language: English/Spanish

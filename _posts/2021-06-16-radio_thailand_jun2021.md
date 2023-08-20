@@ -1,5 +1,5 @@
 ---
-title: Radio Thailand WorldService — June 2021
+title: Radio Thailand WorldService
 kind: QSL
 frequency: 9920 kHz
 language: English

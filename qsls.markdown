@@ -1,6 +1,6 @@
 ---
 layout: page
-title: QSLs
+title: By stations
 permalink: /qsls/
 ---
 
@@ -19,7 +19,7 @@ permalink: /qsls/
 <table>
 <tr>
     <th>Station</th>
-    <th>Broadcaster &bullet; Frequency &bullet; Date</th>
+    <th>Program &bullet; Frequency &bullet; Date</th>
 </tr>
 
 {% for country in countries %} 
@@ -47,8 +47,7 @@ permalink: /qsls/
 
     <td>
 {% for qsl in qsls %}
-    {% assign broadcaster = site.broadcasters | where: 'code', qsl.broadcaster | first %}
-    {% if qsl.broadcaster %}{% if broadcaster.code != station.code %}&bullet; <a href="{{ broadcaster.url }}">{{ broadcaster.title}}</a>{% endif %}{% endif %}
+    &bullet; <a href="{{ qsl.url }}">{{ qsl.title }}</a>
     &bullet; <a href="{{ qsl.url }}">{{ qsl.frequency }}</a>
     &bullet; {{ qsl.reception_date }}<br/>
 {% endfor %}

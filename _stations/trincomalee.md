@@ -1,8 +1,8 @@
 ---
 code: trincomalee
-title: Sri Lanka Broadcasting Corporation
+title: Sri Lanka Broadcasting Corporation (Trincomalee)
 address: Trincomalee
-short: Sri Lanka
+short: Trincomalee
 country: srilanka
 itu: CLN
 coordinates: 8.7385616,81.113561

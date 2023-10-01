@@ -18,7 +18,7 @@ permalink: /correspondents/
 {% for image in qsl.gallery %}
 {% assign full_small = image | split: ":" %}
 <a href="{{ qsl.url }}">
-<img style="height: 100px; margin: 10px 10px 10px 10px; box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);" src="{% if full_small[1] %}{{ full_small[1] }}{% else %}{{ full_small[0] }}{% endif %}" />
+<img class="gallery" src="{% if full_small[1] %}{{ full_small[1] }}{% else %}{{ full_small[0] }}{% endif %}" />
 </a>
 {% endfor %}
 {% endfor %}

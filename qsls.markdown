@@ -6,6 +6,8 @@ permalink: /qsls/
 
 <p style="text-align:center"><a href="/pirates/">Pirates stations</a> | <a href="/private/">Private stations</a> | <a href="/utility">Utility stations</a></p>
 
+{% assign itulist = site.stations | map: 'itu' | uniq | sort %}
+
 {% assign continents = site.countries | map: 'continent' | uniq | sort %}
 
 {% for continent in continents %}
@@ -22,15 +24,14 @@ permalink: /qsls/
     <th>Program &bullet; Frequency &bullet; Date</th>
 </tr>
 
-{% for country in countries %} 
-
-{% assign itulist = site.stations | where: 'country', country.code | map: 'itu' | uniq | sort %}
-
 {% for itu in itulist %}
-    {% assign stations = site.stations | where: 'itu', itu %}
-    {% assign country_code = stations | map: 'country' | first %}
-    {% assign country = site.countries | where: 'code', country_code | first %}
+
+{% for country in countries %}
+
+{% assign stations = site.stations | where: 'itu', itu | where: 'country', country.code %}
+
 {% for station in stations %}
+
     {% assign qsls = site.posts | where: 'station', station.code %}
     {% if station.short %}
         {% assign station_title = station.short %}

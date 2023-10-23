@@ -1,8 +1,16 @@
 ---
 layout: page
-title: By stations
+title: Data
 permalink: /qsls/
 ---
+
+<div class="rounded-box">
+<p style="padding: 10px 10px 10px 10px;">Here is the list of continents and transmitter stations.
+Stations are ordered by countries.
+There are information about QSLs for each station.
+Have a nice reading!
+</p>
+</div>
 
 <p style="text-align:center"><a href="/pirates/">Pirates stations</a> | <a href="/private/">Private stations</a> | <a href="/utility">Utility stations</a></p>
 

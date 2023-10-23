@@ -73,7 +73,7 @@ show_excerpts: true
 
 header_pages:
   - qsls.markdown  
-  - correspondents.markdown
+  - gallery.markdown
   - about.markdown
   - search.markdown
 

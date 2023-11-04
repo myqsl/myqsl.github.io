@@ -14,7 +14,7 @@ youtube_id: dUZWI4k9jGs
 report_sent: 2023-02-12
 responce_sent: 2023-02-12
 responce_received: 2023-02-12
-broadcaster: piepzender
+serie: piepzender
 gallery:
   - /assets/qsl/2023/piepzender/full/piepzender_feb2023.jpg:/assets/qsl/2023/piepzender/small/piepzender_feb2023.jpg
   - /assets/qsl/2023/piepzender/full/piepzender_feb2023_mail.jpg:/assets/qsl/2023/piepzender/small/piepzender_feb2023_mail.jpg

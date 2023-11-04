@@ -14,7 +14,7 @@ youtube_id: eWwW1KxG6nU
 report_sent: 2022-08-23
 responce_sent: 2022-09-20
 responce_received: 2022-09-20
-broadcaster: zye365
+serie: zye365
 gallery:
   - /assets/qsl/2022/brasil/full/radio_nacional_front.jpg:/assets/qsl/2022/brasil/small/radio_nacional_front.jpg
   - /assets/qsl/2022/brasil/full/radio_nacional_back.jpg:/assets/qsl/2022/brasil/small/radio_nacional_back.jpg

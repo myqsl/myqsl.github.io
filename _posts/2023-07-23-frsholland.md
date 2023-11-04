@@ -14,7 +14,7 @@ youtube_id: QY8RNrw3L7o
 report_sent: 2023-08-24
 responce_sent: 2023-09-16
 responce_received: 2023-09-16
-broadcaster: frsholland
+serie: frsholland
 gallery:
   - /assets/qsl/2023/frsh/full/frsh_jul2023_p1.jpg:/assets/qsl/2023/frsh/small/frsh_jul2023_p1.jpg
   - /assets/qsl/2023/frsh/full/frsh_jul2023_p2.jpg:/assets/qsl/2023/frsh/small/frsh_jul2023_p2.jpg

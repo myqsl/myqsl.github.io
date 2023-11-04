@@ -14,7 +14,7 @@ youtube_id: LLQGY3ukERo
 report_sent: 2023-06-23
 responce_sent: 2023-09-05
 responce_received: 2023-09-05
-broadcaster: awr
+serie: awr
 gallery:
   - /assets/qsl/2023/awr/awr_jun2023_urdu_full.jpg:/assets/qsl/2023/awr/awr_jun2023_urdu_small.jpg
 ---

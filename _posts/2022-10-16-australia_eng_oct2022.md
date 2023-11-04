@@ -14,8 +14,7 @@ youtube_id: aaFnIfIIg5A
 report_sent: 2022-10-19
 responce_sent: 2022-10-25
 responce_received: 2022-10-25
-organization: hcjb
-broadcaster: reach_beyond_australia
+serie: reach_beyond_australia
 gallery:
   - /assets/qsl/2022/australia/full/australia_oct2022_front.jpg:/assets/qsl/2022/australia/small/australia_oct2022_front.jpg
   - /assets/qsl/2022/australia/full/australia_oct2022_back.jpg:/assets/qsl/2022/australia/small/australia_oct2022_back.jpg

@@ -28,13 +28,13 @@ layout: page
 
 {% for qsl in qsls %}
   <p>
-    {% assign broadcaster = site.broadcasters | where: 'code', qsl.broadcaster | first %}
+    {% assign serie = site.series | where: 'code', qsl.serie | first %}
     <code>{{ qsl.reception_date }} {{ qsl.reception_time }}</code>
     <a href="{{ qsl.url }}">
     {{ qsl.kind }}
         | {{ qsl.frequency }}
-        {% if qsl.broadcaster %}
-        | {{ broadcaster.title }}
+        {% if qsl.serie %}
+        | {{ serie.title }}
         {% endif %}
         {% if qsl.language %}
         | {{ qsl.language }}

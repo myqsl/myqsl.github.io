@@ -34,7 +34,7 @@ plugins:
   - jekyll-paginate
 
 collections:
-  broadcasters:
+  series:
     output: true
   stations:
     output: true
@@ -51,9 +51,9 @@ defaults:
       layout: "qsl"
   - scope:
       path: ""
-      type: "broadcasters"
+      type: "series"
     values:
-      layout: "broadcaster"
+      layout: "serie"
   - scope:
       path: ""
       type: "stations"

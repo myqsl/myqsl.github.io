@@ -14,7 +14,7 @@ youtube_id: XKX6_kgWMpY
 report_sent: 2023-04-09
 responce_sent: 2023-07-27
 responce_received: 2023-07-27
-broadcaster: lra36
+serie: lra36
 gallery:
   - /assets/qsl/2023/lra36/lra36_2023_full.jpg:/assets/qsl/2023/lra36/lra36_2023_small.jpg
 ---

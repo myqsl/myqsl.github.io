@@ -8,20 +8,20 @@ permalink: /gallery/
 <p style="padding: 10px 10px 10px 10px;">
 Here is the list of QSL series.
 There are different sources for the series.
-Mostly there are come from broadcaster or
+Mostly there are come from serie or
 program owner. But transmitter station team
 may issue QSL cards also.
 Have a nice reading!
 </p>
 </div>
 
-{% for broadcaster in site.broadcasters %}
+{% for serie in site.series %}
 
-{% assign qsls = site.posts | where: 'broadcaster', broadcaster.code %}
+{% assign qsls = site.posts | where: 'serie', serie.code %}
 
 <div class="rounded-box">
 <div class="header">
-<h2><a href="{{ broadcaster.url }}">{{ broadcaster.title }}</a></h2>
+<h2><a href="{{ serie.url }}">{{ serie.title }}</a></h2>
 </div>
 
 <div style="padding-bottom: 10px">

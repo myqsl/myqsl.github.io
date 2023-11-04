@@ -15,7 +15,7 @@ kind: letter
 responce_sent: 2021-03-12
 responce_received: 2021-04-01
 #organization: wbcq
-broadcaster: uncle_bill
+serie: uncle_bill
 gallery:
   - /assets/qsl/2021/unclebill/full/ftiom_sticker_bill2021.jpg:/assets/qsl/2021/unclebill/small/ftiom_sticker_bill2021.jpg
   - /assets/qsl/2021/unclebill/full/ubmp_sticker_bill2021.jpg:/assets/qsl/2021/unclebill/small/ubmp_sticker_bill2021.jpg

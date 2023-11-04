@@ -14,7 +14,7 @@ youtube_id: nf1c4uluGtM
 report_sent: 2022-08-25
 responce_sent: 2022-09-02
 responce_received: 2022-09-02
-broadcaster: akhbarmufriha
+serie: akhbarmufriha
 gallery:
   - /assets/qsl/2022/akhbarm/akhbarmufriha_aug2022_full.jpg:/assets/qsl/2022/akhbarm/akhbarmufriha_aug2022_small.jpg
 ---

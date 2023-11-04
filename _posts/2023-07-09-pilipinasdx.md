@@ -14,7 +14,7 @@ youtube_id: EsHWmb2KFpc
 report_sent: 2023-07-11
 responce_sent: 2023-09-03
 responce_received: 2023-09-03
-broadcaster: pilipinasdx
+serie: pilipinasdx
 gallery:
   - /assets/qsl/2023/pdxr/full/pilipinasdx_jul2023_front.jpg:/assets/qsl/2023/pdxr/small/pilipinasdx_jul2023_front.jpg
   - /assets/qsl/2023/pdxr/full/pilipinasdx_jul2023_back.jpg:/assets/qsl/2023/pdxr/small/pilipinasdx_jul2023_back.jpg

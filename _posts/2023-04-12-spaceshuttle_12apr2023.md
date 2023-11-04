@@ -14,7 +14,7 @@ youtube_id: FpVc-GQU5HI
 report_sent: 2023-04-12
 responce_sent: 2023-04-17
 responce_received: 2023-04-17
-broadcaster: spaceshuttle
+serie: spaceshuttle
 gallery:
   - /assets/qsl/2023/spaceshuttle/spaceshuttle_12apr2023_full.jpg:/assets/qsl/2023/spaceshuttle/spaceshuttle_12apr2023_small.jpg
 ---

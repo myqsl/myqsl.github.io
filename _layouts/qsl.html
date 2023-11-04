@@ -12,14 +12,14 @@ layout: default
 {% for qsl in qsls %}
 {% if qsl != page %}
     {% assign ok = false %}
-    {% if qsl.broadcaster %}
-       {% if page.broadcaster %}
-          {% if qsl.broadcaster == page.broadcaster %}
+    {% if qsl.serie %}
+       {% if page.serie %}
+          {% if qsl.serie == page.serie %}
 	      {% assign ok = true %}
 	  {% endif %}
        {% endif %}
     {% else %}
-       {% if page.broadcaster %}
+       {% if page.serie %}
        {% else %}
            {% if qsl.station %}
 	       {% if page.station %}

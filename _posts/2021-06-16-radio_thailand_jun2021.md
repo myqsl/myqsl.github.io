@@ -14,7 +14,7 @@ youtube_id: DX8ER43Qoxw
 report_sent: 2021-06-16
 responce_sent: 2021-08-05
 responce_received: 2021-08-18
-broadcaster: rth
+serie: rth
 gallery:
   - /assets/qsl/2021/rth/full/rth_jun2021_front.jpg:/assets/qsl/2021/rth/small/rth_jun2021_front.jpg
   - /assets/qsl/2021/rth/full/rth_jun2021_back.jpg:/assets/qsl/2021/rth/small/rth_jun2021_back.jpg

@@ -20,6 +20,53 @@ Have a nice reading!
 
 {% for continent in continents %}
 
+<div class="small-title">
+
+<br/>
+<strong>== {{ continent | upcase }} ==</strong>
+
+{% assign countries = site.countries | where: 'continent', continent %}
+
+{% for itu in itulist %}
+
+{% for country in countries %}
+
+{% assign stations = site.stations | where: 'itu', itu | where: 'country', country.code %}
+
+{% for station in stations %}
+
+    {% if station.short %}
+        {% assign station_title = station.short %}
+    {% else %}
+        {% assign station_title = station.title %}
+    {% endif %}
+
+    {% assign qsls = site.posts | where: 'station', station.code %}
+
+    {% if qsls.size > 0 %}
+
+<br/><strong>&bullet; {{ itu  }} <a href="{{ station.url }}">{{ station_title }}</a></strong>
+{% for serie in site.series %}
+
+    {% assign serie_qsls = qsls | where: 'serie', serie.code %}
+
+    {% if serie_qsls.size > 0 %}
+&bullet; <a href="{{ serie.url }}">{{ serie.title }}</a> ({{ serie_qsls.size }})
+    {% endif %} 
+{% endfor %}
+
+    {% endif %}
+
+{% endfor %}
+{% endfor %}
+{% endfor %}
+
+</div>
+
+<!-- ---------------------------- -->
+
+<div class="large-title">
+
 <div class="rounded-box">
 
 <div class="header"><h2>{{ continent }}</h2></div>
@@ -68,6 +115,8 @@ Have a nice reading!
 {% endfor %}
 
 </table>
+
+</div>
 
 </div>
 {% endfor %}

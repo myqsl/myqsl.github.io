@@ -1,0 +1,15 @@
+---
+layout: page
+---
+
+{% assign stations = site.stations | where: 'country', page.code %}
+
+{% for station in stations %}
+
+{% assign qsls = site.posts | where: 'station', station.code %}
+
+{% for qsl in qsls %}
+{% include qslbox.html qsl=qsl %}
+{% endfor %}
+
+{% endfor %} <!-- for station -->

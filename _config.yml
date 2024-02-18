@@ -39,7 +39,7 @@ collections:
   stations:
     output: true
   countries:
-    output: false
+    output: true
   notes:
     output: true
 
@@ -61,6 +61,11 @@ defaults:
       layout: "station"
   - scope:
       path: ""
+      type: "countries"
+    values:
+      layout: "country"
+  - scope:
+      path: ""
       type: "notes"
     values:
       layout: "post"
@@ -73,6 +78,7 @@ show_excerpts: true
 
 header_pages:
   - qsls.markdown  
+  - countries.markdown  
   - gallery.markdown
   - about.markdown
   - search.markdown

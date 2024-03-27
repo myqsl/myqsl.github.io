@@ -1,5 +1,5 @@
 ---
-title: HCJB Reach Beyond Australia (Burmese)
+title: Reach Beyond Australia (Burmese)
 kind: e-QSL
 frequency: 11905 kHz
 language: Burmese
@@ -16,6 +16,5 @@ responce_sent: 2022-10-25
 responce_received: 2022-10-25
 serie: reach_beyond_australia
 gallery:
-  - /assets/qsl/2022/australia/full/australia_oct2022_front.jpg:/assets/qsl/2022/australia/small/australia_oct2022_front.jpg
-  - /assets/qsl/2022/australia/full/australia_oct2022_back.jpg:/assets/qsl/2022/australia/small/australia_oct2022_back.jpg
+  - /assets/qsl/2022/australia/full/australia_oct2022.jpg:/assets/qsl/2022/australia/small/australia_oct2022.jpg
 ---

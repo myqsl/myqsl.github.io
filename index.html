@@ -47,7 +47,7 @@ title: Добро пожаловать! Welcome!
     {% assign qsls = paginator.posts | sort: 'responce_received' | reverse %}
 
     {% for qsl in qsls %}
-        {% include qslbox.html qsl=qsl %}
+        {% include qslboxlite.html qsl=qsl %}
     {% endfor %}
 
 <!-- Pagination links -->

@@ -83,7 +83,7 @@ header_pages:
   - about.markdown
   - search.markdown
 
-paginate: 5
+paginate: 30
 paginate_path: "/page:num/"
 
 # Exclude from processing.

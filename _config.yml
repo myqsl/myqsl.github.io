@@ -77,7 +77,8 @@ defaults:
 show_excerpts: true
 
 header_pages:
-  - qsls.markdown  
+  - qsls.markdown
+  - issuers.markdown
   - countries.markdown  
   - gallery.markdown
   - about.markdown

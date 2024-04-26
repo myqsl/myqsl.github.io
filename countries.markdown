@@ -7,7 +7,8 @@ permalink: /countries/
 <div class="rounded-box">
 <p style="padding: 10px 10px 10px 10px;">
 Here is the list of countries of transmitting
-stations (sites).
+stations (sites) with count of qsls for transmissions
+from that station.
 Have a nice reading!
 </p>
 </div>
@@ -29,7 +30,23 @@ Have a nice reading!
 {% for country in countries %}
 
 {%- if forloop.index > 1 -%}&bullet;&nbsp;{%- endif -%}
-<a href="{{ country.url }}">{{ country.title }}</a>
+
+{% assign qsls_count = 0 %}
+{% for station in site.stations %}
+    {% if station.country == country.code %}
+        {% for qsl in site.posts %}
+            {% if qsl.station == station.code %}
+                {% assign qsls_count = qsls_count | plus: 1 %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+
+{% if qsls_count == 0 %}
+{{ country.title }}
+{% else %}
+<a href="{{ country.url }}">{{ country.title }}</a><sup>{{ qsls_count }}</sup>
+{% endif %}
 
 {% endfor %} <!-- for country -->
 </p>

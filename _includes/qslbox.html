@@ -23,9 +23,9 @@
 <details>
 <summary style="color:gray">{{ include.qsl.frequency }} &bullet; {{ include.qsl.reception_date | date_to_string }} {{ include.qsl.reception_time }} UTC</summary>
 <p></p>
-{% if include.qsl.broadcaster %}
-    {% assign broadcaster = site.broadcasters | where: 'code', include.qsl.broadcaster | first %}
-<p><code>Broadcaster</code> <a href="{{ broadcaster.url }}">{{ broadcaster.title }}</a></p>
+{% if include.qsl.serie %}
+    {% assign serie = site.series | where: 'code', include.qsl.serie | first %}
+<p><code>Issuer</code> <a href="{{ serie.url }}">{{ serie.title }}</a></p>
 {% endif %}
 <p><code>Confirmed</code> {{ include.qsl.kind }}/<a href="{{ include.qsl.mail_to }}">{{ include.qsl.mail_to }}</a></p>
 {% if include.qsl.frequency %}<p><code>Frequency</code> {{ include.qsl.frequency }}</p>{% endif %}

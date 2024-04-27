@@ -1,5 +1,5 @@
 ---
 code: wrmi
-title: Radio Miami International
+title: WRMI -- Radio Miami International
 country: usa
 ---

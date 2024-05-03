@@ -1,3 +1,6 @@
+
+<p style="margin: 60px auto 60px auto; width: 100%; text-align: center; color: darkgray;">~ ~ ~ ~ ~ ~</p>
+
 <div class="rounded-box">
 {% if include.qsl.broadcaster %}
     {% assign correspondent = site.broadcasters | where: 'code', include.qsl.broadcaster | first %}
@@ -60,8 +63,12 @@
 
 <div class="small-title">
 -->
+
+<!--
 <details>
-<summary style="color: #1756a9; font-size: x-large; font-weight: bold;">{{ include.qsl.title }}</summary>
+-->
+<a href="{{ include.qsl.url }}"><h2 style="color: #1756a9; font-size: x-large; font-weight: bold;"><img src="/assets/images/icons8-hand-right-48.png"/> {{ include.qsl.title }}</h2></a>
+<!--
 <p></p>
 <p><code>Open it</code> <a href="{{ include.qsl.url }}">Click here</a></p>
 {% if include.qsl.serie %}
@@ -94,11 +101,18 @@
 {% endif %}
 
 </details>
+-->
 <!--
 </div><!- small-title ->
 -->
 
 </div><!-- header -->
+
+<p style="margin-top: 5px"><strong>{{ include.qsl.kind }} received:</strong></p>
+<p>&middot; Frequency: {{ include.qsl.frequency }}</p>
+<p>&middot; UTC Time of listening: {{ include.qsl.reception_time }}</p>
+<p>&middot; Listening date: {{ include.qsl.reception_date }}</p>
+<p>&middot; Contact: {{ include.qsl.mail_to }}</p>
 
 {% for image in include.qsl.gallery %}
 {% assign full_small = image | split: ":" %}

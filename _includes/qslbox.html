@@ -60,10 +60,9 @@
 <details>
 <summary style="color: #1756a9; font-size: x-large; font-weight: bold;">{{ include.qsl.title }}</summary>
 <p></p>
-<p><code>Open it</code> <a href="{{ include.qsl.url }}">Click here</a></p>
-{% if include.qsl.broadcaster %}
-    {% assign broadcaster = site.broadcasters | where: 'code', include.qsl.broadcaster | first %}
-<p><code>Broadcaster</code> <a href="{{ broadcaster.url }}">{{ broadcaster.title }}</a></p>
+{% if include.qsl.serie %}
+    {% assign issuer = site.series | where: 'code', include.qsl.serie | first %}
+<p><code>Issuer</code> <a href="{{ issuer.url }}">{{ issuer.title }}</a></p>
 {% endif %}
 <p><code>Confirmed</code> {{ include.qsl.kind }}/<a href="{{ include.qsl.mail_to }}">{{ include.qsl.mail_to }}</a></p>
 {% if include.qsl.frequency %}<p><code>Frequency</code> {{ include.qsl.frequency }}</p>{% endif %}
@@ -81,6 +80,7 @@
 {% if include.qsl.responce_sent %}<p><code>Responce sent</code> {{ include.qsl.responce_sent | date_to_string }}</p>{% endif %}
 {% if include.qsl.responce_received %}<p><code>Responce received</code> {{ include.qsl.responce_received | date_to_string }}</p>{% endif %}
 
+<p><code>Permalink</code> <a href="{{ include.qsl.url }}">{{ include.qsl.url }}</a></p>
 {% if include.qsl.youtube_id %}
 <p class="full-youtube">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ include.qsl.youtube_id }}" title="Record of the reception" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

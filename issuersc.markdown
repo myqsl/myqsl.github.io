@@ -56,10 +56,12 @@ Have a nice reading!
 {% else %}
     {% assign country = site.countries | where: "code", country_code | first %}
     {% assign country_title = country.title %}
+    {% assign country_flag = country.flag %}
 {% endif %}
 
 <div class="rounded-box">
-<header><h2>{{ country_title }}</h2></header>
+<header><h2>{% if country_code != "unid" %}<img class="flag" src="{{ country_flag }}"/>{% endif %}
+{{ country_title }}</h2></header>
 
 {% for issuer in site.series %}
 

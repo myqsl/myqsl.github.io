@@ -79,6 +79,7 @@ show_excerpts: true
 header_pages:
   - qsls.markdown
   - issuers.markdown
+  - issuersc.markdown
   - countries.markdown  
   - gallery.markdown
   - about.markdown

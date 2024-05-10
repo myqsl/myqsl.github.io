@@ -1,6 +1,6 @@
 ---
 code: aumar
-title: Australian MArine Weather Broadcasts
+title: Australian Marine Weather Broadcasts
 country: australia
 itu: AUS
 kind: special

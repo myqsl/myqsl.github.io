@@ -34,7 +34,7 @@ Have a nice reading!
 
 {% assign qsls = site.posts | where: 'serie', issuer.code %}
 
-<p><details>
+<details>
 <summary>{{ issuer.title }}<sup>{{ qsls.size }}</sup><a href="{{ issuer.url }}"><em>pictures</em></a></summary>
 
 <ul>
@@ -44,7 +44,7 @@ Have a nice reading!
 {% endfor %}
 </ul>
 
-</details></p>
+</details>
 {% endif %}
 {% endfor %} <!-- issuer -->
 </div>

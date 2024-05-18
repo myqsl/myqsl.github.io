@@ -2,7 +2,7 @@
 code: anthony
 title: Anthony Radio
 address: somewhere in Poland
-itu: POL
+itu: pol
 country: poland
 kind: pirate
 ---

@@ -2,7 +2,7 @@
 code: technicalman
 title: Radio Technical Man
 address: village Ruurlo
-itu: HOL
+itu: hol
 country: netherlands
 kind: pirate
 ---

@@ -2,7 +2,7 @@
 code: piepzender
 title: Radio Piepzender
 address: somewhere in The Netherlands
-itu: HOL
+itu: hol
 country: netherlands
 kind: private
 ---

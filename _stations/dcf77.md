@@ -5,7 +5,7 @@ short: DCF77
 transmitter: Mainflingen longwave transmitter
 address: Mainflingen
 country: germany
-itu: D
+itu: d
 coordinates: 50.01556, 9.01083
 kind: utility
 ---

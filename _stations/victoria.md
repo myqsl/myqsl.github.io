@@ -2,7 +2,7 @@
 code: victoria
 title: Free Radio Victoria
 address: somewhere in The Netherlands
-itu: HOL
+itu: hol
 country: netherlands
 kind: pirate
 ---

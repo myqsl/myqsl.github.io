@@ -3,6 +3,6 @@ code: wooferton
 title: Wooferton
 short: Wooferton
 country: uk
-itu: G
+itu: g
 coordinates: 52.27361,-2.82833
 ---

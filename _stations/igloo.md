@@ -1,7 +1,7 @@
 ---
 code: igloo
 title: Radio Igloo
-itu: EUROPE
+itu: xxe
 country: xeurope
 kind: pirate
 ---

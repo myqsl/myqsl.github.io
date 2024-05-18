@@ -2,7 +2,7 @@
 code: ozviola
 title: Radio OZ-Viola
 address: Hillerød
-itu: DNK
+itu: dnk
 country: denmark
 kind: private
 ---

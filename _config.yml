@@ -42,6 +42,8 @@ collections:
     output: true
   notes:
     output: true
+  itus:
+    output: false
 
 defaults:
   - scope:

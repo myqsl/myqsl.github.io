@@ -3,6 +3,6 @@ code: emirler
 title: Emirler
 short: Emirler
 country: turkey
-itu: TUR
+itu: tur
 coordinates: 39.40167,32.85583
 ---

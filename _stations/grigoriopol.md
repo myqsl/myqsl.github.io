@@ -4,6 +4,6 @@ title: Mayak
 address: Grigoriopol
 short: Mayak
 country: pridnestr
-itu: MDA
+itu: mda
 coordinates: 47.28306,29.40667
 ---

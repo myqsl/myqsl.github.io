@@ -4,7 +4,7 @@ title: Radio Delta International
 address: Elburg, the Netherlands
 short: Radio Delta Int.
 country: netherlands
-itu: HOL
+itu: hol
 coordinates: 52.4509261,5.8392109
 kind: private
 ---

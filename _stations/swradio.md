@@ -4,7 +4,7 @@ title: Scandinavian Weekend Radio
 short: SWRadio
 address: Virrat
 country: finland
-itu: FIN
+itu: fin
 coordinates: 62.37833,23.65806
 kind: private
 ---

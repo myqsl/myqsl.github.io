@@ -1,6 +1,6 @@
 ---
 code: hcjb_jp
-title: Reach Beyond in Japanese
+title: Reach Beyond Japanese
 country: australia
 itu: AUS
 kind: religious

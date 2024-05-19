@@ -1,7 +1,7 @@
 ---
 code: msf
 title: MSF (time-service)
-short: MSF
+short: Anthorn
 address: Anthorn, Cumbria
 country: uk
 itu: g

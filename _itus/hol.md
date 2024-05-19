@@ -1,5 +1,5 @@
 ---
 code: hol
-title: Netherlands, The
+title: Netherlands
 continent: Europe
 ---

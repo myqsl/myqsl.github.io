@@ -1,7 +1,7 @@
 ---
 code: swradio
 title: Scandinavian Weekend Radio
-short: SWRadio
+short: Virrat
 address: Virrat
 country: finland
 itu: fin

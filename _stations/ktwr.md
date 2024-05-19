@@ -1,6 +1,7 @@
 ---
 code: ktwr
 title: KTWR
+short: KTWR Agana
 address: Agana
 country: guam
 itu: gum

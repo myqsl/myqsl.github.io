@@ -1,7 +1,7 @@
 ---
 code: wrmi
 title: WRMI
-short: WRMI
+short: Okeechobee
 address: Okeechobee, FL
 country: usa
 itu: usa

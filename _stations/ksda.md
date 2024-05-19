@@ -1,6 +1,7 @@
 ---
 code: ksda
 title: KSDA
+short: KSDA Agat
 address: Agana
 country: guam
 itu: gum

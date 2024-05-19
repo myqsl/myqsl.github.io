@@ -1,6 +1,7 @@
 ---
 code: randers
 title: WMR-Randers
+short: Randers
 address: Randers
 country: denmark
 itu: dnk

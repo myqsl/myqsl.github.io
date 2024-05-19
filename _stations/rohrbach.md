@@ -1,6 +1,7 @@
 ---
 code: rohrbach
 title: Channel292
+short: Rohrbach
 address: Rohrbach
 country: germany
 itu: d

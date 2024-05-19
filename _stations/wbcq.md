@@ -1,7 +1,7 @@
 ---
 code: wbcq
 title: WBCQ
-short: WBCQ
+short: Monticello
 address: Monticello, ME
 country: usa
 itu: usa

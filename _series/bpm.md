@@ -1,5 +1,5 @@
 ---
 code: bpm
-title: National Time Service Center
+title: BPM Chinese time service
 country: china
 ---

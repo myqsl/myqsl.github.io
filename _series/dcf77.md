@@ -1,5 +1,5 @@
 ---
 code: dcf77
-title: German time signal station (DCF77)
+title: DCF77 German time service
 country: germany
 ---

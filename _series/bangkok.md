@@ -1,5 +1,5 @@
 ---
 code: bangkok
-title: Bangkok Radio
+title: Bangkok Radio For Shipping
 country: thailand
 ---

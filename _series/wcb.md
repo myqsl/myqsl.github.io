@@ -1,6 +1,6 @@
 ---
 code: wcb
-title: World Christian Broadcasting (KNLS, African Pathways)
+title: KNLS
 country: usa
 itu: USA
 kind: religious

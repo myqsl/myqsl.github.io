@@ -1,6 +1,7 @@
 ---
 code: anchor_point
 title: KNLS
+short: Anchor Point
 address: Anchor Point, AL
 country: usa
 itu: als

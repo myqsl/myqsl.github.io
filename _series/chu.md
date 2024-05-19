@@ -1,5 +1,5 @@
 ---
 code: chu
-title: Canada time signal station (CHU)
+title: CHU Canadian time service
 country: canada
 ---

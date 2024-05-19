@@ -1,7 +1,7 @@
 ---
 code: chu
 title: CHU (time-service)
-short: CHU
+short: Ottawa
 address: Ottawa, Ontario
 country: canada
 itu: can

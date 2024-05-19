@@ -1,5 +1,5 @@
 ---
 code: jmh
-title: Japan Meteorological Agency
+title: JMH Japan Meteorological Agency
 country: japan
 ---

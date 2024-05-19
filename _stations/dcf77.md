@@ -1,7 +1,7 @@
 ---
 code: dcf77
 title: DCF77 (time-service)
-short: DCF77
+short: Mainflingen
 transmitter: Mainflingen longwave transmitter
 address: Mainflingen
 country: germany

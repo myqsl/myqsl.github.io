@@ -1,7 +1,7 @@
 ---
 code: lle3
 title: Foreningen Bergen Kringkaster (LLE-3)
-short: LKB/LLE-3
+short: Bergen
 address: PO Box 100, N5331 Rong, Norway
 country: norway
 itu: nor

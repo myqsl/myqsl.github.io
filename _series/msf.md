@@ -1,5 +1,5 @@
 ---
 code: msf
-title: UK time signal station (MSF)
+title: MSF Britain time service
 country: uk
 ---

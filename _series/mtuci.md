@@ -1,6 +1,6 @@
 ---
 code: mtuci
-title: Радио МТУСИ (Московский Технический Университет Связи и Информатики)
+title: Радио МТУСИ
 country: russia
 itu: RUS
 kind: private

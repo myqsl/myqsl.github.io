@@ -98,6 +98,8 @@
 </div><!-- header -->
 
 
+<div class="qsl-gallery">
+
 {% for image in include.qsl.gallery %}
 {% assign full_small = image | split: ":" %}
 <div class="qsl-image">
@@ -110,6 +112,8 @@
 {% endif %}
 </div>
 {% endfor %}
+
+</div><!-- qsl-gallery -->
 
 <p>&nbsp;</p> 
 </div><!-- rounded-box -->

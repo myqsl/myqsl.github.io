@@ -123,7 +123,7 @@ div.rounded-box {
 }
 
 div.rounded-box .header {
-    padding: 5px 5px 5px 5px;
+    padding: 5px 5px 15px 5px;
     border-bottom-color: #F0F2F5;
     border-bottom-width: 2px;
     border-bottom-style: solid;
@@ -183,14 +183,22 @@ display: block;
     //margin-bottom: 30px;
 }
 
+.qsl-gallery {
+    background: ghostwhite;
+    padding: 1px 0px 1px 0px;
+}
+
 .qsl-image {
-    width: 100%;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    //width: 100%;
+    margin: 30px 10px 30px 10px;
+    padding: 15px 15px 15px 15px;
+    border: 1px lightgray solid;
+    background: white;
 }
 
 .qsl-image img {
     width: 600px;
+    border: 1px lightgray solid;
 }
 
 .updates-list .rounded-box {

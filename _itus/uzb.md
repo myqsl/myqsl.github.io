@@ -1,5 +1,5 @@
 ---
-code: usb
+code: uzb
 title: Uzbekistan
 continent: Asia
 ---

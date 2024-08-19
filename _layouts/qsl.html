@@ -1,41 +1,6 @@
 ---
 layout: default
 ---
-{% include qslbox.html qsl=page %}
+{% include qslboxlite.html qsl=page %}
 
 {{ content }}
-
-
-{% assign qsls = site.posts
-                | sort: 'reception_date'
-                | reverse %}
-{% for qsl in qsls %}
-{% if qsl != page %}
-    {% assign ok = false %}
-    {% if qsl.serie %}
-       {% if page.serie %}
-          {% if qsl.serie == page.serie %}
-	      {% assign ok = true %}
-	  {% endif %}
-       {% endif %}
-    {% else %}
-       {% if page.serie %}
-       {% else %}
-           {% if qsl.station %}
-	       {% if page.station %}
-	          {% if qsl.station == page.station %}
-		     {% assign ok = true %}
-		  {% endif %}
-	       {% endif %}
-	   {% endif %}
-       {% endif %}
-    {% endif %}
-
-    {% if ok %}
-
-    {% include qslbox.html qsl=qsl %}
-
-    {% endif %}
-
-{% endif %}
-{% endfor %}

@@ -9,7 +9,7 @@ layout: page
 {% assign qsls = site.posts | where: 'station', station.code %}
 
 {% for qsl in qsls %}
-{% include qslbox.html qsl=qsl %}
+{% include qslboxlite.html qsl=qsl %}
 {% endfor %}
 
 {% endfor %} <!-- for station -->

@@ -59,60 +59,62 @@
 </div>
 {% endfor %}
 
-<details>
-<summary style="text-align: center; color: #1756a9; display: block; font-size: xx-large;">⯆</summary>
-
 <!-- gallery of related qsls -->
-
+{% assign details_rendered = 'no' %}
 {% assign qsls = site.posts
                 | sort: 'reception_date'
                 | reverse %}
 {% for qsl in qsls %}
-{% if qsl != include.qsl %}
+    {% if qsl == include.qsl %}{% continue %}{% endif %}
     {% assign ok = false %}
     {% if qsl.serie %}
-       {% if include.qsl.serie %}
-          {% if qsl.serie == include.qsl.serie %}
-	      {% assign ok = true %}
-	  {% endif %}
+        {% if include.qsl.serie %}
+            {% if qsl.serie == include.qsl.serie %}
+	            {% assign ok = true %}
+	        {% endif %}
        {% endif %}
     {% else %}
-       {% if include.qsl.serie %}
-       {% else %}
-           {% if qsl.station %}
-	       {% if include.qsl.station %}
-	          {% if qsl.station == include.qsl.station %}
-		     {% assign ok = true %}
-		  {% endif %}
-	       {% endif %}
-	   {% endif %}
+        {% if include.qsl.serie %}
+        {% else %}
+            {% if qsl.station %}
+	            {% if include.qsl.station %}
+	                {% if qsl.station == include.qsl.station %}
+		                {% assign ok = true %}
+		            {% endif %}
+	            {% endif %}
+	        {% endif %}
        {% endif %}
     {% endif %}
 
-    {% if ok %}
+    {% if ok == false %}{% continue %}{% endif %}
 
-        <a href="{{ qsl.url }}"><h4 style="text-align: center">{{ qsl.title }} . {{ qsl.frequency }} . {{ qsl.reception_date }} {{ qsl.reception_time }}</h4></a>
-        {% for image in qsl.gallery %}
-        {% assign full_small = image | split: ":" %}
-        <div class="qsl-image">
-            {% if full_small[1] %}
-        <a href="{{ full_small[0] }}">
-        <img src="{{ full_small[1] }}"/>
-        </a>
-        {% else %}
-        <img src="{{ full_small[0] }}"/>
-        {% endif %}
-        </div>
-        {% endfor %}
-
+    {% if details_rendered == 'no' %}
+    {% assign details_rendered = 'yes' %}
+    <details>
+    <summary style="text-align: center; color: #1756a9; display: block; font-size: xx-large;">⯆</summary>
     {% endif %}
 
-{% endif %}
+    <a href="{{ qsl.url }}"><h4 style="text-align: center">{{ qsl.title }} . {{ qsl.frequency }} . {{ qsl.reception_date }} {{ qsl.reception_time }}</h4></a>
+    {% for image in qsl.gallery %}
+    {% assign full_small = image | split: ":" %}
+    <div class="qsl-image">
+        {% if full_small[1] %}
+    <a href="{{ full_small[0] }}">
+    <img src="{{ full_small[1] }}"/>
+    </a>
+    {% else %}
+    <img src="{{ full_small[0] }}"/>
+    {% endif %}
+    </div>
+    {% endfor %}
+
 {% endfor %}
 
 <!-- end of gallery of related qsls -->
 
+{% if details_rendered == 'yes' %}
 </details>
+{% endif %}
 
 </div><!-- qsl-gallery -->
 

@@ -1,64 +1,18 @@
-<div class="rounded-box">
-{% if include.qsl.broadcaster %}
-    {% assign correspondent = site.broadcasters | where: 'code', include.qsl.broadcaster | first %}
-{% else %}
-    {% assign correspondent = site.stations | where: 'code', include.qsl.station | first %}
+{% if include.qsl.station %}
+    {% assign station = site.stations | where: 'code', include.qsl.station | first %}
 {% endif %}
-{% assign station = site.stations | where: 'code', include.qsl.station | first %}
+
 {% if include.qsl.serie %}
     {% assign serie = site.series | where: 'code', include.qsl.serie | first %}
 {% endif %}
 
+<div class="rounded-box">
+
 <div class="header">
-{% assign country = site.countries | where: 'code', correspondent.country | first %}
-
-
-<!-- <a href="{{ include.qsl.url }}"><h2 style="color: #1756a9; font-size: x-large; font-weight: bold;"><img src="/assets/images/icons8-hand-right-48.png"/> {{ include.qsl.title }}</h2></a> -->
 <a href="{{ include.qsl.url }}"><h2 style="color: #1756a9; font-size: x-large; font-weight: bold;">{{ include.qsl.title }}</h2></a>
-
 </div><!-- header -->
 
-<details style="margin-top:10px"><summary><strong>{{ include.qsl.kind }} received:</strong><p/>
-<p>&middot; Frequency: {{ include.qsl.frequency }}</p>
-<p>&middot; UTC Time of listening: {{ include.qsl.reception_time }}</p>
-<p>&middot; Listening date: {{ include.qsl.reception_date }}</p>
-<p>&middot; Contact: {{ include.qsl.mail_to }}</p>
-</summary>
-<p>&middot; Language: {{ include.qsl.language }}</p>
-<p>&middot; Location: {{ include.qsl.location }}</p> 
-<p>&middot; Receiver: {{ include.qsl.receiver }}</p>
-<p>&middot; Antenna: {{ include.qsl.antenna }}</p>
-<p>&middot; Report sent: {{ include.qsl.report_sent}}</p>
-<p>&middot; Response sent: {{ include.qsl.responce_sent}}</p>
-<p>&middot; Response received: {{ include.qsl.responce_received}}</p>
-{% if include.qsl.station %}
-<p>&middot; Station: <a href="{{ station.url }}">{{ station.title }}</a>
-{% endif %}
-{% if include.qsl.serie %}
-<p>&middot; Issuer: <a href="{{ serie.url }}">{{ serie.title }}</a>
-{% endif %}
-{% if include.qsl.youtube_id %}
-<p>&middot; Video: <a href="https://youtu.be/{{ include.qsl.youtube_id }}">Click to open the video (YouTube)</a></p>
-<p class="full-youtube">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ include.qsl.youtube_id }}" title="Record of the reception" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
-{% endif %}
-</details>
-
-<div class="qsl-gallery">
-
-{% for image in include.qsl.gallery %}
-{% assign full_small = image | split: ":" %}
-<div class="qsl-image">
-	{% if full_small[1] %}
-<a href="{{ full_small[0] }}">
-<img src="{{ full_small[1] }}"/>
-</a>
-{% else %}
-<img src="{{ full_small[0] }}"/>
-{% endif %}
-</div>
-{% endfor %}
+{% include qsldata.html qsl=include.qsl station=station serie=serie %}
 
 <!-- gallery of related qsls -->
 {% assign details_rendered = 'no' %}
@@ -95,19 +49,7 @@
     <summary style="text-align: center; color: #1756a9; display: block; font-size: xx-large;">⯆</summary>
     {% endif %}
 
-    <a href="{{ qsl.url }}"><h4 style="text-align: center">{{ qsl.title }} . {{ qsl.frequency }} . {{ qsl.reception_date }} {{ qsl.reception_time }}</h4></a>
-    {% for image in qsl.gallery %}
-    {% assign full_small = image | split: ":" %}
-    <div class="qsl-image">
-        {% if full_small[1] %}
-    <a href="{{ full_small[0] }}">
-    <img src="{{ full_small[1] }}"/>
-    </a>
-    {% else %}
-    <img src="{{ full_small[0] }}"/>
-    {% endif %}
-    </div>
-    {% endfor %}
+    {% include qsldata.html qsl=qsl station=station serie=serie %}
 
 {% endfor %}
 
@@ -116,7 +58,5 @@
 {% if details_rendered == 'yes' %}
 </details>
 {% endif %}
-
-</div><!-- qsl-gallery -->
 
 </div><!-- rounded-box -->

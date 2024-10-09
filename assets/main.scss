@@ -123,15 +123,18 @@ div.rounded-box {
 }
 
 div.rounded-box .header {
-    padding: 5px 5px 15px 5px;
-    border-bottom-color: #F0F2F5;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
+    padding: 5px 5px 5px 5px;
+}
+
+.qsldata {
+    padding-top: 15px;
+    border-top-color: #F0F2F5;
+    border-top-width: 2px;
+    border-top-style: solid;
 }
 
 .header h2 {
     font-weight: bold;
-    margin-bottom: 5px;
 }
 
 .header .subtitle {
@@ -186,6 +189,7 @@ display: block;
 .qsl-gallery {
     background: ghostwhite;
     padding: 1px 0px 1px 0px;
+    margin-bottom: 15px;
 }
 
 .qsl-image {

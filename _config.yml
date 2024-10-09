@@ -86,7 +86,7 @@ header_pages:
   - countries.markdown  
   - gallery.markdown
   - about.markdown
-  - search.markdown
+#  - search.markdown
 
 paginate: 30
 paginate_path: "/page:num/"

@@ -274,9 +274,23 @@ div.itu-list {
 }
 
 @media screen and (min-width: 800px) {
+    div.large-itu-list {
+        display: block;
+    }
+    div.small-itu-list {
+        display: none;
+    }
     div.itu-list {
-        width: 800px;
+        width: 700px;
         padding: 10px 10px 10px 10px;
+    }
+}
+@media screen and (max-width: 799px) {
+    div.large-itu-list {
+        display: none;
+    }
+    div.small-itu-list {
+        display: block;
     }
 }
 
@@ -288,13 +302,8 @@ p.qsls-itu-list {
         font-size: small;
     }
 }
-@media screen and (min-width: 500px) and (max-width: 699px) {
+@media screen and (max-width: 699px) {
     p.qsls-itu-list {
         font-size: x-small;
-    }
-}
-@media screen and (max-width: 499px) {
-    p.qsls-itu-list {
-        font-size: xx-small;
     }
 }

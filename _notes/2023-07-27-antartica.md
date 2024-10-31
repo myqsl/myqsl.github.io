@@ -1,7 +1,7 @@
 ---
 title: Первое подтверждение из Антарктиды
 layout: post_with_image
-image: https://www.urbanghostsmedia.com/wp-content/uploads/2016/09/Argentinas-remote-Esperanza-Base-on-Hope-Bay-of-the-Trinity-Peninsula-in-Graham-Land-on-the-northern-tip-of-the-Antarctic-Peninsula.jpg
+image: /assets/images/esperanza.jpg
 ---
 
 Услышать в Москве голос из Антарктиды! Оказывается,

@@ -1,17 +1,39 @@
 <details class="qsldata"><summary>
 <p style="display:inline-block"><strong>{{ include.qsl.kind }} received:</strong></p>
+{% if include.qsl.frequency %}
 <p>&middot; Frequency: {{ include.qsl.frequency }}</p>
+{% endif %}
+{% if include.qsl.reception_time %}
 <p>&middot; UTC Time of listening: {{ include.qsl.reception_time }}</p>
+{% endif %}
+{% if include.qsl.reception_date %}
 <p>&middot; Listening date: {{ include.qsl.reception_date }}</p>
+{% endif %}
+{% if include.qsl.mail_to %}
 <p>&middot; Contact: {{ include.qsl.mail_to }}</p>
+{% endif %}
 </summary>
+{% if include.qsl.language %}
 <p>&middot; Language: {{ include.qsl.language }}</p>
-<p>&middot; Location: {{ include.qsl.location }}</p> 
+{% endif %}
+{% if include.qsl.location %}
+<p>&middot; Location: {{ include.qsl.location }}</p>
+{% endif %}
+{% if include.qsl.receiver %}
 <p>&middot; Receiver: {{ include.qsl.receiver }}</p>
+{% endif %}
+{% if include.qls.antenna %}
 <p>&middot; Antenna: {{ include.qsl.antenna }}</p>
+{% endif %}
+{% if include.qsl.report_sent %}
 <p>&middot; Report sent: {{ include.qsl.report_sent}}</p>
+{% endif %}
+{% if include.qsl.responce_sent %}
 <p>&middot; Response sent: {{ include.qsl.responce_sent}}</p>
+{% endif %}
+{% if include.qsl.responce_received %}
 <p>&middot; Response received: {{ include.qsl.responce_received}}</p>
+{% endif %}
 {% if include.qsl.station %}
 <p>&middot; Station: <a href="{{ include.station.url }}">{{ include.station.title }}</a>
 {% endif %}
@@ -21,11 +43,6 @@
 <p>&middot; Permalink: <a href="{{ include.qsl.url }}">{{ include.qsl.url }}</a>
 {% if include.qsl.youtube_id %}
 <p>&middot; Video: <a href="https://youtu.be/{{ include.qsl.youtube_id }}">Click to open the video (YouTube)</a></p>
-<!--
-<p class="full-youtube">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ include.qsl.youtube_id }}" title="Record of the reception" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
--->
 {% endif %}
 </details>
 

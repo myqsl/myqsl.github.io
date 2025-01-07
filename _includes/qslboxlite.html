@@ -8,10 +8,6 @@
 
 <div class="rounded-box">
 
-<div class="header">
-<a href="{{ include.qsl.url }}"><h2 style="color: #1756a9; font-size: x-large; font-weight: bold;">{{ include.qsl.title }}</h2></a>
-</div><!-- header -->
-
 {% include qsldata.html qsl=include.qsl station=station serie=serie %}
 
 <!-- gallery of related qsls -->
@@ -46,7 +42,7 @@
     {% if details_rendered == 'no' %}
     {% assign details_rendered = 'yes' %}
     <details>
-    <summary style="text-align: center; color: #1756a9; display: block; font-size: xx-large;">⯆</summary>
+    <summary>More on {{ serie.title }}</summary>
     {% endif %}
 
     {% include qsldata.html qsl=qsl station=station serie=serie %}

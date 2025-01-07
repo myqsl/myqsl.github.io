@@ -1,5 +1,10 @@
 <details class="qsldata"><summary>
-<p style="display:inline-block"><strong>{{ include.qsl.kind }} received:</strong></p>
+<p style="display:inline-block; margin-bottom:auto; font-size: larger"><strong>{{ include.qsl.title }}</strong></p>
+</summary>
+<div class="qsldata-more">
+{% if include.qsl.kind %}
+<p>&middot; Kind: {{ include.qsl.kind }}</p>
+{% endif %}
 {% if include.qsl.frequency %}
 <p>&middot; Frequency: {{ include.qsl.frequency }}</p>
 {% endif %}
@@ -12,7 +17,6 @@
 {% if include.qsl.mail_to %}
 <p>&middot; Contact: {{ include.qsl.mail_to }}</p>
 {% endif %}
-</summary>
 {% if include.qsl.language %}
 <p>&middot; Language: {{ include.qsl.language }}</p>
 {% endif %}
@@ -44,6 +48,7 @@
 {% if include.qsl.youtube_id %}
 <p>&middot; Video: <a href="https://youtu.be/{{ include.qsl.youtube_id }}">Click to open the video (YouTube)</a></p>
 {% endif %}
+</div> <!-- end-of-qsldata-more -->
 </details>
 
 <div class="qsl-gallery">

@@ -35,9 +35,12 @@ Have a nice reading!
 {% for station in site.stations %}
     {% if station.country == country.code %}
         {% for qsl in site.posts %}
-            {% if qsl.station == station.code %}
-                {% assign qsls_count = qsls_count | plus: 1 %}
-            {% endif %}
+            {% for reception in qsl.receptions %}
+                {% if reception.station == station.code %}
+                    {% assign qsls_count = qsls_count | plus: 1 %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
         {% endfor %}
     {% endif %}
 {% endfor %}

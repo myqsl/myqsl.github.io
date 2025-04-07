@@ -2,11 +2,6 @@
 layout: page
 ---
 
-{% assign qsls = site.posts
-                | where: 'station', page.code
-                | sort: 'reception_date'
-                %}
-
 {% assign country = site.countries | where: 'code', page.country | first %}
 
 <div class="rounded-box">
@@ -26,25 +21,38 @@ layout: page
 
 <div style="padding: 15px 5px 5px 15px;">
 
-{% for qsl in qsls %}
+<ol>
+{% for qsl in site.posts %}
+{% for reception in qsl.receptions %}
+{% if reception.station == page.code %}
+<li>
   <p>
     {% assign serie = site.series | where: 'code', qsl.serie | first %}
-    <code>{{ qsl.reception_date }} {{ qsl.reception_time }}</code>
+    <code>{{ reception.date }} {{ reception.time }}</code>
     <a href="{{ qsl.url }}">
     {{ qsl.kind }}
-        | {{ qsl.frequency }}
+        | {{ reception.frequency }}
         {% if qsl.serie %}
         | {{ serie.title }}
         {% endif %}
-        {% if qsl.language %}
-        | {{ qsl.language }}
+        {% if reception.language %}
+        | {{ reception.language }}
         {% endif %}
     </a>
   </p>
-{% endfor %}
+</li>
+{% endif %} <!-- reception station ...-->
+{% endfor %} <!-- reception -->
+{% endfor %} <!-- qsl -->
+</ol>
 </div>
-</div>
+</div> <!-- rounded-box -->
 
-{% for qsl in qsls %}
+{% for qsl in site.posts %}
+{% for reception in qsl.receptions %}
+{% if reception.station == page.code %}
 {% include qslboxlite.html qsl=qsl %}
+{% break %}
+{% endif %}
+{% endfor %}
 {% endfor %}

@@ -8,10 +8,13 @@ permalink: /qsls/
 <p style="padding: 10px 10px 10px 10px; margin-bottom: 0px;">Here is
 the list of my qsls.
 It is ordered by ITU (country).
-Clink on date of the reception to get more information about QSL.
+Click on date of the reception to get more information about QSL.
 Have a nice reading!
 </p>
 </div>
+
+{% comment %} array of objects: name=>'id', items=>[q], size=>1 {% endcomment %}
+{% assign qsls_group_by_code = site.posts | group_by: 'id' %}
 
 <div class="large-itu-list">
 
@@ -30,10 +33,18 @@ Have a nice reading!
 
 
 {% assign stations_this_itu = site.stations | where: 'itu', itu.code %}
+
 {% assign qsls_this_itu = "" | split: "," %}
                         {% for station in stations_this_itu %}
-                            {% assign q = site.posts | where: 'station', station.code %}
-                            {% assign qsls_this_itu = qsls_this_itu | concat: q %}
+                        {% for qsl_group in qsls_group_by_code %}
+                        {% assign qsl = qsl_group.items[0] %}
+                        {% for reception in qsl.receptions %}
+                            {% if reception.station == station.code %}
+                                {% assign qsls_this_itu = qsls_this_itu | concat: qsl_group.items %}
+                                {% break %}
+                            {% endif %}
+                        {% endfor %}
+                        {% endfor %}
                         {% endfor %}
 
 {% assign series_ordered = site.series | sort: 'title' %}
@@ -46,8 +57,10 @@ Have a nice reading!
 
 {% assign stations_this_issuer = "" | split: "," %}
                         {% for qsl in qsls_this_issuer %}
-                            {% assign s = site.stations | where: 'code', qsl.station %}
+                            {% for reception in qsl.receptions %}
+                            {% assign s = site.stations | where: 'code', reception.station %}
                             {% assign stations_this_issuer = stations_this_issuer | concat: s %}
+                            {% endfor %}
                         {% endfor %}
 {% assign max_station_short_len = nil %}
                         {% for s in stations_this_issuer %}
@@ -57,8 +70,8 @@ Have a nice reading!
                         {% endfor %}
 
 {% for qsl in qsls_this_issuer %}
-{% assign frequencies = qsl.frequency | split: " kHz" | first | split: "/" %}
-{% for frequency in frequencies %}
+{% for reception in qsl.receptions %}
+{% assign frequency = reception.frequency | split: ' kHz' | first %}
 
 {% if itu_index < 10 %}
     {% assign index = itu_index | prepend: "0" %}
@@ -85,7 +98,7 @@ Have a nice reading!
     {% assign it = 30 %}
 {% endif %}
 {% assign issuer_title = issuer.title | truncate: it, "" %}
-{% assign station_short = site.stations | where: 'code', qsl.station | map: 'short' | first %}
+{% assign station_short = site.stations | where: 'code', reception.station | map: 'short' | first %}
 
 
 {% if previous_index == nil %}
@@ -164,12 +177,12 @@ Have a nice reading!
 
 
 {% assign frequency_to_show = frequency %}
-{% for i in (frequency.size .. 4) %}
+{% for i in (frequency.size .. 6) %}
     {% assign frequency_to_show = frequency_to_show | prepend: "&nbsp;" %}
 {% endfor %}
 
 
-{{ index_to_show }}&nbsp;&nbsp;{{ itu_code_to_show }}&nbsp;&nbsp;{{ itu_title_to_show }}&nbsp;&nbsp;{{ issuer_title_to_show }}{{ station_short_to_show }}&nbsp;&nbsp;{{ frequency_to_show }}&nbsp;&nbsp;<a href="{{ qsl.url }}">{{ qsl.reception_date }}</a><br/>
+{{ index_to_show }}&nbsp;&nbsp;{{ itu_code_to_show }}&nbsp;&nbsp;{{ itu_title_to_show }}&nbsp;&nbsp;{{ issuer_title_to_show }}{{ station_short_to_show }}{{ frequency_to_show }}&nbsp;&nbsp;<a href="{{ qsl.url }}">{{ reception.date }}</a><br/>
 
 
 
@@ -180,7 +193,7 @@ Have a nice reading!
 {% assign previous_station_short = station_short %}
 
 
-{% endfor %} <!-- frequency -->
+{% endfor %} <!-- reception -->
 {% endfor %} <!-- qsl -->
 
 {% endfor %} <!-- issuer -->
@@ -189,8 +202,6 @@ Have a nice reading!
 </div>
 
 </div><!-- large-itu-list -->
-
-
 
 <div class="small-itu-list">
 
@@ -208,10 +219,18 @@ Have a nice reading!
 
 
 {% assign stations_this_itu = site.stations | where: 'itu', itu.code %}
+
 {% assign qsls_this_itu = "" | split: "," %}
                         {% for station in stations_this_itu %}
-                            {% assign q = site.posts | where: 'station', station.code %}
-                            {% assign qsls_this_itu = qsls_this_itu | concat: q %}
+                        {% for qsl_group in qsls_group_by_code %}
+                        {% assign qsl = qsl_group.items[0] %}
+                        {% for reception in qsl.receptions %}
+                            {% if reception.station == station.code %}
+                                {% assign qsls_this_itu = qsls_this_itu | concat: qsl_group.items %}
+                                {% break %}
+                            {% endif %}
+                        {% endfor %}
+                        {% endfor %}
                         {% endfor %}
 
 {% assign series_ordered = site.series | sort: 'title' %}
@@ -224,8 +243,10 @@ Have a nice reading!
 
 {% assign stations_this_issuer = "" | split: "," %}
                         {% for qsl in qsls_this_issuer %}
-                            {% assign s = site.stations | where: 'code', qsl.station %}
+                            {% for reception in qsl.receptions %}
+                            {% assign s = site.stations | where: 'code', reception.station %}
                             {% assign stations_this_issuer = stations_this_issuer | concat: s %}
+                            {% endfor %}
                         {% endfor %}
 {% assign max_station_short_len = nil %}
                         {% for s in stations_this_issuer %}
@@ -235,8 +256,8 @@ Have a nice reading!
                         {% endfor %}
 
 {% for qsl in qsls_this_issuer %}
-{% assign frequencies = qsl.frequency | split: " kHz" | first | split: "/" %}
-{% for frequency in frequencies %}
+{% for reception in qsl.receptions %}
+{% assign frequency = reception.frequency | split: ' kHz' | first %}
 
 {% if itu_index < 10 %}
     {% assign index = itu_index | prepend: "0" %}
@@ -257,7 +278,7 @@ Have a nice reading!
     {% assign it = 28 %}
 {% endif %}
 {% assign issuer_title = issuer.title | truncate: it, "" %}
-{% assign station_short = site.stations | where: 'code', qsl.station | map: 'short' | first %}
+{% assign station_short = site.stations | where: 'code', reception.station | map: 'short' | first %}
 
 
 {% if previous_index == nil %}
@@ -324,12 +345,12 @@ Have a nice reading!
 
 
 {% assign frequency_to_show = frequency %}
-{% for i in (frequency.size .. 4) %}
+{% for i in (frequency.size .. 6) %}
     {% assign frequency_to_show = frequency_to_show | prepend: "&nbsp;" %}
 {% endfor %}
 
 
-{{ index_to_show }}&nbsp;&nbsp;{{ itu_code_to_show }}&nbsp;&nbsp;{{ issuer_title_to_show }}{{ station_short_to_show }}&nbsp;&nbsp;<a href="{{ qsl.url }}">{{ frequency_to_show }}</a><br/>
+{{ index_to_show }}&nbsp;&nbsp;{{ itu_code_to_show }}&nbsp;&nbsp;{{ issuer_title_to_show }}{{ station_short_to_show }}<a href="{{ qsl.url }}">{{ frequency_to_show }}</a><br/>
 
 
 
@@ -339,7 +360,7 @@ Have a nice reading!
 {% assign previous_station_short = station_short %}
 
 
-{% endfor %} <!-- frequency -->
+{% endfor %} <!-- reception -->
 {% endfor %} <!-- qsl -->
 
 {% endfor %} <!-- issuer -->

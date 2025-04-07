@@ -5,29 +5,8 @@
 {% if include.qsl.kind %}
 <p>&middot; Kind: {{ include.qsl.kind }}</p>
 {% endif %}
-{% if include.qsl.frequency %}
-<p>&middot; Frequency: {{ include.qsl.frequency }}</p>
-{% endif %}
-{% if include.qsl.reception_time %}
-<p>&middot; UTC Time of listening: {{ include.qsl.reception_time }}</p>
-{% endif %}
-{% if include.qsl.reception_date %}
-<p>&middot; Listening date: {{ include.qsl.reception_date }}</p>
-{% endif %}
 {% if include.qsl.mail_to %}
 <p>&middot; Contact: {{ include.qsl.mail_to }}</p>
-{% endif %}
-{% if include.qsl.language %}
-<p>&middot; Language: {{ include.qsl.language }}</p>
-{% endif %}
-{% if include.qsl.location %}
-<p>&middot; Location: {{ include.qsl.location }}</p>
-{% endif %}
-{% if include.qsl.receiver %}
-<p>&middot; Receiver: {{ include.qsl.receiver }}</p>
-{% endif %}
-{% if include.qls.antenna %}
-<p>&middot; Antenna: {{ include.qsl.antenna }}</p>
 {% endif %}
 {% if include.qsl.report_sent %}
 <p>&middot; Report sent: {{ include.qsl.report_sent}}</p>
@@ -38,16 +17,44 @@
 {% if include.qsl.responce_received %}
 <p>&middot; Response received: {{ include.qsl.responce_received}}</p>
 {% endif %}
-{% if include.qsl.station %}
-<p>&middot; Station: <a href="{{ include.station.url }}">{{ include.station.title }}</a>
-{% endif %}
 {% if include.qsl.serie %}
 <p>&middot; Issuer: <a href="{{ include.serie.url }}">{{ include.serie.title }}</a>
 {% endif %}
 <p>&middot; Permalink: <a href="{{ include.qsl.url }}">{{ include.qsl.url }}</a>
-{% if include.qsl.youtube_id %}
-<p>&middot; Video: <a href="https://youtu.be/{{ include.qsl.youtube_id }}">Click to open the video (YouTube)</a></p>
+
+{% for reception in include.qsl.receptions %}
+<p><div style="border: dashed; border-color: lightgray; border-width: 2px; border-radius: 20px;">
+{% if reception.frequency %}
+<p>&middot; Frequency: {{ reception.frequency }}</p>
 {% endif %}
+{% if reception.time %}
+<p>&middot; UTC Time of listening: {{ reception.time }}</p>
+{% endif %}
+{% if reception.date %}
+<p>&middot; Listening date: {{ reception.date }}</p>
+{% endif %}
+{% if reception.language %}
+<p>&middot; Language: {{ reception.language }}</p>
+{% endif %}
+{% if reception.location %}
+<p>&middot; Location: {{ reception.location }}</p>
+{% endif %}
+{% if reception.receiver %}
+<p>&middot; Receiver: {{ reception.receiver }}</p>
+{% endif %}
+{% if reception.antenna %}
+<p>&middot; Antenna: {{ reception.antenna }}</p>
+{% endif %}
+{% if reception.station %}
+{% assign station = site.stations | where: 'code', reception.station | first %}
+<p>&middot; Station: <a href="{{ station.url }}">{{ station.title }}</a>
+{% endif %}
+{% if reception.youtube_id %}
+<p>&middot; Video: <a href="https://youtu.be/{{ reception.youtube_id }}">Click to open the video (YouTube)</a></p>
+{% endif %}
+</div></p>
+{% endfor %} <!-- reception -->
+
 </div> <!-- end-of-qsldata-more -->
 </details>
 

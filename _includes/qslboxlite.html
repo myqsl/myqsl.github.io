@@ -1,43 +1,15 @@
-{% if include.qsl.station %}
-    {% assign station = site.stations | where: 'code', include.qsl.station | first %}
-{% endif %}
-
 {% if include.qsl.serie %}
     {% assign serie = site.series | where: 'code', include.qsl.serie | first %}
 {% endif %}
 
 <div class="rounded-box">
 
-{% include qsldata.html qsl=include.qsl station=station serie=serie %}
+{% include qsldata.html qsl=include.qsl serie=serie %}
 
 <!-- gallery of related qsls -->
 {% assign details_rendered = 'no' %}
-{% assign qsls = site.posts
-                | sort: 'reception_date'
-                | reverse %}
-{% for qsl in qsls %}
-    {% if qsl == include.qsl %}{% continue %}{% endif %}
-    {% assign ok = false %}
-    {% if qsl.serie %}
-        {% if include.qsl.serie %}
-            {% if qsl.serie == include.qsl.serie %}
-	            {% assign ok = true %}
-	        {% endif %}
-       {% endif %}
-    {% else %}
-        {% if include.qsl.serie %}
-        {% else %}
-            {% if qsl.station %}
-	            {% if include.qsl.station %}
-	                {% if qsl.station == include.qsl.station %}
-		                {% assign ok = true %}
-		            {% endif %}
-	            {% endif %}
-	        {% endif %}
-       {% endif %}
-    {% endif %}
-
-    {% if ok == false %}{% continue %}{% endif %}
+{% for qsl in site.posts %}
+    {% if qsl != include.qsl and qsl.serie == include.qsl.serie %}
 
     {% if details_rendered == 'no' %}
     {% assign details_rendered = 'yes' %}
@@ -45,7 +17,9 @@
     <summary>More on {{ serie.title }}</summary>
     {% endif %}
 
-    {% include qsldata.html qsl=qsl station=station serie=serie %}
+    {% include qsldata.html qsl=qsl serie=serie %}
+
+    {% endif %}
 
 {% endfor %}
 

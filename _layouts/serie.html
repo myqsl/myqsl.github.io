@@ -2,27 +2,30 @@
 layout: page
 ---
 
-{% assign qsls = site.posts
-                | where: 'serie', page.code
-                | sort: 'reception_date'
-                %}
+{% assign qsls = site.posts | where: 'serie', page.code %}
+
 <div class="rounded-box">
 <div style="padding: 15px 5px 5px 15px;">
+  <ol>
 {% for qsl in qsls %}
-  <p>
-    {% assign tx = site.stations | where: 'code', qsl.station | first %}
-    {% assign tx_country = site.countries | where: 'code', tx.country | first %}
-    <code>{{ qsl.reception_date }} {{ qsl.reception_time }}</code>
-    <a href="{{ qsl.url }}">
-    {{ qsl.kind }}
-        | {{ qsl.frequency }}
-        | {{ qsl.language }}
-        {% if qsl.station %}
-        | {{ tx.title }} {% if tx.country %}, {{ tx_country.title }}{% endif %}
-        {% endif %}
-    </a>
-  </p>
+{% for reception in qsl.receptions %}
+  {% assign station = site.stations | where: 'code', reception.station | first %}
+<li>
+    <p>
+      <code>{{ reception.date }} {{ reception.time }}</code>
+      <a href="{{ qsl.url }}">
+      {{ qsl.kind }}
+          | {{ reception.frequency }}
+          | {{ station.title }}
+          {% if reception.language %}
+          | {{ reception.language }}
+          {% endif %}
+      </a>
+    </p>
+    </li>
 {% endfor %}
+{% endfor %}
+</ol>
 </div>
 </div>
 

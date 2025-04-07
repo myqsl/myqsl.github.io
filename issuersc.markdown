@@ -73,17 +73,7 @@ Have a nice reading!
 
 {% assign qsls = site.posts | where: 'serie', issuer.code %}
 
-<details>
-<summary>{{ issuer.title }}<sup>{{ qsls.size }}</sup><a href="{{ issuer.url }}"><em>pictures</em></a></summary>
-
-<ul>
-
-{% for qsl in qsls %}
-    <li><a href="{{ qsl.url }}">{{ qsl.title }}</a> &bullet; {{ qsl.frequency }} &bullet; {{ qsl.reception_date }} {{ qsl.reception_time }}</li>    
-{% endfor %}
-</ul>
-
-</details>
+<p>&mdash; <a href="{{ issuer.url }}">{{ issuer.title }}</a> | qsls: {{ qsls.size }}</p>
 
 {% endfor %} <!-- issuer -->
 </div>

@@ -1,21 +1,13 @@
 ---
 title: Envelope from Bill Tilford
 kind: letter
-#frequency: 5130 kHz
-#language: English/Spanish
-#reception_date: 2022-10-22
-#reception_time: 03.55-04.01
-#location: Moscow, Russia (inside city)
-#mail_to: mailto:tilfordproductions@gmail.com
-#receiver: XHDATA D-808
-#antenna: its telescopic
-#station: wbcq
-#youtube_id: Tz30uNrvVY4
-#report_sent: 2022-10-22
+# mail_to: 
+# report_sent: 
 responce_sent: 2021-03-12
 responce_received: 2021-04-01
-#organization: wbcq
 serie: uncle_bill
+receptions:
+
 gallery:
   - /assets/qsl/2021/unclebill/full/ftiom_sticker_bill2021.jpg:/assets/qsl/2021/unclebill/small/ftiom_sticker_bill2021.jpg
   - /assets/qsl/2021/unclebill/full/ubmp_sticker_bill2021.jpg:/assets/qsl/2021/unclebill/small/ubmp_sticker_bill2021.jpg

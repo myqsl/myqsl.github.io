@@ -1,6 +1,7 @@
 ---
 code: pucheng
-title: the Chinese Academy of Sciences National Time Service Center in Lintong, Pucheng County, Shaanxi Province, China
+title: Chinese National Time Service Center
+# title: the Chinese Academy of Sciences National Time Service Center in Lintong, Pucheng County, Shaanxi Province, China
 country: china
 short: Pucheng
 itu: chn

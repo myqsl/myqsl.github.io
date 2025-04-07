@@ -23,25 +23,19 @@ Have a nice reading!
 <header><h2><img class="flag" src="{{ country.flag }}"/>
 {{ country.title }}</h2></header>
 
-{% for station in site.stations %}
+{% assign stations = site.stations | where: 'country', country.code | sort: 'title' %}
+{% for station in stations %}
 
-{% if station.country != country.code %}
-    {% continue %}
-{% endif %}
-
-{% assign qsls = site.posts | where: 'station', station.code %}
-
-<details>
-<summary>{{ station.title }}<sup>{{ qsls.size }}</sup><a href="{{ station.url }}"><em>pictures</em></a></summary>
-
-<ul>
-
-{% for qsl in qsls %}
-    <li><a href="{{ qsl.url }}">{{ qsl.title }}</a> &bullet; {{ qsl.frequency }} &bullet; {{ qsl.reception_date }} {{ qsl.reception_time }}</li>    
+{% assign receptions = 0 %}
+{% for qsl in site.posts %}
+    {% for reception in qsl.receptions %}
+        {% if reception.station == station.code %}
+            {% assign receptions = receptions | plus: 1 %}
+        {% endif %}
+    {% endfor %}
 {% endfor %}
-</ul>
 
-</details>
+<p>&mdash; <a href="{{ station.url }}">{{ station.title }}</a> | receptions: {{ receptions }}</p>
 
 {% endfor %} <!-- station -->
 </div>

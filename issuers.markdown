@@ -12,7 +12,7 @@ Have a nice reading!
 </p>
 </div>
 
-{% assign issuers = site.series | sort: 'title' %}
+{% assign issuers = site.data['series'] | values | sort: 'title' %}
 
 {% assign titles = issuers | map: 'title' %}
 {% assign letters = empty %}
@@ -29,12 +29,14 @@ Have a nice reading!
 
 {% for issuer in issuers %}
 
-{% assign theletter = issuer.title | truncate: 1, "" %}
+{% assign theletter = issuer['title'] | truncate: 1, "" %}
 {% if letter == theletter %}
 
-{% assign qsls = site.posts | where: 'serie', issuer.code %}
+{% assign issuer_code = issuer['code'] %}
+{% assign issuer_title = issuer['title'] %}
+{% assign qsls = site | qsls_for_serie: issuer['code']  %}
 
-<p>&mdash; <a href="{{ issuer.url }}">{{ issuer.title }}</a> | qsls: {{ qsls.size }}</p>
+<p>&mdash; <a href="/series/{{ issuer_code }}.html">{{ issuer_title }}</a> | qsls: {{ qsls.size }}</p>
 
 {% endif %}
 {% endfor %} <!-- issuer -->

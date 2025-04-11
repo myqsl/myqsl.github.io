@@ -2,26 +2,28 @@
 layout: page
 ---
 
-{% assign stations = site.stations | where: 'country', page.code %}
+{% assign qsls_by_stations = site | qsls_group_by_station_for_country: page.code %}
+{% assign stations_codes = qsls_by_stations | keys %}
 
 <div class="rounded-box">
 
     <div style="padding: 15px 5px 5px 15px;">
     
     <ol>
-    {% for qsl in site.posts %}
+      {% for station_code in stations_codes %}
+      {% assign qsls = qsls_by_stations[station_code] %}
+    {% for qsl in qsls %}
     {% for reception in qsl.receptions %}
-    {% assign stations_this_reception = stations | where: 'code', reception.station %}
-    {% if stations_this_reception != empty %}
+    {% if stations_codes contains reception['station'] %}
     <li>
       <p>
-        {% assign serie = site.series | where: 'code', qsl.serie | first %}
+        {% assign serie = site.data['series'][qsl.serie] %}
         <code>{{ reception.date }} {{ reception.time }}</code>
         <a href="{{ qsl.url }}">
         {{ qsl.kind }}
             | {{ reception.frequency }}
             {% if qsl.serie %}
-            | {{ serie.title }}
+            | {{ serie['title'] }}
             {% endif %}
             {% if reception.language %}
             | {{ reception.language }}
@@ -32,19 +34,21 @@ layout: page
     {% endif %} <!-- reception station ...-->
     {% endfor %} <!-- reception -->
     {% endfor %} <!-- qsl -->
+    {% endfor %} <!-- station_code -->
     </ol>
     </div>
     </div> <!-- rounded-box -->    
 
-{% for station in stations %}
+{% for station_code in stations_codes %}
+{% assign qsls = qsls_by_stations[station_code] %}
 
-{% for qsl in site.posts %}
+{% for qsl in qsls %}
 {% for reception in qsl.receptions %}
-    {% if reception.station == station.code %}
+    {% if reception['station'] == station_code %}
     {% include qslboxlite.html qsl=qsl %}
     {% break %}
     {% endif %}
 {% endfor %}
 {% endfor %}
 
-{% endfor %} <!-- for station -->
+{% endfor %} <!-- for station_code -->

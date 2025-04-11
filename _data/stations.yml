@@ -1,0 +1,923 @@
+abis:
+  code: abis
+  title: Abis
+  short: Abis
+  country: egypt
+  itu: egy
+  coordinates: 31.1275,30.07417
+
+alseela:
+  code: alseela
+  title: Al-Seela
+  short: Al-Seela
+  country: oman
+  itu: oma
+  coordinates: 21.92722,59.62806
+
+anchor_point:
+  code: anchor_point
+  title: KNLS
+  short: Anchor Point
+  address: Anchor Point, AL
+  country: usa
+  itu: als
+  coordinates: 59.74833,-151.73583
+
+anthony:
+  code: anthony
+  title: Anthony Radio
+  address: somewhere in Poland
+  itu: pol
+  country: poland
+  kind: pirate
+
+ascension:
+  code: ascension
+  title: BBC Atlantic Relay Station
+  # short: Ascension # it is commented because it is an only station for this ITU
+  country: ascension
+  itu: asc
+  coordinates: -7.89833,-14.3775
+
+bangkok:
+  code: bangkok
+  title: Bangkok Radio
+  # short: Bangkok Radio it is commented intentially
+  country: thailand
+  itu: tha
+  coordinates: 13.6673631,100.6134514
+  kind: utility
+
+baseesperanza:
+  code: baseesperanza
+  title: Base Antártica Esperanza
+  short: Esperanza
+  country: argentina_ata
+  itu: ata
+  coordinates: -63.39778,-56.99861
+
+bauta:
+  code: bauta
+  title: Bauta
+  short: Bauta
+  country: cuba
+  itu: cub
+  coordinates: 22.94806,-82.54861
+
+bengaluru:
+  code: bengaluru
+  title: All India Radio (Bengaluru)
+  address: Bengaluru
+  short: Bengaluru
+  country: india
+  itu: ind
+  coordinates: 13.23306,77.21667
+
+bethel:
+  code: bethel
+  title: WMLK
+  short: Bethel
+  address: Bethel, Pennsylvania
+  country: usa
+  itu: usa
+  coordinates: 40.4744444,-76.2812644
+
+bocaue:
+  code: bocaue
+  title: Bocaue
+  country: philippines
+  short: Bocaue
+  itu: phl
+  coordinates: 14.8025,120.91056
+
+brasilia:
+  code: brasilia
+  title: Brazilia DF
+  short: Brazilia
+  country: brazil
+  itu: b
+  coordinates: -15.60306,-48.13028
+
+charleston:
+  code: charleston
+  title: Radio Charleston Int.
+  address: somewhere in South Germany
+  itu: d
+  country: germany
+  kind: pirate
+
+charleville:
+  code: charleville
+  title: Australian Marine Weather Broadcasts (Charleville)
+  short: Charleville
+  country: australia
+  itu: aus
+  coordinates: -24.8108396,125.5600251
+
+chu:
+  code: chu
+  title: CHU (time-service)
+  short: Ottawa
+  address: Ottawa, Ontario
+  country: canada
+  itu: can
+  coordinates: 45.296389, -75.756111
+  kind: utility
+
+contikenzo:
+  code: contikenzo
+  title: ContiKenzo
+  address: somewhere in The Netherlands
+  itu: hol
+  country: netherlands
+  kind: pirate
+
+cupid:
+  code: cupid
+  title: Cupid Radio
+  address: somewhere in The Netherlands
+  itu: hol
+  country: netherlands
+  kind: pirate
+
+dcf77:
+  code: dcf77
+  title: DCF77 (time-service)
+  short: Mainflingen
+  transmitter: Mainflingen longwave transmitter
+  address: Mainflingen
+  country: germany
+  itu: d
+  coordinates: 50.01556, 9.01083
+  kind: utility
+
+delhi:
+  code: delhi
+  title: All India Radio (Delhi)
+  address: Delhi
+  short: Delhi
+  country: india
+  itu: ind
+  coordinates: 28.6611027,77.1865401
+
+delta:
+  code: delta
+  title: Radio Delta International
+  address: Elburg, the Netherlands
+  short: Elburg
+  country: netherlands
+  itu: hol
+  coordinates: 52.4509261,5.8392109
+  kind: private
+
+dhabbaya:
+  code: dhabbaya
+  title: Al-Dhabbaya
+  short: Al-Dhabbaya
+  country: uae
+  itu: uae
+  coordinates: 24.17,54.24972
+
+dobrochov:
+  code: dobrochov
+  title: RKS Dobrochov
+  short: Dobrochov
+  country: czech
+  itu: cze
+  coordinates: 49.384574, 17.123438
+
+eli:
+  code: eli
+  title: Radio Eli
+  short: Tartu
+  country: estonia
+  itu: est
+  coordinates: 58.4009879,26.9609527
+
+emirler:
+  code: emirler
+  title: Emirler
+  short: Emirler
+  country: turkey
+  itu: tur
+  coordinates: 39.40167,32.85583
+
+eswatini:
+  code: eswatini
+  title: eSwatini Transmitting Station
+  short: Manzini
+  country: eswatini
+  itu: swz
+  coordinates: -26.33806,31.59861
+
+gavar:
+  code: gavar
+  title: Gavar
+  short: Gavar
+  country: armenia
+  itu: arm
+  coordinates: 40.415,45.19111
+
+greenville:
+  code: greenville
+  title: Edward R. Murrow Transmitting Station (Greenville)
+  short: Greenville
+  country: usa
+  itu: usa
+  coordinates: 35.4675,-77.19917
+
+grigoriopol:
+  code: grigoriopol
+  title: Mayak
+  address: Grigoriopol
+  short: Mayak
+  country: pridnestr
+  itu: mda
+  coordinates: 47.28306,29.40667
+
+hanoy:
+  code: hanoy
+  title: Hanoy
+  country: vietnam
+  short: Hanoy
+  itu: vtn
+  coordinates: 21.13667,105.41833
+
+hkairport:
+  code: hkairport
+  title: Hong Kong VOLMET
+  country: china
+  # short: Hong Kong VOLMET this line is commented intentially
+  itu: chn
+  coordinates: 22.3040683,113.9357755
+  kind: utility
+
+hnms_svh:
+  code: hnms_svh
+  title: Olympia Radio, Crete (meteo)
+  short: Crete
+  country: greece
+  itu: grc
+  coordinates: 35.3220101,25.0961024
+  kind: utility
+
+iba:
+  code: iba
+  title: Iba
+  country: philippines
+  short: Iba
+  itu: phl
+  coordinates: 15.365,119.95278
+
+igloo:
+  code: igloo
+  title: Radio Igloo
+  itu: xxe
+  country: xeurope
+  kind: pirate
+
+issoudun:
+  code: issoudun
+  title: Issoudun
+  short: Issoudun
+  country: france
+  itu: f
+  coordinates: 46.96528,1.86278
+
+italcable:
+  code: italcable
+  title: Italcable (time-service)
+  address: Toscana
+  short: Toscana
+  country: italy
+  itu: i
+  coordinates: 41.8350746,12.6041397
+  kind: utility
+
+jmh:
+  code: jmh
+  title: Japan Meteorological Agency
+  country: japan
+  short: Kagoshima
+  itu: j
+  coordinates: 31.5228223,130.3933537
+  kind: utility
+
+joey:
+  code: joey
+  title: Radio Joey
+  address: somewhere in The Netherlands
+  itu: hol
+  country: netherlands
+  kind: pirate
+
+johnny:
+  code: johnny
+  title: Johnny Tobacco / Radio TripleL
+  address: near the city of Drachten
+  itu: hol
+  country: netherlands
+  kind: pirate
+
+kajang:
+  code: kajang
+  title: Kajang
+  short: Kajang
+  country: malaysia
+  itu: mla
+  coordinates: 3.010866,101.783954
+
+kall:
+  code: kall
+  title: Shortwaveservice (Kall-Krekel)
+  country: germany
+  short: Kall-Krekel
+  itu: d
+  coordinates: 50.47806,6.52306
+  kind: private
+
+kashi:
+  code: kashi
+  title: Kashi-saibagh
+  country: china
+  short: Kashi-saibagh
+  itu: chn
+  coordinates: 38.6279097,75.7927252
+  kind: national
+
+kimjae:
+  code: kimjae
+  title: Kimjae
+  country: south_korea
+  short: Kimjae
+  itu: kor
+  coordinates: 35.82139,126.86778
+
+kostinbrod:
+  code: kostinbrod
+  title: SpaceLine
+  address: Kostinbrod
+  short: Kostinbrod
+  country: bulgaria
+  itu: bul
+  coordinates: 42.80917,23.18694
+
+krechka:
+  code: krechka
+  title: TWR Central Asia Center in Kyrgyzstan
+  country: kyrgyzstan
+  short: Bishkek
+  itu: kgz
+  coordinates: 42.877499,74.9861101
+
+ksda:
+  code: ksda
+  title: KSDA
+  short: KSDA Agat
+  address: Agana
+  country: guam
+  itu: gum
+  coordinates: 13.4308683,144.7066587
+
+ktwr:
+  code: ktwr
+  title: KTWR
+  short: KTWR Agana
+  address: Agana
+  country: guam
+  itu: gum
+  coordinates: 13.474559,144.753365
+
+kununurra:
+  code: kununurra
+  title: Kununurra
+  short: Kununurra
+  country: australia
+  itu: aus
+  coordinates: -15.81222,128.66694
+
+kuwait:
+  code: kuwait
+  title: USAGM Kuwait
+  short: Kuwait
+  country: kuwait
+  itu: kwt
+  coordinates: 29.51306,47.67306
+
+lhasa:
+  code: lhasa
+  title: Lhasa-baiding
+  country: china
+  short: Lhasa
+  itu: chn
+  coordinates: 35.0613696,72.4852197
+  kind: national
+
+lle3:
+  code: lle3
+  title: Foreningen Bergen Kringkaster (LLE-3)
+  short: Bergen
+  address: PO Box 100, N5331 Rong, Norway
+  country: norway
+  itu: nor
+  coordinates: 60.4480265,5.2176043
+  kind: private
+
+mahajanga:
+  code: mahajanga
+  title: Madagascar World Voice
+  address: Mahajanga
+  short: Mahajanga
+  country: madagascar
+  itu: mdg
+  coordinates: -15.72722,46.44611
+
+miercurea:
+  code: miercurea
+  title: Miercurea Ciuc
+  short: Miercurea Ciuc
+  country: romania
+  itu: rou
+  coordinates: 46.367,25.814
+
+mike:
+  code: mike
+  title: Mike Radio
+  address: Heerde/Tonneberg
+  itu: hol
+  country: netherlands
+  kind: pirate
+  coordinates: 52.4122461,6.0121353
+
+miskolc:
+  code: miskolc
+  title: Miskolc
+  short: Miskolc
+  country: hungary
+  itu: hng
+  coordinates: 48.0890371,20.5109441
+
+moosbrunn:
+  code: moosbrunn
+  title: Moosbrunn
+  short: Moosbrunn
+  country: austria
+  itu: aut
+  coordinates: 48.00667,16.46167
+
+msf:
+  code: msf
+  title: MSF (time-service)
+  short: Anthorn
+  address: Anthorn, Cumbria
+  country: uk
+  itu: g
+  coordinates: 54.911, -3.28
+  kind: utility
+
+mtuci:
+  code: mtuci
+  title: МТУСИ (Московский Технический Университет Связи и Информатики)
+  short: Москва-МТУСИ
+  address: Москва, ул. Авиамоторная, 8 строение 4
+  itu: rus
+  country: russia
+  kind: private
+
+mystery21:
+  code: mystery21
+  title: Radio Mystery21
+  itu: xxe
+  country: xeurope
+  kind: pirate
+
+nauen:
+  code: nauen
+  title: Nauen
+  short: Nauen
+  address: Nauen
+  country: germany
+  itu: d
+  coordinates: 52.64861,12.90917
+
+noblejas:
+  code: noblejas
+  title: Noblejas
+  short: Noblejas
+  country: spain
+  itu: e
+  coordinates: 39.95806,-3.43056
+
+orzu:
+  code: orzu
+  title: Dushanbe-Orzu
+  country: tajikistan
+  short: Orzu
+  itu: tjk
+  coordinates: 37.53778,68.79389
+
+ozviola:
+  code: ozviola
+  title: Radio OZ-Viola
+  short: Hillerød
+  address: Hillerød
+  itu: dnk
+  country: denmark
+  kind: private
+
+palau:
+  code: palau
+  title: Hope Radio Palau
+  short: Palau
+  country: palau
+  itu: plw
+  coordinates: 7.4575,134.47778
+
+pamela:
+  code: pamela
+  title: Radio Pamela (Steve Most)
+  country: uk
+  itu: g
+  kind: pirate
+
+paochung:
+  code: paochung
+  title: Paochung (Taiwan)
+  country: taiwan
+  short: Paochung
+  itu: twn
+  coordinates: 23.72611,120.30056
+
+pichincha:
+  code: pichincha
+  title: Pico Pichincha
+  short: Pc.Pichincha
+  country: ecuador
+  itu: eqa
+  coordinates: -0.18333,-78.53333
+
+piepzender:
+  code: piepzender
+  title: Radio Piepzender
+  address: somewhere in The Netherlands
+  itu: hol
+  country: netherlands
+  kind: private
+
+pinheira:
+  code: pinheira
+  title: VOA Sao Tome Relay Station
+  short: Pinheira
+  country: saotome
+  itu: stp
+  coordinates: 0.16378,6.7069381
+
+pinneberg:
+  code: pinneberg
+  title: Deutscher Wetterdienst
+  short: Pinneberg
+  address: Pinneberg, 15 km north of Hamburg
+  country: germany
+  itu: d
+  coordinates: 53.67361,9.80861
+  kind: utility
+
+portvila:
+  code: portvila
+  title: Vanuatu Broadcasting and Television Corporation
+  short: Port Vila
+  country: vanuatu
+  itu: vut
+  coordinates: -17.7548702,168.352499
+
+pucheng:
+  code: pucheng
+  title: Chinese National Time Service Center
+  # title: the Chinese Academy of Sciences National Time Service Center in Lintong, Pucheng County, Shaanxi Province, China
+  country: china
+  short: Pucheng
+  itu: chn
+  coordinates: 34.9475356,109.548189
+  kind: utility
+
+puerto_lleras:
+  code: puerto_lleras
+  title: Puerto Lleras
+  short: Puerto Lleras
+  country: colombia
+  itu: clm
+  coordinates: 3.269444, -73.375
+
+radio-europa:
+  code: radio-europa
+  title: Radio Europa
+  short: Alphen a.d. Rijn
+  address: Alphen a.d. Rijn
+  itu: hol
+  country: netherlands
+  kind: private
+
+radiocenter:
+  code: radiocenter
+  title: Radio Center (Riga)
+  short: Riga
+  country: latvia
+  itu: lva
+  coordinates: 57.0417172,23.9821919
+
+randers:
+  code: randers
+  title: WMR-Randers
+  short: Randers
+  address: Randers
+  country: denmark
+  itu: dnk
+  coordinates: 56.457,10.039
+  kind: private
+
+rangitaiki:
+  code: rangitaiki
+  title: Rangitaiki
+  short: Rangitaiki
+  country: newzealand
+  itu: nzl
+  coordinates: -38.83389,176.41694
+
+rohrbach:
+  code: rohrbach
+  title: Channel292
+  short: Rohrbach
+  address: Rohrbach
+  country: germany
+  itu: d
+  coordinates: 48.59972,11.5475
+  kind: private
+
+saftica:
+  code: saftica
+  title: Săftica
+  short: Săftica
+  country: romania
+  itu: rou
+  coordinates: 44.63806,26.07583
+
+saipan:
+  code: saipan
+  title: USAGM Saipan, Agingan Point
+  short: Saipan
+  country: mra
+  itu: mra
+  coordinates: 15.12111,145.69278
+
+selebi:
+  code: selebi
+  title: VOA Botswana Relay Station
+  short: Selebi-Phikwe
+  country: botswana
+  itu: bot
+  coordinates: -21.95667,27.63833
+
+sirjan:
+  code: sirjan
+  title: Voice of the Islamic Republic of Iran
+  address: Bengaluru
+  short: Sirjan
+  country: iran
+  itu: irn
+  coordinates: 29.5948779,55.7841842
+
+solt:
+  code: solt
+  title: Solti rádióadó
+  short: Solt
+  country: hungary
+  itu: hng
+  coordinates: 46.8343083,19.0315667
+
+spaceshuttle:
+  code: spaceshuttle
+  title: Radio Spaceshuttle Int.
+  # short: Spaceshuttle
+  country: finland
+  itu: fin
+  # coordinates: 62.37833,23.65806
+  kind: pirate
+
+spbolgino:
+  code: spbolgino
+  title: Радиоцентр №1 (Ольгино, Санкт-Петербург)
+  short: Saint-Peterburg
+  country: russia
+  itu: rus
+  coordinates: 59.991754, 30.127680
+
+sunlite:
+  code: sunlite
+  title: Sunlite, ICON BV
+  short: Westdorpe
+  address: Westdorpe
+  country: netherlands
+  itu: hol
+  coordinates: 51.2122649,3.8838375
+  kind: private
+
+swradio:
+  code: swradio
+  title: Scandinavian Weekend Radio
+  short: Virrat
+  address: Virrat
+  country: finland
+  itu: fin
+  coordinates: 62.37833,23.65806
+  kind: private
+
+szombathely:
+  code: szombathely
+  title: Szombathely
+  short: Szombathely
+  country: hungary
+  itu: hng
+  coordinates: 47.2142965,16.5302604
+
+talata:
+  code: talata
+  title: Talata-Volonondry
+  short: Talata
+  country: madagascar
+  itu: mdg
+  coordinates: -18.7525,47.615
+
+tamsui:
+  code: tamsui
+  title: Tamsui (Taiwan)
+  country: taiwan
+  short: Tamsui
+  itu: twn
+  coordinates: 25.18556,121.41611
+
+tashkent:
+  code: tashkent
+  title: Tashkent
+  country: uzbekistan
+  short: Tashkent
+  itu: uzb
+  coordinates: 41.2035026,68.7462612
+
+technicalman:
+  code: technicalman
+  title: Radio Technical Man
+  address: village Ruurlo
+  itu: hol
+  country: netherlands
+  kind: pirate
+
+tinang:
+  code: tinang
+  title: VOA Relay Station Tinang
+  country: philippines
+  short: Tinang
+  itu: phl
+  coordinates: 15.37889,120.62583
+
+tinian:
+  code: tinian
+  title: USAGM Tinian Island
+  country: mra
+  itu: mra
+  coordinates: 15.04778,145.60583
+
+topolna:
+  code: topolna
+  title: RKS Topolná
+  short: Topolná
+  country: czech
+  itu: cze
+  coordinates: 49.123611, 17.514444
+
+trincomalee:
+  code: trincomalee
+  title: Sri Lanka Broadcasting Corporation (Trincomalee)
+  address: Trincomalee
+  short: Trincomalee
+  country: srilanka
+  itu: cln
+  coordinates: 8.7385616,81.113561
+
+udon_thani:
+  code: udon_thani
+  title: Udon Thani
+  short: Udon Thani
+  country: thailand
+  itu: tha
+  coordinates: 17.675,103.20028
+
+ulaanbaatar:
+  code: ulaanbaatar
+  title: UlaanBaatar
+  short: UlaanBaatar
+  country: mongolia
+  itu: mng
+  coordinates: 47.7882632,107.1727153
+
+vatican:
+  code: vatican
+  title: Santa Maria di Galeria
+  # short: Vatican it is commented because it is the only station for this ITU
+  country: vatican
+  itu: cva
+  coordinates: 42.04417,12.32278
+
+victoria:
+  code: victoria
+  title: Free Radio Victoria
+  address: somewhere in The Netherlands
+  itu: hol
+  country: netherlands
+  kind: pirate
+
+vidin:
+  code: vidin
+  title: BNR Station
+  address: Vidin, Bulgaria
+  short: Vidin
+  country: bulgaria
+  itu: bul
+  coordinates: 43.835371,22.7152731
+
+viesintos:
+  code: viesintos
+  title: Radio Baltic Waves International (Viešintos)
+  short: Viešintos
+  country: lithuania
+  itu: ltu
+  coordinates: 55.694511,24.982211
+
+wbcq:
+  code: wbcq
+  title: WBCQ
+  short: Monticello
+  address: Monticello, ME
+  country: usa
+  itu: usa
+  coordinates: 46.34167,-67.82778
+
+weenermoor:
+  code: weenermoor
+  title: Weenermoor
+  short: Weenermoor
+  address: Weenermoor Str. 225, 26826, Weener, Germany
+  country: germany
+  itu: d
+  coordinates: 53.2024734,7.3201926
+
+wiluna:
+  code: wiluna
+  title: Australian Marine Weather Broadcasts (Wiluna)
+  short: Wiluna
+  country: australia
+  itu: aus
+  coordinates: -26.3452778,120.5602778
+
+wooferton:
+  code: wooferton
+  title: Wooferton
+  short: Wooferton
+  country: uk
+  itu: g
+  coordinates: 52.27361,-2.82833
+
+wrmi:
+  code: wrmi
+  title: WRMI
+  short: Okeechobee
+  address: Okeechobee, FL
+  country: usa
+  itu: usa
+  coordinates: 27.45722,-80.93306
+
+wwv10000:
+  code: wwv10000
+  title: WWV 10MHz (time-service)
+  address: Colorado
+  short: Colorado
+  country: usa
+  itu: usa
+  coordinates: 40.680,-105.040
+  kind: utility
+
+yangon:
+  code: yangon
+  title: Yangon
+  country: myanmar
+  short: Yangon
+  itu: brm
+  coordinates: 16.8497417,96.1510042
+
+zbraslav:
+  code: zbraslav
+  title: Zbraslav Transmitting Station
+  short: Zbraslav
+  country: czech
+  itu: cze
+  coordinates: 49.9485176,14.3683502
+

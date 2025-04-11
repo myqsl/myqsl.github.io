@@ -2,23 +2,25 @@
 layout: page
 ---
 
-{% assign qsls = site.posts | where: 'serie', page.code %}
+{% assign qsls = site | qsls_for_serie: page.code %}
 
 <div class="rounded-box">
 <div style="padding: 15px 5px 5px 15px;">
   <ol>
 {% for qsl in qsls %}
 {% for reception in qsl.receptions %}
-  {% assign station = site.stations | where: 'code', reception.station | first %}
+  {% assign station_code = reception['station'] %}
+  {% assign station = site.data['stations'][station_code] %}
+  {% assign station_title = station['title'] %}
 <li>
     <p>
-      <code>{{ reception.date }} {{ reception.time }}</code>
+      <code>{{ reception['date'] }} {{ reception['time'] }}</code>
       <a href="{{ qsl.url }}">
       {{ qsl.kind }}
-          | {{ reception.frequency }}
-          | {{ station.title }}
-          {% if reception.language %}
-          | {{ reception.language }}
+          | {{ reception['frequency'] }}
+          | {{ station_title }}
+          {% if reception['language'] %}
+          | {{ reception['language'] }}
           {% endif %}
       </a>
     </p>

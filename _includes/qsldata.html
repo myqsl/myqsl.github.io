@@ -1,3 +1,7 @@
+{% if include.qsl.serie %}
+    {% assign serie = site.data['series'][include.qsl.serie] %}
+{% endif %}
+
 <details class="qsldata"><summary>
 <p style="display:inline-block; margin-bottom:auto; font-size: larger"><strong>{{ include.qsl.title }}</strong></p>
 </summary>
@@ -18,7 +22,7 @@
 <p>&middot; Response received: {{ include.qsl.responce_received}}</p>
 {% endif %}
 {% if include.qsl.serie %}
-<p>&middot; Issuer: <a href="{{ include.serie.url }}">{{ include.serie.title }}</a>
+<p>&middot; Issuer: <a href="/series/{{ serie['code'] }}">{{ serie['title'] }}</a>
 {% endif %}
 <p>&middot; Permalink: <a href="{{ include.qsl.url }}">{{ include.qsl.url }}</a>
 
@@ -46,11 +50,13 @@
 <p>&middot; Antenna: {{ reception.antenna }}</p>
 {% endif %}
 {% if reception.station %}
-{% assign station = site.stations | where: 'code', reception.station | first %}
-<p>&middot; Station: <a href="{{ station.url }}">{{ station.title }}</a>
+{% assign station_code = reception.station %}
+{% assign station = site.data['stations'][station_code] %}
+{% assign station_title = station['title'] %}
+<p>&middot; Station: <a href="/stations/{{ station_code }}.html">{{ station_title }}</a>
 {% endif %}
 {% if reception.youtube_id %}
-<p>&middot; Video: <a href="https://youtu.be/{{ reception.youtube_id }}">Click to open the video (YouTube)</a></p>
+<p>&middot; Video: <a href="https://youtu.be/{{ reception['youtube_id'] }}">Click to open the video (YouTube)</a></p>
 {% endif %}
 </div></p>
 {% endfor %} <!-- reception -->

@@ -13,13 +13,15 @@ Have a nice reading!
 </p>
 </div>
 
-{% comment %} array of objects: name=>'id', items=>[q], size=>1 {% endcomment %}
-{% assign qsls_group_by_code = site.posts | group_by: 'id' %}
+{% assign qsls_group_by_itu = site | qsls_stations_by_itu %}
+{% assign itu_codes_ordered = qsls_group_by_itu | keys | sort %}
 
 <div class="large-itu-list">
 
 <div class="itu-list">
-{% for itu in site.itus %}
+{% for itu_code in itu_codes_ordered %}
+
+{% assign qsls_stations_by_issuer = qsls_group_by_itu[itu_code] %}
 
 <p class="qsls-itu-list">
 
@@ -27,41 +29,19 @@ Have a nice reading!
 
 {% assign previous_index = nil %}
 {% assign previous_itu_code = nil %}
-{% assign previous_itu_title = nil %}
 {% assign previous_issuer_title = nil %}
 {% assign previous_station_short = nil %}
 
+{% assign series_ordered = qsls_stations_by_issuer | keys | sort %}
+{% for issuer_code in series_ordered %}
 
-{% assign stations_this_itu = site.stations | where: 'itu', itu.code %}
+{% assign qsls_this_issuer = qsls_stations_by_issuer[issuer_code]['qsls'] %}
 
-{% assign qsls_this_itu = "" | split: "," %}
-                        {% for station in stations_this_itu %}
-                        {% for qsl_group in qsls_group_by_code %}
-                        {% assign qsl = qsl_group.items[0] %}
-                        {% for reception in qsl.receptions %}
-                            {% if reception.station == station.code %}
-                                {% assign qsls_this_itu = qsls_this_itu | concat: qsl_group.items %}
-                                {% break %}
-                            {% endif %}
-                        {% endfor %}
-                        {% endfor %}
-                        {% endfor %}
-
-{% assign series_ordered = site.series | sort: 'title' %}
-{% for issuer in series_ordered %}
-
-{% assign qsls_this_issuer = qsls_this_itu | where: 'serie', issuer.code %}
 {% if qsls_this_issuer.size == 0 %}
     {% continue %}
 {% endif %}
 
-{% assign stations_this_issuer = "" | split: "," %}
-                        {% for qsl in qsls_this_issuer %}
-                            {% for reception in qsl.receptions %}
-                            {% assign s = site.stations | where: 'code', reception.station %}
-                            {% assign stations_this_issuer = stations_this_issuer | concat: s %}
-                            {% endfor %}
-                        {% endfor %}
+{% assign stations_this_issuer = qsls_stations_by_issuer[issuer_code]['stations'] %}
 {% assign max_station_short_len = nil %}
                         {% for s in stations_this_issuer %}
                             {% if s.short %}
@@ -80,13 +60,13 @@ Have a nice reading!
 {% endif %}
 
 
-{% assign itu_code = itu.code | upcase %}
-{% if itu_code.size == 1 %}
-    {% assign itu_code = itu_code | append: "&nbsp;&nbsp;" %}
+{% assign itu_upcased = itu_code | upcase %}
+{% if itu_upcased.size == 1 %}
+    {% assign itu_upcased = itu_upcased | append: "&nbsp;&nbsp;" %}
 {% endif %}
 
 
-{% assign itu_title = itu.title | truncate: 9, "" %}
+{% assign itu_title = site.data['itus'][itu_code]['title'] | truncate: 9, "" %}
 {% for i in (itu_title.size .. 8) %}
     {% assign itu_title = itu_title | append: "&nbsp;" %}
 {% endfor %}
@@ -97,8 +77,8 @@ Have a nice reading!
 {% else %}
     {% assign it = 30 %}
 {% endif %}
-{% assign issuer_title = issuer.title | truncate: it, "" %}
-{% assign station_short = site.stations | where: 'code', reception.station | map: 'short' | first %}
+{% assign issuer_title = site.data['series'][issuer_code]['title'] | truncate: it, "" %}
+{% assign station_short = site.data['stations'][reception['station']].short %}
 
 
 {% if previous_index == nil %}
@@ -111,11 +91,11 @@ Have a nice reading!
 
 
 {% if previous_itu_code == nil %}
-    {% assign itu_code_to_show = itu_code %}
-{% elsif previous_itu_code == itu_code %}
+    {% assign itu_code_to_show = itu_upcased %}
+{% elsif previous_itu_code == itu_upcased %}
     {% assign itu_code_to_show = "&nbsp;&nbsp;&nbsp;" %}
 {% else %}
-    {% assign itu_code_to_show = itu_code %}
+    {% assign itu_code_to_show = itu_upcased %}
 {% endif %}
 
 
@@ -187,7 +167,7 @@ Have a nice reading!
 
 
 {% assign previous_index = index %}
-{% assign previous_itu_code = itu_code %}
+{% assign previous_itu_code = itu_upcased %}
 {% assign previous_itu_title = itu_title %}
 {% assign previous_issuer_title = issuer_title %}
 {% assign previous_station_short = station_short %}
@@ -206,7 +186,8 @@ Have a nice reading!
 <div class="small-itu-list">
 
 <div class="itu-list">
-{% for itu in site.itus %}
+{% for itu_code in itu_codes_ordered %}
+{% assign qsls_stations_by_issuer = qsls_group_by_itu[itu_code] %}
 
 <p class="qsls-itu-list">
 
@@ -217,37 +198,15 @@ Have a nice reading!
 {% assign previous_issuer_title = nil %}
 {% assign previous_station_short = nil %}
 
+{% assign series_ordered = qsls_stations_by_issuer | keys | sort %}
+{% for issuer_code in series_ordered %}
 
-{% assign stations_this_itu = site.stations | where: 'itu', itu.code %}
-
-{% assign qsls_this_itu = "" | split: "," %}
-                        {% for station in stations_this_itu %}
-                        {% for qsl_group in qsls_group_by_code %}
-                        {% assign qsl = qsl_group.items[0] %}
-                        {% for reception in qsl.receptions %}
-                            {% if reception.station == station.code %}
-                                {% assign qsls_this_itu = qsls_this_itu | concat: qsl_group.items %}
-                                {% break %}
-                            {% endif %}
-                        {% endfor %}
-                        {% endfor %}
-                        {% endfor %}
-
-{% assign series_ordered = site.series | sort: 'title' %}
-{% for issuer in series_ordered %}
-
-{% assign qsls_this_issuer = qsls_this_itu | where: 'serie', issuer.code %}
+{% assign qsls_this_issuer = qsls_stations_by_issuer[issuer_code]['qsls'] %}
 {% if qsls_this_issuer.size == 0 %}
     {% continue %}
 {% endif %}
 
-{% assign stations_this_issuer = "" | split: "," %}
-                        {% for qsl in qsls_this_issuer %}
-                            {% for reception in qsl.receptions %}
-                            {% assign s = site.stations | where: 'code', reception.station %}
-                            {% assign stations_this_issuer = stations_this_issuer | concat: s %}
-                            {% endfor %}
-                        {% endfor %}
+{% assign stations_this_issuer = qsls_stations_by_issuer[issuer_code]['stations'] %}
 {% assign max_station_short_len = nil %}
                         {% for s in stations_this_issuer %}
                             {% if s.short %}
@@ -266,9 +225,9 @@ Have a nice reading!
 {% endif %}
 
 
-{% assign itu_code = itu.code | upcase %}
-{% if itu_code.size == 1 %}
-    {% assign itu_code = itu_code | append: "&nbsp;&nbsp;" %}
+{% assign itu_upcased = itu_code | upcase %}
+{% if itu_upcased.size == 1 %}
+    {% assign itu_upcased = itu_upcased | append: "&nbsp;&nbsp;" %}
 {% endif %}
 
 
@@ -277,8 +236,8 @@ Have a nice reading!
 {% else %}
     {% assign it = 28 %}
 {% endif %}
-{% assign issuer_title = issuer.title | truncate: it, "" %}
-{% assign station_short = site.stations | where: 'code', reception.station | map: 'short' | first %}
+{% assign issuer_title = site.data['series'][issuer_code]['title'] | truncate: it, "" %}
+{% assign station_short = site.data['stations'][reception['station']].short %}
 
 
 {% if previous_index == nil %}
@@ -291,11 +250,11 @@ Have a nice reading!
 
 
 {% if previous_itu_code == nil %}
-    {% assign itu_code_to_show = itu_code %}
-{% elsif previous_itu_code == itu_code %}
+    {% assign itu_code_to_show = itu_upcased %}
+{% elsif previous_itu_code == itu_upcased %}
     {% assign itu_code_to_show = "&nbsp;&nbsp;&nbsp;" %}
 {% else %}
-    {% assign itu_code_to_show = itu_code %}
+    {% assign itu_code_to_show = itu_upcased %}
 {% endif %}
 
 
@@ -355,7 +314,7 @@ Have a nice reading!
 
 
 {% assign previous_index = index %}
-{% assign previous_itu_code = itu_code %}
+{% assign previous_itu_code = itu_upcased %}
 {% assign previous_issuer_title = issuer_title %}
 {% assign previous_station_short = station_short %}
 

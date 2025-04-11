@@ -34,16 +34,8 @@ plugins:
   - jekyll-paginate
 
 collections:
-  series:
-    output: true
-  stations:
-    output: true
-  countries:
-    output: true
   notes:
     output: true
-  itus:
-    output: false
 
 defaults:
   - scope:
@@ -52,18 +44,15 @@ defaults:
     values:
       layout: "qsl"
   - scope:
-      path: ""
-      type: "series"
+      path: "series"
     values:
       layout: "serie"
   - scope:
-      path: ""
-      type: "stations"
+      path: "stations"
     values:
       layout: "station"
   - scope:
-      path: ""
-      type: "countries"
+      path: "countries"
     values:
       layout: "country"
   - scope:

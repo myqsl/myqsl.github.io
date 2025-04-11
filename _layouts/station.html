@@ -2,13 +2,17 @@
 layout: page
 ---
 
-{% assign country = site.countries | where: 'code', page.country | first %}
+{% assign country = site.data['countries'][page.country] %}
+{% assign country_flag = country['flag'] %}
+{% assign country_title = country['title'] %}
+{% assign country_continent = country['continent'] %}
+{% assign qsls = site | qsls_for_station: page.code %}
 
 <div class="rounded-box">
 
 <div class="header">
 {% if page.country %}
-<p><code>Country</code> <img src="{{ country.flag }}" class="flag"> {{ country.title }} ({{ country.continent }})</p>
+<p><code>Country</code> <img src="{{ country_flag }}" class="flag"> {{ country_title }} ({{ country_continent }})</p>
 {% endif %}
 
 {% if page.address %}
@@ -22,21 +26,22 @@ layout: page
 <div style="padding: 15px 5px 5px 15px;">
 
 <ol>
-{% for qsl in site.posts %}
+{% for qsl in qsls %}
 {% for reception in qsl.receptions %}
-{% if reception.station == page.code %}
+{% if reception['station'] == page.code %}
 <li>
   <p>
-    {% assign serie = site.series | where: 'code', qsl.serie | first %}
-    <code>{{ reception.date }} {{ reception.time }}</code>
+    {% assign serie = site.data['series'][qsl.serie] %}
+    {% assign serie_title = serie['title'] %}
+    <code>{{ reception['date'] }} {{ reception['time'] }}</code>
     <a href="{{ qsl.url }}">
     {{ qsl.kind }}
-        | {{ reception.frequency }}
+        | {{ reception['frequency'] }}
         {% if qsl.serie %}
-        | {{ serie.title }}
+        | {{ serie_title }}
         {% endif %}
-        {% if reception.language %}
-        | {{ reception.language }}
+        {% if reception['language'] %}
+        | {{ reception['language'] }}
         {% endif %}
     </a>
   </p>
@@ -48,9 +53,9 @@ layout: page
 </div>
 </div> <!-- rounded-box -->
 
-{% for qsl in site.posts %}
+{% for qsl in qsls %}
 {% for reception in qsl.receptions %}
-{% if reception.station == page.code %}
+{% if reception['station'] == page.code %}
 {% include qslboxlite.html qsl=qsl %}
 {% break %}
 {% endif %}

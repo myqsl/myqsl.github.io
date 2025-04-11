@@ -12,6 +12,37 @@ Have a nice reading!
 </p>
 </div>
 
+{% assign issuers_group_by_country = site.data['series'] | values | group_by: 'country' | groups_to_hash %}
+{% assign countries_ordered = issuers_group_by_country | keys | sort %}
+
+{% for country_code in countries_ordered %}
+
+{% assign issuers = issuers_group_by_country[country_code] %}
+{% assign country = site.data['countries'][country_code] %}
+{% assign country_flag = country['flag'] %}
+{% assign country_title = country['title'] %}
+
+<div class="rounded-box">
+<header><h2>{% if country_code != "unid" %}<img class="flag" src="{{ country_flag }}"/>{% endif %}
+{{ country_title }}</h2></header>
+
+{% for issuer in issuers %}
+{% assign issuer_code = issuer['code'] %}
+{% assign issuer_title = issuer['title'] %}
+{% assign qsls = site | qsls_for_serie: issuer_code %}
+<p>&mdash; <a href="/series/{{ issuer_code }}.html">{{ issuer_title }}</a> | qsls: {{ qsls.size }}</p>
+{% endfor %}
+
+</div>
+
+{% endfor %}
+
+
+
+
+
+{% comment %}
+
 {% assign c = "" %}
 {% for issuer in site.series %}
 
@@ -78,3 +109,5 @@ Have a nice reading!
 {% endfor %} <!-- issuer -->
 </div>
 {% endfor %} <!-- country_code -->
+
+{% endcomment %}

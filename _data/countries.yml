@@ -1,0 +1,414 @@
+argentina_ata:
+  code: argentina_ata
+  title: Argentina
+  continent: Antarctida
+  flag: /assets/flags/argentina.png
+
+armenia:
+  code: armenia
+  title: Armenia
+  continent: Asia
+  flag: /assets/flags/armenia.png
+
+ascension:
+  code: ascension
+  title: Ascension Island
+  continent: Atlantic
+  flag: /assets/flags/united-kingdom.png
+
+australia:
+  code: australia
+  title: Australia
+  continent: Pacific
+  flag: /assets/flags/australia.png
+
+austria:
+  code: austria
+  title: Austria
+  continent: Europe
+  flag: /assets/flags/austria.png
+
+belarus:
+  code: belarus
+  title: Belarus
+  continent: Europe
+  flag: /assets/flags/belarus.png
+
+botswana:
+  code: botswana
+  title: Botswana
+  continent: Africa
+  flag: /assets/flags/botswana.png
+
+brazil:
+  code: brazil
+  title: Brazil
+  continent: America
+  flag: /assets/flags/brazil.png
+
+bulgaria:
+  code: bulgaria
+  title: Bulgaria
+  continent: Europe
+  flag: /assets/flags/bulgaria.png
+
+canada:
+  code: canada
+  title: Canada
+  continent: America
+  flag: /assets/flags/canada.png
+
+china:
+  code: china
+  title: China, People Republic of
+  continent: Asia
+  flag: /assets/flags/china.png
+
+colombia:
+  code: colombia
+  title: Colombia
+  continent: America
+  flag: /assets/flags/colombia.png
+
+cuba:
+  code: cuba
+  title: Cuba
+  continent: America
+  flag: /assets/flags/cuba.png
+
+czech:
+  code: czech
+  title: Czech Republic
+  continent: Europe
+  flag: /assets/flags/czech-republic.png
+
+denmark:
+  code: denmark
+  title: Denmark
+  continent: Europe
+  flag: /assets/flags/denmark.png
+
+ecuador:
+  code: ecuador
+  title: Ecuador
+  continent: America
+  flag: /assets/flags/ecuador.png
+
+egypt:
+  code: egypt
+  title: Egypt
+  continent: Africa
+  flag: /assets/flags/egypt.png
+
+estonia:
+  code: estonia
+  title: Estonia
+  continent: Europe
+  flag: /assets/flags/estonia.png
+
+eswatini:
+  code: eswatini
+  title: eSwatini
+  continent: Africa
+  flag: /assets/flags/swaziland.png
+
+finland:
+  code: finland
+  title: Finland
+  continent: Europe
+  flag: /assets/flags/finland.png
+
+france:
+  code: france
+  title: France
+  continent: Europe
+  flag: /assets/flags/france.png
+
+germany:
+  code: germany
+  title: Germany
+  continent: Europe
+  flag: /assets/flags/germany.png
+
+greece:
+  code: greece
+  title: Greece
+  continent: Europe
+  flag: /assets/flags/greece.png
+
+guam:
+  code: guam
+  title: Guam
+  continent: Pacific
+  flag: /assets/flags/guam.png
+
+hungary:
+  code: hungary
+  title: Hungary
+  continent: Europe
+  flag: /assets/flags/hungary.png
+
+india:
+  code: india
+  title: India
+  continent: Asia
+  flag: /assets/flags/india.png
+
+iran:
+  code: iran
+  title: Iran
+  continent: Asia
+  flag: /assets/flags/iran.png
+
+italy:
+  code: italy
+  title: Italy
+  continent: Europe
+  flag: /assets/flags/italy.png
+
+japan:
+  code: japan
+  title: Japan
+  continent: Asia
+  flag: /assets/flags/japan.png
+
+kuwait:
+  code: kuwait
+  title: Kuwait
+  continent: Asia
+  flag: /assets/flags/kuwait.png
+
+kyrgyzstan:
+  code: kyrgyzstan
+  title: Kyrgyzstan
+  continent: Asia
+  flag: /assets/flags/kyrgyzstan.png
+
+latvia:
+  code: latvia
+  title: Latvia
+  continent: Europe
+  flag: /assets/flags/latvia.png
+
+lithuania:
+  code: lithuania
+  title: Lithuania
+  continent: Europe
+  flag: /assets/flags/lithuania.png
+
+madagascar:
+  code: madagascar
+  title: Madagascar
+  continent: Africa
+  flag: /assets/flags/madagascar.png
+
+malaysia:
+  code: malaysia
+  title: Malaysia
+  continent: Asia
+  flag: /assets/flags/malaysia.png
+
+mongolia:
+  code: mongolia
+  title: Mongolia
+  continent: Asia
+  flag: /assets/flags/mongolia.png
+
+mra:
+  code: mra
+  title: Northern Marianas Islands
+  continent: Pacific
+  flag: /assets/flags/northern-marianas-islands.png
+
+myanmar:
+  code: myanmar
+  title: Myanmar
+  continent: Asia
+  flag: /assets/flags/myanmar.png
+
+netherlands:
+  code: netherlands
+  title: Netherlands, The
+  continent: Europe
+  flag: /assets/flags/netherlands.png
+
+newzealand:
+  code: newzealand
+  title: New Zealand
+  continent: Pacific
+  flag: /assets/flags/new-zealand.png
+
+norway:
+  code: norway
+  title: Norway
+  continent: Europe
+  flag: /assets/flags/norway.png
+
+oman:
+  code: oman
+  title: Oman
+  continent: Asia
+  flag: /assets/flags/oman.png
+
+palau:
+  code: palau
+  title: Palau
+  continent: Pacific
+  flag: /assets/flags/palau.png
+
+philippines:
+  code: philippines
+  title: Philippines
+  continent: Asia
+  flag: /assets/flags/philippines.png
+
+poland:
+  code: poland
+  title: Poland
+  continent: Europe
+  flag: /assets/flags/poland.png
+
+pridnestr:
+  code: pridnestr
+  title: Pridnestrovye
+  continent: Europe
+  flag: /assets/flags/pridnestr.png
+
+romania:
+  code: romania
+  title: Romania
+  continent: Europe
+  flag: /assets/flags/romania.png
+
+russia:
+  code: russia
+  title: Russia
+  continent: Europe
+  flag: /assets/flags/russia.png
+
+saotome:
+  code: saotome
+  title: São Tomé
+  continent: Africa
+  flag: /assets/flags/saotome.png
+
+singapore:
+  code: singapore
+  title: Singapore
+  continent: Asia
+  flag: /assets/flags/singapore.png
+
+slovakia:
+  code: slovakia
+  title: Slovakia
+  continent: Europe
+  flag: /assets/flags/slovakia.png
+
+south_africa:
+  code: south_africa
+  title: South Africa
+  continent: Africa
+  flag: /assets/flags/south-africa.png
+
+south_korea:
+  code: south_korea
+  title: Korea, Republic of
+  continent: Asia
+  flag: /assets/flags/south-korea.png
+
+spain:
+  code: spain
+  title: Spain
+  continent: Europe
+  flag: /assets/flags/spain.png
+
+srilanka:
+  code: srilanka
+  title: Sri Lanka
+  continent: Asia
+  flag: /assets/flags/sri-lanka.png
+
+sweden:
+  code: sweden
+  title: Sweden
+  continent: Europe
+  flag: /assets/flags/sweden.png
+
+switzerland:
+  code: switzerland
+  title: Switzerland
+  continent: Europe
+  flag: /assets/flags/switzerland.png
+
+taiwan:
+  code: taiwan
+  title: China, Republic of (Taiwan)
+  continent: Asia
+  flag: /assets/flags/taiwan.png
+
+tajikistan:
+  code: tajikistan
+  title: Tajikistan
+  continent: Asia
+  flag: /assets/flags/tajikistan.png
+
+thailand:
+  code: thailand
+  title: Thailand
+  continent: Asia
+  flag: /assets/flags/thailand.png
+
+turkey:
+  code: turkey
+  title: Turkey
+  continent: Asia
+  flag: /assets/flags/turkey.png
+
+uae:
+  code: uae
+  title: United Arab Emirates
+  continent: Asia
+  flag: /assets/flags/united-arab-emirates.png
+
+uk:
+  code: uk
+  title: United Kingdom
+  continent: Europe
+  flag: /assets/flags/united-kingdom.png
+
+usa:
+  code: usa
+  title: United States of America
+  continent: America
+  flag: /assets/flags/united-states.png
+
+uzbekistan:
+  code: uzbekistan
+  title: Uzbekistan
+  continent: Asia
+  flag: /assets/flags/uzbekistan.png
+
+vanuatu:
+  code: vanuatu
+  title: Vanuatu
+  continent: Pacific
+  flag: /assets/flags/vanuatu.png
+
+vatican:
+  code: vatican
+  title: Vatican
+  continent: Europe
+  flag: /assets/flags/vatican-city.png
+
+vietnam:
+  code: vietnam
+  title: Vietnam
+  continent: Asia
+  flag: /assets/flags/vietnam.png
+
+xeurope:
+  code: xeurope
+  title: Somewhere in Europe
+  continent: Europe
+  # flag: /assets/flags/germany.png
+

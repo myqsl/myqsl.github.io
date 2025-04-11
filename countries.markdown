@@ -13,9 +13,12 @@ Have a nice reading!
 </p>
 </div>
 
-{% assign continents = site.countries | map: 'continent' | uniq | sort %}
+{% assign continents = site | continents_structure %}
 
-{% for continent in continents %}
+{% for continent_pair in continents %}
+{% assign continent = continent_pair[0] %}
+{% assign countries = continent_pair[1] %}
+{% assign countries_ordered = countries | keys | sort %}
 
 <div class="rounded-box">
 <div class="header">
@@ -24,31 +27,19 @@ Have a nice reading!
 
 <div style="padding: 15px 5px 5px 15px;">
 
-{% assign countries = site.countries | where: 'continent', continent | sort: 'code' %}
-
 <p>
-{% for country in countries %}
+{% for country_code in countries_ordered %}
+{% assign country_structure = countries[country_code] %}
+{% assign country_url = country_structure['url'] %}
+{% assign country_title = country_structure['title'] %}
+{% assign qsls_count = country_structure['qsls_count'] %}
 
 {%- if forloop.index > 1 -%}&bullet;&nbsp;{%- endif -%}
 
-{% assign qsls_count = 0 %}
-{% for station in site.stations %}
-    {% if station.country == country.code %}
-        {% for qsl in site.posts %}
-            {% for reception in qsl.receptions %}
-                {% if reception.station == station.code %}
-                    {% assign qsls_count = qsls_count | plus: 1 %}
-                    {% break %}
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
-    {% endif %}
-{% endfor %}
-
 {% if qsls_count == 0 %}
-{{ country.title }}
+{{ country_title }}
 {% else %}
-<a href="{{ country.url }}">{{ country.title }}</a><sup>{{ qsls_count }}</sup>
+<a href="{{ country_url }}">{{ country_title }}</a><sup>{{ qsls_count }}</sup>
 {% endif %}
 
 {% endfor %} <!-- for country -->

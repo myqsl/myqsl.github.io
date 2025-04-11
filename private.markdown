@@ -4,8 +4,6 @@ title: Private stations
 permalink: /private/
 ---
 
-{% assign stations = site.stations | where: 'kind', 'private' %}
-
 <table>
 <tr>
     <th>Station</th>
@@ -13,20 +11,23 @@ permalink: /private/
     <th>Date</th>
 </tr>
 
-{% for station in stations %}
-
-{% assign country = site.countries | where: 'code', station.country | first %}
 {% for qsl in site.posts %}
 {% for reception in qsl.receptions %}
-{% if reception.station == station.code %}
-{% assign serie = site.series | where: 'code', qsl.serie | first %}
+{% assign station = site.data['stations'][reception['station']] %}
+{% if station['kind'] == 'private' %}
+{% assign serie = site.data['series'][qsl.serie] %}
+{% assign serie_title = serie['title'] %}
+{% assign country = site.data['countries'][station['country']] %}
+{% assign country_flag = country['flag'] %}
+{% assign station_title = station['title'] %}
+
 <tr>
-    <td>{% if station.country %}<img class="flag" src="{{ country.flag }}"/>{% endif %} <a href="{{ station.url }}">{{ station.title }}</a>{% if station.code != serie.code %} relays <a href="{{ serie.url }}">{{ serie.title }}</a>{% endif %}</td>
+    <td>{% if country_flag %}<img class="flag" src="{{ country_flag }}"/>{% endif %} <a href="/stations/{{ reception['station'] }}.html">{{ station_title }}</a>{% if reception['station'] != qsl.serie %} relays <a href="/series/{{ qsl.serie }}.html">{{ serie_title }}</a>{% endif %}</td>
     <td><a href="{{ qsl.url }}">{{ reception.frequency }}</a></td>
     <td><a href="{{ qsl.url }}">{{ reception.date }}</a></td>
 </tr>
+
 {% endif %}
-{% endfor %}
 {% endfor %}
 {% endfor %}
 

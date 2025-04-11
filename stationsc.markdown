@@ -13,32 +13,32 @@ Have a nice reading!
 </p>
 </div>
 
-<p style="text-align:center"><a href="/pirates/">Pirates stations</a> | <a href="/private/">Private stations</a> | <a href="/utility">Utility stations</a></p>
+<p style="text-align:center"><a href="/pirates/">Pirates stations</a> | <a href="/private/">Private stations</a> | <a href="/utility/">Utility stations</a></p>
 
-{% assign countries = site.countries | sort: "title" %}
 
-{% for country in countries %}
+{% assign stations_group_by_country = site.data['stations'] | values | group_by: 'country' | groups_to_hash %}
+{% assign countries_ordered = stations_group_by_country | keys | sort %}
+
+{% for country_code in countries_ordered %}
+
+{% assign stations = stations_group_by_country[country_code] %}
+{% assign country = site.data['countries'][country_code] %}
+{% assign country_flag = country['flag'] %}
+{% assign country_title = country['title'] %}
 
 <div class="rounded-box">
-<header><h2><img class="flag" src="{{ country.flag }}"/>
-{{ country.title }}</h2></header>
+<header><h2>{% if country_code != "unid" %}<img class="flag" src="{{ country_flag }}"/>{% endif %}
+{{ country_title }}</h2></header>
 
-{% assign stations = site.stations | where: 'country', country.code | sort: 'title' %}
 {% for station in stations %}
-
-{% assign receptions = 0 %}
-{% for qsl in site.posts %}
-    {% for reception in qsl.receptions %}
-        {% if reception.station == station.code %}
-            {% assign receptions = receptions | plus: 1 %}
-        {% endif %}
-    {% endfor %}
+{% assign station_code = station['code'] %}
+{% assign station_title = station['title'] %}
+{% assign qsls = site | qsls_for_station: station_code %}
+<p>&mdash; <a href="/stations/{{ station_code }}.html">{{ station_title }}</a> | qsls: {{ qsls.size }}</p>
 {% endfor %}
 
-<p>&mdash; <a href="{{ station.url }}">{{ station.title }}</a> | receptions: {{ receptions }}</p>
-
-{% endfor %} <!-- station -->
 </div>
 
+{% endfor %}
 
-{% endfor %} <!-- country -->
+

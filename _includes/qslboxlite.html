@@ -1,23 +1,21 @@
-{% if include.qsl.serie %}
-    {% assign serie = site.series | where: 'code', include.qsl.serie | first %}
-{% endif %}
-
 <div class="rounded-box">
 
-{% include qsldata.html qsl=include.qsl serie=serie %}
+{% include qsldata.html qsl=include.qsl %}
 
 <!-- gallery of related qsls -->
 {% assign details_rendered = 'no' %}
-{% for qsl in site.posts %}
-    {% if qsl != include.qsl and qsl.serie == include.qsl.serie %}
+{% assign related_qsls = site | qsls_for_serie: include.qsl.serie %}
+{% for qsl in related_qsls %}
+    {% if qsl != include.qsl %}
 
     {% if details_rendered == 'no' %}
     {% assign details_rendered = 'yes' %}
     <details class="more-from-serie">
-    <summary>More on {{ serie.title }}</summary>
+    {% assign serie_title = site.data['series'][include.qsl.serie]['title'] %}
+    <summary>More on {{ serie_title }}</summary>
     {% endif %}
 
-    {% include qsldata.html qsl=qsl serie=serie %}
+    {% include qsldata.html qsl=qsl %}
 
     {% endif %}
 

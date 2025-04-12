@@ -93,8 +93,9 @@ async def forwarder(update: Update, context: ContextTypes.DEFAULT_TYPE):
     repo.index.commit("myqsl_github_io: updates were added.")
     repo.remotes.origin.push()
 
-
-application = ApplicationBuilder().token(KEY).build()
-forwardHandler = MessageHandler(filters.TEXT & (~filters.COMMAND), forwarder)
-application.add_handler(forwardHandler)
-application.run_polling()
+print('Myqsl bot is temporaray disabled, sorry')
+if False:
+    application = ApplicationBuilder().token(KEY).build()
+    forwardHandler = MessageHandler(filters.TEXT & (~filters.COMMAND), forwarder)
+    application.add_handler(forwardHandler)
+    application.run_polling()

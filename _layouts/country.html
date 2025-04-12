@@ -2,19 +2,18 @@
 layout: page
 ---
 
-{% assign qsls_by_stations = site | qsls_group_by_station_for_country: page.code %}
-{% assign stations_codes = qsls_by_stations | keys %}
+{% assign stations_codes = site.data['stations'] | where: 'country', page.code | map: 'code' | sort %}
 
 <div class="rounded-box">
 
     <div style="padding: 15px 5px 5px 15px;">
     
     <ol>
-      {% for station_code in stations_codes %}
-      {% assign qsls = qsls_by_stations[station_code] %}
+    {% for station_code in stations_codes %}
+    {% assign qsls = site | qsls_for_station: station_code %}
     {% for qsl in qsls %}
     {% for reception in qsl.receptions %}
-    {% if stations_codes contains reception['station'] %}
+    {% if reception['station'] == station_code %}
     <li>
       <p>
         {% assign serie = site.data['series'][qsl.serie] %}
@@ -40,7 +39,7 @@ layout: page
     </div> <!-- rounded-box -->    
 
 {% for station_code in stations_codes %}
-{% assign qsls = qsls_by_stations[station_code] %}
+{% assign qsls = site | qsls_for_station: station_code %}
 
 {% for qsl in qsls %}
 {% for reception in qsl.receptions %}

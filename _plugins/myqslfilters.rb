@@ -77,29 +77,14 @@ module MyqslFilters
           itu = station.fetch('itu')
           issuer_code = qsl['serie']
 
-          itus[itu][issuer_code]['qsls'] += [qsl]
-          itus[itu][issuer_code]['stations'] += [station]
+          itus[itu][issuer_code]['qsls'] << qsl
+          itus[itu][issuer_code]['stations'] << station
           break
         end
       end
     end
 
     itus
-  end
-
-  def qsls_group_by_station_for_country(site, country_code)
-    qsls = Hash.new {|hash, station| hash[station] = []}
-
-    site.posts.each do |qsl|
-      qsl['receptions']&.each do |reception|
-        if reception['station'] && site.data['stations'][reception['station']]['country'] == country_code
-          qsls[reception['station']] << qsl
-          break
-        end
-      end
-    end
-
-    qsls
   end
 
   # hash from station code to array<qsl>

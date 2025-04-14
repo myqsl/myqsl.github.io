@@ -37,7 +37,7 @@ title: Добро пожаловать! Welcome!
 </div>
 </div>
 
-    {% assign qsls = paginator.posts | sort: 'responce_received' | reverse %}
+    {% assign qsls = paginator.posts | sort: 'id' | reverse %}
 
     {% for qsl in qsls %}
         {% include qslboxlite.html qsl=qsl %}

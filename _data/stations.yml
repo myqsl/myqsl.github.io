@@ -643,6 +643,14 @@ rangitaiki:
   itu: nzl
   coordinates: -38.83389,176.41694
 
+rbc:
+  code: rbc
+  title: Goiânia
+  short: Goiânia
+  country: brazil
+  itu: b
+  coordinates: -16.7456489,-49.3447911
+
 rohrbach:
   code: rohrbach
   title: Channel292

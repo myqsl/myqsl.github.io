@@ -431,6 +431,13 @@ mystery21:
   title: Radio Mystery21
   kind: pirate
 
+ndr:
+  code: ndr
+  title: NordDeutscher Rundfunk
+  country: germany
+  itu: D
+  kind: national
+
 northernstar:
   code: northernstar
   title: Radio Northern Star
@@ -577,6 +584,13 @@ radiosix:
   country: uk
   itu: G
   kind: show
+
+rbc:
+  code: rbc
+  title: Rádio Brasil Central
+  country: brazil
+  itu: B
+  kind: national
 
 reach_beyond_australia:
   code: reach_beyond_australia
@@ -771,6 +785,13 @@ ubmp:
   title: Uncle Bill's Melting Pot
   country: usa
   itu: USA
+
+udon:
+  code: udon
+  title: USAGM Relay Station Udonthani 
+  country: thailand
+  itu: THA
+  kind: national
 
 uncle_bill:
   code: uncle_bill

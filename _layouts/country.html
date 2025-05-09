@@ -6,6 +6,75 @@ layout: page
 
 <div class="rounded-box">
 
+<div class="large-itu-list">
+<div class="qsl-list">
+
+{% assign index = 0 %}
+{% for station_code in stations_codes %}
+{% assign qsls = site | qsls_for_station: station_code %}
+{% for qsl in qsls %}
+{% for reception in qsl.receptions %}
+{% if reception['station'] == station_code %}
+
+{% assign index = index | plus: 1 %}
+{% if index < 10 %}
+    {% assign index = index | prepend: "0" %}
+{% endif %}
+
+{% assign frequency = reception['frequency'] | split: ' kHz' | first %}
+{% assign frequency_to_show = frequency %}
+{% assign max_qsl_title = 42 | minus: frequency.size %}
+{% assign max_qsl_title_m1 = max_qsl_title | minus: 1 %}
+
+{% assign qsl_title = qsl['title'] | truncate: max_qsl_title, "" %}
+{% for i in (qsl_title.size .. max_qsl_title_m1) %}
+    {% assign qsl_title = qsl_title | append: "&nbsp;" %}
+{% endfor %}
+
+<p class="qsls-itu-list">
+<a href="{{ qsl.url }}">{{ index }}&nbsp;{{ qsl_title }}&nbsp;{{ frequency_to_show }}&nbsp;{{ reception['date'] }}</a>
+</p>
+
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endfor %}
+</div>
+</div>
+
+<div class="small-itu-list">
+<div class="qsl-list">
+
+{% assign index = 0 %}
+{% for station_code in stations_codes %}
+{% assign qsls = site | qsls_for_station: station_code %}
+{% for qsl in qsls %}
+{% for reception in qsl.receptions %}
+{% if reception['station'] == station_code %}
+
+{% assign index = index | plus: 1 %}
+{% if index < 10 %}
+    {% assign index = index | prepend: "0" %}
+{% endif %}
+
+{% assign qsl_title = qsl['title'] | truncate: 30, "" %}
+{% for i in (qsl_title.size .. 29) %}
+    {% assign qsl_title = qsl_title | append: "&nbsp;" %}
+{% endfor %}
+
+<p class="qsls-itu-list">
+<a href="{{ qsl.url }}">{{ index }}&nbsp;{{ qsl_title }}&nbsp;{{ reception['date'] }}</a>
+</p>
+
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endfor %}
+</div>
+</div>
+
+
+<!--
     <div style="padding: 15px 5px 5px 15px;">
     
     <ol>
@@ -30,13 +99,15 @@ layout: page
         </a>
       </p>
     </li>
-    {% endif %} <!-- reception station ...-->
-    {% endfor %} <!-- reception -->
-    {% endfor %} <!-- qsl -->
-    {% endfor %} <!-- station_code -->
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    {% endfor %}
     </ol>
     </div>
-    </div> <!-- rounded-box -->    
+-->
+
+  </div> <!-- rounded-box -->    
 
 {% for station_code in stations_codes %}
 {% assign qsls = site | qsls_for_station: station_code %}

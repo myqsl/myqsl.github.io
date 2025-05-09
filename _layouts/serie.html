@@ -5,30 +5,65 @@ layout: page
 {% assign qsls = site | qsls_for_serie: page.code %}
 
 <div class="rounded-box">
-<div style="padding: 15px 5px 5px 15px;">
-  <ol>
+
+<div class="large-itu-list">
+<div class="qsl-list">
+
+{% assign index = 0 %}
 {% for qsl in qsls %}
 {% for reception in qsl.receptions %}
-  {% assign station_code = reception['station'] %}
-  {% assign station = site.data['stations'][station_code] %}
-  {% assign station_title = station['title'] %}
-<li>
-    <p>
-      <code>{{ reception['date'] }} {{ reception['time'] }}</code>
-      <a href="{{ qsl.url }}">
-      {{ qsl.kind }}
-          | {{ reception['frequency'] }}
-          | {{ station_title }}
-          {% if reception['language'] %}
-          | {{ reception['language'] }}
-          {% endif %}
-      </a>
-    </p>
-    </li>
+
+
+{% assign index = index | plus: 1 %}
+{% if index < 10 %}
+    {% assign index = index | prepend: "0" %}
+{% endif %}
+
+{% assign frequency = reception['frequency'] | split: ' kHz' | first %}
+{% assign frequency_to_show = frequency %}
+{% assign max_qsl_title = 42 | minus: frequency.size %}
+{% assign max_qsl_title_m1 = max_qsl_title | minus: 1 %}
+
+{% assign qsl_title = qsl['title'] | truncate: max_qsl_title, "" %}
+{% for i in (qsl_title.size .. max_qsl_title_m1) %}
+    {% assign qsl_title = qsl_title | append: "&nbsp;" %}
+{% endfor %}
+
+<p class="qsls-itu-list">
+<a href="{{ qsl.url }}">{{ index }}&nbsp;{{ qsl_title }}&nbsp;{{ frequency_to_show }}&nbsp;{{ reception['date'] }}</a>
+</p>
+
 {% endfor %}
 {% endfor %}
-</ol>
 </div>
+</div>
+
+<div class="small-itu-list">
+<div class="qsl-list">
+
+{% assign index = 0 %}
+{% for qsl in qsls %}
+{% for reception in qsl.receptions %}
+
+{% assign index = index | plus: 1 %}
+{% if index < 10 %}
+    {% assign index = index | prepend: "0" %}
+{% endif %}
+
+{% assign qsl_title = qsl['title'] | truncate: 30, "" %}
+{% for i in (qsl_title.size .. 29) %}
+    {% assign qsl_title = qsl_title | append: "&nbsp;" %}
+{% endfor %}
+
+<p class="qsls-itu-list">
+<a href="{{ qsl.url }}">{{ index }}&nbsp;{{ qsl_title }}&nbsp;{{ reception['date'] }}</a>
+</p>
+
+{% endfor %}
+{% endfor %}
+</div>
+</div>
+
 </div>
 
 {% assign revqsls = qsls | reverse %}

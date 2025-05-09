@@ -108,13 +108,12 @@ div.item:hover {
 }
 
 div.rounded-box {
-    margin: auto auto 10px auto;
+    margin: auto auto 50px auto;
 }
 
 @media screen and (min-width: 800px) {
     div.rounded-box {
         width: 600px;
-        padding: 10px 10px 10px 10px;
     }
 }
 
@@ -275,6 +274,14 @@ div.itu-list {
     padding: 5px;
 }
 
+div.qsl-list {
+    margin: auto auto 10px auto;
+    border-radius: 20px; //min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    padding: 5px;
+}
+
 @media screen and (min-width: 800px) {
     div.large-itu-list {
         display: block;
@@ -285,6 +292,9 @@ div.itu-list {
     div.itu-list {
         width: 700px;
         padding: 10px 10px 10px 10px;
+    }
+    div.qsl-list {
+        padding: 10px 5px 5px 10px;
     }
 }
 @media screen and (max-width: 799px) {
@@ -298,6 +308,7 @@ div.itu-list {
 
 p.qsls-itu-list {
     font-family: 'Courier New', monospace;
+    margin-bottom: 5px;
 }
 @media screen and (min-width: 700px) and (max-width: 810px) {
     p.qsls-itu-list {

@@ -11,6 +11,25 @@ layout: page
 
 {% assign index = 0 %}
 {% for qsl in qsls %}
+
+{% if qsl.receptions.size == nil %}
+
+{% assign index = index | plus: 1 %}
+{% if index < 10 %}
+    {% assign index = index | prepend: "0" %}
+{% endif %}
+
+{% assign qsl_title = qsl['title'] | truncate: 54, "" %}
+{% for i in (qsl_title.size .. 53) %}
+    {% assign qsl_title = qsl_title | append: "&nbsp;" %}
+{% endfor %}
+
+<p class="qsls-itu-list">
+<a href="{{ qsl.url }}">{{ index }}&nbsp;{{ qsl_title }}</a>
+</p>
+
+{% endif %}
+
 {% for reception in qsl.receptions %}
 
 
@@ -43,6 +62,25 @@ layout: page
 
 {% assign index = 0 %}
 {% for qsl in qsls %}
+
+{% if qsl.receptions.size == nil %}
+
+{% assign index = index | plus: 1 %}
+{% if index < 10 %}
+    {% assign index = index | prepend: "0" %}
+{% endif %}
+
+{% assign qsl_title = qsl['title'] | truncate: 41, "" %}
+{% for i in (qsl_title.size .. 40) %}
+    {% assign qsl_title = qsl_title | append: "&nbsp;" %}
+{% endfor %}
+
+<p class="qsls-itu-list">
+<a href="{{ qsl.url }}">{{ index }}&nbsp;{{ qsl_title }}</a>
+</p>
+
+{% endif %}
+
 {% for reception in qsl.receptions %}
 
 {% assign index = index | plus: 1 %}

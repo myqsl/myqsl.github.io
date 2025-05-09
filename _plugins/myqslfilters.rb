@@ -77,9 +77,10 @@ module MyqslFilters
           itu = station.fetch('itu')
           issuer_code = qsl['serie']
 
-          itus[itu][issuer_code]['qsls'] << qsl
-          itus[itu][issuer_code]['stations'] << station
-          break
+          if ! itus[itu][issuer_code]['qsls'].include?(qsl)
+            itus[itu][issuer_code]['qsls'] << qsl
+            itus[itu][issuer_code]['stations'] << station
+          end
         end
       end
     end

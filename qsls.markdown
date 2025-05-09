@@ -51,6 +51,7 @@ Have a nice reading!
 
 {% for qsl in qsls_this_issuer %}
 {% for reception in qsl.receptions %}
+{% if site.data['stations'][reception['station']]['itu'] == itu_code %}
 {% assign frequency = reception.frequency | split: ' kHz' | first %}
 
 {% if itu_index < 10 %}
@@ -173,6 +174,7 @@ Have a nice reading!
 {% assign previous_station_short = station_short %}
 
 
+{% endif %}
 {% endfor %} <!-- reception -->
 {% endfor %} <!-- qsl -->
 
@@ -216,6 +218,7 @@ Have a nice reading!
 
 {% for qsl in qsls_this_issuer %}
 {% for reception in qsl.receptions %}
+{% if site.data['stations'][reception['station']]['itu'] == itu_code %}
 {% assign frequency = reception.frequency | split: ' kHz' | first %}
 
 {% if itu_index < 10 %}
@@ -319,6 +322,7 @@ Have a nice reading!
 {% assign previous_station_short = station_short %}
 
 
+{% endif %}
 {% endfor %} <!-- reception -->
 {% endfor %} <!-- qsl -->
 

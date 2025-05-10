@@ -9,12 +9,11 @@ layout: page
 <div class="large-itu-list">
 <div class="qsl-list">
 
-{% assign index = 0 %}
 {% for qsl in qsls %}
+{% assign index = forloop.index %}
 
 {% if qsl.receptions.size == nil %}
 
-{% assign index = index | plus: 1 %}
 {% if index < 10 %}
     {% assign index = index | prepend: "0" %}
 {% endif %}
@@ -33,8 +32,9 @@ layout: page
 {% for reception in qsl.receptions %}
 
 
-{% assign index = index | plus: 1 %}
-{% if index < 10 %}
+{% if forloop.index > 1 %}
+    {% assign index = "&nbsp;&nbsp;" %}
+{% elsif index < 10 %}
     {% assign index = index | prepend: "0" %}
 {% endif %}
 
@@ -60,12 +60,11 @@ layout: page
 <div class="small-itu-list">
 <div class="qsl-list">
 
-{% assign index = 0 %}
 {% for qsl in qsls %}
+{% assign index = forloop.index %}
 
 {% if qsl.receptions.size == nil %}
 
-{% assign index = index | plus: 1 %}
 {% if index < 10 %}
     {% assign index = index | prepend: "0" %}
 {% endif %}
@@ -83,8 +82,9 @@ layout: page
 
 {% for reception in qsl.receptions %}
 
-{% assign index = index | plus: 1 %}
-{% if index < 10 %}
+{% if forloop.index > 1 %}
+    {% assign index = "&nbsp;&nbsp;" %}
+{% elsif index < 10 %}
     {% assign index = index | prepend: "0" %}
 {% endif %}
 

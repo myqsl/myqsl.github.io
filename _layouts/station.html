@@ -26,14 +26,19 @@ layout: page
 <div class="large-itu-list">
 <div class="qsl-list">
 
-{% assign index = 0 %}
 {% for qsl in qsls %}
+{% assign index = forloop.index %}
+{% assign first = 1 %}
 {% for reception in qsl.receptions %}
 {% if reception['station'] == page.code %}
 
-{% assign index = index | plus: 1 %}
-{% if index < 10 %}
-    {% assign index = index | prepend: "0" %}
+{% if first == 1 %}
+    {% assign first = 0 %}
+    {% if index < 10 %}
+        {% assign index = index | prepend: "0" %}
+    {% endif %}
+{% else %}
+    {% assign index = "&nbsp;&nbsp;" %}
 {% endif %}
 
 {% assign frequency = reception['frequency'] | split: ' kHz' | first %}
@@ -59,14 +64,19 @@ layout: page
 <div class="small-itu-list">
 <div class="qsl-list">
 
-{% assign index = 0 %}
 {% for qsl in qsls %}
+{% assign index = forloop.index %}
+{% assign first = 1 %}
 {% for reception in qsl.receptions %}
 {% if reception['station'] == page.code %}
 
-{% assign index = index | plus: 1 %}
-{% if index < 10 %}
-    {% assign index = index | prepend: "0" %}
+{% if first == 1 %}
+    {% assign first = 0 %}
+    {% if index < 10 %}
+        {% assign index = index | prepend: "0" %}
+    {% endif %}
+{% else %}
+    {% assign index = "&nbsp;&nbsp;" %}
 {% endif %}
 
 {% assign qsl_title = qsl['title'] | truncate: 30, "" %}

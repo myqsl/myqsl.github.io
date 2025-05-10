@@ -13,12 +13,20 @@ layout: page
 {% for station_code in stations_codes %}
 {% assign qsls = site | qsls_for_station: station_code %}
 {% for qsl in qsls %}
+{% assign index = index | plus: 1 %}
+{% assign first = 1 %}
 {% for reception in qsl.receptions %}
 {% if reception['station'] == station_code %}
 
-{% assign index = index | plus: 1 %}
-{% if index < 10 %}
-    {% assign index = index | prepend: "0" %}
+{% if first == 1 %}
+    {% assign first = 0 %}
+    {% if index < 10 %}
+        {% assign index_to_show = index | prepend: "0" %}
+    {% else %}
+        {% assign index_to_show = index %}
+    {% endif %}
+{% else %}
+    {% assign index_to_show = "&nbsp;&nbsp;" %}
 {% endif %}
 
 {% assign frequency = reception['frequency'] | split: ' kHz' | first %}
@@ -32,7 +40,7 @@ layout: page
 {% endfor %}
 
 <p class="qsls-itu-list">
-<a href="{{ qsl.url }}">{{ index }}&nbsp;{{ qsl_title }}&nbsp;{{ frequency_to_show }}&nbsp;{{ reception['date'] }}</a>
+<a href="{{ qsl.url }}">{{ index_to_show }}&nbsp;{{ qsl_title }}&nbsp;{{ frequency_to_show }}&nbsp;{{ reception['date'] }}</a>
 </p>
 
 {% endif %}
@@ -49,12 +57,20 @@ layout: page
 {% for station_code in stations_codes %}
 {% assign qsls = site | qsls_for_station: station_code %}
 {% for qsl in qsls %}
+{% assign index = index | plus: 1 %}
+{% assign first = 1 %}
 {% for reception in qsl.receptions %}
 {% if reception['station'] == station_code %}
 
-{% assign index = index | plus: 1 %}
-{% if index < 10 %}
-    {% assign index = index | prepend: "0" %}
+{% if first == 1 %}
+    {% assign first = 0 %}
+    {% if index < 10 %}
+        {% assign index_to_show = index | prepend: "0" %}
+    {% else %}
+        {% assign index_to_show = index %}
+    {% endif %}
+{% else %}
+    {% assign index_to_show = "&nbsp;&nbsp;" %}
 {% endif %}
 
 {% assign qsl_title = qsl['title'] | truncate: 30, "" %}
@@ -63,7 +79,7 @@ layout: page
 {% endfor %}
 
 <p class="qsls-itu-list">
-<a href="{{ qsl.url }}">{{ index }}&nbsp;{{ qsl_title }}&nbsp;{{ reception['date'] }}</a>
+<a href="{{ qsl.url }}">{{ index_to_show }}&nbsp;{{ qsl_title }}&nbsp;{{ reception['date'] }}</a>
 </p>
 
 {% endif %}
@@ -73,41 +89,7 @@ layout: page
 </div>
 </div>
 
-
-<!--
-    <div style="padding: 15px 5px 5px 15px;">
-    
-    <ol>
-    {% for station_code in stations_codes %}
-    {% assign qsls = site | qsls_for_station: station_code %}
-    {% for qsl in qsls %}
-    {% for reception in qsl.receptions %}
-    {% if reception['station'] == station_code %}
-    <li>
-      <p>
-        {% assign serie = site.data['series'][qsl.serie] %}
-        <code>{{ reception.date }} {{ reception.time }}</code>
-        <a href="{{ qsl.url }}">
-        {{ qsl.kind }}
-            | {{ reception.frequency }}
-            {% if qsl.serie %}
-            | {{ serie['title'] }}
-            {% endif %}
-            {% if reception.language %}
-            | {{ reception.language }}
-            {% endif %}
-        </a>
-      </p>
-    </li>
-    {% endif %}
-    {% endfor %}
-    {% endfor %}
-    {% endfor %}
-    </ol>
-    </div>
--->
-
-  </div> <!-- rounded-box -->    
+</div> <!-- rounded-box -->    
 
 {% for station_code in stations_codes %}
 {% assign qsls = site | qsls_for_station: station_code %}

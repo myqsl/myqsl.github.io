@@ -763,20 +763,20 @@ trsw:
 
 twr_africa:
   code: twr_africa
-  title: Trans World Radio
+  title: Trans World Radio (Africa)
   country: eswatini
   kind: religious
 
 twr_asia:
   code: twr_asia
-  title: Trans World Radio
-  country: singapore
-  itu: SNG
+  title: Trans World Radio (Asia)
+  country: guam
+  itu: GUM
   kind: religious
 
 twr_europe:
   code: twr_europe
-  title: Trans World Radio
+  title: Trans World Radio (Europe)
   country: slovakia
   kind: religious
 

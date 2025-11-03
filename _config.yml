@@ -22,13 +22,13 @@ google_analytics: ""
 # Site navigation - each item must have a title and a url.
 navigation:
   - text: All
-    url: /all/
+    url: /all.html
   - text: Sites
-    url: /sites/
+    url: /sites.html
   - text: Blog
-    url: /blog/
+    url: /blog.html
   - text: About
-    url: /about/
+    url: /about.html
 
 # The shortname for your Disqus site to enable comments.
 # disqus: justgoodthemes

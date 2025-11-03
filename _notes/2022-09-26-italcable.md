@@ -1,7 +1,6 @@
 ---
 title: Карточка из Италии
-layout: post_with_image
-image: /assets/qsl/2022/italy/small/italcable_2022_front.jpg
+feature_image: /assets/qsl/2022/italy/small/italcable_2022_front.jpg
 ---
 
 Удивительно, но в наше непростое время
@@ -13,4 +12,4 @@ Italcable.
 До этого были DCF77 из Германии, MCF60 из
 Великобритании и NRC из Канады.
 
-[Информация о карточке](/qsls/italcable_2022.html)
+[Информация о карточке](/2022/08/13/italcable_2022.html)

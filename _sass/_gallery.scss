@@ -1,0 +1,91 @@
+.post-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  gap: 4px;
+}
+
+.post-gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; //contain;
+  display: block;
+  flex: 1 1 calc(50% - 4px);
+  border: solid 1px lightgray;
+  border-radius: 6px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+
+/* Две картинки — 50/50 */
+.post-gallery.two {
+}
+
+/* 3 вертикальные — особая компоновка */
+.post-gallery.three-vertical {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+}
+
+.post-gallery.three-vertical img:nth-child(1) {
+  grid-row: 1 / 3; /* растянуть по высоте */
+  grid-column: 1;
+}
+
+.post-gallery.three-vertical img:nth-child(2) {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.post-gallery.three-vertical img:nth-child(3) {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+/* Одиночная картинка */
+.post-gallery.single {
+  display: block;
+  aspect-ratio: auto;
+}
+
+.post-gallery.single img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 5px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.post-gallery.many {
+  display: flex;
+  flexWrap: wrap;
+}
+
+.post-gallery.many img {
+  width: 50%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+
+/* lightbox */
+.lightbox{
+	position:fixed;
+	inset:0;
+	display:none;
+	align-items:center;
+	justify-content:center;
+	background:rgba(0,0,0,0.6);
+	z-index:1200;
+}
+.lightbox img{
+	max-width:90%;
+	max-height:85%;
+	border-radius:6px;
+}

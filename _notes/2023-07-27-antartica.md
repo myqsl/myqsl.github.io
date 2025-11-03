@@ -1,7 +1,6 @@
 ---
 title: Первое подтверждение из Антарктиды
-layout: post_with_image
-image: /assets/images/esperanza.jpg
+feature_image: /assets/images/esperanza.jpg
 ---
 
 Услышать в Москве голос из Антарктиды! Оказывается,

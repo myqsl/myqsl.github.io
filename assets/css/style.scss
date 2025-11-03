@@ -1,0 +1,70 @@
+---
+---
+
+/**
+ * Scriptor Jekyll Theme 2.0.0
+ * By Just Good Themes - https://justgoodthemes.com/
+*/
+
+/* ==========================================================================
+   Table of Contents
+   ========================================================================== */
+/*
+  0. Icons
+  1. Reset
+  2. General
+  3. Structure
+  4. Site Header
+  5. Content
+  6. Comments
+  7. Posts Navigation
+  8. Site Footer
+  9. Animations
+ 10. Prism
+*/
+
+:root{
+  --max-width:900px;
+  --accent:#0077cc;
+  --muted:#6b6b6b;
+  --gap:18px;
+  --card-bg:#fff;
+  --page-bg:#fbfaf8;
+  --text:#222;
+  --radius:14px;
+  --container-padding:28px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+// Font.
+$font: (
+  primary: (Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,sans-serif),
+  secondary: ("Playfair Display", "Noto Serif",Georgia,serif)
+);
+
+// Palette.
+{% assign accent = site.accent_color | default: '#2d72d9' %}
+$palette: (
+  accent:    {{ accent }},
+  primary:   #6b747a,
+  secondary: #2c343c,
+  meta:      #9ba6ad,
+  border:    #d7d7d7,
+  bg:        aliceblue // #f8fcff
+);
+
+// Imports
+@import "functions";
+@import "icons";
+@import "reset";
+@import "general";
+@import "structure";
+@import "site-header";
+@import "content";
+@import "comments";
+@import "posts-navigation";
+@import "site-footer";
+@import "animations";
+@import "prism";
+
+@import "gallery";

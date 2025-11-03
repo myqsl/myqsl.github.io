@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<main class="main-content fadeInDown delay_075s">
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">{{page.title}} {% include permalink.html %}</h1>
+      {% if page.feature_image and page.feature_image != "" %}
+      <figure class="post-thumbnail image-card width-wide">
+        <img src="{{ page.feature_image | relative_url }}" alt="{{ page.title }}">
+      </figure><!-- .post-thumbnail -->
+      {% endif %}
+    </header><!-- .post-header -->
+    <div class="post-content">
+      {{content}}
+    </div><!-- .post-content -->
+  </article><!-- .post -->
+</main><!-- .site-main -->
+
+  <!-- Лайтбокс для просмотра фото -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
+    <img alt="" id="lightbox-img" src="">
+  </div>
+
+  <script>
+    // Простейший lightbox: при клике на картинку открываем её в модальном окне
+    (function(){
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightbox-img');
+      document.querySelectorAll('.qsl-gallery img').forEach(img=>{
+        img.style.cursor='zoom-in';
+        img.addEventListener('click', ()=>{
+          lbImg.src = img.src.replace('small','full');
+          lb.style.display = 'flex';
+          lb.setAttribute('aria-hidden','false');
+        });
+      });
+      lb.addEventListener('click', (e)=>{ if(e.target===lb||e.target===lbImg) { lb.style.display='none'; lb.setAttribute('aria-hidden','true'); lbImg.src=''; } });
+    })();
+  </script>

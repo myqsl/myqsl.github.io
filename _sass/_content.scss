@@ -1,0 +1,282 @@
+/* ==========================================================================
+   5. Content
+   ========================================================================== */
+
+/* Посты - вертикальная лента */
+.main-content {
+	display:flex;
+	flex-direction:column;
+	gap:36px;
+}
+
+.post {
+	background:var(--card-bg);
+	padding:32px;
+	border-radius:12px;
+	box-shadow:0 6px 30px rgba(20,20,20,0.04);
+}
+
+.post-header {  
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	margin-bottom:18px;
+}
+
+.post-date {
+  display: inline-block;
+  margin-bottom: 1.25em;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.4px; /* лёгкая разрядка */
+  margin-top:6px;
+  color:var(--muted);
+}
+
+.post-meta {
+  font-family: _font(primary);
+  font-size: 0.88889rem;
+  font-style: italic;
+  margin-bottom: 1.11111rem;
+}
+
+.post-tags {
+  a {
+    &:before {
+      content: "\0023";
+    }
+  }
+}
+
+.post-header time {
+  margin-left: 10px;
+}
+
+.post-title {
+	font-family: _font(secondary);
+	font-weight:400;
+	font-size:48px;
+	margin:0;
+	letter-spacing: 0.3px;
+	text-align: center;
+
+
+  @media only screen and (max-width: 600px) {
+    font-size: 1.875rem;
+    letter-spacing: normal;
+    line-height: 1.2;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      color: _palette(accent);
+    }
+  }
+}
+
+.post-content {
+	color:var(--muted);
+	font-size:16px;
+	line-height:1.5;
+	margin-top:6px;
+}
+
+
+.read-more {
+  font-weight: bold;
+}
+
+/* Author profile */
+.author-box {
+  border-top: 1px solid _palette(border);
+  padding-top: 1.66667em;
+
+  .author-avatar {
+    background-size: cover;
+    border-radius: 50%;
+    display: block;
+    height: 90px;
+    float: left;
+    margin-right: 30px;
+    width: 90px;
+  }
+
+  .author-avatar + .author-details {
+    padding-left: 120px;
+  }
+
+  .author-title {
+    font-size: 1.11111rem;
+  }
+
+  .author-bio {
+    line-height: 1.5;
+
+    p {
+      margin-bottom: 1em;
+    }
+  }
+
+  .author-location,
+  .author-website {
+    color: _palette(meta);
+    display: inline-block;
+    font-family: _font(secondary);
+    font-size: 0.88889rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    margin-right: 5px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    .author-avatar {
+      float: none;
+      margin-bottom: 1.25em;
+      margin-right: 0;
+    }
+
+    .author-avatar + .author-details {
+      padding-left: 0;
+    }
+  }
+}
+
+/* Share post */
+.post-share {
+  padding: 1.66667em 0 3.33333em;
+  span {
+    color: _palette(meta);
+    display: inline-block;
+    font-size: 0.88889em;
+    margin-right: 15px;
+  }
+  a {
+    border: 1px solid _palette(border);
+    border-radius: 3px;
+    color: _palette(primary);
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 0.5em;
+    margin-right: 5px;
+    padding: 3px 10px;
+    text-decoration: none;
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
+    &:hover {
+      border-color: _palette(accent);
+      color: _palette(accent);
+    }
+  }
+}
+
+/* Archive page */
+.archive-tags {
+  font-style: italic;
+  a {
+    margin-right: 5px;
+    &:before {
+      content: "\0023";
+    }
+  }
+}
+
+.archive-top-link {
+  color: _palette(meta);
+  font-size: 0.88889em;
+  margin-bottom: 1.25em;
+}
+
+.archive-post-list {
+  list-style: none;
+  padding: 0;
+  li {
+    margin-bottom: 1em;
+  }
+}
+
+.archive-meta {
+  color: _palette(meta);
+  .archive-date {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.centered {
+    text-align: center;
+}
+
+.tiny-link {
+	display: contents; /* чтобы всё держалось по центру */
+	text-align: left; /* чтобы текст внутри остался обычным */
+}
+
+.tiny-link summary {
+	list-style: none;            /* убрать маркер */
+	cursor: pointer;
+	// color: #0066cc;              /* "синяя ссылка" */
+	text-decoration: underline;
+	font-size: 0.9rem;           /* небольшой текст */
+	display: inline;             /* чтобы не занимало всю строку */
+}
+.tiny-link summary::-webkit-details-marker { /* убрать стрелку в WebKit */
+	display: none;
+}
+.tiny-link .qsl-info {
+	margin-top: 0.25rem;         /* текст со следующей строки */
+}
+
+.qsl-gallery img {
+    margin-top: 20px;
+    width: 100%;
+    border: 10px lightgray solid;
+    background: white;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.qsl-subtitle ul {
+	list-style: none;
+	margin: auto;
+}
+
+.qsl-gallery-title {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.qsl-titles-structure ul {
+	margin: 0px 0px 5px 0px;
+}
+
+.qsl-titles-structure p {
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+
+.qsl-titles-structure li {
+	margin-top: 5px;
+}
+
+.qsl-titles-structure li::marker {
+	content: "— ";
+}
+
+.permalink {
+	text-decoration: none;
+	margin-left: 0.25em;
+	color: #999;
+	visibility: hidden;
+}
+
+h1:hover .permalink,
+h2:hover .permalink,
+h3:hover .permalink {
+	visibility: visible;
+}
+
+.permalink:hover {
+	color: #2d72d9;
+}

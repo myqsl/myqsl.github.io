@@ -2,109 +2,100 @@
 layout: page
 ---
 
-{% assign qsls = site | qsls_for_serie: page.code %}
-
-<div class="rounded-box">
-
-<div class="large-itu-list">
-<div class="qsl-list">
+{% assign qsls = site.posts | where: 'serie', page.code %}
 
 {% for qsl in qsls %}
-{% assign index = forloop.index %}
-
-{% if qsl.receptions.size == nil %}
-
-{% if index < 10 %}
-    {% assign index = index | prepend: "0" %}
-{% endif %}
-
-{% assign qsl_title = qsl['title'] | truncate: 54, "" %}
-{% for i in (qsl_title.size .. 53) %}
-    {% assign qsl_title = qsl_title | append: "&nbsp;" %}
-{% endfor %}
-
-<p class="qsls-itu-list">
-<a href="{{ qsl.url }}">{{ index }}&nbsp;{{ qsl_title }}</a>
-</p>
-
-{% endif %}
-
-{% for reception in qsl.receptions %}
-
-
-{% if forloop.index > 1 %}
-    {% assign index = "&nbsp;&nbsp;" %}
-{% elsif index < 10 %}
-    {% assign index = index | prepend: "0" %}
-{% endif %}
-
-{% assign frequency = reception['frequency'] | split: ' kHz' | first %}
-{% assign frequency_to_show = frequency %}
-{% assign max_qsl_title = 42 | minus: frequency.size %}
-{% assign max_qsl_title_m1 = max_qsl_title | minus: 1 %}
-
-{% assign qsl_title = qsl['title'] | truncate: max_qsl_title, "" %}
-{% for i in (qsl_title.size .. max_qsl_title_m1) %}
-    {% assign qsl_title = qsl_title | append: "&nbsp;" %}
-{% endfor %}
-
-<p class="qsls-itu-list">
-<a href="{{ qsl.url }}">{{ index }}&nbsp;{{ qsl_title }}&nbsp;{{ frequency_to_show }}&nbsp;{{ reception['date'] }}</a>
-</p>
-
-{% endfor %}
-{% endfor %}
-</div>
+<div class="qsl-gallery-title" id="{{ qsl.date | date: "%Y-%m-%d" }}">
+<h3 class="qsl-subtitle">
+  <ul>
+	<li>{{ qsl.title }}</li>
+	{% for reception in qsl.receptions %}
+	<li>
+	{% if reception.date %}
+		&#x1F4C5; {{ reception.date | date_to_string }}
+	{% endif %}
+	{% if reception.time %}
+		&#x1F550; {{ reception.time }} UTC
+	{% endif %}
+	{% if reception.frequency %}
+		&#x1F4FB; {{ reception.frequency }}
+	{% endif %}
+	</li>
+	{% endfor %}
+</ul>
+</h3>
 </div>
 
-<div class="small-itu-list">
-<div class="qsl-list">
+		<div class="centered">
+		<details class="tiny-link">
+			<summary>Подробности приема</summary>
+			<div class="qsl-info">
+				<ul>
+				{% if qsl.kind %}
+				<li>Kind: {{ qsl.kind }}</li>
+				{% endif %}
+				{% if qsl.mail_to %}
+				<li>Contact: {{ qsl.mail_to }}</li>
+				{% endif %}
+				{% if qsl.report_sent %}
+				<li>Report sent: {{ qsl.report_sent}}</li>
+				{% endif %}
+				{% if qsl.responce_sent %}
+				<li>Response sent: {{ qsl.responce_sent}}</li>
+				{% endif %}
+				{% if qsl.responce_received %}
+				<li>Response received: {{ qsl.responce_received}}</li>
+				{% endif %}
+				{% if qsl.serie %}
+				<li>Issuer: <a href="{{ page.url }}">{{ page.title }}</a></li>
+				{% endif %}
+				<li>Permalink: <a href="{{ qsl.url }}">{{ qsl.url }}</a></li>
 
-{% for qsl in qsls %}
-{% assign index = forloop.index %}
+				{% for reception in qsl.receptions %}
+				<p><div style="border: dashed; border-color: lightgray; border-width: 2px; border-radius: 20px;">
+				{% if reception.frequency %}
+				<li>Frequency: {{ reception.frequency }}</li>
+				{% endif %}
+				{% if reception.time %}
+				<li>UTC Time of listening: {{ reception.time }}</li>
+				{% endif %}
+				{% if reception.date %}
+				<li>Listening date: {{ reception.date }}</li>
+				{% endif %}
+				{% if reception.language %}
+				<li>Language: {{ reception.language }}</li>
+				{% endif %}
+				{% if reception.location %}
+				<li>Location: {{ reception.location }}</li>
+				{% endif %}
+				{% if reception.receiver %}
+				<li>Receiver: {{ reception.receiver }}</li>
+				{% endif %}
+				{% if reception.antenna %}
+				<li>Antenna: {{ reception.antenna }}</li>
+				{% endif %}
+				{% if reception.station %}
+				{% assign station = site.stations | where: 'code', reception.station | first %}
+				{% assign country = site.countries | where: 'code', station.country | first %}
+				<li>Station: <a href="{{ station.url }}">{{ station.title }} ({{ country.title }})</a></li>
+				{% endif %}
+				{% if reception.youtube_id %}
+				<li>Video: <a href="https://youtu.be/{{ reception.youtube_id }}">Click to open the video (YouTube)</a></li>
+				{% endif %}
+				</div></p>
+				{% endfor %} <!-- reception -->
+				</ul>
+		  </div>
+		</details>
+		</div>
 
-{% if qsl.receptions.size == nil %}
 
-{% if index < 10 %}
-    {% assign index = index | prepend: "0" %}
-{% endif %}
-
-{% assign qsl_title = qsl['title'] | truncate: 41, "" %}
-{% for i in (qsl_title.size .. 40) %}
-    {% assign qsl_title = qsl_title | append: "&nbsp;" %}
+<div class="qsl-gallery">
+{% for image in qsl.gallery %}
+{% assign small_image = image | split: ":" | last %}
+<img src="{{ small_image }}"/>
 {% endfor %}
+</div><!-- qsl-gallery -->
 
-<p class="qsls-itu-list">
-<a href="{{ qsl.url }}">{{ index }}&nbsp;{{ qsl_title }}</a>
-</p>
 
-{% endif %}
-
-{% for reception in qsl.receptions %}
-
-{% if forloop.index > 1 %}
-    {% assign index = "&nbsp;&nbsp;" %}
-{% elsif index < 10 %}
-    {% assign index = index | prepend: "0" %}
-{% endif %}
-
-{% assign qsl_title = qsl['title'] | truncate: 30, "" %}
-{% for i in (qsl_title.size .. 29) %}
-    {% assign qsl_title = qsl_title | append: "&nbsp;" %}
-{% endfor %}
-
-<p class="qsls-itu-list">
-<a href="{{ qsl.url }}">{{ index }}&nbsp;{{ qsl_title }}&nbsp;{{ reception['date'] }}</a>
-</p>
-
-{% endfor %}
-{% endfor %}
-</div>
-</div>
-
-</div>
-
-{% assign revqsls = qsls | reverse %}
-{% for qsl in revqsls %}
-{% include qslboxlite.html qsl=qsl %}
 {% endfor %}

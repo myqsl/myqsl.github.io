@@ -1,39 +1,62 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+# Site language
+lang: en-US
 
+# Site title
 title: QSL and more
-email: shortwavesaregreat@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  The space where my qsl cards live
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://myqsl.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-# twitter_username: jekyllrb
-# github_username:  jekyll
 
-# Build settings
-theme: minima
+# # A description of your site for meta tag, search engine results.
+# description: The space where my qsl cards live
+
+# The subpath of your site, e.g. /blog, for generating urls.
+baseurl: ""
+
+# The base hostname & protocol of your site for where absolute urls are needed.
+url: "http://myqsl.github.io"
+
+# Favicon
+favicon: favicon.ico
+
+# Google Analytics id, e.g. "UA-NNNNNNNN-N"
+google_analytics: ""
+
+# Site navigation - each item must have a title and a url.
+navigation:
+  - text: All
+    url: /all/
+  - text: Sites
+    url: /sites/
+  - text: Blog
+    url: /blog/
+  - text: About
+    url: /about/
+
+# The shortname for your Disqus site to enable comments.
+# disqus: justgoodthemes
+
+# Colors
+accent_color: '#2d72d9'
+
+# Site footer
+footer:
+  content: "Suggestions and questions to <shortwavesaregreat@gmail.com>."
+#  has_social: true
+
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-paginate
 
+# http://jekyllrb.com/docs/pagination/
+paginate: 30
+paginate_path: '/page:num/'
+
 collections:
+  series:
+    output: true
+  countries:
+    output: false
+  stations:
+    output: false
   notes:
     output: true
 
@@ -44,17 +67,10 @@ defaults:
     values:
       layout: "qsl"
   - scope:
-      path: "series"
+      path: ""
+      type: "series"
     values:
       layout: "serie"
-  - scope:
-      path: "stations"
-    values:
-      layout: "station"
-  - scope:
-      path: "countries"
-    values:
-      layout: "country"
   - scope:
       path: ""
       type: "notes"
@@ -65,37 +81,14 @@ defaults:
     values:
       layout: "default"
 
-show_excerpts: true
 
-header_pages:
-  - qsls.markdown
-  - stationsc.markdown
-  - issuers.markdown
-  - issuersc.markdown
-  - countries.markdown  
-  - gallery.markdown
-  - about.markdown
-#  - search.markdown
+# Permalinks
+# permalink: /:title
 
-paginate: 30
-paginate_path: "/page:num/"
+# Conversion
+markdown: kramdown
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed

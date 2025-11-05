@@ -41,6 +41,9 @@ title: QSL list
 	{% for reception in qsl.receptions %}
 		<li><a href="{{ serie.url }}#{{ qsl.date | date: "%Y-%m-%d" }}">
 		{{ reception.frequency }}
+        {% if reception.language %}
+        in {{ reception.language }}
+        {% endif %}
 		{% if reception.date %}
 		on {{ reception.date }}
 		{% endif %}

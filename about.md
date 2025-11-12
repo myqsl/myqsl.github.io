@@ -37,13 +37,14 @@ Welcome!
 
 Here is selected links to other QSL archives:
 
-1. QSL archive of Konstantin Barsenkov: [qsl-review.blogspot.com](https://qsl-review.blogspot.com)
-1. QSL archive of Anatoly Klepov: [rusdx.blogspot.com](https://rusdx.blogspot.com)
-1. QSL archive of Alexander Myadel: [ew1mb.blogspot.com](https://ew1mb.blogspot.com/)
-1. QSL archive of Igor Kolke: [kolkeradio.blogspot.com](https://kolkeradio.blogspot.com)
+1. Konstantin Barsenkov's QSL blog: [qsl-review.blogspot.com](https://qsl-review.blogspot.com)
+1. Anatoly Klepov's QSL blog: [rusdx.blogspot.com](https://rusdx.blogspot.com)
+1. Alexander Myadel's QSL blog: [ew1mb.blogspot.com](https://ew1mb.blogspot.com/)
+1. Igor Kolke's QSL blog: [kolkeradio.blogspot.com](https://kolkeradio.blogspot.com)
 1. Bill McDavitt's SWL QSL Museum: [swlqslmuseum.com](http://swlqslmuseum.com/russiamain.htm)
 1. Friedbert Bruender's QSL Cards: [bruender.de](http://www.bruender.de/coll/qc/urs_rmos.htm)
 1. Bill Harms's QSL Gallery: [qsl.philcobill.com](http://qsl.philcobill.com/blog/?p=4223)
+1. Thomas Gavaras's QSL Archive: [radiotapes.com](https://radiotapes.com/QSL_Europe/)
 
 <hr/>
 

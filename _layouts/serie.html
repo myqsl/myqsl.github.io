@@ -6,26 +6,6 @@ layout: page
 
 {% for qsl in qsls %}
 <div class="qsl-gallery-title" id="{{ qsl.date | date: "%Y-%m-%d" }}">
-<h3 class="qsl-subtitle">
-  <ul>
-	<li>{{ qsl.title }}</li>
-	{% for reception in qsl.receptions %}
-	<li>
-	{% if reception.date %}
-		&#x1F4C5; {{ reception.date | date_to_string }}
-	{% endif %}
-	{% if reception.time %}
-		&#x1F550; {{ reception.time }} UTC
-	{% endif %}
-	{% if reception.frequency %}
-		&#x1F4FB; {{ reception.frequency }}
-	{% endif %}
-	</li>
-	{% endfor %}
-</ul>
-</h3>
-</div>
-
 		<div class="centered">
 		<details class="tiny-link">
 			<summary>Подробности приема</summary>
@@ -88,7 +68,7 @@ layout: page
 		  </div>
 		</details>
 		</div>
-
+</div>
 
 <div class="qsl-gallery">
 {% for image in qsl.gallery %}

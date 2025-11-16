@@ -6,21 +6,29 @@
 .main-content {
 	display:flex;
 	flex-direction:column;
-	gap:36px;
+//	gap:36px; // Safari @ 5s doesn't support it
+}
+
+.main-content > * + * {
+  margin-top: 36px;
 }
 
 .post {
 	background:var(--card-bg);
-	padding:32px;
+	padding: 32px 32px 32px 32px;
 	border-radius:12px;
 	box-shadow:0 6px 30px rgba(20,20,20,0.04);
+    
+    @media only screen and (max-width: 600px) {
+	    padding: 22px 2px 2px 2px;
+    }
 }
 
 .post-header {  
 	display:flex;
 	flex-direction:column;
 	align-items:center;
-	margin-bottom:18px;
+//	margin-bottom:18px;
 }
 
 .post-date {
@@ -216,11 +224,26 @@
 .tiny-link summary {
 	list-style: none;            /* убрать маркер */
 	cursor: pointer;
-	// color: #0066cc;              /* "синяя ссылка" */
+    position: relative;
+	padding-left: 1em;
+    // color: #0066cc;              /* "синяя ссылка" */
 	text-decoration: underline;
 	font-size: 0.9rem;           /* небольшой текст */
 	display: inline;             /* чтобы не занимало всю строку */
 }
+
+.tiny-link summary::before {
+  content: "▶";
+  font-size: 0.9rem;           /* небольшой текст */
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.tiny-link[open] summary::before {
+  content: "▼";
+}
+
 .tiny-link summary::-webkit-details-marker { /* убрать стрелку в WebKit */
 	display: none;
 }
@@ -244,7 +267,7 @@
 
 .qsl-gallery-title {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .qsl-titles-structure ul {

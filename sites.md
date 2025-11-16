@@ -16,7 +16,7 @@ title: Transmission sites
 <div class="qsl-titles-structure">
 
 <p><strong>{{ continent | upcase }}</strong></p>
-<ul>
+
 
 {% for country in countries %}
 
@@ -30,7 +30,7 @@ title: Transmission sites
 
 {% assign qsls = site.posts %}
 
-<li><details class="tiny-link"><summary id="{{ station.code }}">{{ country.title | upcase }} &mdash; {{ station.title }}</summary>
+<details class="tiny-link"><summary id="{{ station.code }}">{{ country.title | upcase }} &mdash; {{ station.title }}</summary>
 	<ul>
 		{% for qsl in qsls %}
 			{% assign serie = site.series | where: 'code', qsl.serie | first %}
@@ -47,13 +47,13 @@ title: Transmission sites
 			{% endfor %}
 		{% endfor %}
 	</ul>
-</details></li>
+</details>
 
 {% endfor %}
 
 {% endfor %}
 
-</ul>
+
 </div>
 
 {% endfor %}

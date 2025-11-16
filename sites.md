@@ -30,7 +30,7 @@ title: Transmission sites
 
 {% assign qsls = site.posts %}
 
-<li><details class="tiny-link"><summary>{{ country.title | upcase }} &mdash; {{ station.title }}</summary>
+<li><details class="tiny-link"><summary id="{{ station.code }}">{{ country.title | upcase }} &mdash; {{ station.title }}</summary>
 	<ul>
 		{% for qsl in qsls %}
 			{% assign serie = site.series | where: 'code', qsl.serie | first %}

@@ -82,7 +82,7 @@ layout: default
 				{% if reception.station %}
 				{% assign station = site.stations | where: 'code', reception.station | first %}
 				{% assign country = site.countries | where: 'code', station.country | first %}
-				<li>Station: <a href="{{ station.url }}">{{ station.title }} ({{ country.title }})</a></li>
+				<li>Transmitter: <a href="/sites/#{{ station.code }}">{{ station.title }} ({{ country.title }})</a></li>
 				{% endif %}
 				{% if reception.youtube_id %}
 				<li>Video: <a href="https://youtu.be/{{ reception.youtube_id }}">Click to open the video (YouTube)</a></li>

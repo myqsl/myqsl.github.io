@@ -4,6 +4,18 @@ layout: default
 
 <main class="main-content fadeInDown delay_075s">
 
+  <div class="find-block">
+  Find QSL cards for
+  {% assign series_sorted = site.series | sort: "title" %}
+  <select id="seriesSelect">
+    {% for s in series_sorted %}
+      <option value="{{ s.code }}">{{ s.title }}</option>
+    {% endfor %}
+  </select>
+  <button onclick="goToSeries()">GO</button>
+  </div>
+
+
   {% for post in paginator.posts %}
   <article class="post">
     <header class="post-header">
@@ -61,6 +73,13 @@ layout: default
   {% endif %}
 
 </main><!-- .site-main -->
+
+<script>
+function goToSeries() {
+  const value = document.getElementById('seriesSelect').value;
+  window.location.href = '/series/' + value + '/';
+}
+</script>
 
   <!-- Лайтбокс для просмотра фото -->
   <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">

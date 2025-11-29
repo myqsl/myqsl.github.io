@@ -1,7 +1,7 @@
 ---
 code: "hcjb_jp"
 title: "Reach Beyond Japanese"
-country: "australia"
-itu: "AUS"
+country: "japan"
+# itu: "J"
 kind: "religious"
 ---

@@ -229,7 +229,8 @@
     // color: #0066cc;              /* "синяя ссылка" */
 	text-decoration: underline;
 	font-size: 0.9rem;           /* небольшой текст */
-	display: inline;             /* чтобы не занимало всю строку */
+	//display: inline;             /* чтобы не занимало всю строку */
+    margin-bottom: 5px;
 }
 
 .tiny-link summary::before {

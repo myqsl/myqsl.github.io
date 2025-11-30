@@ -1,5 +1,5 @@
 ---
 code: "mtva"
-title: "Médiaszolgáltatás-támogató és Vagyonkezelő Alap"
+title: "Hungarian Broadcasting Station (MTVA)"
 country: "hungary"
 ---

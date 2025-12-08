@@ -5,7 +5,7 @@ mail_to: mailto:contato@palavraalegre.com.br
 report_sent: 2022-06-20
 responce_sent: 2024-08-14
 responce_received: 2024-11-05
-serie: wcb
+serie: palavra
 receptions:
   - frequency: 9765 kHz
     language: Portuguese

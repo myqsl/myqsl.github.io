@@ -1,0 +1,799 @@
+---
+layout: default
+---
+
+<main class="main-content fadeInDown delay_075s">
+
+<!--
+<div class="find-block">
+  Edit QSL:
+  <select id="qslSelect">
+    {% for qsl in site.posts %}
+      <option value="{{ qsl.code }}">{{ qsl.date }} -- {{ qsl.title }}</option>
+    {% endfor %}
+  </select>
+  <button onclick="loadQsl()">Load</button>
+</div>
+-->
+
+<button id="selectPostsFolderBtn">Выбрать папку _posts</button>
+<select id="postSelect">
+  <option value="">-- выберите пост --</option>
+</select>
+<button id="postSelectBtn">Load</button>
+
+  <style>
+  :root{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;margin:0}
+  body{max-width:1100px;margin:20px auto;padding:18px;background:#f7fafc;color:#0f172a}
+  h1{font-size:1.2rem;margin:0 0 12px}
+  form{background:#fff;padding:16px;border-radius:10px;box-shadow:0 8px 30px rgba(2,6,23,0.06);display:grid;gap:12px}
+  label{display:block;font-weight:600;margin-bottom:6px}
+  input[type="text"], textarea, select{width:100%;padding:8px 10px;border:1px solid #e6edf3;border-radius:8px;box-sizing:border-box}
+  .row{display:flex;gap:10px;align-items:center}
+  .col-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .actions{display:flex;gap:8px}
+  .btn{background:#2563eb;color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
+  .btn.ghost{background:#f1f5f9;color:#0f172a;border:1px solid #e2e8f0}
+  .btn.warn{background:#ea580c}
+  .small{font-size:0.85rem;color:#475569}
+  .section{background:#f8fafc;padding:10px;border-radius:8px}
+  .reception{background:#fff;border:1px dashed #e6eef8;padding:10px;border-radius:8px;margin-bottom:8px}
+  textarea#previewArea{min-height:260px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,"Roboto Mono",monospace;white-space:pre-wrap}
+  .status{font-size:0.9rem}
+  .ok{color:#059669}
+  .err{color:#dc2626}
+  .meta-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .note{font-size:0.85rem;color:#64748b}
+  </style>
+
+
+  <div style="margin-bottom:10px" class="meta-row">
+    <button id="chooseDirBtn" class="btn">Выбрать папку для сохранения</button>
+    <button id="clearDirBtn" class="btn ghost">Забыть выбранную папку</button>
+    <div id="dirInfo" class="small">Папка не выбрана</div>
+  </div>
+
+  <form id="mainForm" autocomplete="off" novalidate>
+    <div class="col-2">
+      <div>
+        <label for="date">Date (YYYY-MM-DD)</label>
+        <input id="date" name="date" type="text" placeholder="2025-11-30" required />
+        <div class="small">Формат: YYYY-MM-DD</div>
+      </div>
+
+      <div>
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text" placeholder="Заголовок поста" />
+      </div>
+    </div>
+
+    <div class="col-2">
+      <div>
+        <label for="kind">Kind</label>
+        <select id="kind" name="kind">
+          <option value="QSL">QSL</option>
+          <option value="e-QSL">e-QSL</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="mailTo">Mail To</label>
+        <input id="mailTo" name="mailTo" type="text" placeholder="example@mail.com" />
+      </div>
+    </div>
+
+    <div class="col-3" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px;">
+      <div>
+        <label for="reportSent">Report Sent (YYYY-MM-DD)</label>
+        <input id="reportSent" name="reportSent" type="text" placeholder="2025-11-30" />
+      </div>
+      <div>
+        <label for="responseSent">Response Sent (YYYY-MM-DD)</label>
+        <input id="responseSent" name="responseSent" type="text" placeholder="2025-11-30" />
+      </div>
+      <div>
+        <label for="responseReceived">Response Received (YYYY-MM-DD)</label>
+        <input id="responseReceived" name="responseReceived" type="text" placeholder="2025-11-30" />
+      </div>
+    </div>
+
+    <div>
+      <label for="serie">Serie</label>
+      <select id="serie" name="serie">
+        <option value="">— выберите серию —</option>
+	{% assign series_sorted = site.series | sort: "title" %}
+        {% for s in series_sorted %}
+        <option value="{{ s.code | escape }}">{{ s.title | escape }}</option>
+        {% endfor %}
+      </select>
+      <div class="small">Показывается title, в value сохраняется code.</div>
+    </div>
+
+    <div class="section">
+      <h3 style="margin:0 0 8px 0">Receptions</h3>
+      <div id="receptionsList"></div>
+      <div class="actions">
+        <button type="button" id="addReceptionBtn" class="btn secondary">Добавить Reception</button>
+      </div>
+      <div class="small" style="margin-top:8px;">Каждый Reception содержит Frequency, Language, Date (YYYY-MM-DD), Time (HH.mm-HH.mm), Location, Receiver, Antenna, Station (из site.stations — сохраняется code) и Youtube ID.</div>
+    </div>
+
+    <div>
+      <label for="gallery">Gallery</label>
+      <textarea id="gallery" name="gallery" rows="4" placeholder="каждая строка — отдельная запись"></textarea>
+    </div>
+
+    <div>
+      <label for="contents">Contents</label>
+      <textarea id="contents" name="contents" rows="6" placeholder="Основной текст поста..."></textarea>
+    </div>
+
+    <div class="row" style="margin-top:6px">
+      <button type="button" id="previewBtn" class="btn">Preview</button>
+      <button type="button" id="createBtn" class="btn" style="background:#059669">Create file</button>
+      <button type="button" id="downloadFallbackBtn" class="btn ghost">Скачать (fallback)</button>
+      <div id="status" class="status"></div>
+    </div>
+  </form>
+
+  <h2 style="margin-top:18px">Preview — результат (YAML frontmatter + contents)</h2>
+  <textarea id="previewArea" readonly></textarea>
+
+  <!-- Шаблон блока reception. Внутри: inputs + select station с опциями из site.stations -->
+  <template id="receptionTemplate">
+    <div class="reception">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <strong>Reception</strong>
+        <div class="actions">
+          <button type="button" class="btn secondary btn-remove">Удалить</button>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:8px; margin-top:8px;">
+        <div>
+          <label>Frequency</label>
+          <input name="frequency" type="text" placeholder="e.g. 7.200" />
+        </div>
+        <div>
+          <label>Language</label>
+          <input name="language" type="text" placeholder="e.g. English" />
+        </div>
+        <div>
+          <label>Date (YYYY-MM-DD)</label>
+          <input name="rdate" type="text" placeholder="2025-11-30" />
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:8px; margin-top:8px;">
+        <div>
+          <label>Time (HH.mm-HH.mm)</label>
+          <input name="rtime" type="text" placeholder="12.00-13.30" />
+        </div>
+
+        <div>
+          <label>Location</label>
+          <select name="location">
+            <option value="">—</option>
+            <option value="Moscow">Moscow</option>
+            <option value="Saint-Petersburg">Saint-Petersburg</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Receiver</label>
+          <select name="receiver">
+            <option value="">—</option>
+            <option value="Degen">Degen</option>
+            <option value="Airspy">Airspy</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:8px; margin-top:8px;">
+        <div>
+          <label>Antenna</label>
+          <select name="antenna">
+            <option value="">—</option>
+            <option value="telescopic">telescopic</option>
+            <option value="YouLoop">YouLoop</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Station (из site.stations)</label>
+          <select name="station">
+            <option value="">— выберите —</option>
+	    {% assign stations_sorted = site.stations | sort: "title" %}
+            {% for st in stations_sorted %}
+            <option value="{{ st.code | escape }}">{{ st.title | escape }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div>
+          <label>Youtube ID</label>
+          <input name="youtube" type="text" placeholder="YouTube ID" />
+        </div>
+      </div>
+    </div>
+  </template>
+
+<script>
+/* eslint-disable no-console */
+(() => {
+  // --- Utilities ---
+  function slugify(s) {
+    return String(s || '')
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\\s-]/g, '')
+      .replace(/\\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+  }
+
+function yamlEscapeString(s) {
+  // null/undefined -> empty YAML string
+  if (s === null || s === undefined) return "''";
+
+  // гарантируем строку
+  s = String(s);
+
+  // пустая строка
+  if (s.length === 0) return "''";
+
+  // Если есть переносы строки — используем block scalar (|-)
+  if (/\r|\n/.test(s)) {
+    // нормализуем CRLF -> LF и разбиваем на строки
+    const lines = s.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+    // Если последняя строка пустая — YAML |\- это корректно обработает.
+    // Возврат с отступом двумя пробелами для читаемости
+    return '|-\n' + lines.map(line => '  ' + line).join('\n');
+  }
+
+  // Для однострочных значений: экранируем обратные слэши и двойные кавычки
+  const esc = s.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+  return `"${esc}"`;
+}
+
+  function todayISO() {
+    const d = new Date();
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+  }
+
+  function validateDateYMD(d) {
+    if (!d) return true;
+    const re = /^\d{4}-\d{2}-\d{2}$/;
+    if (!re.test(d)) return false;
+    const [y,m,day] = d.split('-').map(Number);
+    if (m < 1 || m > 12) return false;
+    const mdays = [31, ((y%4===0 && y%100!==0) || (y%400===0)) ? 29 : 28,31,30,31,30,31,31,30,31,30,31];
+    if (day < 1 || day > mdays[m-1]) return false;
+    return true;
+  }
+  function validateTimeRange(t) {
+    if (!t) return true;
+    return /^\d{1,2}\.\d{2}-\d{1,2}\.\d{2}$/.test(t);
+  }
+
+  // --- IndexedDB small helper to persist directory handle (if browser supports) ---
+  const DB_NAME = 'local-jekyll-writer';
+  const STORE_NAME = 'handles';
+  function idbPut(key, value) {
+    return new Promise((resolve, reject) => {
+      const req = indexedDB.open(DB_NAME, 1);
+      req.onupgradeneeded = () => {
+        const db = req.result;
+        if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME);
+      };
+      req.onsuccess = () => {
+        const db = req.result;
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        tx.objectStore(STORE_NAME).put(value, key);
+        tx.oncomplete = () => { db.close(); resolve(); };
+        tx.onerror = () => { db.close(); reject(tx.error); };
+      };
+      req.onerror = () => reject(req.error);
+    });
+  }
+  function idbGet(key) {
+    return new Promise((resolve, reject) => {
+      const req = indexedDB.open(DB_NAME, 1);
+      req.onupgradeneeded = () => {
+        const db = req.result;
+        if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME);
+      };
+      req.onsuccess = () => {
+        const db = req.result;
+        const tx = db.transaction(STORE_NAME, 'readonly');
+        const r = tx.objectStore(STORE_NAME).get(key);
+        r.onsuccess = () => { db.close(); resolve(r.result); };
+        r.onerror = () => { db.close(); reject(r.error); };
+      };
+      req.onerror = () => reject(req.error);
+    });
+  }
+  function idbDelete(key) {
+    return new Promise((resolve, reject) => {
+      const req = indexedDB.open(DB_NAME, 1);
+      req.onupgradeneeded = () => {
+        const db = req.result;
+        if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME);
+      };
+      req.onsuccess = () => {
+        const db = req.result;
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        tx.objectStore(STORE_NAME).delete(key);
+        tx.oncomplete = () => { db.close(); resolve(); };
+        tx.onerror = () => { db.close(); reject(tx.error); };
+      };
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  // --- DOM anchors ---
+  const chooseDirBtn = document.getElementById('chooseDirBtn');
+  const clearDirBtn = document.getElementById('clearDirBtn');
+  const dirInfo = document.getElementById('dirInfo');
+  const previewBtn = document.getElementById('previewBtn');
+  const createBtn = document.getElementById('createBtn');
+  const downloadFallbackBtn = document.getElementById('downloadFallbackBtn');
+  const previewArea = document.getElementById('previewArea');
+  const statusEl = document.getElementById('status');
+
+  const receptionsList = document.getElementById('receptionsList');
+  const addReceptionBtn = document.getElementById('addReceptionBtn');
+  const receptionTpl = document.getElementById('receptionTemplate').content;
+
+  let directoryHandle = null; // выбранная папка (File System Access API)
+  const DIR_HANDLE_KEY = 'dir-handle';
+
+  // --- Try restore persisted handle on load ---
+  async function tryRestoreHandle() {
+    if (!('showDirectoryPicker' in window)) {
+      dirInfo.textContent = 'File System Access API не поддерживается в этом браузере — будет использован fallback (скачивание файлов).';
+      return;
+    }
+    try {
+      const stored = await idbGet(DIR_HANDLE_KEY);
+      if (stored) {
+        // stored is a FileSystemDirectoryHandle (serializable in Chromium)
+        directoryHandle = stored;
+        // check permission
+        const perm = await directoryHandle.queryPermission({ mode: 'readwrite' });
+        if (perm === 'granted' || perm === 'prompt') {
+          // try to request if prompt
+          if (perm === 'prompt') {
+            const req = await directoryHandle.requestPermission({ mode: 'readwrite' });
+            if (req !== 'granted') {
+              directoryHandle = null;
+              dirInfo.textContent = 'Папка сохранена, но разрешение отклонено. Нажмите "Выбрать папку".';
+              return;
+            }
+          }
+          dirInfo.textContent = 'Выбрана папка: ' + (directoryHandle.name || 'неизвестно');
+          return;
+        } else {
+          // denied
+          directoryHandle = null;
+          await idbDelete(DIR_HANDLE_KEY);
+          dirInfo.textContent = 'Была сохранена папка, но доступ запрещен — выберите заново.';
+        }
+      } else {
+        dirInfo.textContent = 'Папка не выбрана';
+      }
+    } catch (err) {
+      console.warn('restore handle err', err);
+      directoryHandle = null;
+      dirInfo.textContent = 'Папка не выбрана';
+    }
+  }
+
+  // Try restore immediately
+  tryRestoreHandle();
+
+  chooseDirBtn.addEventListener('click', async () => {
+    if (!('showDirectoryPicker' in window)) {
+      alert('File System Access API не поддерживается в этом браузере. Нажмите "Скачать (fallback)".');
+      return;
+    }
+    try {
+      const handle = await window.showDirectoryPicker();
+      // request permission
+      const perm = await handle.requestPermission({ mode: 'readwrite' });
+      if (perm !== 'granted') {
+        alert('Нужны разрешения на запись в выбранную папку.');
+        return;
+      }
+      directoryHandle = handle;
+      dirInfo.textContent = 'Выбрана папка: ' + (directoryHandle.name || 'неизвестно');
+      // persist handle in IndexedDB
+      try {
+        await idbPut(DIR_HANDLE_KEY, directoryHandle);
+      } catch (err) {
+        console.warn('Не удалось сохранить handle в IndexedDB:', err);
+      }
+    } catch (err) {
+      console.error(err);
+      status('Выбор папки отменён или произошла ошибка.', 'err');
+    }
+  });
+
+  clearDirBtn.addEventListener('click', async () => {
+    directoryHandle = null;
+    try { await idbDelete(DIR_HANDLE_KEY); } catch (e) { /* ignore */ }
+    dirInfo.textContent = 'Папка забыта';
+    status('Папка забыта', 'ok');
+  });
+
+  // --- Reception management ---
+  function addReception(initial = {}) {
+    const node = document.importNode(receptionTpl, true);
+    const host = document.createElement('div');
+    host.appendChild(node);
+    // fill values if provided
+    for (const name of ['frequency','language','rdate','rtime','location','receiver','antenna','station','youtube']) {
+      const el = host.querySelector(`[name="${name}"]`);
+      if (el && initial[name]) el.value = initial[name];
+    }
+    const removeBtn = host.querySelector('.btn-remove');
+    removeBtn.addEventListener('click', () => host.remove());
+    receptionsList.appendChild(host);
+    return host;
+  }
+  addReceptionBtn.addEventListener('click', () => addReception());
+
+  // --- Collect form data ---
+  function collectData() {
+    const get = id => document.getElementById(id).value.trim();
+    const obj = {
+      date: get('date'),
+      title: get('title'),
+      kind: document.getElementById('kind').value,
+      mailTo: get('mailTo'),
+      reportSent: get('reportSent'),
+      responseSent: get('responseSent'),
+      responseReceived: get('responseReceived'),
+      serie: document.getElementById('serie').value || '',
+      receptions: [],
+      gallery: [],
+      contents: document.getElementById('contents').value || ''
+    };
+    // gallery: split lines
+    const galleryRaw = document.getElementById('gallery').value.split(/\r?\n/);
+    obj.gallery = galleryRaw.map(s => s.trim()).filter(s => s.length > 0);
+
+    // receptions
+    const recs = receptionsList.querySelectorAll('.reception');
+    recs.forEach(r => {
+      const getR = name => {
+        const el = r.querySelector('[name="'+name+'"]');
+        return el ? el.value.trim() : '';
+      };
+      const rec = {
+        frequency: getR('frequency'),
+        language: getR('language'),
+        date: getR('rdate'),
+        time: getR('rtime'),
+        location: getR('location'),
+        receiver: getR('receiver'),
+        antenna: getR('antenna'),
+        station: getR('station'),
+        youtube: getR('youtube')
+      };
+      if (Object.values(rec).some(v => v && v.length > 0)) obj.receptions.push(rec);
+    });
+    return obj;
+  }
+
+  // --- Build YAML frontmatter + contents ---
+  function buildYAML(obj) {
+    const lines = ['---'];
+    if (obj.date) lines.push(`date: ${yamlEscapeString(obj.date)}`);
+    if (obj.title) lines.push(`title: ${yamlEscapeString(obj.title)}`);
+    if (obj.kind) lines.push(`kind: ${yamlEscapeString(obj.kind)}`);
+    if (obj.mailTo) lines.push(`mail_to: ${yamlEscapeString(obj.mailTo)}`);
+    if (obj.reportSent) lines.push(`report_sent: ${yamlEscapeString(obj.reportSent)}`);
+    if (obj.responseSent) lines.push(`response_sent: ${yamlEscapeString(obj.responseSent)}`);
+    if (obj.responseReceived) lines.push(`response_received: ${yamlEscapeString(obj.responseReceived)}`);
+    if (obj.serie) lines.push(`serie: ${yamlEscapeString(obj.serie)}`);
+
+    // gallery
+    if (obj.gallery && obj.gallery.length) {
+      lines.push('gallery:');
+      obj.gallery.forEach(g => lines.push(`  - ${yamlEscapeString(g)}`));
+    } else {
+      lines.push('gallery: []');
+    }
+
+    // receptions
+    if (obj.receptions && obj.receptions.length) {
+      lines.push('receptions:');
+      obj.receptions.forEach(r => {
+        lines.push('  -');
+        if (r.frequency) lines.push(`      frequency: ${yamlEscapeString(r.frequency)}`);
+        if (r.language) lines.push(`      language: ${yamlEscapeString(r.language)}`);
+        if (r.date) lines.push(`      date: ${yamlEscapeString(r.date)}`);
+        if (r.time) lines.push(`      time: ${yamlEscapeString(r.time)}`);
+        if (r.location) lines.push(`      location: ${yamlEscapeString(r.location)}`);
+        if (r.receiver) lines.push(`      receiver: ${yamlEscapeString(r.receiver)}`);
+        if (r.antenna) lines.push(`      antenna: ${yamlEscapeString(r.antenna)}`);
+        if (r.station) lines.push(`      station: ${yamlEscapeString(r.station)}`);
+        if (r.youtube) lines.push(`      youtube: ${yamlEscapeString(r.youtube)}`);
+      });
+    } else {
+      lines.push('receptions: []');
+    }
+
+    lines.push('---');
+    return lines.join('\n') + '\n\n' + (obj.contents || '') + '\n';
+  }
+
+  // --- Validation ---
+  function validate(obj) {
+    const dateFields = ['date','reportSent','responseSent','responseReceived'];
+    for (const f of dateFields) {
+      if (obj[f] && !validateDateYMD(obj[f])) return { ok:false, msg:`Поле ${f} имеет неверный формат (YYYY-MM-DD): "${obj[f]}"` };
+    }
+    for (const r of obj.receptions) {
+      if (r.date && !validateDateYMD(r.date)) return { ok:false, msg:`Reception: неверный формат даты: "${r.date}"` };
+      if (r.time && !validateTimeRange(r.time)) return { ok:false, msg:`Reception: неверный формат времени: "${r.time}" (ожидается HH.mm-HH.mm)` };
+    }
+    if (!obj.title || !obj.title.trim()) return { ok:false, msg:'Title обязателен для формирования имени файла (вариант 2: Date + Title).' };
+    return { ok:true };
+  }
+
+  // --- UI helpers ---
+  function status(msg, kind) {
+    statusEl.textContent = msg || '';
+    statusEl.className = 'status ' + (kind === 'err' ? 'err' : (kind === 'ok' ? 'ok' : ''));
+  }
+
+  // --- Preview ---
+  previewBtn.addEventListener('click', () => {
+    const data = collectData();
+    const v = validate(data);
+    if (!v.ok) { status(v.msg, 'err'); return; }
+    if (!data.date) data.date = todayISO();
+    const text = buildYAML(data);
+    previewArea.value = text;
+    status('Preview готов', 'ok');
+    previewArea.scrollIntoView({behavior:'smooth'});
+  });
+
+  // --- Create file in chosen directory (File System Access API) ---
+  async function createFileInDir(filename, content) {
+    if (!directoryHandle) throw new Error('Папка не выбрана.');
+    // create or get
+    const fileHandle = await directoryHandle.getFileHandle(filename, { create: true });
+    const writable = await fileHandle.createWritable();
+    await writable.write(content);
+    await writable.close();
+    return fileHandle;
+  }
+
+  createBtn.addEventListener('click', async () => {
+    const data = collectData();
+    const v = validate(data);
+    if (!v.ok) { status(v.msg, 'err'); return; }
+    if (!data.date) data.date = todayISO();
+    const slug = slugify(data.title);
+    const filename = `${data.date}-${slug}.md`;
+    const content = buildYAML(data);
+
+    // If File System Access API available and directory selected => write
+    if ('showDirectoryPicker' in window) {
+      if (!directoryHandle) {
+        status('Папка не выбрана. Нажмите "Выбрать папку".', 'err');
+        return;
+      }
+      try {
+        // check permission before writing
+        const perm = await directoryHandle.queryPermission({ mode: 'readwrite' });
+        if (perm !== 'granted') {
+          const req = await directoryHandle.requestPermission({ mode: 'readwrite' });
+          if (req !== 'granted') {
+            status('Разрешение на запись не предоставлено.', 'err');
+            return;
+          }
+        }
+        await createFileInDir(filename, content);
+        status(`Файл создан/перезаписан: ${filename}`, 'ok');
+        // refresh preview with filename info
+        previewArea.value = content;
+      } catch (err) {
+        console.error(err);
+        status('Ошибка записи файла: ' + (err.message || err), 'err');
+      }
+    } else {
+      // fallback: download
+      try {
+        const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        status('Скачивание запущено (fallback).', 'ok');
+      } catch (err) {
+        console.error(err);
+        status('Не удалось скачать файл: ' + (err.message || err), 'err');
+      }
+    }
+  });
+
+  // --- Download fallback button (explicit) ---
+  downloadFallbackBtn.addEventListener('click', () => {
+    const data = collectData();
+    const v = validate(data);
+    if (!v.ok) { status(v.msg, 'err'); return; }
+    if (!data.date) data.date = todayISO();
+    const slug = slugify(data.title);
+    const filename = `${data.date}-${slug}.md`;
+    const content = buildYAML(data);
+    const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    status('Скачивание запущено (fallback).', 'ok');
+  });
+
+  // Expose simple keyboard shortcut: Ctrl+S to preview, Ctrl+Enter to create (convenience)
+  window.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key === 's') {
+      e.preventDefault();
+      previewBtn.click();
+    }
+    if (e.ctrlKey && e.key === 'Enter') {
+      e.preventDefault();
+      createBtn.click();
+    }
+  });
+
+  // Inform about API availability on load
+  if (!('showDirectoryPicker' in window)) {
+    dirInfo.textContent = 'File System Access API не поддерживается в этом браузере — будет использован fallback (скачивание файлов).';
+  }
+
+let postsDirHandle = null;
+let postsList = []; // будет массив объектов {name, handle}
+
+async function selectPostsFolder() {
+  try {
+    // Запрос папки
+    postsDirHandle = await window.showDirectoryPicker();
+    
+    postsList = [];
+    // Перебираем файлы в выбранной папке
+    for await (const entry of postsDirHandle.values()) {
+      if (entry.kind === 'file' && entry.name.endsWith('.md')) {
+        postsList.push({ name: entry.name, handle: entry });
+      }
+    }
+
+    if (postsList.length === 0) {
+      alert("В папке нет Markdown-файлов");
+      return;
+    }
+
+    // Обновим select с постами
+    const postSelect = document.getElementById('postSelect');
+    postSelect.innerHTML = ''; // очистка
+    postsList.forEach(post => {
+      const option = document.createElement('option');
+      option.value = post.name;  // или сохраняем индекс: postsList.indexOf(post)
+      option.textContent = post.name;
+      postSelect.appendChild(option);
+    });
+
+    alert(`Найдено ${postsList.length} постов`);
+  } catch (err) {
+    console.error(err);
+    alert("Не удалось выбрать папку или прочитать файлы");
+  }
+}
+
+// Привязка к кнопке
+document.getElementById('selectPostsFolderBtn').addEventListener('click', selectPostsFolder);
+
+
+let selectedFileHandle = null; // выбранный файл для редактирования
+
+async function loadSelectedPost() {
+  const postSelect = document.getElementById('postSelect');
+  const selectedIndex = postSelect.selectedIndex;
+
+  // получаем handle выбранного файла
+  selectedFileHandle = postsList[selectedIndex].handle;
+
+  try {
+    const file = await selectedFileHandle.getFile();
+    const text = await file.text();
+
+    // Разделяем YAML frontmatter и контент
+    const match = text.match(/^---\s*([\s\S]*?)\s*---\s*([\s\S]*)$/);
+    if (!match) {
+      alert("Не удалось найти YAML frontmatter в файле");
+      return;
+    }
+
+    const yamlText = match[1];
+    const contentText = match[2];
+
+    // Простое парсинг YAML (каждая строка "key: value")
+    const yamlLines = yamlText.split(/\r?\n/);
+    const yamlData = {};
+    yamlLines.forEach(line => {
+      const parts = line.split(/:(.+)/); // разделяем только на первый :
+      if (parts.length === 2 || parts.length === 3 && !parts[2]) {
+        const key = parts[0].trim();
+        const value = parts[1].trim().replace(/^"(.*)"$/,'$1'); // убираем кавычки
+        yamlData[key] = value;
+      }
+    });
+
+    // Заполняем поля формы
+    document.getElementById('date').value = yamlData.date || '';
+    document.getElementById('title').value = yamlData.title || '';
+    document.getElementById('kind').value = yamlData.kind || '';
+    document.getElementById('mailTo').value = yamlData.mail_to || '';
+    document.getElementById('reportSent').value = yamlData.report_sent || '';
+    document.getElementById('responseSent').value = yamlData.response_sent || '';
+    document.getElementById('responseReceived').value = yamlData.response_received || '';
+    document.getElementById('serie').value = yamlData.serie || '';
+
+// Заполняем gallery
+    if (Array.isArray(yamlData.gallery)) {
+      document.getElementById('gallery').value = yamlData.gallery.join('\n');
+    } else {
+      document.getElementById('gallery').value = '';
+    }
+
+    // Заполняем receptions
+    const receptionsContainer = document.getElementById('receptionsList');
+    receptionsContainer.innerHTML = ''; // очистка
+
+    if (Array.isArray(yamlData.receptions)) {
+      yamlData.receptions.forEach(rec => {
+	    const recDiv = addReception(); // внутри addReception создается div.section и appendChild
+	
+	    // Заполняем поля нового блока
+            for (const name of ['frequency','language','rdate','rtime','location','receiver','antenna','station','youtube']) {
+                const el = host.querySelector(`[name="${name}"]`);
+                if (el && initial[name]) el.value = rec[name] || '';
+            }
+      });
+    }    
+
+    // Контент
+    document.getElementById('contents').value = contentText.trim();
+
+    alert("Пост загружен в форму");
+  } catch (err) {
+    console.error(err);
+    alert("Ошибка при чтении файла");
+  }
+}
+
+// Привязка к событию select
+document.getElementById('postSelectBtn').addEventListener('click', loadSelectedPost);
+
+})();
+
+
+</script>
+
+
+</main><!-- .site-main -->
+

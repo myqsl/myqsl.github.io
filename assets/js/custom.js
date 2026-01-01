@@ -1,14 +1,14 @@
 /**
  * Main JS file for Scriptor behaviours
  */
-
+/*
 // Responsive video embeds
 let videoEmbeds = [
   'iframe[src*="youtube.com"]',
   'iframe[src*="vimeo.com"]'
 ];
 reframe(videoEmbeds.join(','));
-
+*/
 // Menu on small screens
 let menuToggle = document.querySelectorAll('.menu-toggle');
 if (menuToggle) {

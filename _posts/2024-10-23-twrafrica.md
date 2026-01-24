@@ -3,8 +3,8 @@ title: TWR Africa (French)
 kind: e-QSL
 mail_to: mailto:lstavrop@twr.org
 report_sent: 2024-10-12
-responce_sent: 2024-10-23
-responce_received: 2024-10-23
+response_sent: 2024-10-23
+response_received: 2024-10-23
 serie: twr_africa
 receptions:
   - frequency: 9940 kHz

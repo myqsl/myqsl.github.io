@@ -3,8 +3,8 @@ title: Radyo Pilipinas Worldwide
 kind: e-QSL
 mail_to: mailto:dzrp.radyopilipinas@gmail.com
 report_sent: 2024-08-23
-responce_sent: 2024-08-27
-responce_received: 2024-08-27
+response_sent: 2024-08-27
+response_received: 2024-08-27
 serie: pilipinas
 receptions:
   - frequency: 12120 kHz

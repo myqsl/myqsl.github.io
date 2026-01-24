@@ -3,8 +3,8 @@ title: Palavra Alegre
 kind: QSL
 mail_to: mailto:contato@palavraalegre.com.br
 report_sent: 2024-07-13
-responce_sent: 2024-08-14
-responce_received: 2024-11-05
+response_sent: 2024-08-14
+response_received: 2024-11-05
 serie: palavra
 receptions:
   - frequency: 9765 kHz

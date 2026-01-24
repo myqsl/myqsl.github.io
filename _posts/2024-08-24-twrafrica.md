@@ -3,8 +3,8 @@ title: TWR Africa (Umbundu)
 kind: e-QSL
 mail_to: mailto:lstavrop@twr.org
 report_sent: 2024-08-23
-responce_sent: 2024-08-24
-responce_received: 2024-08-24
+response_sent: 2024-08-24
+response_received: 2024-08-24
 serie: twr_africa
 receptions:
   - frequency: 7410 kHz

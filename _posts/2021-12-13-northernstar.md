@@ -3,8 +3,8 @@ title: Radio Northern Star
 kind: e-QSL
 mail_to: mailto:1000@northernstar.no
 report_sent: 2021-12-14
-responce_sent: 2022-01-22
-responce_received: 2022-01-22
+response_sent: 2022-01-22
+response_received: 2022-01-22
 serie: northernstar
 receptions:
   - frequency: 5895 kHz

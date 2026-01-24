@@ -3,8 +3,8 @@ title: TWR Africa (English)
 kind: e-QSL
 mail_to: mailto:lstavrop@twr.org
 report_sent: 2022-02-09
-responce_sent: 2022-02-09
-responce_received: 2022-02-09
+response_sent: 2022-02-09
+response_received: 2022-02-09
 serie: twr_africa
 receptions:
   - frequency: 9500 kHz

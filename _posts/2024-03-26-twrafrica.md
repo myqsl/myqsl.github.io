@@ -3,8 +3,8 @@ title: TWR Africa (Lingala)
 kind: e-QSL
 mail_to: mailto:bpfeiffer@twr.org
 report_sent: 2024-03-29
-responce_sent: 2024-04-04
-responce_received: 2024-04-04
+response_sent: 2024-04-04
+response_received: 2024-04-04
 serie: twr_africa
 receptions:
   - frequency: 15105 kHz

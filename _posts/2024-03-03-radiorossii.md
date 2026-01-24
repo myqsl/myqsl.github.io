@@ -3,8 +3,8 @@ title: Радио России
 kind: e-QSL
 mail_to: mailto:prtc@idknet.com
 report_sent: 2024-03-14
-responce_sent: 2024-03-15
-responce_received: 2024-03-15
+response_sent: 2024-03-15
+response_received: 2024-03-15
 serie: prtc
 receptions:
   - frequency: 999 kHz

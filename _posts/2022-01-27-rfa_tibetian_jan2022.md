@@ -3,8 +3,8 @@ title: Radio Free Asia (Tibetan)
 kind: QSL
 mail_to: mailto:qsl@rfa.org
 report_sent: 2022-01-31
-responce_sent: 2022-02-02
-responce_received: 2022-02-18
+response_sent: 2022-02-02
+response_received: 2022-02-18
 serie: rfa
 receptions:
   - frequency: 9305 kHz

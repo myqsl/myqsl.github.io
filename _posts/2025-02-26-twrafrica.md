@@ -3,8 +3,8 @@ title: TWR Africa (Arabic)
 kind: e-QSL
 mail_to: mailto:lstavrop@twr.org
 report_sent: 2025-02-25
-responce_sent: 2025-02-25
-responce_received: 2025-02-25
+response_sent: 2025-02-25
+response_received: 2025-02-25
 serie: twr_africa
 receptions:
   - frequency: 13800 kHz

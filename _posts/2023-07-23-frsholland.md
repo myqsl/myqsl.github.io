@@ -3,8 +3,8 @@ title: FRS-Holland Summer Splash 2023
 kind: e-QSL
 mail_to: mailto:frs@frsholland.nl
 report_sent: 2023-08-24
-responce_sent: 2023-09-16
-responce_received: 2023-09-16
+response_sent: 2023-09-16
+response_received: 2023-09-16
 serie: frsholland
 receptions:
   - frequency: 6185 kHz

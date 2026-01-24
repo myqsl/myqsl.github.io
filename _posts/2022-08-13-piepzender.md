@@ -3,8 +3,8 @@ title: Radio Piepzender
 kind: e-QSL
 mail_to: mailto:radioqsl@hotmail.com
 report_sent: 2022-08-15
-responce_sent: 2022-08-20
-responce_received: 2022-08-20
+response_sent: 2022-08-20
+response_received: 2022-08-20
 serie: piepzender
 receptions:
   - frequency: 6185 kHz

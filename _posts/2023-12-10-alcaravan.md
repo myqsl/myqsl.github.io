@@ -3,8 +3,8 @@ title: Radio Alcaraván
 kind: e-QSL
 mail_to: mailto:rafaelcoldx@yahoo.com
 report_sent: 2023-12-11
-responce_sent: 2023-12-11
-responce_received: 2023-12-11
+response_sent: 2023-12-11
+response_received: 2023-12-11
 serie: alcaravan
 receptions:
   - frequency: 5910 kHz

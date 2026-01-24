@@ -3,8 +3,8 @@ title: Radio Akhbar Mufriha
 kind: e-QSL
 mail_to: mailto:akhbarmufriha@outlook.com
 report_sent: 2022-08-25
-responce_sent: 2022-09-02
-responce_received: 2022-09-02
+response_sent: 2022-09-02
+response_received: 2022-09-02
 serie: akhbarmufriha
 receptions:
   - frequency: 7300 kHz

@@ -3,8 +3,8 @@ title: Rádio Nacional da Amazônia
 kind: e-QSL
 mail_to: mailto:ouvidoria@ebc.com.br
 report_sent: 2022-08-23
-responce_sent: 2022-09-20
-responce_received: 2022-09-20
+response_sent: 2022-09-20
+response_received: 2022-09-20
 serie: zye365
 receptions:
   - frequency: 11780 kHz

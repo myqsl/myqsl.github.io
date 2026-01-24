@@ -3,8 +3,8 @@ title: Český rozhlas Radiožurnál
 kind: QSL
 mail_to: web-form
 report_sent: 2021-08-03
-responce_sent: 2021-09-01
-responce_received: 2021-09-18
+response_sent: 2021-09-01
+response_received: 2021-09-18
 serie: prague
 receptions:
   - frequency: 270 kHz

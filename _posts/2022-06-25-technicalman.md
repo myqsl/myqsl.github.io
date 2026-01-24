@@ -3,8 +3,8 @@ title: Radio Technical Man
 kind: e-QSL
 mail_to: mailto:technicalman@hotmail.nl
 report_sent: 2022-06-26
-responce_sent: 2022-06-29
-responce_received: 2022-06-29
+response_sent: 2022-06-29
+response_received: 2022-06-29
 serie: technicalman
 receptions:
   - frequency: 6205 kHz

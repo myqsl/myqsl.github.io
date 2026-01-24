@@ -3,8 +3,8 @@ title: TWR Africa (Yao)
 kind: e-QSL
 mail_to: mailto:lstavrop@twr.org
 report_sent: 2024-09-28
-responce_sent: 2024-10-11
-responce_received: 2024-10-11
+response_sent: 2024-10-11
+response_received: 2024-10-11
 serie: twr_africa
 receptions:
   - frequency: 6100 kHz

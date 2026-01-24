@@ -3,8 +3,8 @@ title: Radio Spaceshuttle International
 kind: e-QSL
 mail_to: mailto:spaceshuttleradio@yahoo.com
 report_sent: 2023-07-12
-responce_sent: 2023-07-16
-responce_received: 2023-07-16
+response_sent: 2023-07-16
+response_received: 2023-07-16
 serie: spaceshuttle
 receptions:
   - frequency: 9290 kHz

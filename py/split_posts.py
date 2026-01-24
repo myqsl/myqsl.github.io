@@ -61,8 +61,8 @@ def write_new_post(new_post: dict[str, Any]):
 {print_attr(new_post, 'kind')}
 {print_attr(new_post, 'mail_to', optional=True)}
 {print_attr(new_post, 'report_sent', optional=True)}
-{print_attr(new_post, 'responce_sent', optional=True)}
-{print_attr(new_post, 'responce_received')}
+{print_attr(new_post, 'response_sent', optional=True)}
+{print_attr(new_post, 'response_received')}
 {print_attr(new_post, 'serie')}
 receptions:
 {nl.join('  - ' + render_reception(r) for r in new_post['receptions'])}
@@ -94,9 +94,9 @@ def reformat_orig_post(orig_post: dict[str, Any]):
         new_post['mail_to'] = orig_post['mail_to']
     if 'report_sent' in orig_post:
         new_post['report_sent'] = orig_post['report_sent']    
-    if 'responce_sent' in orig_post:
-        new_post['responce_sent'] = orig_post['responce_sent']
-    new_post['responce_received'] = orig_post['responce_received']
+    if 'response_sent' in orig_post:
+        new_post['response_sent'] = orig_post['response_sent']
+    new_post['response_received'] = orig_post['response_received']
     new_post['serie'] = orig_post['serie']
     new_post['gallery'] = orig_post['gallery']
     new_post['content'] = orig_post['content']

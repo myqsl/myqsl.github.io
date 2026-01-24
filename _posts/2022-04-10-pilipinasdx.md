@@ -3,8 +3,8 @@ title: Philippines DX Report of April 2022
 kind: e-QSL
 mail_to: mailto:pilipinasdx@gmail.com
 report_sent: 2022-04-11
-responce_sent: 2022-04-26
-responce_received: 2022-04-26
+response_sent: 2022-04-26
+response_received: 2022-04-26
 serie: pilipinasdx
 receptions:
   - frequency: 15670 kHz

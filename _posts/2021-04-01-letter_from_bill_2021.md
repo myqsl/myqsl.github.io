@@ -3,8 +3,8 @@ title: Envelope from Bill Tilford
 kind: letter
 # mail_to: 
 # report_sent: 
-responce_sent: 2021-03-12
-responce_received: 2021-04-01
+response_sent: 2021-03-12
+response_received: 2021-04-01
 serie: uncle_bill
 receptions:
 

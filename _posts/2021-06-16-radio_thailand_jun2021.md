@@ -3,8 +3,8 @@ title: Radio Thailand WorldService
 kind: QSL
 mail_to: mailto:rthworldservice@gmail.com
 report_sent: 2021-06-16
-responce_sent: 2021-08-05
-responce_received: 2021-08-18
+response_sent: 2021-08-05
+response_received: 2021-08-18
 serie: rth
 receptions:
   - frequency: 9920 kHz

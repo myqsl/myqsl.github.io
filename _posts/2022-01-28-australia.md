@@ -3,8 +3,8 @@ title: Reach Beyond Australia
 kind: e-QSL
 mail_to: mailto:radio@reachbeyond.org.au
 report_sent: 2022-01-31
-responce_sent: 2022-02-02
-responce_received: 2022-02-02
+response_sent: 2022-02-02
+response_received: 2022-02-02
 serie: reach_beyond_australia
 receptions:
   - frequency: 11825 kHz

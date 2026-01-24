@@ -3,8 +3,8 @@ title: LRA 36 Radio Arcangel San Gabriel - Antártida
 kind: e-QSL
 mail_to: mailto:lra36nacional@gmail.com
 report_sent: 2023-04-09
-responce_sent: 2023-07-27
-responce_received: 2023-07-27
+response_sent: 2023-07-27
+response_received: 2023-07-27
 serie: lra36
 receptions:
   - frequency: 15476 kHz

@@ -3,8 +3,8 @@ title: VORW Radio International
 kind: e-QSL
 mail_to: mailto:vorwinfo@gmail.com
 report_sent: 2024-03-13
-responce_sent: 2024-11-12
-responce_received: 2024-11-12
+response_sent: 2024-11-12
+response_received: 2024-11-12
 serie: vorw
 receptions:
   - frequency: 11925 kHz

@@ -3,8 +3,8 @@ title: Radio Center
 kind: e-letter
 mail_to: mailto:radiocenter@inbox.lv
 report_sent: 2023-08-11
-responce_sent: 2024-01-09
-responce_received: 2024-01-09
+response_sent: 2024-01-09
+response_received: 2024-01-09
 serie: radiocenter
 receptions:
   - frequency: 1602 kHz

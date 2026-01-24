@@ -3,8 +3,8 @@ title: TWR Africa (Oromo)
 kind: e-QSL
 mail_to: mailto:lstavrop@twr.org
 report_sent: 2024-12-24
-responce_sent: 2025-01-02
-responce_received: 2025-01-02
+response_sent: 2025-01-02
+response_received: 2025-01-02
 serie: twr_africa
 receptions:
   - frequency: 11660 kHz

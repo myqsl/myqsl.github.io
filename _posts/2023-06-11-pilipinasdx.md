@@ -3,8 +3,8 @@ title: Philippines DX Report of June 2023
 kind: e-QSL
 mail_to: mailto:pilipinasdx@gmail.com
 report_sent: 2023-06-11
-responce_sent: 2023-09-03
-responce_received: 2023-09-03
+response_sent: 2023-09-03
+response_received: 2023-09-03
 serie: pilipinasdx
 receptions:
   - frequency: 15770 kHz

@@ -3,8 +3,8 @@ title: К 95-летию Советского Российского Иновещ
 kind: QSL
 mail_to: mailto:andrey_hamradio@mail.ru
 report_sent: 2024-11-03
-responce_sent: 2024-12-20
-responce_received: 2025-01-02
+response_sent: 2024-12-20
+response_received: 2025-01-02
 serie: nostalgic
 receptions:
   - frequency: 11535 kHz

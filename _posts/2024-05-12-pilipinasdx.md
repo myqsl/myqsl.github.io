@@ -3,8 +3,8 @@ title: Philippines DX Report of May 2024
 kind: e-QSL
 mail_to: mailto:pilipinasdx@gmail.com
 report_sent: 2024-05-12
-responce_sent: 2024-05-14
-responce_received: 2024-05-14
+response_sent: 2024-05-14
+response_received: 2024-05-14
 serie: pilipinasdx
 receptions:
   - frequency: 12060 kHz

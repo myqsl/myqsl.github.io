@@ -4,17 +4,9 @@ layout: default
 
 <main class="main-content fadeInDown delay_075s">
 
-<!--
-<div class="find-block">
-  Edit QSL:
-  <select id="qslSelect">
-    {% for qsl in site.posts %}
-      <option value="{{ qsl.code }}">{{ qsl.date }} -- {{ qsl.title }}</option>
-    {% endfor %}
-  </select>
-  <button onclick="loadQsl()">Load</button>
-</div>
--->
+
+
+<h1>Работа с QSL</h1>
 
 <button id="selectPostsFolderBtn">Выбрать папку _posts</button>
 <select id="postSelect">
@@ -56,9 +48,9 @@ layout: default
   <form id="mainForm" autocomplete="off" novalidate>
     <div class="col-2">
       <div>
-        <label for="date">Date (YYYY-MM-DD)</label>
-        <input id="date" name="date" type="text" placeholder="2025-11-30" required />
-        <div class="small">Формат: YYYY-MM-DD</div>
+        <label for="name">Filename (YYYY-MM-DD-slug.md)</label>
+        <input id="name" name="name" type="text" placeholder="2025-11-30-ftiom.md" required />
+        <div class="small">Формат: YYYY-MM-DD-slug.md</div>
       </div>
 
       <div>
@@ -160,14 +152,14 @@ layout: default
         </div>
         <div>
           <label>Date (YYYY-MM-DD)</label>
-          <input name="rdate" type="text" placeholder="2025-11-30" />
+          <input name="date" type="text" placeholder="2025-11-30" />
         </div>
       </div>
 
       <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:8px; margin-top:8px;">
         <div>
           <label>Time (HH.mm-HH.mm)</label>
-          <input name="rtime" type="text" placeholder="12.00-13.30" />
+          <input name="time" type="text" placeholder="12.00-13.30" />
         </div>
 
         <div>
@@ -435,7 +427,7 @@ function yamlEscapeString(s) {
     const host = document.createElement('div');
     host.appendChild(node);
     // fill values if provided
-    for (const name of ['frequency','language','rdate','rtime','location','receiver','antenna','station','youtube']) {
+    for (const name of ['frequency','language','date','time','location','receiver','antenna','station','youtube']) {
       const el = host.querySelector(`[name="${name}"]`);
       if (el && initial[name]) el.value = initial[name];
     }
@@ -450,7 +442,7 @@ function yamlEscapeString(s) {
   function collectData() {
     const get = id => document.getElementById(id).value.trim();
     const obj = {
-      date: get('date'),
+      name: get('name'),
       title: get('title'),
       kind: document.getElementById('kind').value,
       mailTo: get('mailTo'),
@@ -476,8 +468,8 @@ function yamlEscapeString(s) {
       const rec = {
         frequency: getR('frequency'),
         language: getR('language'),
-        date: getR('rdate'),
-        time: getR('rtime'),
+        date: getR('date'),
+        time: getR('time'),
         location: getR('location'),
         receiver: getR('receiver'),
         antenna: getR('antenna'),
@@ -492,7 +484,6 @@ function yamlEscapeString(s) {
   // --- Build YAML frontmatter + contents ---
   function buildYAML(obj) {
     const lines = ['---'];
-    if (obj.date) lines.push(`date: ${yamlEscapeString(obj.date)}`);
     if (obj.title) lines.push(`title: ${yamlEscapeString(obj.title)}`);
     if (obj.kind) lines.push(`kind: ${yamlEscapeString(obj.kind)}`);
     if (obj.mailTo) lines.push(`mail_to: ${yamlEscapeString(obj.mailTo)}`);
@@ -534,7 +525,7 @@ function yamlEscapeString(s) {
 
   // --- Validation ---
   function validate(obj) {
-    const dateFields = ['date','reportSent','responseSent','responseReceived'];
+    const dateFields = ['reportSent','responseSent','responseReceived'];
     for (const f of dateFields) {
       if (obj[f] && !validateDateYMD(obj[f])) return { ok:false, msg:`Поле ${f} имеет неверный формат (YYYY-MM-DD): "${obj[f]}"` };
     }
@@ -557,7 +548,6 @@ function yamlEscapeString(s) {
     const data = collectData();
     const v = validate(data);
     if (!v.ok) { status(v.msg, 'err'); return; }
-    if (!data.date) data.date = todayISO();
     const text = buildYAML(data);
     previewArea.value = text;
     status('Preview готов', 'ok');
@@ -579,9 +569,7 @@ function yamlEscapeString(s) {
     const data = collectData();
     const v = validate(data);
     if (!v.ok) { status(v.msg, 'err'); return; }
-    if (!data.date) data.date = todayISO();
-    const slug = slugify(data.title);
-    const filename = `${data.date}-${slug}.md`;
+    const filename = data.name;
     const content = buildYAML(data);
 
     // If File System Access API available and directory selected => write
@@ -697,7 +685,6 @@ async function selectPostsFolder() {
       postSelect.appendChild(option);
     });
 
-    alert(`Найдено ${postsList.length} постов`);
   } catch (err) {
     console.error(err);
     alert("Не удалось выбрать папку или прочитать файлы");
@@ -712,6 +699,8 @@ let selectedFileHandle = null; // выбранный файл для редак�
 
 async function loadSelectedPost() {
   const postSelect = document.getElementById('postSelect');
+  
+  const filename = postSelect.value;  
   const selectedIndex = postSelect.selectedIndex;
 
   // получаем handle выбранного файла
@@ -731,20 +720,70 @@ async function loadSelectedPost() {
     const yamlText = match[1];
     const contentText = match[2];
 
-    // Простое парсинг YAML (каждая строка "key: value")
+    // Парсинг YAML (каждая строка "key: value")
     const yamlLines = yamlText.split(/\r?\n/);
     const yamlData = {};
+
+
+    let currentKey = null;
+    let currentArray = null;
+    let currentObject = null;
+
     yamlLines.forEach(line => {
-      const parts = line.split(/:(.+)/); // разделяем только на первый :
-      if (parts.length === 2 || parts.length === 3 && !parts[2]) {
-        const key = parts[0].trim();
-        const value = parts[1].trim().replace(/^"(.*)"$/,'$1'); // убираем кавычки
-        yamlData[key] = value;
+      // ключ верхнего уровня
+      const topLevelMatch = line.match(/^([a-zA-Z0-9_]+):\s*(.*)$/);
+      if (topLevelMatch) {
+        // сохранить предыдущий массив
+        if (currentKey && currentArray) {
+          yamlData[currentKey] = currentArray;
+        }
+
+        currentKey = topLevelMatch[1];
+        const value = topLevelMatch[2];
+
+        if (value === '') {
+          // начинается массив или сложная структура
+          currentArray = [];
+          currentObject = null;
+        } else {
+          yamlData[currentKey] = value.replace(/^"(.*)"$/, '$1');
+          currentKey = null;
+          currentArray = null;
+        }
+        return;
+      }
+
+      // элемент массива: "- ..."
+      const arrayItemMatch = line.match(/^\s*-\s*(.*)$/);
+      if (arrayItemMatch && currentArray) {
+        currentObject = {};
+        currentArray.push(currentObject);
+
+        const inlineKV = arrayItemMatch[1].match(/^([^:]+):\s*(.*)$/);
+        if (inlineKV) {
+          currentObject[inlineKV[1].trim()] =
+            inlineKV[2].replace(/^"(.*)"$/, '$1');
+        }
+        return;
+      }
+
+      // поле объекта массива (с отступом)
+      const objectFieldMatch = line.match(/^\s{4}([^:]+):\s*(.*)$/);
+      if (objectFieldMatch && currentObject) {
+        currentObject[objectFieldMatch[1].trim()] =
+          objectFieldMatch[2].replace(/^"(.*)"$/, '$1');
       }
     });
 
+    // финализация
+    if (currentKey && currentArray) {
+      yamlData[currentKey] = currentArray;
+    }
+
+
+
     // Заполняем поля формы
-    document.getElementById('date').value = yamlData.date || '';
+    document.getElementById('name').value = filename;
     document.getElementById('title').value = yamlData.title || '';
     document.getElementById('kind').value = yamlData.kind || '';
     document.getElementById('mailTo').value = yamlData.mail_to || '';
@@ -766,13 +805,13 @@ async function loadSelectedPost() {
 
     if (Array.isArray(yamlData.receptions)) {
       yamlData.receptions.forEach(rec => {
-	    const recDiv = addReception(); // внутри addReception создается div.section и appendChild
+	    const host = addReception(rec); // внутри addReception создается div.section и appendChild
 	
 	    // Заполняем поля нового блока
-            for (const name of ['frequency','language','rdate','rtime','location','receiver','antenna','station','youtube']) {
-                const el = host.querySelector(`[name="${name}"]`);
-                if (el && initial[name]) el.value = rec[name] || '';
-            }
+//            for (const name of ['frequency','language','date','time','location','receiver','antenna','station','youtube']) {
+//                const el = host.querySelector(`[name="${name}"]`);
+//                if (el && rec[name]) el.value = rec[name];
+//            }
       });
     }    
 

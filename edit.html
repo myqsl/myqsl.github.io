@@ -5,14 +5,25 @@ layout: default
 <main class="main-content fadeInDown delay_075s">
 
 
+<button id="selectFolderBtn">Выбрать папку сайта</button>
+
 
 <h1>Работа с QSL</h1>
 
-<button id="selectPostsFolderBtn">Выбрать папку _posts</button>
-<select id="postSelect">
-  <option value="">-- выберите пост --</option>
-</select>
-<button id="postSelectBtn">Load</button>
+<div class="col-22">
+
+	<div>
+		<select id="postSelect">
+		  <option value="">-- выберите QSL --</option>
+		</select>
+	</div>
+
+	<div>
+		<button id="postSelectBtn"  style="width: 100%">Загрузить QSL</button>
+	</div>
+
+</div>
+
 
   <style>
   :root{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;margin:0}
@@ -23,6 +34,7 @@ layout: default
   input[type="text"], textarea, select{width:100%;padding:8px 10px;border:1px solid #e6edf3;border-radius:8px;box-sizing:border-box}
   .row{display:flex;gap:10px;align-items:center}
   .col-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .col-22{display:grid;grid-template-columns:3fr 1fr;gap:12px}
   .actions{display:flex;gap:8px}
   .btn{background:#2563eb;color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
   .btn.ghost{background:#f1f5f9;color:#0f172a;border:1px solid #e2e8f0}
@@ -38,12 +50,6 @@ layout: default
   .note{font-size:0.85rem;color:#64748b}
   </style>
 
-
-  <div style="margin-bottom:10px" class="meta-row">
-    <button id="chooseDirBtn" class="btn">Выбрать папку для сохранения</button>
-    <button id="clearDirBtn" class="btn ghost">Забыть выбранную папку</button>
-    <div id="dirInfo" class="small">Папка не выбрана</div>
-  </div>
 
   <form id="mainForm" autocomplete="off" novalidate>
     <div class="col-2">
@@ -123,7 +129,6 @@ layout: default
     <div class="row" style="margin-top:6px">
       <button type="button" id="previewBtn" class="btn">Preview</button>
       <button type="button" id="createBtn" class="btn" style="background:#059669">Create file</button>
-      <button type="button" id="downloadFallbackBtn" class="btn ghost">Скачать (fallback)</button>
       <div id="status" class="status"></div>
     </div>
   </form>
@@ -213,16 +218,6 @@ layout: default
 <script>
 /* eslint-disable no-console */
 (() => {
-  // --- Utilities ---
-  function slugify(s) {
-    return String(s || '')
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9\\s-]/g, '')
-      .replace(/\\s+/g, '-')
-      .replace(/-+/g, '-')
-      .replace(/^-|-$/g, '');
-  }
 
 function yamlEscapeString(s) {
   // null/undefined -> empty YAML string
@@ -248,14 +243,6 @@ function yamlEscapeString(s) {
   return `"${esc}"`;
 }
 
-  function todayISO() {
-    const d = new Date();
-    const yyyy = d.getFullYear();
-    const mm = String(d.getMonth() + 1).padStart(2, '0');
-    const dd = String(d.getDate()).padStart(2, '0');
-    return `${yyyy}-${mm}-${dd}`;
-  }
-
   function validateDateYMD(d) {
     if (!d) return true;
     const re = /^\d{4}-\d{2}-\d{2}$/;
@@ -271,68 +258,10 @@ function yamlEscapeString(s) {
     return /^\d{1,2}\.\d{2}-\d{1,2}\.\d{2}$/.test(t);
   }
 
-  // --- IndexedDB small helper to persist directory handle (if browser supports) ---
-  const DB_NAME = 'local-jekyll-writer';
-  const STORE_NAME = 'handles';
-  function idbPut(key, value) {
-    return new Promise((resolve, reject) => {
-      const req = indexedDB.open(DB_NAME, 1);
-      req.onupgradeneeded = () => {
-        const db = req.result;
-        if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME);
-      };
-      req.onsuccess = () => {
-        const db = req.result;
-        const tx = db.transaction(STORE_NAME, 'readwrite');
-        tx.objectStore(STORE_NAME).put(value, key);
-        tx.oncomplete = () => { db.close(); resolve(); };
-        tx.onerror = () => { db.close(); reject(tx.error); };
-      };
-      req.onerror = () => reject(req.error);
-    });
-  }
-  function idbGet(key) {
-    return new Promise((resolve, reject) => {
-      const req = indexedDB.open(DB_NAME, 1);
-      req.onupgradeneeded = () => {
-        const db = req.result;
-        if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME);
-      };
-      req.onsuccess = () => {
-        const db = req.result;
-        const tx = db.transaction(STORE_NAME, 'readonly');
-        const r = tx.objectStore(STORE_NAME).get(key);
-        r.onsuccess = () => { db.close(); resolve(r.result); };
-        r.onerror = () => { db.close(); reject(r.error); };
-      };
-      req.onerror = () => reject(req.error);
-    });
-  }
-  function idbDelete(key) {
-    return new Promise((resolve, reject) => {
-      const req = indexedDB.open(DB_NAME, 1);
-      req.onupgradeneeded = () => {
-        const db = req.result;
-        if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME);
-      };
-      req.onsuccess = () => {
-        const db = req.result;
-        const tx = db.transaction(STORE_NAME, 'readwrite');
-        tx.objectStore(STORE_NAME).delete(key);
-        tx.oncomplete = () => { db.close(); resolve(); };
-        tx.onerror = () => { db.close(); reject(tx.error); };
-      };
-      req.onerror = () => reject(req.error);
-    });
-  }
 
   // --- DOM anchors ---
-  const chooseDirBtn = document.getElementById('chooseDirBtn');
-  const clearDirBtn = document.getElementById('clearDirBtn');
-  const dirInfo = document.getElementById('dirInfo');
   const previewBtn = document.getElementById('previewBtn');
   const createBtn = document.getElementById('createBtn');
-  const downloadFallbackBtn = document.getElementById('downloadFallbackBtn');
   const previewArea = document.getElementById('previewArea');
   const statusEl = document.getElementById('status');
 
@@ -340,86 +269,10 @@ function yamlEscapeString(s) {
   const addReceptionBtn = document.getElementById('addReceptionBtn');
   const receptionTpl = document.getElementById('receptionTemplate').content;
 
-  let directoryHandle = null; // выбранная папка (File System Access API)
-  const DIR_HANDLE_KEY = 'dir-handle';
-
-  // --- Try restore persisted handle on load ---
-  async function tryRestoreHandle() {
-    if (!('showDirectoryPicker' in window)) {
-      dirInfo.textContent = 'File System Access API не поддерживается в этом браузере — будет использован fallback (скачивание файлов).';
-      return;
-    }
-    try {
-      const stored = await idbGet(DIR_HANDLE_KEY);
-      if (stored) {
-        // stored is a FileSystemDirectoryHandle (serializable in Chromium)
-        directoryHandle = stored;
-        // check permission
-        const perm = await directoryHandle.queryPermission({ mode: 'readwrite' });
-        if (perm === 'granted' || perm === 'prompt') {
-          // try to request if prompt
-          if (perm === 'prompt') {
-            const req = await directoryHandle.requestPermission({ mode: 'readwrite' });
-            if (req !== 'granted') {
-              directoryHandle = null;
-              dirInfo.textContent = 'Папка сохранена, но разрешение отклонено. Нажмите "Выбрать папку".';
-              return;
-            }
-          }
-          dirInfo.textContent = 'Выбрана папка: ' + (directoryHandle.name || 'неизвестно');
-          return;
-        } else {
-          // denied
-          directoryHandle = null;
-          await idbDelete(DIR_HANDLE_KEY);
-          dirInfo.textContent = 'Была сохранена папка, но доступ запрещен — выберите заново.';
-        }
-      } else {
-        dirInfo.textContent = 'Папка не выбрана';
-      }
-    } catch (err) {
-      console.warn('restore handle err', err);
-      directoryHandle = null;
-      dirInfo.textContent = 'Папка не выбрана';
-    }
+  if (!('showDirectoryPicker' in window)) {
+      alert('File System Access API не поддерживается в этом браузере.');
   }
 
-  // Try restore immediately
-  tryRestoreHandle();
-
-  chooseDirBtn.addEventListener('click', async () => {
-    if (!('showDirectoryPicker' in window)) {
-      alert('File System Access API не поддерживается в этом браузере. Нажмите "Скачать (fallback)".');
-      return;
-    }
-    try {
-      const handle = await window.showDirectoryPicker();
-      // request permission
-      const perm = await handle.requestPermission({ mode: 'readwrite' });
-      if (perm !== 'granted') {
-        alert('Нужны разрешения на запись в выбранную папку.');
-        return;
-      }
-      directoryHandle = handle;
-      dirInfo.textContent = 'Выбрана папка: ' + (directoryHandle.name || 'неизвестно');
-      // persist handle in IndexedDB
-      try {
-        await idbPut(DIR_HANDLE_KEY, directoryHandle);
-      } catch (err) {
-        console.warn('Не удалось сохранить handle в IndexedDB:', err);
-      }
-    } catch (err) {
-      console.error(err);
-      status('Выбор папки отменён или произошла ошибка.', 'err');
-    }
-  });
-
-  clearDirBtn.addEventListener('click', async () => {
-    directoryHandle = null;
-    try { await idbDelete(DIR_HANDLE_KEY); } catch (e) { /* ignore */ }
-    dirInfo.textContent = 'Папка забыта';
-    status('Папка забыта', 'ok');
-  });
 
   // --- Reception management ---
   function addReception(initial = {}) {
@@ -555,7 +408,7 @@ function yamlEscapeString(s) {
   });
 
   // --- Create file in chosen directory (File System Access API) ---
-  async function createFileInDir(filename, content) {
+  async function createFileInDir(directoryHandle, filename, content) {
     if (!directoryHandle) throw new Error('Папка не выбрана.');
     // create or get
     const fileHandle = await directoryHandle.getFileHandle(filename, { create: true });
@@ -566,29 +419,28 @@ function yamlEscapeString(s) {
   }
 
   createBtn.addEventListener('click', async () => {
-    const data = collectData();
-    const v = validate(data);
-    if (!v.ok) { status(v.msg, 'err'); return; }
-    const filename = data.name;
-    const content = buildYAML(data);
+      const data = collectData();
+      const v = validate(data);
+      if (!v.ok) { status(v.msg, 'err'); return; }
+      const filename = data.name;
+      const content = buildYAML(data);
 
-    // If File System Access API available and directory selected => write
-    if ('showDirectoryPicker' in window) {
-      if (!directoryHandle) {
+      // If File System Access API available and directory selected => write
+	  if (!postsDirHandle) {
         status('Папка не выбрана. Нажмите "Выбрать папку".', 'err');
         return;
       }
       try {
         // check permission before writing
-        const perm = await directoryHandle.queryPermission({ mode: 'readwrite' });
+        const perm = await postsDirHandle.queryPermission({ mode: 'readwrite' });
         if (perm !== 'granted') {
-          const req = await directoryHandle.requestPermission({ mode: 'readwrite' });
+          const req = await postsDirHandle.requestPermission({ mode: 'readwrite' });
           if (req !== 'granted') {
             status('Разрешение на запись не предоставлено.', 'err');
             return;
           }
         }
-        await createFileInDir(filename, content);
+        await createFileInDir(postsDirHandle, filename, content);
         status(`Файл создан/перезаписан: ${filename}`, 'ok');
         // refresh preview with filename info
         previewArea.value = content;
@@ -596,45 +448,6 @@ function yamlEscapeString(s) {
         console.error(err);
         status('Ошибка записи файла: ' + (err.message || err), 'err');
       }
-    } else {
-      // fallback: download
-      try {
-        const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-        status('Скачивание запущено (fallback).', 'ok');
-      } catch (err) {
-        console.error(err);
-        status('Не удалось скачать файл: ' + (err.message || err), 'err');
-      }
-    }
-  });
-
-  // --- Download fallback button (explicit) ---
-  downloadFallbackBtn.addEventListener('click', () => {
-    const data = collectData();
-    const v = validate(data);
-    if (!v.ok) { status(v.msg, 'err'); return; }
-    if (!data.date) data.date = todayISO();
-    const slug = slugify(data.title);
-    const filename = `${data.date}-${slug}.md`;
-    const content = buildYAML(data);
-    const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(url);
-    status('Скачивание запущено (fallback).', 'ok');
   });
 
   // Expose simple keyboard shortcut: Ctrl+S to preview, Ctrl+Enter to create (convenience)
@@ -649,18 +462,27 @@ function yamlEscapeString(s) {
     }
   });
 
-  // Inform about API availability on load
-  if (!('showDirectoryPicker' in window)) {
-    dirInfo.textContent = 'File System Access API не поддерживается в этом браузере — будет использован fallback (скачивание файлов).';
-  }
 
 let postsDirHandle = null;
 let postsList = []; // будет массив объектов {name, handle}
 
-async function selectPostsFolder() {
+async function selectFolder(siteDirHandle) {
+	try {
+		postsDirHandle = await siteDirHandle.getDirectoryHandle('_posts');
+		// TODO other dir handles
+
+		await reloadPostsList();
+		// TODO other reloads
+    } catch (err) {
+       console.error(err);
+       alert("Не удалось выбрать директорию");
+    }
+}
+
+
+async function reloadPostsList() {
+
   try {
-    // Запрос папки
-    postsDirHandle = await window.showDirectoryPicker();
     
     postsList = [];
     // Перебираем файлы в выбранной папке
@@ -687,12 +509,15 @@ async function selectPostsFolder() {
 
   } catch (err) {
     console.error(err);
-    alert("Не удалось выбрать папку или прочитать файлы");
+    alert("Не удалось прочитать файлы");
   }
 }
 
 // Привязка к кнопке
-document.getElementById('selectPostsFolderBtn').addEventListener('click', selectPostsFolder);
+document.getElementById('selectFolderBtn').addEventListener('click', async () => {
+	const siteDirHandle = await window.showDirectoryPicker();
+	await selectFolder(siteDirHandle);
+});
 
 
 let selectedFileHandle = null; // выбранный файл для редактирования
@@ -817,8 +642,6 @@ async function loadSelectedPost() {
 
     // Контент
     document.getElementById('contents').value = contentText.trim();
-
-    alert("Пост загружен в форму");
   } catch (err) {
     console.error(err);
     alert("Ошибка при чтении файла");

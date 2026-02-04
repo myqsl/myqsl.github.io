@@ -10,7 +10,11 @@ layout: default
 
 <h1>Работа с QSL</h1>
 
-<div class="col-22">
+<div class="col-131">
+
+	<div>
+		<button id="reloadPostsBtn"  style="width: 100%">Reload</button>
+	</div>
 
 	<div>
 		<select id="postSelect">
@@ -19,7 +23,7 @@ layout: default
 	</div>
 
 	<div>
-		<button id="postSelectBtn"  style="width: 100%">Загрузить QSL</button>
+		<button id="postSelectBtn"  style="width: 100%">Edit it</button>
 	</div>
 
 </div>
@@ -34,7 +38,7 @@ layout: default
   input[type="text"], textarea, select{width:100%;padding:8px 10px;border:1px solid #e6edf3;border-radius:8px;box-sizing:border-box}
   .row{display:flex;gap:10px;align-items:center}
   .col-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .col-22{display:grid;grid-template-columns:3fr 1fr;gap:12px}
+  .col-131{display:grid;grid-template-columns:1fr 3fr 1fr;gap:12px}
   .actions{display:flex;gap:8px}
   .btn{background:#2563eb;color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
   .btn.ghost{background:#f1f5f9;color:#0f172a;border:1px solid #e2e8f0}
@@ -214,6 +218,77 @@ layout: default
       </div>
     </div>
   </template>
+
+
+
+
+
+<h1>Работа со странами</h1>
+
+<div class="col-131">
+
+	<div>
+		<button id="reloadCountriesBtn"  style="width: 100%">Reload</button>
+	</div>
+
+	<div>
+		<select id="countrySelect">
+		  <option value="">-- выберите страну --</option>
+		</select>
+	</div>
+
+	<div>
+		<button id="countrySelectBtn"  style="width: 100%">Загрузить</button>
+	</div>
+
+</div>
+
+
+  <form id="mainForm" autocomplete="off" novalidate>
+    <div class="col-2">
+      <div>
+        <label for="countryCode">Code</label>
+        <input id="countryCode" name="countryCode" type="text" placeholder="Код" required />
+        <div class="small">Формат: slug</div>
+      </div>
+
+      <div>
+        <label for="countryTitle">Title</label>
+        <input id="countryTitle" name="countryTitle" type="text" placeholder="Название страны" />
+      </div>
+    </div>
+
+    <div class="col-2">
+      <div>
+        <label for="countryContinent">Continent</label>
+        <select id="countryContinent" name="countryContinent">
+          <option value="Africa">Africa</option>
+          <option value="America">America</option>
+          <option value="Antarctida">Antarctida</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Pacific">Pacific</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="countryFlag">Flag</label>
+        <input id="countryFlag" name="countryFlag" type="text" placeholder="/assets/flags/.....png" />
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:6px">
+      <button type="button" id="countryPreviewBtn" class="btn">Preview</button>
+      <button type="button" id="countryCreateBtn" class="btn" style="background:#059669">Create file</button>
+      <div id="countryStatus" class="status"></div>
+    </div>
+  </form>
+
+  <h2 style="margin-top:18px">Preview — результат (YAML frontmatter + contents)</h2>
+  <textarea id="countryPreviewArea" readonly></textarea>
+
+
+
 
 <script>
 /* eslint-disable no-console */
@@ -409,7 +484,17 @@ function yamlEscapeString(s) {
 
   // --- Create file in chosen directory (File System Access API) ---
   async function createFileInDir(directoryHandle, filename, content) {
-    if (!directoryHandle) throw new Error('Папка не выбрана.');
+    if (!directoryHandle) {
+		throw new Error('Папка не выбрана');
+	}
+	// check permission before writing
+	const perm = await directoryHandle.queryPermission({ mode: 'readwrite' });
+	if (perm !== 'granted') {
+	  const req = await directoryHandle.requestPermission({ mode: 'readwrite' });
+	  if (req !== 'granted') {
+		throw new Error('Разрешение на запись не предоставлено.');
+	  }
+	}
     // create or get
     const fileHandle = await directoryHandle.getFileHandle(filename, { create: true });
     const writable = await fileHandle.createWritable();
@@ -425,21 +510,7 @@ function yamlEscapeString(s) {
       const filename = data.name;
       const content = buildYAML(data);
 
-      // If File System Access API available and directory selected => write
-	  if (!postsDirHandle) {
-        status('Папка не выбрана. Нажмите "Выбрать папку".', 'err');
-        return;
-      }
       try {
-        // check permission before writing
-        const perm = await postsDirHandle.queryPermission({ mode: 'readwrite' });
-        if (perm !== 'granted') {
-          const req = await postsDirHandle.requestPermission({ mode: 'readwrite' });
-          if (req !== 'granted') {
-            status('Разрешение на запись не предоставлено.', 'err');
-            return;
-          }
-        }
         await createFileInDir(postsDirHandle, filename, content);
         status(`Файл создан/перезаписан: ${filename}`, 'ok');
         // refresh preview with filename info
@@ -462,50 +533,71 @@ function yamlEscapeString(s) {
     }
   });
 
+let siteDirHandle = null; // выбранный файл для редактирования
 
 let postsDirHandle = null;
 let postsList = []; // будет массив объектов {name, handle}
 
-async function selectFolder(siteDirHandle) {
+async function reloadPosts() {
+	if (!siteDirHandle) {
+		alert("Не выбрана папка сайта");
+		return;
+	}
 	try {
 		postsDirHandle = await siteDirHandle.getDirectoryHandle('_posts');
-		// TODO other dir handles
-
-		await reloadPostsList();
-		// TODO other reloads
+		postsList = await reloadFileList(postsDirHandle, 'postSelect');
     } catch (err) {
        console.error(err);
        alert("Не удалось выбрать директорию");
     }
 }
 
+async function reloadCountries() {
+	if (!siteDirHandle) {
+		alert("Не выбрана папка сайта");
+		return;
+	}
+	try {
+		countriesDirHandle = await siteDirHandle.getDirectoryHandle('_countries');
+		countryList = await reloadFileList(countriesDirHandle, 'countrySelect');
+    } catch (err) {
+       console.error(err);
+       alert("Не удалось выбрать директорию");
+    }
+}
 
-async function reloadPostsList() {
+document.getElementById('reloadPostsBtn').addEventListener('click', reloadPosts);
+document.getElementById('reloadCountriesBtn').addEventListener('click', reloadCountries);
+
+
+async function reloadFileList(dirHandle, selectId) {
 
   try {
     
-    postsList = [];
+    const fileList = [];
     // Перебираем файлы в выбранной папке
-    for await (const entry of postsDirHandle.values()) {
+    for await (const entry of dirHandle.values()) {
       if (entry.kind === 'file' && entry.name.endsWith('.md')) {
-        postsList.push({ name: entry.name, handle: entry });
+        fileList.push({ name: entry.name, handle: entry });
       }
     }
 
-    if (postsList.length === 0) {
-      alert("В папке нет Markdown-файлов");
+    if (fileList.length === 0) {
+      alert(`В папке ${dirHandle.name} нет Markdown-файлов`);
       return;
     }
 
     // Обновим select с постами
-    const postSelect = document.getElementById('postSelect');
-    postSelect.innerHTML = ''; // очистка
-    postsList.forEach(post => {
+    const select = document.getElementById(selectId);
+    select.innerHTML = ''; // очистка
+    fileList.forEach(file => {
       const option = document.createElement('option');
-      option.value = post.name;  // или сохраняем индекс: postsList.indexOf(post)
-      option.textContent = post.name;
-      postSelect.appendChild(option);
+      option.value = file.name;  // или сохраняем индекс: postsList.indexOf(post)
+      option.textContent = file.name;
+      select.appendChild(option);
     });
+    
+    return fileList;
 
   } catch (err) {
     console.error(err);
@@ -515,8 +607,7 @@ async function reloadPostsList() {
 
 // Привязка к кнопке
 document.getElementById('selectFolderBtn').addEventListener('click', async () => {
-	const siteDirHandle = await window.showDirectoryPicker();
-	await selectFolder(siteDirHandle);
+	siteDirHandle = await window.showDirectoryPicker();
 });
 
 
@@ -650,6 +741,128 @@ async function loadSelectedPost() {
 
 // Привязка к событию select
 document.getElementById('postSelectBtn').addEventListener('click', loadSelectedPost);
+
+
+// --- DOM anchors ---
+const countryPreviewBtn = document.getElementById('countryPreviewBtn');
+const countryCreateBtn = document.getElementById('countryCreateBtn');
+const countryPreviewArea = document.getElementById('countryPreviewArea');
+const countryStatusEl = document.getElementById('countryStatus');
+
+// --- Collect form data ---
+function collectCountryData() {
+    const get = id => document.getElementById(id).value.trim();
+    return {
+      code: get('countryCode'),
+      title: get('countryTitle'),
+      continent: get('countryContinent'),
+      flag: get('countryFlag'),
+    };
+}
+
+// --- Build YAML frontmatter + contents ---
+function buildCountryYAML(obj) {
+    const lines = ['---'];
+    if (obj.code) lines.push(`code: ${yamlEscapeString(obj.code)}`);
+    if (obj.title) lines.push(`title: ${yamlEscapeString(obj.title)}`);
+    if (obj.continent) lines.push(`continent: ${yamlEscapeString(obj.continent)}`);
+    if (obj.flag) lines.push(`flag: ${yamlEscapeString(obj.flag)}`);
+    lines.push('---');
+    return lines.join('\n') + '\n\n' + (obj.contents || '') + '\n';
+}
+
+// --- UI helpers ---
+function countryStatus(msg, kind) {
+    countryStatusEl.textContent = msg || '';
+    countryStatusEl.className = 'status ' + (kind === 'err' ? 'err' : (kind === 'ok' ? 'ok' : ''));
+}
+
+// --- Preview ---
+countryPreviewBtn.addEventListener('click', () => {
+    const data = collectCountryData();
+    const text = buildCountryYAML(data);
+    countryPreviewArea.value = text;
+    countryStatus('Preview готов', 'ok');
+    countryPreviewArea.scrollIntoView({behavior:'smooth'});
+});
+
+countryCreateBtn.addEventListener('click', async () => {
+      const data = collectCountryData();
+      const filename = data.code + '.md';
+      const content = buildCountryYAML(data);
+
+      try {
+        await createFileInDir(countryDirHandle, filename, content);
+        countryStatus(`Файл создан/перезаписан: ${filename}`, 'ok');
+        // refresh preview with filename info
+        countryPreviewArea.value = content;
+      } catch (err) {
+        console.error(err);
+        countryStatus('Ошибка записи файла: ' + (err.message || err), 'err');
+      }
+});
+
+
+let countryDirHandle = null;
+let countryList = []; // будет массив объектов {name, handle}
+
+
+async function loadSelectedCountry() {
+  const countrySelect = document.getElementById('countrySelect');
+  
+  const filename = countrySelect.value;  
+  const selectedIndex = countrySelect.selectedIndex;
+
+  // получаем handle выбранного файла
+  selectedFileHandle = countryList[selectedIndex].handle;
+
+  try {
+    const file = await selectedFileHandle.getFile();
+    const text = await file.text();
+
+    // Разделяем YAML frontmatter и контент
+    const match = text.match(/^---\s*([\s\S]*?)\s*---\s*([\s\S]*)$/);
+    if (!match) {
+      alert("Не удалось найти YAML frontmatter в файле");
+      return;
+    }
+
+    const yamlText = match[1];
+    const contentText = match[2];
+
+    // Парсинг YAML (каждая строка "key: value")
+    const yamlLines = yamlText.split(/\r?\n/);
+    const yamlData = {};
+
+    yamlLines.forEach(line => {
+      // ключ верхнего уровня
+      const match = line.match(/^([a-zA-Z0-9_]+):\s*(.*)$/);
+      if (!match) {
+		  return;
+	  }
+
+      const key = match[1];
+      const value = match[2];
+
+      yamlData[key] = value.replace(/^"(.*)"$/, '$1');
+    });
+
+    // Заполняем поля формы
+    document.getElementById('countryCode').value = yamlData.code || '';
+    document.getElementById('countryTitle').value = yamlData.title || '';
+    document.getElementById('countryContinent').value = yamlData.continent || '';
+    document.getElementById('countryFlag').value = yamlData.flag || '';
+
+    // Контент
+    document.getElementById('contents').value = contentText.trim();
+  } catch (err) {
+    console.error(err);
+    alert("Ошибка при чтении файла");
+  }
+}
+
+// Привязка к событию select
+document.getElementById('countrySelectBtn').addEventListener('click', loadSelectedCountry);
 
 })();
 

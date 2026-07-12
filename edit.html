@@ -4,11 +4,39 @@ layout: default
 
 <main class="main-content fadeInDown delay_075s">
 
+  <style>
+  :root{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;margin:0}
+  body{max-width:1100px;margin:20px auto;padding:18px;background:#f7fafc;color:#0f172a}
+  h1{font-size:1.2rem;margin:0 0 12px}
+  h2{text-align: center;}
+  form{background:#fff;padding:16px;border-radius:10px;box-shadow:0 8px 30px rgba(2,6,23,0.06);display:grid;gap:12px}
+  label{display:block;font-weight:600;margin-bottom:6px}
+  input[type="text"], textarea, select{width:100%;padding:8px 10px;border:1px solid #e6edf3;border-radius:8px;box-sizing:border-box}
+  .row{display:flex;gap:10px;align-items:center}
+  .col-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .col-131{display:grid;grid-template-columns:1fr 3fr 1fr;gap:12px}
+  .actions{display:flex;gap:8px}
+  .btn{background:#2563eb;color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
+  .btn.ghost{background:#f1f5f9;color:#0f172a;border:1px solid #e2e8f0}
+  .btn.warn{background:#ea580c}
+  .small{font-size:0.85rem;color:#475569}
+  .section{background:#f8fafc;padding:10px;border-radius:8px}
+  .reception{background:#fff;border:1px dashed #e6eef8;padding:10px;border-radius:8px;margin-bottom:8px}
+  textarea.previewArea{margin-top: 0px;min-height:260px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,"Roboto Mono",monospace;white-space:pre-wrap}
+  .status{font-size:0.9rem}
+  .ok{color:#059669}
+  .err{color:#dc2626}
+  .meta-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .note{font-size:0.85rem;color:#64748b}
+  </style>
+
+
+
 
 <button id="selectFolderBtn">Выбрать папку сайта</button>
 
 
-<h1>Работа с QSL</h1>
+<h2>Работа с QSL</h2>
 
 <div class="col-131">
 
@@ -29,37 +57,11 @@ layout: default
 </div>
 
 
-  <style>
-  :root{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;margin:0}
-  body{max-width:1100px;margin:20px auto;padding:18px;background:#f7fafc;color:#0f172a}
-  h1{font-size:1.2rem;margin:0 0 12px}
-  form{background:#fff;padding:16px;border-radius:10px;box-shadow:0 8px 30px rgba(2,6,23,0.06);display:grid;gap:12px}
-  label{display:block;font-weight:600;margin-bottom:6px}
-  input[type="text"], textarea, select{width:100%;padding:8px 10px;border:1px solid #e6edf3;border-radius:8px;box-sizing:border-box}
-  .row{display:flex;gap:10px;align-items:center}
-  .col-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .col-131{display:grid;grid-template-columns:1fr 3fr 1fr;gap:12px}
-  .actions{display:flex;gap:8px}
-  .btn{background:#2563eb;color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:600}
-  .btn.ghost{background:#f1f5f9;color:#0f172a;border:1px solid #e2e8f0}
-  .btn.warn{background:#ea580c}
-  .small{font-size:0.85rem;color:#475569}
-  .section{background:#f8fafc;padding:10px;border-radius:8px}
-  .reception{background:#fff;border:1px dashed #e6eef8;padding:10px;border-radius:8px;margin-bottom:8px}
-  textarea#previewArea{min-height:260px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,"Roboto Mono",monospace;white-space:pre-wrap}
-  .status{font-size:0.9rem}
-  .ok{color:#059669}
-  .err{color:#dc2626}
-  .meta-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-  .note{font-size:0.85rem;color:#64748b}
-  </style>
-
-
-  <form id="mainForm" autocomplete="off" novalidate>
+  <form id="postsMainForm" autocomplete="off" novalidate>
     <div class="col-2">
       <div>
         <label for="name">Filename (YYYY-MM-DD-slug.md)</label>
-        <input id="name" name="name" type="text" placeholder="2025-11-30-ftiom.md" required />
+        <input id="name" name="name" type="text" placeholder="2025-11-30-ftiom.md" required autocomplete="off"/>
         <div class="small">Формат: YYYY-MM-DD-slug.md</div>
       </div>
 
@@ -99,17 +101,21 @@ layout: default
       </div>
     </div>
 
-    <div>
-      <label for="serie">Serie</label>
-      <select id="serie" name="serie">
-        <option value="">— выберите серию —</option>
-	{% assign series_sorted = site.series | sort: "title" %}
-        {% for s in series_sorted %}
-        <option value="{{ s.code | escape }}">{{ s.title | escape }}</option>
-        {% endfor %}
-      </select>
-      <div class="small">Показывается title, в value сохраняется code.</div>
+    <div class="col-2">
+
+		<div>
+			<button id="reloadPostSeriesBtn"  style="width: 100%" type="button">Reload series</button>
+      <div class="small">Нажать после добавления новой серии в форме ниже</div>
+		</div>
+
+		<div>
+			<select id="postSerieSelect">
+			  <option value="">-- выберите серию --</option>
+			</select>
+		</div>
+
     </div>
+
 
     <div class="section">
       <h3 style="margin:0 0 8px 0">Receptions</h3>
@@ -117,7 +123,6 @@ layout: default
       <div class="actions">
         <button type="button" id="addReceptionBtn" class="btn secondary">Добавить Reception</button>
       </div>
-      <div class="small" style="margin-top:8px;">Каждый Reception содержит Frequency, Language, Date (YYYY-MM-DD), Time (HH.mm-HH.mm), Location, Receiver, Antenna, Station (из site.stations — сохраняется code) и Youtube ID.</div>
     </div>
 
     <div>
@@ -137,8 +142,28 @@ layout: default
     </div>
   </form>
 
-  <h2 style="margin-top:18px">Preview — результат (YAML frontmatter + contents)</h2>
-  <textarea id="previewArea" readonly></textarea>
+  <h3 style="margin-top:18px">Preview — результат (YAML frontmatter + contents)</h3>
+  <textarea id="previewArea" class="previewArea" readonly></textarea>
+
+  <datalist id="receivers">
+    <option value="BELKA"/>
+    <option value="XHDATA D-808"/>
+    <option value="Degen DE1103 PLL"/>
+    <option value="Airspy HF+ Discovery"/>
+    <option value="Sony ICF-2010"/>
+    <option value="TEF6686"/>
+  </datalist>
+
+  <datalist id="antennas">
+    <option value="telescopic"/>
+    <option value="YouLoop"/>
+  </datalist>
+
+  <datalist id="locations">
+    <option value="Moscow, Russia"/>
+    <option value="Moscow region, Russia"/>
+    <option value="Saint Petersburg, Russia"/>
+  </datalist>
 
   <!-- Шаблон блока reception. Внутри: inputs + select station с опциями из site.stations -->
   <template id="receptionTemplate">
@@ -150,70 +175,71 @@ layout: default
         </div>
       </div>
 
-      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:8px; margin-top:8px;">
+      <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:8px; margin-top:8px;">
         <div>
-          <label>Frequency</label>
-          <input name="frequency" type="text" placeholder="e.g. 7.200" />
+          <label>Frequency
+             <input name="frequency" type="text" />
+          </label>
         </div>
         <div>
-          <label>Language</label>
-          <input name="language" type="text" placeholder="e.g. English" />
+          <label>Language
+            <input name="language" type="text" />
+          </label>  
         </div>
         <div>
-          <label>Date (YYYY-MM-DD)</label>
-          <input name="date" type="text" placeholder="2025-11-30" />
+          <label>Date
+            <input name="date" type="text" />
+          </label>
         </div>
-      </div>
-
-      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:8px; margin-top:8px;">
         <div>
-          <label>Time (HH.mm-HH.mm)</label>
-          <input name="time" type="text" placeholder="12.00-13.30" />
-        </div>
-
-        <div>
-          <label>Location</label>
-          <select name="location">
-            <option value="">—</option>
-            <option value="Moscow">Moscow</option>
-            <option value="Saint-Petersburg">Saint-Petersburg</option>
-          </select>
-        </div>
-
-        <div>
-          <label>Receiver</label>
-          <select name="receiver">
-            <option value="">—</option>
-            <option value="Degen">Degen</option>
-            <option value="Airspy">Airspy</option>
-          </select>
+          <label>Time
+            <input name="time" type="text" />
+          </label>
         </div>
       </div>
 
       <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:8px; margin-top:8px;">
+
         <div>
-          <label>Antenna</label>
-          <select name="antenna">
-            <option value="">—</option>
-            <option value="telescopic">telescopic</option>
-            <option value="YouLoop">YouLoop</option>
-          </select>
+          <label>Location
+            <input list="locations" name="location" style="min-width: 0; width: 100%;"/>
+          </label>
         </div>
 
         <div>
-          <label>Station (из site.stations)</label>
-          <select name="station">
-            <option value="">— выберите —</option>
-	    {% assign stations_sorted = site.stations | sort: "title" %}
-            {% for st in stations_sorted %}
-            <option value="{{ st.code | escape }}">{{ st.title | escape }}</option>
-            {% endfor %}
-          </select>
+          <label>Receiver
+            <input list="receivers" name="receiver" style="min-width: 0; width: 100%;"/>
+          </label>
         </div>
 
         <div>
-          <label>Youtube ID</label>
-          <input name="youtube" type="text" placeholder="YouTube ID" />
+          <label>Antenna
+            <input list="antennas" name="antenna" style="min-width: 0; width: 100%;"/>
+          </label>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:8px; margin-top:8px;">
+
+        <div>
+          <label>Reload stations
+            <button type="button" name="reloadStationsBtn"  style="width: 100%">Reload stations</button>
+          </label>
+        </div>
+
+        <div>
+          <label>Station
+            <select name="station">
+              <option value="">-- выберите станцию --</option>
+            </select>
+          </label>
+        </div>
+
+
+        <div>
+          <label>Youtube ID
+            <input name="youtube_id" type="text" placeholder="YouTube ID" />
+          </label>
         </div>
       </div>
     </div>
@@ -223,7 +249,7 @@ layout: default
 
 
 
-<h1>Работа со странами</h1>
+<h2>Работа со странами</h2>
 
 <div class="col-131">
 
@@ -244,7 +270,7 @@ layout: default
 </div>
 
 
-  <form id="mainForm" autocomplete="off" novalidate>
+  <form id="countriesMainForm" autocomplete="off" novalidate>
     <div class="col-2">
       <div>
         <label for="countryCode">Code</label>
@@ -284,8 +310,150 @@ layout: default
     </div>
   </form>
 
-  <h2 style="margin-top:18px">Preview — результат (YAML frontmatter + contents)</h2>
-  <textarea id="countryPreviewArea" readonly></textarea>
+  <h3 style="margin-top:18px">Preview — результат (YAML frontmatter + contents)</h3>
+  <textarea id="countryPreviewArea" class="previewArea" readonly></textarea>
+
+
+
+
+<h2>Работа с сериями</h2>
+
+<div class="col-131">
+
+	<div>
+		<button id="reloadSeriesBtn"  style="width: 100%">Reload</button>
+	</div>
+
+	<div>
+		<select id="serieSelect">
+		  <option value="">-- выберите серию --</option>
+		</select>
+	</div>
+
+	<div>
+		<button id="serieSelectBtn"  style="width: 100%">Загрузить</button>
+	</div>
+
+</div>
+
+
+  <form id="seriesMainForm" autocomplete="off" novalidate>
+    <div class="col-2">
+      <div>
+        <label for="serieCode">Code</label>
+        <input id="serieCode" name="serieCode" type="text" placeholder="Код" required />
+        <div class="small">Формат: slug</div>
+      </div>
+
+      <div>
+        <label for="serieTitle">Title</label>
+        <input id="serieTitle" name="serieTitle" type="text" placeholder="Название серии" />
+      </div>
+    </div>
+
+    <div class="col-2">
+		
+		<div>
+			<button type="button" id="reloadSerieCountriesBtn"  style="width: 100%">Reload countries</button>
+		</div>
+
+		<div>
+			<select id="serieCountrySelect">
+			  <option value="">-- выберите страну --</option>
+			</select>
+		</div>
+
+    </div>
+
+
+    <div class="row" style="margin-top:6px">
+      <button type="button" id="seriePreviewBtn" class="btn">Preview</button>
+      <button type="button" id="serieCreateBtn" class="btn" style="background:#059669">Create file</button>
+      <div id="serieStatus" class="status"></div>
+    </div>
+  </form>
+
+  <h3 style="margin-top:18px">Preview — результат (YAML frontmatter + contents)</h3>
+  <textarea id="seriePreviewArea" class="previewArea" readonly></textarea>
+
+
+<h2>Работа с вещательными станциями</h2>
+
+<div class="col-131">
+
+	<div>
+		<button id="reloadStationsBtn"  style="width: 100%">Reload</button>
+	</div>
+
+	<div>
+		<select id="stationSelect">
+		  <option value="">-- выберите станцию --</option>
+		</select>
+	</div>
+
+	<div>
+		<button id="stationSelectBtn"  style="width: 100%">Загрузить</button>
+	</div>
+
+</div>
+
+
+  <form id="stationsMainForm" autocomplete="off" novalidate>
+    <div class="col-131">
+      <div>
+        <label for="stationCode">Code</label>
+        <input id="stationCode" name="stationCode" type="text" placeholder="Код" required />
+        <div class="small">Формат: slug</div>
+      </div>
+
+      <div>
+        <label for="stationTitle">Title</label>
+        <input id="stationTitle" name="stationTitle" type="text" placeholder="Полное название станции" />
+      </div>
+
+      <div>
+        <label for="stationShort">Short title</label>
+        <input id="stationShort" name="stationShort" type="text" placeholder="Однословное название станции" />
+      </div>
+
+	</div>
+
+	<div class="col-2">
+		<div>
+			<button type="button" id="reloadStationCountriesBtn"  style="width: 100%">Reload countries</button>
+		</div>
+
+		<div>
+			<select id="stationCountry">
+			  <option value="">-- выберите страну --</option>
+			</select>
+		</div>
+
+    </div>
+
+    <div class="col-2">
+		
+      <div>
+        <label for="stationItu">ITU</label>
+        <input id="stationItu" name="stationItu" type="text" placeholder="ITU" />
+      </div>
+
+      <div>
+        <label for="stationCoordinates">Coordinates</label>
+        <input id="stationCoordinates" name="stationCoordinates" type="text" placeholder="Два вещественных числа через запятую" />
+      </div>
+
+    </div>
+
+    <div class="row" style="margin-top:6px">
+      <button type="button" id="stationPreviewBtn" class="btn">Preview</button>
+      <button type="button" id="stationCreateBtn" class="btn" style="background:#059669">Create file</button>
+      <div id="stationStatus" class="status"></div>
+    </div>
+  </form>
+
+  <h3 style="margin-top:18px">Preview — результат (YAML frontmatter + contents)</h3>
+  <textarea id="stationPreviewArea" class="previewArea" readonly></textarea>
 
 
 
@@ -350,21 +518,28 @@ function yamlEscapeString(s) {
 
 
   // --- Reception management ---
-  function addReception(initial = {}) {
+  async function addReception(initial = {}) {
     const node = document.importNode(receptionTpl, true);
     const host = document.createElement('div');
     host.appendChild(node);
+    await reloadDirectory('_stations', host.querySelector('[name="station"]'));
+    const reloadStationsBtn = host.querySelector('[name="reloadStationsBtn"]');
+    reloadStationsBtn.addEventListener('click', () =>
+      reloadDirectory('_stations', host.querySelector('[name="station"]')));
+
     // fill values if provided
-    for (const name of ['frequency','language','date','time','location','receiver','antenna','station','youtube']) {
+    for (const name of ['frequency','language','date','time','location','receiver','antenna','station','youtube_id']) {
       const el = host.querySelector(`[name="${name}"]`);
-      if (el && initial[name]) el.value = initial[name];
+      if (el && initial[name]) {
+        el.value = initial[name];
+      }
     }
     const removeBtn = host.querySelector('.btn-remove');
     removeBtn.addEventListener('click', () => host.remove());
     receptionsList.appendChild(host);
     return host;
   }
-  addReceptionBtn.addEventListener('click', () => addReception());
+  addReceptionBtn.addEventListener('click', async () => await addReception());
 
   // --- Collect form data ---
   function collectData() {
@@ -377,7 +552,7 @@ function yamlEscapeString(s) {
       reportSent: get('reportSent'),
       responseSent: get('responseSent'),
       responseReceived: get('responseReceived'),
-      serie: document.getElementById('serie').value || '',
+      serie: get('postSerieSelect'),
       receptions: [],
       gallery: [],
       contents: document.getElementById('contents').value || ''
@@ -402,7 +577,7 @@ function yamlEscapeString(s) {
         receiver: getR('receiver'),
         antenna: getR('antenna'),
         station: getR('station'),
-        youtube: getR('youtube')
+        youtube_id: getR('youtube_id')
       };
       if (Object.values(rec).some(v => v && v.length > 0)) obj.receptions.push(rec);
     });
@@ -441,7 +616,7 @@ function yamlEscapeString(s) {
         if (r.receiver) lines.push(`      receiver: ${yamlEscapeString(r.receiver)}`);
         if (r.antenna) lines.push(`      antenna: ${yamlEscapeString(r.antenna)}`);
         if (r.station) lines.push(`      station: ${yamlEscapeString(r.station)}`);
-        if (r.youtube) lines.push(`      youtube: ${yamlEscapeString(r.youtube)}`);
+        if (r.youtube_id) lines.push(`      youtube_id: ${yamlEscapeString(r.youtube_id)}`);
       });
     } else {
       lines.push('receptions: []');
@@ -511,7 +686,8 @@ function yamlEscapeString(s) {
       const content = buildYAML(data);
 
       try {
-        await createFileInDir(postsDirHandle, filename, content);
+		const dirHandle = await siteDirHandle.getDirectoryHandle('_posts');
+        await createFileInDir(dirHandle, filename, content);
         status(`Файл создан/перезаписан: ${filename}`, 'ok');
         // refresh preview with filename info
         previewArea.value = content;
@@ -533,10 +709,10 @@ function yamlEscapeString(s) {
     }
   });
 
-let siteDirHandle = null; // выбранный файл для редактирования
-
-let postsDirHandle = null;
-let postsList = []; // будет массив объектов {name, handle}
+let siteDirHandle = null; // handle директории с сайтом
+document.getElementById('selectFolderBtn').addEventListener('click', async () => {
+	siteDirHandle = await window.showDirectoryPicker();
+});
 
 async function reloadPosts() {
 	if (!siteDirHandle) {
@@ -544,60 +720,44 @@ async function reloadPosts() {
 		return;
 	}
 	try {
-		postsDirHandle = await siteDirHandle.getDirectoryHandle('_posts');
-		postsList = await reloadFileList(postsDirHandle, 'postSelect');
+		const dirHandle = await siteDirHandle.getDirectoryHandle('_posts');
+		await reloadFileList(dirHandle, document.getElementById('postSelect'));
     } catch (err) {
        console.error(err);
        alert("Не удалось выбрать директорию");
     }
 }
 
-async function reloadCountries() {
+async function reloadDirectory(dirname, select) {
 	if (!siteDirHandle) {
 		alert("Не выбрана папка сайта");
 		return;
 	}
 	try {
-		countriesDirHandle = await siteDirHandle.getDirectoryHandle('_countries');
-		countryList = await reloadFileList(countriesDirHandle, 'countrySelect');
+		const dirHandle = await siteDirHandle.getDirectoryHandle(dirname);
+		await reloadFileList(dirHandle, select);
     } catch (err) {
        console.error(err);
        alert("Не удалось выбрать директорию");
     }
 }
 
-document.getElementById('reloadPostsBtn').addEventListener('click', reloadPosts);
-document.getElementById('reloadCountriesBtn').addEventListener('click', reloadCountries);
+async function reloadFileList(dirHandle, select) {
 
+  try {    
+    select.innerHTML = ''; // очистка
 
-async function reloadFileList(dirHandle, selectId) {
-
-  try {
-    
-    const fileList = [];
     // Перебираем файлы в выбранной папке
     for await (const entry of dirHandle.values()) {
       if (entry.kind === 'file' && entry.name.endsWith('.md')) {
-        fileList.push({ name: entry.name, handle: entry });
+
+          const code = entry.name.substring(0, entry.name.length - 3); // remove ".md"
+		  const option = document.createElement('option');
+		  option.value = option.textContent = code;
+		  select.appendChild(option);
+
       }
     }
-
-    if (fileList.length === 0) {
-      alert(`В папке ${dirHandle.name} нет Markdown-файлов`);
-      return;
-    }
-
-    // Обновим select с постами
-    const select = document.getElementById(selectId);
-    select.innerHTML = ''; // очистка
-    fileList.forEach(file => {
-      const option = document.createElement('option');
-      option.value = file.name;  // или сохраняем индекс: postsList.indexOf(post)
-      option.textContent = file.name;
-      select.appendChild(option);
-    });
-    
-    return fileList;
 
   } catch (err) {
     console.error(err);
@@ -605,25 +765,24 @@ async function reloadFileList(dirHandle, selectId) {
   }
 }
 
-// Привязка к кнопке
-document.getElementById('selectFolderBtn').addEventListener('click', async () => {
-	siteDirHandle = await window.showDirectoryPicker();
+document.getElementById('reloadPostsBtn').addEventListener('click', reloadPosts);
+document.getElementById('reloadPostSeriesBtn').addEventListener('click', async () => {
+	await reloadDirectory('_series', document.getElementById('postSerieSelect'));
 });
 
-
-let selectedFileHandle = null; // выбранный файл для редактирования
-
 async function loadSelectedPost() {
+  await reloadDirectory('_series', document.getElementById('postSerieSelect'));	
+	
   const postSelect = document.getElementById('postSelect');
   
-  const filename = postSelect.value;  
-  const selectedIndex = postSelect.selectedIndex;
+  const filename = postSelect.value + '.md';
 
   // получаем handle выбранного файла
-  selectedFileHandle = postsList[selectedIndex].handle;
+  const dirHandle = await siteDirHandle.getDirectoryHandle('_posts');
+  const fileHandle = await dirHandle.getFileHandle(filename);
 
   try {
-    const file = await selectedFileHandle.getFile();
+    const file = await fileHandle.getFile();
     const text = await file.text();
 
     // Разделяем YAML frontmatter и контент
@@ -706,7 +865,7 @@ async function loadSelectedPost() {
     document.getElementById('reportSent').value = yamlData.report_sent || '';
     document.getElementById('responseSent').value = yamlData.response_sent || '';
     document.getElementById('responseReceived').value = yamlData.response_received || '';
-    document.getElementById('serie').value = yamlData.serie || '';
+    document.getElementById('postSerieSelect').value = yamlData.serie || '';
 
 // Заполняем gallery
     if (Array.isArray(yamlData.gallery)) {
@@ -720,16 +879,10 @@ async function loadSelectedPost() {
     receptionsContainer.innerHTML = ''; // очистка
 
     if (Array.isArray(yamlData.receptions)) {
-      yamlData.receptions.forEach(rec => {
-	    const host = addReception(rec); // внутри addReception создается div.section и appendChild
-	
-	    // Заполняем поля нового блока
-//            for (const name of ['frequency','language','date','time','location','receiver','antenna','station','youtube']) {
-//                const el = host.querySelector(`[name="${name}"]`);
-//                if (el && rec[name]) el.value = rec[name];
-//            }
-      });
-    }    
+      for (const rec of yamlData.receptions) {
+        const host = await addReception(rec); // внутри addReception создается div.section и appendChild
+      }
+    }
 
     // Контент
     document.getElementById('contents').value = contentText.trim();
@@ -742,6 +895,12 @@ async function loadSelectedPost() {
 // Привязка к событию select
 document.getElementById('postSelectBtn').addEventListener('click', loadSelectedPost);
 
+
+////// COUNTRIES
+
+document.getElementById('reloadCountriesBtn').addEventListener('click', async () => {
+	await reloadDirectory('_countries', document.getElementById('countrySelect'));
+});
 
 // --- DOM anchors ---
 const countryPreviewBtn = document.getElementById('countryPreviewBtn');
@@ -792,7 +951,8 @@ countryCreateBtn.addEventListener('click', async () => {
       const content = buildCountryYAML(data);
 
       try {
-        await createFileInDir(countryDirHandle, filename, content);
+        const countriesDirHandle = await siteDirHandle.getDirectoryHandle('_countries');
+        await createFileInDir(countriesDirHandle, filename, content);
         countryStatus(`Файл создан/перезаписан: ${filename}`, 'ok');
         // refresh preview with filename info
         countryPreviewArea.value = content;
@@ -802,19 +962,14 @@ countryCreateBtn.addEventListener('click', async () => {
       }
 });
 
-
-let countryDirHandle = null;
-let countryList = []; // будет массив объектов {name, handle}
-
-
 async function loadSelectedCountry() {
   const countrySelect = document.getElementById('countrySelect');
   
-  const filename = countrySelect.value;  
-  const selectedIndex = countrySelect.selectedIndex;
+  const filename = countrySelect.value + '.md';
 
   // получаем handle выбранного файла
-  selectedFileHandle = countryList[selectedIndex].handle;
+  const countriesDirHandle = await siteDirHandle.getDirectoryHandle('_countries');
+  const selectedFileHandle = await countriesDirHandle.getFileHandle(filename);
 
   try {
     const file = await selectedFileHandle.getFile();
@@ -828,7 +983,7 @@ async function loadSelectedCountry() {
     }
 
     const yamlText = match[1];
-    const contentText = match[2];
+    const contentText = match[2]; // not used for country
 
     // Парсинг YAML (каждая строка "key: value")
     const yamlLines = yamlText.split(/\r?\n/);
@@ -853,8 +1008,6 @@ async function loadSelectedCountry() {
     document.getElementById('countryContinent').value = yamlData.continent || '';
     document.getElementById('countryFlag').value = yamlData.flag || '';
 
-    // Контент
-    document.getElementById('contents').value = contentText.trim();
   } catch (err) {
     console.error(err);
     alert("Ошибка при чтении файла");
@@ -863,6 +1016,266 @@ async function loadSelectedCountry() {
 
 // Привязка к событию select
 document.getElementById('countrySelectBtn').addEventListener('click', loadSelectedCountry);
+
+
+
+////// SERIES
+
+document.getElementById('reloadSeriesBtn').addEventListener('click', async () => {
+	await reloadDirectory('_series', document.getElementById('serieSelect'));
+});
+
+// --- DOM anchors ---
+const seriePreviewBtn = document.getElementById('seriePreviewBtn');
+const serieCreateBtn = document.getElementById('serieCreateBtn');
+const seriePreviewArea = document.getElementById('seriePreviewArea');
+const serieStatusEl = document.getElementById('serieStatus');
+
+// --- Collect form data ---
+function collectSerieData() {
+    const get = id => document.getElementById(id).value.trim();
+    return {
+      code: get('serieCode'),
+      title: get('serieTitle'),
+      country: get('serieCountrySelect'),
+    };
+}
+
+// --- Build YAML frontmatter + contents ---
+function buildSerieYAML(obj) {
+    const lines = ['---'];
+    if (obj.code) lines.push(`code: ${yamlEscapeString(obj.code)}`);
+    if (obj.title) lines.push(`title: ${yamlEscapeString(obj.title)}`);
+    if (obj.country) lines.push(`country: ${yamlEscapeString(obj.country)}`);
+    if (obj.station) lines.push(`station: ${yamlEscapeString(obj.station)}`);
+    lines.push('---');
+    return lines.join('\n') + '\n\n' + (obj.contents || '') + '\n';
+}
+
+// --- UI helpers ---
+function serieStatus(msg, kind) {
+    serieStatusEl.textContent = msg || '';
+    serieStatusEl.className = 'status ' + (kind === 'err' ? 'err' : (kind === 'ok' ? 'ok' : ''));
+}
+
+// --- Preview ---
+seriePreviewBtn.addEventListener('click', () => {
+    const data = collectSerieData();
+    const text = buildSerieYAML(data);
+    seriePreviewArea.value = text;
+    serieStatus('Preview готов', 'ok');
+    seriePreviewArea.scrollIntoView({behavior:'smooth'});
+});
+
+serieCreateBtn.addEventListener('click', async () => {
+      const data = collectSerieData();
+      const filename = data.code + '.md';
+      const content = buildSerieYAML(data);
+
+      try {
+        const dirHandle = await siteDirHandle.getDirectoryHandle('_series');
+        await createFileInDir(dirHandle, filename, content);
+        serieStatus(`Файл создан/перезаписан: ${filename}`, 'ok');
+        // refresh preview with filename info
+        seriePreviewArea.value = content;
+      } catch (err) {
+        console.error(err);
+        serieStatus('Ошибка записи файла: ' + (err.message || err), 'err');
+      }
+});
+
+async function loadSelectedSerie() {
+  const serieSelect = document.getElementById('serieSelect');
+  
+  const filename = serieSelect.value + '.md';
+
+  // получаем handle выбранного файла
+  const dirHandle = await siteDirHandle.getDirectoryHandle('_series');
+  const fileHandle = await dirHandle.getFileHandle(filename);
+
+  try {
+    const file = await fileHandle.getFile();
+    const text = await file.text();
+
+    // Разделяем YAML frontmatter и контент
+    const match = text.match(/^---\s*([\s\S]*?)\s*---\s*([\s\S]*)$/);
+    if (!match) {
+      alert("Не удалось найти YAML frontmatter в файле");
+      return;
+    }
+
+    const yamlText = match[1];
+    const contentText = match[2]; // not used for serie
+
+    // Парсинг YAML (каждая строка "key: value")
+    const yamlLines = yamlText.split(/\r?\n/);
+    const yamlData = {};
+
+    yamlLines.forEach(line => {
+      // ключ верхнего уровня
+      const match = line.match(/^([a-zA-Z0-9_]+):\s*(.*)$/);
+      if (!match) {
+		  return;
+	  }
+
+      const key = match[1];
+      const value = match[2];
+
+      yamlData[key] = value.replace(/^"(.*)"$/, '$1');
+    });
+
+	await reloadDirectory('_countries', document.getElementById('serieCountrySelect'));
+
+    // Заполняем поля формы
+    document.getElementById('serieCode').value = yamlData.code || '';
+    document.getElementById('serieTitle').value = yamlData.title || '';
+    document.getElementById('serieCountrySelect').value = yamlData.country || '';
+
+  } catch (err) {
+    console.error(err);
+    alert("Ошибка при чтении файла");
+  }
+}
+
+// Привязка к событию select
+document.getElementById('serieSelectBtn').addEventListener('click', loadSelectedSerie);
+document.getElementById('reloadSerieCountriesBtn').addEventListener('click', async () => {
+	await reloadDirectory('_countries', document.getElementById('serieCountrySelect'));
+});
+
+
+////// STATIONS
+
+document.getElementById('reloadStationsBtn').addEventListener('click', async () => {
+	await reloadDirectory('_stations', document.getElementById('stationSelect'));
+});
+
+// --- DOM anchors ---
+const stationPreviewBtn = document.getElementById('stationPreviewBtn');
+const stationCreateBtn = document.getElementById('stationCreateBtn');
+const stationPreviewArea = document.getElementById('stationPreviewArea');
+const stationStatusEl = document.getElementById('stationStatus');
+
+// --- Collect form data ---
+function collectStationData() {
+    const get = id => document.getElementById(id).value.trim();
+    return {
+      code: get('stationCode'),
+      title: get('stationTitle'),
+      short: get('stationShort'),
+      country: get('stationCountry'),
+      itu: get('stationItu'),
+      coordinates: get('stationCoordinates'),
+    };
+}
+
+// --- Build YAML frontmatter + contents ---
+function buildStationYAML(obj) {
+    const lines = ['---'];
+    if (obj.code) lines.push(`code: ${yamlEscapeString(obj.code)}`);
+    if (obj.title) lines.push(`title: ${yamlEscapeString(obj.title)}`);
+    if (obj.short) lines.push(`short: ${yamlEscapeString(obj.short)}`);
+    if (obj.address) lines.push(`address: ${yamlEscapeString(obj.address)}`);
+    if (obj.country) lines.push(`country: ${yamlEscapeString(obj.country)}`);
+    if (obj.itu) lines.push(`itu: ${yamlEscapeString(obj.itu)}`);
+    if (obj.coordinates) lines.push(`coordinates: ${yamlEscapeString(obj.coordinates)}`);
+    lines.push('---');
+    return lines.join('\n') + '\n\n' + (obj.contents || '') + '\n';
+}
+
+// --- UI helpers ---
+function stationStatus(msg, kind) {
+    stationStatusEl.textContent = msg || '';
+    stationStatusEl.className = 'status ' + (kind === 'err' ? 'err' : (kind === 'ok' ? 'ok' : ''));
+}
+
+// --- Preview ---
+stationPreviewBtn.addEventListener('click', () => {
+    const data = collectStationData();
+    const text = buildStationYAML(data);
+    stationPreviewArea.value = text;
+    stationStatus('Preview готов', 'ok');
+    stationPreviewArea.scrollIntoView({behavior:'smooth'});
+});
+
+stationCreateBtn.addEventListener('click', async () => {
+      const data = collectStationData();
+      const filename = data.code + '.md';
+      const content = buildStationYAML(data);
+
+      try {
+        const dirHandle = await siteDirHandle.getDirectoryHandle('_stations');
+        await createFileInDir(dirHandle, filename, content);
+        stationStatus(`Файл создан/перезаписан: ${filename}`, 'ok');
+        // refresh preview with filename info
+        stationPreviewArea.value = content;
+      } catch (err) {
+        console.error(err);
+        stationStatus('Ошибка записи файла: ' + (err.message || err), 'err');
+      }
+});
+
+async function loadSelectedStation() {
+  const stationSelect = document.getElementById('stationSelect');
+  
+  const filename = stationSelect.value + '.md';
+
+  // получаем handle выбранного файла
+  const dirHandle = await siteDirHandle.getDirectoryHandle('_stations');
+  const fileHandle = await dirHandle.getFileHandle(filename);
+
+  try {
+    const file = await fileHandle.getFile();
+    const text = await file.text();
+
+    // Разделяем YAML frontmatter и контент
+    const match = text.match(/^---\s*([\s\S]*?)\s*---\s*([\s\S]*)$/);
+    if (!match) {
+      alert("Не удалось найти YAML frontmatter в файле");
+      return;
+    }
+
+    const yamlText = match[1];
+    const contentText = match[2]; // not used for serie
+
+    // Парсинг YAML (каждая строка "key: value")
+    const yamlLines = yamlText.split(/\r?\n/);
+    const yamlData = {};
+
+    yamlLines.forEach(line => {
+      // ключ верхнего уровня
+      const match = line.match(/^([a-zA-Z0-9_]+):\s*(.*)$/);
+      if (!match) {
+		  return;
+	  }
+
+      const key = match[1];
+      const value = match[2];
+
+      yamlData[key] = value.replace(/^"(.*)"$/, '$1');
+    });
+
+	await reloadDirectory('_countries', document.getElementById('stationCountry'));
+
+    // Заполняем поля формы
+    document.getElementById('stationCode').value = yamlData.code || '';
+    document.getElementById('stationTitle').value = yamlData.title || '';
+    document.getElementById('stationShort').value = yamlData.short || '';
+    document.getElementById('stationCountry').value = yamlData.country || '';
+    document.getElementById('stationItu').value = yamlData.itu || '';
+    document.getElementById('stationCoordinates').value = yamlData.coordinates || '';
+
+  } catch (err) {
+    console.error(err);
+    alert("Ошибка при чтении файла");
+  }
+}
+
+// Привязка к событию select
+document.getElementById('stationSelectBtn').addEventListener('click', loadSelectedStation);
+document.getElementById('reloadStationCountriesBtn').addEventListener('click', async () => {
+	await reloadDirectory('_countries', document.getElementById('stationCountry'));
+});
 
 })();
 

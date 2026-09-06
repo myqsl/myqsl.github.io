@@ -8,7 +8,7 @@ layout: page
 <div class="qsl-gallery-title" id="{{ qsl.date | date: "%Y-%m-%d" }}">
 		<div class="centered">
 		<details class="tiny-link">
-			<summary>Подробности приема</summary>
+			<summary>{{ qsl.title }}</summary>
 			<div class="qsl-info">
 				<ul>
 				{% if qsl.kind %}

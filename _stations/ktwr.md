@@ -1,7 +1,7 @@
 ---
 code: "ktwr"
 title: "KTWR"
-short: "KTWR Agana"
+short: "🇬🇺 KTWR Agana"
 address: "Agana"
 country: "guam"
 itu: "gum"

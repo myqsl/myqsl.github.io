@@ -35,29 +35,23 @@ title: QSL list
 	{% continue %}
 {% endif %}
 
-<p><a href="{{ serie.url }}">{{ country.title | upcase }} &mdash; {{ serie.title }}</a>:</p>
+<p>{{ country.title | upcase }} &mdash; <a href="{{ serie.url }}">{{ serie.title }}</a>:</p>
 <ul>
 {% for qsl in qsls %}
 	{% for reception in qsl.receptions %}
 		<li><a href="{{ serie.url }}#{{ qsl.date | date: "%Y-%m-%d" }}">
-		{{ reception.frequency }}
+		{{ reception.frequency }}</a>
+		{% if reception.station %}
+		{% assign station = site.stations | where: 'code', reception.station | first %}
+		<a href="/sites#{{ station.code }}">{{ station.short }}</a>
+		{% endif %}
         {% if reception.language %}
         in {{ reception.language }}
         {% endif %}
 		{% if reception.date %}
 		on {{ reception.date }}
 		{% endif %}
-		{% if reception.station %}
-		{% if serie.station == nil or serie.station != reception.station %}
-		{% assign station = site.stations | where: 'code', reception.station | first %}
-		via {{ station.title }}
-			{% if station.country != country.code %}
-			{% assign station_country = site.countries | where: 'code', station.country | first %}
-			({{ station_country.title }})
-			{% endif %}
-		{% endif %}
-		{% endif %}
-		</a></li>
+		</li>
 		
 	{% endfor %}
 {% endfor %}

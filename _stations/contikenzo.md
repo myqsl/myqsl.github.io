@@ -1,6 +1,7 @@
 ---
 code: "contikenzo"
 title: "ContiKenzo"
+short: "🇳🇱 ContiKenzo"
 address: "somewhere in The Netherlands"
 itu: "hol"
 country: "netherlands"

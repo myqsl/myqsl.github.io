@@ -1,7 +1,7 @@
 ---
 code: "bethel"
 title: "WMLK"
-short: "Bethel"
+short: "🇺🇸 Bethel"
 address: "Bethel, Pennsylvania"
 country: "usa"
 itu: "usa"

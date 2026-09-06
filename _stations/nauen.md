@@ -1,7 +1,7 @@
 ---
 code: "nauen"
 title: "Nauen"
-short: "Nauen"
+short: "🇩🇪 Nauen"
 address: "Nauen"
 country: "germany"
 itu: "d"

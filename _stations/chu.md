@@ -1,7 +1,7 @@
 ---
 code: "chu"
 title: "CHU (time-service)"
-short: "Ottawa"
+short: "🇨🇦 Ottawa"
 address: "Ottawa, Ontario"
 country: "canada"
 itu: "can"

@@ -1,7 +1,7 @@
 ---
 code: "weenermoor"
 title: "Weenermoor"
-short: "Weenermoor"
+short: "🇩🇪 Weenermoor"
 address: "Weenermoor Str. 225, 26826, Weener, Germany"
 country: "germany"
 itu: "d"

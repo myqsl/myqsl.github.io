@@ -1,6 +1,7 @@
 ---
 code: "mike"
 title: "Mike Radio"
+short: "🇳🇱 Mike"
 address: "Heerde/Tonneberg"
 itu: "hol"
 country: "netherlands"

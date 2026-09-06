@@ -1,7 +1,7 @@
 ---
 code: "wbcq"
 title: "WBCQ"
-short: "Monticello"
+short: "🇺🇸 Monticello"
 address: "Monticello, ME"
 country: "usa"
 itu: "usa"

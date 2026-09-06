@@ -1,7 +1,7 @@
 ---
 code: "msf"
 title: "MSF (time-service)"
-short: "Anthorn"
+short: "🇬🇧 Anthorn"
 address: "Anthorn, Cumbria"
 country: "uk"
 itu: "g"
